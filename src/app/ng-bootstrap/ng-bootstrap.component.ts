@@ -1,4 +1,4 @@
-import { TourService, IStepOption } from 'ngx-tour-ng-bootstrap';
+import { TourService } from 'ngx-tour-ng-bootstrap';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NgBootstrapComponent {
   constructor(public tourService: TourService) {
-    this.tourService.events$.subscribe(console.log);
     this.tourService.initialize([{
       anchorId: 'start.tour',
       content: 'Welcome to the Ngx-Tour tour!',
