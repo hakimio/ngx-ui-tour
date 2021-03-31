@@ -2,6 +2,10 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ngx-tour-console",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "ngx-tour-core": "ngxTourCore",
+      "@ng-bootstrap/ng-bootstrap": "ngBootstrap"
+    }
   }
 }
