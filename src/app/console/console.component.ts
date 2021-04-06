@@ -1,4 +1,4 @@
-import { TourService } from 'ngx-tour-console';
+import { TourService } from 'ngx-ui-tour-console';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ export class ConsoleComponent {
   constructor(public tourService: TourService) {
     this.tourService.initialize([{
       anchorId: 'start.tour',
-      content: 'Welcome to the Ngx-Tour tour!',
+      content: 'Welcome to the Ngx-UI-Tour tour!',
       placement: 'below',
       title: 'Welcome',
     }, {

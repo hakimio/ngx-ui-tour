@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TourService } from 'ngx-tour-md-menu';
+import { TourService } from 'ngx-ui-tour-md-menu';
 
 @Component({
   selector: 'app-home',

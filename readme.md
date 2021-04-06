@@ -1,8 +1,8 @@
 # Ngx Ui Tour
 
-[![npm](https://img.shields.io/npm/dt/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
-[![npm](https://img.shields.io/npm/v/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
-[![npm](https://img.shields.io/npm/l/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/dt/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/v/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/l/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
 
 ## Table of contents
 
@@ -39,20 +39,20 @@ and I don't have permissions to publish new npm packages.
 
 ```bash
 # install the core package
-yarn add ngx-tour-core
+yarn add ngx-ui-tour-core
 
-# install one of the UI packages (ngx-tour-md-menu, ngx-tour-ng-bootstrap, ngx-tour-ngx-bootstrap, ngx-tour-ngx-popper)
-yarn add ngx-tour-md-menu
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-ngx-popper)
+yarn add ngx-ui-tour-md-menu
 ```
 
 ### npm
 
 ```bash
 # install the core package
-npm i --save ngx-tour-core
+npm i --save ngx-ui-tour-core
 
-# install one of the UI packages (ngx-tour-md-menu, ngx-tour-ng-bootstrap, ngx-tour-ngx-bootstrap, ngx-tour-ngx-popper)
-npm i --save ngx-tour-md-menu
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-ngx-popper)
+npm i --save ngx-ui-tour-md-menu
 ```
 
 ## Usage

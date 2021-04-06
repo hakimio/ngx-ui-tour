@@ -1,4 +1,4 @@
-import { TourService } from 'ngx-tour-md-menu';
+import { TourService } from 'ngx-ui-tour-md-menu';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ export class MdMenuComponent {
   constructor(public tourService: TourService) {
     this.tourService.initialize([{
       anchorId: 'start.tour',
-      content: 'Welcome to the Ngx-Tour tour!',
+      content: 'Welcome to the Ngx-UI-Tour tour!',
       placement: 'below',
       title: 'Welcome',
     }, {

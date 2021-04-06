@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TourConsoleModule } from 'ngx-tour-console';
+import { TourConsoleModule } from 'ngx-ui-tour-console';
 
 import { ConsoleComponent } from './console.component';
 import { DocsComponent } from './docs.component';

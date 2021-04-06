@@ -1,4 +1,4 @@
-import { TourService } from 'ngx-tour-ngx-bootstrap';
+import { TourService } from 'ngx-ui-tour-ngx-bootstrap';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class NgxBootstrapComponent {
       [
         {
           anchorId: 'start.tour',
-          content: 'Welcome to the Ngx-Tour tour!',
+          content: 'Welcome to the Ngx-UI-Tour tour!',
           placement: 'right',
           title: 'Welcome'
         },

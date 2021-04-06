@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TourNgBootstrapModule } from 'ngx-tour-ng-bootstrap';
+import { TourNgBootstrapModule } from 'ngx-ui-tour-ng-bootstrap';
 
 import { DocsComponent } from './docs.component';
 import { NgBootstrapComponent } from './ng-bootstrap.component';

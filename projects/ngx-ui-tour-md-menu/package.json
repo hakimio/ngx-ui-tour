@@ -1,0 +1,19 @@
+{
+  "name": "ngx-ui-tour-md-menu",
+  "version": "5.0.0",
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Isaac Mann <isaacplmann@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=9.0.0 <12.0.0",
+    "@angular/core": ">=9.0.0 <12.0.0",
+    "@angular/animations": ">=9.0.0 <12.0.0",
+    "@angular/cdk": ">=9.0.0 <12.0.0",
+    "@angular/material": ">=9.0.0 <12.0.0",
+    "ngx-ui-tour-core": "^5.0.0",
+    "typescript": ">=3.8.0"
+  }
+}
