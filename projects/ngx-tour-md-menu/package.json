@@ -1,7 +1,7 @@
 {
   "name": "ngx-tour-md-menu",
-  "version": "4.3.0",
-  "repository": "https://github.com/isaacplmann/ngx-tour.git",
+  "version": "5.0.0",
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +13,7 @@
     "@angular/animations": ">=9.0.0 <12.0.0",
     "@angular/cdk": ">=9.0.0 <12.0.0",
     "@angular/material": ">=9.0.0 <12.0.0",
-    "ngx-tour-core": "^4.3.0",
+    "ngx-tour-core": "^5.0.0",
     "typescript": ">=3.8.0"
   }
 }

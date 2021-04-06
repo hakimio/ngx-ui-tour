@@ -1,14 +1,14 @@
 {
   "name": "ngx-tour-ngx-popper",
-  "version": "4.2.0",
-  "repository": "https://github.com/isaacplmann/ngx-tour.git",
+  "version": "5.0.0",
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Damien Murphy",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=7.0.0 <9.0.0",
-    "@angular/core": ">=7.0.0 <9.0.0",
+    "@angular/common": ">=9.0.0 <12.0.0",
+    "@angular/core": ">=9.0.0 <12.0.0",
     "ngx-popper": "^2.0.1",
-    "ngx-tour-core": "^4.3.0"
+    "ngx-tour-core": "^5.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

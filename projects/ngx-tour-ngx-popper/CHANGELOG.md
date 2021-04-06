@@ -1,3 +1,14 @@
+<a name="5.0.0"></a>
+
+# [5.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-06)
+
+### Features
+
+- Angular 11 support
+- No longer depends on commonJS "withinviewport" library
+- HTML tags are now supported in step content
+- Rebrand to "ngx-ui-tour"
+
 <a name="4.2.0"></a>
 
 # [4.2.0](https://github.com/isaacplmann/ngx-tour) (2020-08-17)

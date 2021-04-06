@@ -1,7 +1,7 @@
 {
   "name": "ngx-tour-core",
-  "version": "4.3.0",
-  "repository": "https://github.com/isaacplmann/ngx-tour.git",
+  "version": "5.0.0",
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
