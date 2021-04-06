@@ -34,7 +34,6 @@
     "build:lib:ngx-popper:base": "ng build ngx-tour-ngx-popper --prod && cpx projects/ngx-tour-ngx-popper/src/styles.css dist/ngx-tour-ngx-popper/ && cpx projects/ngx-tour-ngx-popper/CHANGELOG.md dist/ngx-tour-ngx-popper/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "pub": "npm run pub:lib && npm run pub:demo",
     "pub:demo": "npm run build -- --base-href /ngx-tour/ && gh-pages -d dist/app",
     "pub:lib": "npm run build:lib:all && (npm run pub:lib:core & npm run pub:lib:console & npm run pub:lib:ng-bootstrap & npm run pub:lib:md-menu & npm run pub:lib:ngx-bootstrap & npm run pub:lib:ngx-popper)",
