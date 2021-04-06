@@ -1,8 +1,138 @@
-# Ng2 Tour
+# Ngx Ui Tour
 
-[![Dependency Status](https://david-dm.org/isaacplmann/ng2-tour.svg)](https://david-dm.org/isaacplmann/ngx-tour)
-[![devDependency Status](https://david-dm.org/isaacplmann/ng2-tour/dev-status.svg)](https://david-dm.org/isaacplmann/ngx-tour?type=dev)
+[![npm](https://img.shields.io/npm/dt/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/v/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/l/ngx-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
 
-Check out the [documentation/demo page](https://isaacplmann.github.io/ngx-tour).
+## Table of contents
 
-This is a product tour library built with Angular. It's inspired by [angular-ui-tour](http://benmarch.github.io/angular-ui-tour).
+- [About](#about)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Simple project](#simple-project)
+  - [Lazy loaded modules](#lazy-loaded-modules)
+- [TourService](#tourservice)
+- [Step Configuration](#step-configuration)
+- [License](#license)
+
+## About
+
+Ui tour library for Angular 9+. 
+
+This is a fork of __Isaac Mann's__ `ngx-tour` library. The fork was created because the original is no longer maintained,
+and I don't have permissions to publish new npm packages.
+
+## Demo
+
+[hakimio.github.io/ngx-ui-tour](https://hakimio.github.io/ngx-ui-tour)
+
+## Installation
+
+### yarn
+
+```bash
+# install the core package
+yarn add ngx-tour-core
+
+# install one of the UI packages (ngx-tour-md-menu, ngx-tour-ng-bootstrap, ngx-tour-ngx-bootstrap, ngx-tour-ngx-popper)
+yarn add ngx-tour-md-menu
+```
+
+### npm
+
+```bash
+# install the core package
+npm i --save ngx-tour-core
+
+# install one of the UI packages (ngx-tour-md-menu, ngx-tour-ng-bootstrap, ngx-tour-ngx-bootstrap, ngx-tour-ngx-popper)
+npm i --save ngx-tour-md-menu
+```
+
+## Usage
+
+### Simple project
+1. Add `<tour-step-template></tour-step-template>` to your root app component
+2. Define anchor points for the tour steps by adding the `tourAnchor` directive throughout your app.
+```html
+<div tourAnchor="some.anchor.id">...</div>
+```
+3. Define your tour steps using `tourService.initialize(steps)`
+```ts
+this.tourService.initialize([{
+  anchorId: 'some.anchor.id',
+  content: 'Some content',
+  title: 'First',
+}, {
+  anchorId: 'another.anchor.id',
+  content: 'Other content',
+  title: 'Second',
+}]);
+```
+4. Start the tour with `tourService.start()`
+5. Check out [the demo source code](https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/md-menu) for an example.
+
+### Lazy loaded modules
+1. Add `<tour-step-template></tour-step-template>` to your root app component.
+2. Import `TourMatMenuModule.forRoot()` into your app module.
+3. Import `TourMatMenuModule` into all lazy loaded modules needing the tour.
+4. Import the `TourService` in your highest level eagerly loaded component and initialize all your steps there 
+   (even the ones in the lazy loaded modules). Note: Make sure every step object contains its route. For example, if 
+   the route to a step is '/home' then your step object should have route: '/home' as a member.
+5. Define anchor points for your steps by adding the `tourAnchor` directive throughout your modules (any component 
+   that requires it at any level).
+   ```html
+    <div tourAnchor="some.anchor.id">...</div>
+    ```
+6. Start the tour with `tourService.start()` in the same component you initialized your steps. Call this right after 
+   the initialization.
+7. Check out [the demo source code](https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/md-menu/mat-lazy-tour) for an example.
+
+## Documentation
+Full documentation can be found in [the demo app](https://hakimio.github.io/ngx-ui-tour). 
+
+## TourService
+The `TourService` controls the tour. Some key functions include:
+
+**start()**\
+Starts the tour
+
+**startAt(stepId: number | string)**\
+Start the tour at the step with stepId or at the specified index
+
+**end()**\
+Ends the tour
+
+**pause()**\
+Pauses the tour
+
+**resume()**\
+Resumes the tour
+
+**next()**\
+Goes to the next step
+
+**prev()**\
+Goes to the previous step
+
+## Step Configuration
+Each step can have the following properties.
+
+| Name	| Type	| Default	| Description |
+| :-----: |:-------------:|:-------------:|-------------|
+| **stepId**	| string	| ""	| A unique identifier for the step |
+| **anchorId** |	string	| required	| The anchor to which the step will be attached |
+| **title** |	string |	"" |	The title of the tour step |
+| **content**	| string	| ""	| The content text of the tour step |
+| **enableBackdrop**	| boolean	| false	| Controls whether to enable active element highlighting |
+| **route**	| string &#124; UrlSegment[] |	undefined |	The route to which the tour should navigate before attempting to show this tour step. If undefined, no navigation is attempted. |
+| **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
+| **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
+| **preventScrolling** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
+| **prevBtnTitle** |	string |	false |	Sets a custom prev button title for a given step. Default is "Prev" |
+| **nextBtnTitle** |	string |	false |	Sets a custom next button title for a given step. Default is "Next" |
+| **endBtnTitle** |	string |	false |	Sets a custom end button title for a given step. Default is "End" |
+
+## License
+
+MIT
