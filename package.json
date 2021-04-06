@@ -15,7 +15,7 @@
   "scripts": {
     "ng": "ng",
     "link:core": "cd dist/ngx-ui-tour-core && npm link && cd ../..",
-    "link": "cd dist/ngx-ui-tour-console && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-md-menu && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ng-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ngx-bootstrap && npm link ngx-ui-tour-core && cd ../..",
+    "link": "cd dist/ngx-ui-tour-console && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-md-menu && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ng-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ngx-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-tour-ngx-popper && npm link ngx-tour-core && cd ../..",
     "prestart": "npm run link",
     "start": "ng serve",
     "prebuild": "npm run link",
