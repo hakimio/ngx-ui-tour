@@ -12,8 +12,14 @@
 - [Usage](#usage)
   - [Simple project](#simple-project)
   - [Lazy loaded modules](#lazy-loaded-modules)
+- [Documentation](#documentation)
 - [TourService](#tourservice)
 - [Step Configuration](#step-configuration)
+- [Defaults](#defaults)
+- [Hotkeys](#hotkeys)
+- [Event Observables](#event-observables)
+- [Custom template](#custom-template)
+- [Styling Active Tour Anchor](#styling-active-tour-anchor)
 - [License](#license)
 
 ## About
@@ -132,6 +138,78 @@ Each step can have the following properties.
 | **prevBtnTitle** |	string |	false |	Sets a custom prev button title for a given step. Default is "Prev" |
 | **nextBtnTitle** |	string |	false |	Sets a custom next button title for a given step. Default is "Next" |
 | **endBtnTitle** |	string |	false |	Sets a custom end button title for a given step. Default is "End" |
+
+## Defaults
+You can set default values in the `TourService.initialize()` function.
+```ts
+this.tourService.initialize(steps, {
+    route: '',
+    preventScrolling: true,
+});
+```
+Any value explicitly defined in a step will override the default value.
+
+## Hotkeys
+Hotkeys are provided using Angular's @HostListener decorator. Hotkeys are enabled when the tour starts and disabled 
+when the tour ends.
+
+- **left arrow** - previous step
+- **right arrow** - next step
+- **esc** - end tour
+
+## Event Observables
+The `TourService` emits events that can be subscribed to like this:
+```ts
+this.tourService.initialize$.subscribe((steps: IStepOption[]) => {
+    console.log('tour configured with these steps:', steps);
+});
+```
+| Name	| Payload	| Emitted When
+| :-----: |:-------------:|:-------------:|
+| **stepShow$** |	IStepOption	| A step is shown |
+| **stepHide$** |	IStepOption |	A step is hidden |
+| **initialize$**	| IStepOption[]	| The tour is configured with a set of steps
+| **start$**	| IStepOption |	The tour begins
+| **end$** |	any |	The tour ends
+| **pause$** |	IStepOption |	The tour is paused
+| **resume$** |	IStepOption |	The tour resumes
+| **anchorRegister$** |	string |	An anchor is registered with the tour
+| **anchorUnregister$** |	string |	An anchor is unregistered from the tour
+
+## Custom template
+You can also customize the tour step template by providing an `<ng-template let-step="step">` inside the 
+`<tour-step-template>`.
+
+The default template is equivalent to this:
+
+```html
+<tour-step-template>
+  <ng-template let-step="step">
+    <mat-card (click)="$event.stopPropagation()">
+      <mat-card-title>
+        {{step?.title}}
+      </mat-card-title>
+      <mat-card-content>
+        {{step?.content}}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button [disabled]="!tourService.hasPrev(step)" (click)="tourService.prev()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button [disabled]="!tourService.hasNext(step)" (click)="tourService.next()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button mat-button (click)="tourService.end()">{{step?.endBtnTitle}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+</tour-step-template>
+```
+
+## Styling Active Tour Anchor
+
+The currently active tour anchor element has a `touranchor--is-active` class applied to it, so you can apply your own 
+custom styles to that class to highlight the element being referenced.
 
 ## License
 
