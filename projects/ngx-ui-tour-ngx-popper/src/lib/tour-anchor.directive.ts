@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
-import { PopperController, Placements, Triggers } from 'ngx-popper';
+import { NgxPopperjsDirective, NgxPopperjsPlacements, NgxPopperjsTriggers } from 'ngx-popperjs';
 import {ElementSides, isInViewport, TourAnchorDirective} from 'ngx-ui-tour-core';
 
 import { NgxpTourService } from './ngx-popper-tour.service';
@@ -8,7 +8,7 @@ import { TourStepTemplateService } from './tour-step-template.service';
 import { INgxpStepOption as IStepOption } from './step-option.interface';
 
 @Directive({ selector: '[tourAnchor]'})
-export class TourAnchorNgxPopperPopoverDirective extends PopperController implements OnInit {
+export class TourAnchorNgxPopperPopoverDirective extends NgxPopperjsDirective implements OnInit {
   // Overwrite parent ngOnInit to do nothing since the content property isn't set yet.
   ngOnInit() {}
 
@@ -53,32 +53,29 @@ export class TourAnchorNgxPopperDirective implements OnInit, OnDestroy, TourAnch
 
     this.popoverDirective.content = this.tourStepTemplate.template;
     this.popoverDirective.targetElement = htmlElement;
-    this.popoverDirective.placement = step.placement || Placements.Auto;
-    this.popoverDirective.showTrigger = Triggers.NONE;
+    this.popoverDirective.placement = step.placement || NgxPopperjsPlacements.AUTO;
+    this.popoverDirective.showTrigger = NgxPopperjsTriggers.none;
 
-    if (step.popperSettings) {
-      this.popoverDirective.boundariesElement = step.popperSettings.boundariesElement || undefined;
-      this.popoverDirective.closeOnClickOutside = step.popperSettings.closeOnClickOutside || false;
-      this.popoverDirective.disableAnimation = step.popperSettings.disableAnimation || false;
-      this.popoverDirective.disabled = step.popperSettings.disabled || false;
-      this.popoverDirective.disableStyle = step.popperSettings.disableStyle || false;
-      this.popoverDirective.hideOnClickOutside = step.popperSettings.hideOnClickOutside || false;
-      this.popoverDirective.hideOnScroll = step.popperSettings.hideOnScroll || false;
-      this.popoverDirective.hideTimeout = step.popperSettings.hideTimeout || 0;
-      this.popoverDirective.positionFixed = step.popperSettings.positionFixed || false;
-      this.popoverDirective.showDelay = step.popperSettings.showDelay || 0;
-      this.popoverDirective.showOnStart = step.popperSettings.showOnStart || false;
-      this.popoverDirective.showTrigger = step.popperSettings.showTrigger || Triggers.NONE;
-      this.popoverDirective.timeoutAfterShow = step.popperSettings.timeoutAfterShow || 0;
+    const popperSettings = step.popperSettings;
 
-      // TODO: Can these even get passed in via json?
-      // this.popoverDirective.popperModifiers = step.popperSettings.popperModifiers || undefined;
-      // this.popoverDirective.popperOnHidden = step.popperSettings.popperOnHidden || undefined;
-      // this.popoverDirective.popperOnShown = step.popperSettings.popperOnShown || undefined;
+    if (popperSettings) {
+      this.popoverDirective.boundariesElement = popperSettings.boundariesElement || undefined;
+      this.popoverDirective.closeOnClickOutside = popperSettings.closeOnClickOutside || false;
+      this.popoverDirective.disableAnimation = popperSettings.disableAnimation || false;
+      this.popoverDirective.disabled = popperSettings.disabled || false;
+      this.popoverDirective.disableStyle = popperSettings.disableStyle || false;
+      this.popoverDirective.hideOnClickOutside = popperSettings.hideOnClickOutside || false;
+      this.popoverDirective.hideOnScroll = popperSettings.hideOnScroll || false;
+      this.popoverDirective.hideTimeout = popperSettings.hideTimeout || 0;
+      this.popoverDirective.positionFixed = popperSettings.positionFixed || false;
+      this.popoverDirective.showDelay = popperSettings.showDelay || 0;
+      this.popoverDirective.showOnStart = popperSettings.showOnStart || false;
+      this.popoverDirective.showTrigger = popperSettings.showTrigger || NgxPopperjsTriggers.none;
+      this.popoverDirective.timeoutAfterShow = popperSettings.timeoutAfterShow || 0;
     }
 
     this.popoverDirective.initialize();
-    if (step.hasOwnProperty('popperSettings') && step.popperSettings.hasOwnProperty('showDelay')) {
+    if (typeof step?.popperSettings?.showDelay === 'number') {
       this.popoverDirective.scheduledShow();
     } else {
       this.popoverDirective.show();

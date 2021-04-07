@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { NgxPopperModule } from 'ngx-popper';
+import { NgxPopperjsModule } from 'ngx-popperjs';
 import {TourService} from 'ngx-ui-tour-core';
 
 import { TourAnchorNgxPopperDirective, TourAnchorNgxPopperPopoverDirective } from './tour-anchor.directive';
@@ -13,7 +13,9 @@ export { TourAnchorNgxPopperDirective, TourAnchorNgxPopperPopoverDirective, Tour
 @NgModule({
   declarations: [TourAnchorNgxPopperDirective, TourAnchorNgxPopperPopoverDirective, TourStepTemplateComponent],
   exports: [TourAnchorNgxPopperDirective, TourAnchorNgxPopperPopoverDirective, TourStepTemplateComponent],
-  imports: [CommonModule, NgxPopperModule.forRoot()],
+  // FIXME: should be NgxPopperjsModule.forRoot() but that causes "Function calls are not supported in decorators" error
+  // See https://github.com/tonysamperi/ngx-popperjs/issues/5 for more info
+  imports: [CommonModule, NgxPopperjsModule],
 })
 export class TourNgxPopperModule {
   public static forRoot(): ModuleWithProviders<TourNgxPopperModule> {

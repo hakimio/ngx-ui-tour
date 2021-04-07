@@ -1,5 +1,6 @@
-import { TourService } from 'ngx-tour-ngx-popper';
-import { Component } from '@angular/core';
+import {TourService} from 'ngx-ui-tour-ngx-popper';
+import {Component} from '@angular/core';
+import {NgxPopperjsPlacements} from 'ngx-popperjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,23 +11,23 @@ export class NgxPopperComponent {
   constructor(public tourService: TourService) {
     this.tourService.initialize([{
       anchorId: 'start.tour',
-      content: 'Welcome to the Ngx-Tour tour!',
-      placement: 'right',
+      content: 'Welcome to the Ngx UI Tour tour!',
+      placement: NgxPopperjsPlacements.RIGHT,
       title: 'Welcome',
     }, {
       anchorId: 'angular-ui-tour',
       content: 'Thanks to angular-ui-tour for the inspiration for the library',
-      placement: 'bottom',
+      placement: NgxPopperjsPlacements.BOTTOM,
       title: 'angular-ui-tour',
     }, {
       anchorId: 'usage',
       content: '...then use it.',
-      placement: 'right',
+      placement: NgxPopperjsPlacements.RIGHT,
       title: 'Usage',
     }, {
       anchorId: 'tourService.start',
       content: 'Don\'t forget to actually start the tour.',
-      placement: 'top',
+      placement: NgxPopperjsPlacements.TOP,
       title: 'Start the tour',
     }, {
       anchorId: 'config.anchorId',
@@ -44,7 +45,7 @@ export class NgxPopperComponent {
     }, {
       anchorId: 'config.route',
       content: 'And then back again.',
-      placement: 'bottom',
+      placement: NgxPopperjsPlacements.BOTTOM,
       title: 'Route Return',
     }, {
       anchorId: 'config.placement.default',
@@ -53,17 +54,17 @@ export class NgxPopperComponent {
     }, {
       anchorId: 'config.placement.default',
       content: 'Sliiide to the left.',
-      placement: 'left',
+      placement: NgxPopperjsPlacements.LEFT,
       title: 'Left Placement',
     }, {
       anchorId: 'config.placement.default',
       content: 'Sliiide to the right.',
-      placement: 'right',
+      placement: NgxPopperjsPlacements.RIGHT,
       title: 'Right Placement',
     }, {
       anchorId: 'config.placement.default',
       content: 'Take it back now y\'all.  One hop this time.',
-      placement: 'bottom',
+      placement: NgxPopperjsPlacements.BOTTOM,
       title: 'Bottom Placement',
     }, {
       anchorId: 'hotkeys',

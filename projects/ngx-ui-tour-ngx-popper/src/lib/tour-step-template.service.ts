@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PopperContent } from 'ngx-popper';
+import { NgxPopperjsContentComponent } from 'ngx-popperjs';
 import { TourStepTemplateComponent } from './tour-step-template.component';
 
 @Injectable()
 export class TourStepTemplateService {
-  public template: PopperContent;
+  public template: NgxPopperjsContentComponent;
   public templateComponent: TourStepTemplateComponent;
 }

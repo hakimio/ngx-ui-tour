@@ -15,7 +15,7 @@
   "scripts": {
     "ng": "ng",
     "link:core": "cd dist/ngx-ui-tour-core && npm link && cd ../..",
-    "link": "cd dist/ngx-ui-tour-console && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-md-menu && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ng-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ngx-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-tour-ngx-popper && npm link ngx-tour-core && cd ../..",
+    "link": "cd dist/ngx-ui-tour-console && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-md-menu && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ng-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ngx-bootstrap && npm link ngx-ui-tour-core && cd ../ngx-ui-tour-ngx-popper && npm link ngx-ui-tour-core && cd ../..",
     "prestart": "npm run link",
     "start": "ng serve",
     "prebuild": "npm run link",
@@ -57,8 +57,8 @@
     "@angular/router": "^11.2.8",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "ngx-bootstrap": "^6.0.0",
-    "ngx-popper": "^7.0.0",
-    "popper.js": "^1.16.1",
+    "ngx-popperjs": "^10.0.1",
+    "@popperjs/core": "^2.9.2",
     "rxjs": "^6.6.7",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

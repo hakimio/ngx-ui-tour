@@ -1,26 +1,21 @@
 import { IStepOption } from 'ngx-ui-tour-core';
-import { Placement, Trigger } from 'ngx-popper';
+import { NgxPopperjsPlacements, NgxPopperjsTriggers } from 'ngx-popperjs';
 
 export interface INgxpStepOption extends IStepOption {
-    placement?: Placement;
+    placement?: NgxPopperjsPlacements;
     popperSettings?: {
         boundariesElement?: string;
         closeOnClickOutside?: boolean;
         disableAnimation?: boolean;
         disabled?: boolean;
         disableStyle?: boolean;
-        forceDetection?: boolean;
         hideOnClickOutside?: boolean;
         hideOnScroll?: boolean;
         hideTimeout?: number;
-        popperModifiers?: any;
-        popperOnHidden?: any;
-        popperOnShown?: any;
         positionFixed?: boolean;
         showDelay?: number;
         showOnStart?: boolean;
-        showTrigger?: Trigger;
-        targetElement?: HTMLElement;
+        showTrigger?: NgxPopperjsTriggers;
         timeoutAfterShow?: number;
     };
 }

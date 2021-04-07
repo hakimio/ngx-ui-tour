@@ -1744,6 +1744,11 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
+"@popperjs/core@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
+
 "@rollup/plugin-commonjs@^17.0.0":
   version "17.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-17.1.0.tgz#757ec88737dffa8aa913eb392fade2e45aef2a2d"
@@ -7665,12 +7670,12 @@ ngx-bootstrap@^6.0.0:
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-6.0.0.tgz#58078243c30ab967c47bd0830703033480eb3f3e"
   integrity sha512-uxDt9AZgh4mbVfgDJxLwBbcEEdQdYXrKvurrbuVuWpUnmUkHMi1Mvcb0RdBO2jcbWngKPb+Xokh7sn5Soy7TIQ==
 
-ngx-popper@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-popper/-/ngx-popper-7.0.0.tgz#4a46557f27384680a0298b395b2f296016cf3f78"
-  integrity sha512-YEp5defNRRs/vq3OaF5aosvfDQEXw0ZJytlfcEfWUu43gxs6AoQIHD82EC41MfQi6impvRie+M1ZO5KpEBH43Q==
+ngx-popperjs@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-popperjs/-/ngx-popperjs-10.0.1.tgz#8436162a392fa8cdc0b68bd14964503994b9eb61"
+  integrity sha512-f9I9lSxPb1FyJCq4aiv/LwVfBWyZm6SE+PTlMX5qcm8IfPGccqyFvZ0AAWm+oASA40FZ0MUWmKdBzGZb2poXjg==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.0.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -8520,11 +8525,6 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
-
-popper.js@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
-  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 portfinder@^1.0.26:
   version "1.0.28"

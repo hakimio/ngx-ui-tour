@@ -9,7 +9,7 @@ import {
   TemplateRef
 } from '@angular/core';
 import { IStepOption, TourHotkeyListenerComponent } from 'ngx-ui-tour-core';
-import { PopperContent } from 'ngx-popper';
+import { NgxPopperjsContentComponent } from 'ngx-popperjs';
 import { NgxpTourService } from './ngx-popper-tour.service';
 import { TourStepTemplateService } from './tour-step-template.service';
 
@@ -53,8 +53,8 @@ import { TourStepTemplateService } from './tour-step-template.service';
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent
   implements AfterViewInit, AfterContentInit {
-  @ViewChild(PopperContent, { static: true })
-  public popperContent: PopperContent;
+  @ViewChild(NgxPopperjsContentComponent, { static: true })
+  public popperContent: NgxPopperjsContentComponent;
 
   @Input()
   public stepTemplate: TemplateRef<{ step: IStepOption }>;
