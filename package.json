@@ -36,7 +36,7 @@
     "lint": "ng lint",
     "pub": "npm run pub:lib && npm run pub:demo",
     "pub:demo": "npm run build -- --base-href /ngx-ui-tour/ && gh-pages -d dist/app",
-    "pub:lib": "npm run build:lib:all && (npm run pub:lib:core & npm run pub:lib:console & npm run pub:lib:ng-bootstrap & npm run pub:lib:md-menu & npm run pub:lib:ngx-bootstrap)",
+    "pub:lib": "npm run build:lib:all && (npm run pub:lib:core & npm run pub:lib:console & npm run pub:lib:ng-bootstrap & npm run pub:lib:md-menu & npm run pub:lib:ngx-bootstrap & npm run pub:lib:ngx-popper)",
     "pub:lib:core": "cd dist/ngx-ui-tour-core && npm publish",
     "pub:lib:console": "cd dist/ngx-ui-tour-console && npm publish",
     "pub:lib:ng-bootstrap": "cd dist/ngx-ui-tour-ng-bootstrap && npm publish",
