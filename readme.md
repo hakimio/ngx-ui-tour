@@ -1,8 +1,8 @@
 # Ngx Ui Tour
 
-[![npm](https://img.shields.io/npm/dt/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
-[![npm](https://img.shields.io/npm/v/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
-[![npm](https://img.shields.io/npm/l/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour)
+[![npm](https://img.shields.io/npm/dt/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
+[![npm](https://img.shields.io/npm/v/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
+[![npm](https://img.shields.io/npm/l/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
 
 ## Table of contents
 
