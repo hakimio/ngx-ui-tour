@@ -14,7 +14,7 @@ export class TourBackdropService {
   }
 
   public show(targetElement: ElementRef) {
-    const boundingRect = (<HTMLElement>targetElement.nativeElement).getBoundingClientRect();
+    const boundingRect = targetElement.nativeElement.getBoundingClientRect();
 
     if (!this.backdropElement) {
       this.backdropElement = this.renderer.createElement('div');
