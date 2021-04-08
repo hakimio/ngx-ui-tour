@@ -1,0 +1,8 @@
+<td colspan="4" *ngIf="isLoading || fakeData">
+    <ng-container *ngIf="isLoading; else finishedLoading">
+        <strong>Loading data...</strong>
+    </ng-container>
+    <ng-template #finishedLoading>
+        Fake data: {{fakeData | json}}
+    </ng-template>
+</td>

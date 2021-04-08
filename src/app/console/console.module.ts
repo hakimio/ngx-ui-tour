@@ -6,6 +6,7 @@ import { TourConsoleModule } from 'ngx-ui-tour-console';
 import { ConsoleComponent } from './console.component';
 import { DocsComponent } from './docs.component';
 import { OtherRouteComponent } from './other-route.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [ConsoleComponent, DocsComponent, OtherRouteComponent],
@@ -23,6 +24,7 @@ import { OtherRouteComponent } from './other-route.component';
       }]
     }]),
     TourConsoleModule.forRoot(),
+    SharedModule
   ],
 })
 export class ConsoleModule { }

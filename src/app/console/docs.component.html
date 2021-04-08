@@ -139,6 +139,21 @@ this.tourService.initialize([{{ '{' }}
         true will disable the scroll behavior.
       </td>
     </tr>
+    <tr tourAnchor="config.waitFor">
+      <ng-container *ngIf="!isLoading">
+        <td>waitFor</td>
+        <td>Promise | Observable</td>
+        <td>undefined</td>
+        <td>
+          Waits for the given Promise or Observable before showing the step contents.
+        </td>
+      </ng-container>
+    </tr>
+    <tr
+      tourAnchor="config.fakeData"
+      tr-data-loading
+      (dataLoadingChange)="onLoadingChange($event)"
+    ></tr>
   </tbody>
 </table>
 
@@ -240,6 +255,16 @@ this.tourService.initialize$.subscribe((steps: IStepOption[]) => {{ '{' }}
       <td>anchorUnregister$</td>
       <td>string</td>
       <td>An anchor is unregistered from the tour</td>
+    </tr>
+    <tr>
+      <td>startWaiting$</td>
+      <td>IStepOption</td>
+      <td>Starts waiting for Promise or Observable set in "waitFor" config</td>
+    </tr>
+    <tr>
+      <td>stopWaiting$</td>
+      <td>IStepOption</td>
+      <td>"waitFor" config Promise or Observable completes</td>
     </tr>
   </tbody>
 </table>

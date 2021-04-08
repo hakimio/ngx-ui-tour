@@ -1,5 +1,6 @@
 import { TourService } from 'ngx-ui-tour-console';
 import { Component } from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -66,6 +67,15 @@ export class ConsoleComponent {
       content: 'Take it back now y\'all.  One hop this time.',
       placement: 'below',
       title: 'Placement',
+    }, {
+      anchorId: 'config.waitFor',
+      content: 'Tour step can wait for Promise or Observable before showing the step',
+      title: 'Wait for async event'
+    }, {
+      anchorId: 'config.fakeData',
+      content: 'Your fake data finished loading',
+      title: 'Loading finished',
+      waitFor: new Subject()
     }, {
       anchorId: 'hotkeys',
       content: 'Try using the hotkeys to navigate through the tour.',
