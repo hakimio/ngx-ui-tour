@@ -3,8 +3,8 @@ import {NavigationStart, Router} from '@angular/router';
 import type {UrlSegment} from '@angular/router';
 
 import { TourAnchorDirective } from './tour-anchor.directive';
-import { Subject, Observable, merge as mergeStatic } from 'rxjs';
-import { first, map, filter } from 'rxjs/operators';
+import {Subject, Observable, merge as mergeStatic, from} from 'rxjs';
+import {first, map, filter} from 'rxjs/operators';
 
 export interface IStepOption {
   stepId?: string;
@@ -19,6 +19,7 @@ export interface IStepOption {
   prevBtnTitle?: string;
   nextBtnTitle?: string;
   endBtnTitle?: string;
+  waitFor?: Promise<void> | Observable<void>;
   enableBackdrop?: boolean;
 }
 
@@ -37,6 +38,8 @@ export class TourService<T extends IStepOption = IStepOption> {
   public end$: Subject<any> = new Subject();
   public pause$: Subject<T> = new Subject();
   public resume$: Subject<T> = new Subject();
+  public startWaiting$: Subject<T> = new Subject();
+  public stopWaiting$: Subject<T> = new Subject();
   public anchorRegister$: Subject<string> = new Subject();
   public anchorUnregister$: Subject<string> = new Subject();
   public events$: Observable<{ name: string; value: any }> = mergeStatic(
@@ -214,19 +217,38 @@ export class TourService<T extends IStepOption = IStepOption> {
       this.end();
       return;
     }
+    if (this.currentStep) {
+      this.hideStep(this.currentStep);
+    }
     let navigatePromise: Promise<boolean> = new Promise(resolve =>
       resolve(true)
     );
-    if (step.route !== undefined && typeof step.route === 'string') {
+    if (typeof step.route === 'string') {
       navigatePromise = this.router.navigateByUrl(step.route);
-    } else if (step.route && Array.isArray(step.route)) {
+    } else if (Array.isArray(step.route)) {
       navigatePromise = this.router.navigate(step.route);
     }
     navigatePromise.then(navigated => {
-      if (navigated !== false) {
+      if (navigated !== false && !step.waitFor) {
         setTimeout(() => this.setCurrentStep(step));
+      } else if (navigated !== false) {
+        this.wait(step);
       }
     });
+  }
+
+  private wait(step: T) {
+    const waitFor$ = from(step.waitFor);
+
+    this.startWaiting$.next(step);
+    waitFor$
+      .pipe(first())
+      .subscribe(
+        () => {
+          setTimeout(() => this.setCurrentStep(step));
+          this.stopWaiting$.next(step);
+        }
+      );
   }
 
   private loadStep(stepId: number | string): T {
@@ -238,9 +260,6 @@ export class TourService<T extends IStepOption = IStepOption> {
   }
 
   private setCurrentStep(step: T): void {
-    if (this.currentStep) {
-      this.hideStep(this.currentStep);
-    }
     this.currentStep = step;
     this.showStep(this.currentStep);
     this.router.events

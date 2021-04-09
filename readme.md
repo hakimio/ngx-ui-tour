@@ -138,6 +138,7 @@ Each step can have the following properties.
 | **prevBtnTitle** |	string |	false |	Sets a custom prev button title for a given step. Default is "Prev" |
 | **nextBtnTitle** |	string |	false |	Sets a custom next button title for a given step. Default is "Next" |
 | **endBtnTitle** |	string |	false |	Sets a custom end button title for a given step. Default is "End" |
+| **waitFor** |	Promise &#124; Observable |	undefined |	Waits for the given Promise or Observable before showing the step contents. |
 
 ## Defaults
 You can set default values in the `TourService.initialize()` function.
@@ -175,6 +176,8 @@ this.tourService.initialize$.subscribe((steps: IStepOption[]) => {
 | **resume$** |	IStepOption |	The tour resumes
 | **anchorRegister$** |	string |	An anchor is registered with the tour
 | **anchorUnregister$** |	string |	An anchor is unregistered from the tour
+| **startWaiting$** | IStepOption | Starts waiting for Promise or Observable set in "waitFor" config
+| **stopWaiting$** | IStepOption | "waitFor" config Promise or Observable completes
 
 ## Custom template
 You can also customize the tour step template by providing an `<ng-template let-step="step">` inside the 
