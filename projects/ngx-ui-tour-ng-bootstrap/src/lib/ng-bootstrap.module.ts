@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
-import {TourService} from 'ngx-ui-tour-core';
+import {TourService, TourBackdropService, TourModule} from 'ngx-ui-tour-core';
 
 import { NgbTourService } from './ng-bootstrap-tour.service';
 import { TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective } from './tour-anchor.directive';
@@ -13,7 +13,7 @@ export { TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective, 
 @NgModule({
   declarations: [TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective, TourStepTemplateComponent],
   exports: [TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective, TourStepTemplateComponent],
-  imports: [CommonModule, NgbPopoverModule],
+  imports: [CommonModule, NgbPopoverModule, TourModule],
 })
 export class TourNgBootstrapModule {
   public static forRoot(): ModuleWithProviders<TourNgBootstrapModule> {
@@ -22,7 +22,8 @@ export class TourNgBootstrapModule {
       providers: [
         TourStepTemplateService,
         TourService,
-        NgbTourService
+        NgbTourService,
+        TourBackdropService
       ],
     };
   }
