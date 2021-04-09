@@ -19,6 +19,7 @@ export interface IStepOption {
   prevBtnTitle?: string;
   nextBtnTitle?: string;
   endBtnTitle?: string;
+  enableBackdrop?: boolean;
 }
 
 export enum TourState {

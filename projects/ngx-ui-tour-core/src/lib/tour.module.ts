@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { TourHotkeyListenerComponent } from './tour-hotkey-listener.component';
 import { TourService } from './tour.service';
+import {TourBackdropService} from './tour-backdrop.service';
 
 @NgModule({
     declarations: [TourHotkeyListenerComponent],
@@ -16,9 +17,10 @@ export class TourModule {
             ngModule: TourModule,
             providers: [
                 TourService,
+                TourBackdropService
             ],
         };
     }
 }
 
-export { TourService };
+export { TourService, TourBackdropService };
