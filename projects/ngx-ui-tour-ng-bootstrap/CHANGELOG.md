@@ -1,3 +1,12 @@
+<a name="7.1.0"></a>
+
+# [7.1.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-09)
+
+### Features
+
+- "enableBackdrop" option
+- "waitFor" option
+
 <a name="7.0.0"></a>
 
 # [7.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-06)

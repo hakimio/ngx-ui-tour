@@ -1,3 +1,16 @@
+<a name="5.1.0"></a>
+
+# [5.1.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-09)
+
+### Features
+
+- "waitFor" option
+
+### Fixes
+
+- Fix backdrop position when browser window is resized
+- Fix backdrop position on page scroll
+
 <a name="5.0.0"></a>
 
 # [5.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-06)
