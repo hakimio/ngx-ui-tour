@@ -28,7 +28,7 @@ export class TourBackdropService {
   }
 
   subscribeToWindowEvents(element: HTMLElement) {
-    const resizeObservable$ = fromEvent(window, 'resize')
+    const resizeObservable$ = fromEvent(window, 'resize');
     this.windowResizeSubscription$ = resizeObservable$
       .pipe(
         debounce(() => interval(10))
