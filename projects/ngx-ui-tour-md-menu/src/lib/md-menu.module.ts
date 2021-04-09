@@ -6,11 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-import {TourModule, TourService} from 'ngx-ui-tour-core';
+import {TourBackdropService, TourModule, TourService} from 'ngx-ui-tour-core';
 import { TourAnchorMatMenuDirective } from './tour-anchor.directive';
 import { TourStepTemplateComponent } from './tour-step-template.component';
 import { TourStepTemplateService } from './tour-step-template.service';
-import {TourBackdropService} from './tour-backdrop.service';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 
 export { TourAnchorMatMenuDirective, TourStepTemplateComponent, NgxmTourService };

@@ -20,6 +20,7 @@ export interface IStepOption {
   nextBtnTitle?: string;
   endBtnTitle?: string;
   waitFor?: Promise<void> | Observable<void>;
+  enableBackdrop?: boolean;
 }
 
 export enum TourState {
