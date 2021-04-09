@@ -1,3 +1,11 @@
+<a name="5.1.1"></a>
+
+# [5.1.1](https://github.com/hakimio/ngx-ui-tour) (2021-04-09)
+
+### Fixes
+
+- Fix wrong backdrop size and position when resizing window and backdrop is applied to multiple steps  
+
 <a name="5.1.0"></a>
 
 # [5.1.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-09)

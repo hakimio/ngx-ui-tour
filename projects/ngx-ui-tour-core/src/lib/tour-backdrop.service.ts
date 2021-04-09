@@ -20,14 +20,17 @@ export class TourBackdropService {
       this.backdropElement = this.renderer.createElement('div');
       this.renderer.addClass(this.backdropElement, 'ngx-ui-tour_backdrop');
       this.renderer.appendChild(document.body, this.backdropElement);
-
-      this.subscribeToWindowEvents(targetElement.nativeElement);
     }
 
+    this.subscribeToWindowResizeEvent(targetElement.nativeElement);
     this.setStyles(boundingRect);
   }
 
-  subscribeToWindowEvents(element: HTMLElement) {
+  subscribeToWindowResizeEvent(element: HTMLElement) {
+    if (this.windowResizeSubscription$) {
+      this.windowResizeSubscription$.unsubscribe();
+    }
+
     const resizeObservable$ = fromEvent(window, 'resize');
     this.windowResizeSubscription$ = resizeObservable$
       .pipe(
