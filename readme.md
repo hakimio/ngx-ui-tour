@@ -103,11 +103,11 @@ Full documentation can be found in [the demo app](https://hakimio.github.io/ngx-
 ### How to center tour step?
 
 You can create an invisible anchor point for the tour step you want to center.
-- Add a simple div to your html template which will be used as the tour anchor
+1. Add a simple div to your html template which will be used as the tour anchor
 ```html
 <div class="centered-tour-element" tourAnchor="start-tour"></div>
 ```
-- Add CSS for the div
+2. Add CSS for the div
 ```css
 .centered-tour-element {
     position: fixed;
@@ -118,7 +118,7 @@ You can create an invisible anchor point for the tour step you want to center.
     transform: translate(-140px, -78px);
 }
 ```
-- Use previously defined tour anchor
+3. Use previously defined tour anchor
 ```ts
 this.tourService.initialize([{
   anchorId: 'start-tour',
@@ -131,7 +131,7 @@ this.tourService.start();
 ### How to disable main content scrolling when UI tour is active?
 
 You can toggle CSS class which disables main content element scrolling when tour starts/ends.
-- Create custom `TourService`:
+1. Create custom `TourService`:
 ```ts
 @Injectable()
 export class MyTourService {
@@ -169,13 +169,13 @@ export class MyTourService {
 
 }
 ```
-- Add the `no-scroll` CSS class to your global stylesheet (`styles.(s)css`)
+2. Add the `no-scroll` CSS class to your global stylesheet (`styles.(s)css`)
 ```css
 .no-scroll {
     overflow: hidden;
 }
 ```
-- Use your custom `TourService` to start the UI tour:
+3. Use your custom `TourService` to start the UI tour:
 ```ts
 import {MyTourService} from '@app-utils/my-tour.service';
 
