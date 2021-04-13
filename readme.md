@@ -13,6 +13,7 @@
   - [Simple project](#simple-project)
   - [Lazy loaded modules](#lazy-loaded-modules)
 - [Documentation](#documentation)
+- [FAQ](#faq)
 - [TourService](#tourservice)
 - [Step Configuration](#step-configuration)
 - [Defaults](#defaults)
@@ -96,6 +97,107 @@ this.tourService.initialize([{
 
 ## Documentation
 Full documentation can be found in [the demo app](https://hakimio.github.io/ngx-ui-tour). 
+
+## FAQ
+
+### How to center tour step?
+
+You can create an invisible anchor point for the tour step you want to center.
+- Add a simple div to your html template which will be used as the tour anchor
+```html
+<div class="centered-tour-element" tourAnchor="start-tour"></div>
+```
+- Add CSS for the div
+```css
+.centered-tour-element {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    /* The anchor should be translated to the left by half of your step width and half height  */
+    /* For example, if your tour step has dimensions of 280 × 156 px, you have to translate by (-140px, -78px) */
+    transform: translate(-140px, -78px);
+}
+```
+- Use previously defined tour anchor
+```ts
+this.tourService.initialize([{
+  anchorId: 'start-tour',
+  title: 'Welcome',
+  content: 'Welcome to the Ngx-UI-Tour tour!'
+}]);
+this.tourService.start();
+```
+
+### How to disable main content scrolling when UI tour is active?
+
+You can toggle CSS class which disables main content element scrolling when tour starts/ends.
+- Create custom `TourService`:
+```ts
+@Injectable()
+export class MyTourService {
+  
+  constructor(
+    private readonly tourService: TourService
+  ) {}
+  
+  private readonly MAIN_SECTION_CSS_SELECTOR = 'section.main-content';
+  private readonly NO_SCROLL_CSS_CLASS = 'no-scroll';
+  
+  start(steps: IStepOption[]) {
+    this.tourService.initialize(steps, {
+      route: 'my-route',
+      enableBackdrop: true
+    });
+    this.tourService.end$.subscribe(() => this.setIsScrollable(true));
+    this.setIsScrollable(false);
+    this.tourService.start();
+  }
+
+  private setIsScrollable(isScrollable: boolean) {
+    const body = document.body,
+      mainSection = document.querySelector(this.MAIN_SECTION_CSS_SELECTOR),
+      addOrRemove = isScrollable ? 'remove' : 'add';
+
+    mainSection.classList[addOrRemove](this.NO_SCROLL_CSS_CLASS);
+    // You can also optionally disable iOS Safari bounce effect
+    body[addOrRemove + 'EventListener']('touchmove', this.preventTouchMove, { passive: false });
+  }
+
+  private preventTouchMove(e) {
+    e.preventDefault();
+  }
+
+}
+```
+- Add the `no-scroll` CSS class to your global stylesheet (`styles.(s)css`)
+```css
+.no-scroll {
+    overflow: hidden;
+}
+```
+- Use your custom `TourService` to start the UI tour:
+```ts
+import {MyTourService} from '@app-utils/my-tour.service';
+
+@Component({
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  
+  constructor(
+    private readonly myTourService: MyTourService
+  ) {
+    this.myTourService.start([{
+      anchorId: 'start-tour',
+      title: 'Welcome',
+      content: 'Welcome to the Ngx-UI-Tour tour!'
+    }]);
+  }
+
+}
+```
 
 ## TourService
 The `TourService` controls the tour. Some key functions include:
