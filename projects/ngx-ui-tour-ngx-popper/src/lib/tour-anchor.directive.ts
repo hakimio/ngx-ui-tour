@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
 import { PopperController, Placements, Triggers } from 'ngx-popper';
-import {ElementSides, isInViewport, TourAnchorDirective} from 'ngx-ui-tour-core';
+import {ScrollingUtil, TourAnchorDirective} from 'ngx-ui-tour-core';
 
 import { NgxpTourService } from './ngx-popper-tour.service';
 import { TourStepTemplateService } from './tour-step-template.service';
@@ -42,6 +42,7 @@ export class TourAnchorNgxPopperDirective implements OnInit, OnDestroy, TourAnch
     this.tourService.unregister(this.tourAnchor);
   }
 
+  // noinspection JSUnusedGlobalSymbols
   public showTourStep(step: IStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
@@ -85,11 +86,7 @@ export class TourAnchorNgxPopperDirective implements OnInit, OnDestroy, TourAnch
     }
 
     if (!step.preventScrolling) {
-      if (!isInViewport(htmlElement, ElementSides.Bottom)) {
-        htmlElement.scrollIntoView(false);
-      } else if (!isInViewport(htmlElement, ElementSides.Top)) {
-        htmlElement.scrollIntoView(true);
-      }
+      ScrollingUtil.ensureVisible(htmlElement);
     }
   }
 

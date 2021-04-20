@@ -2,8 +2,7 @@ import {
   TourAnchorDirective,
   TourService,
   IStepOption,
-  isInViewport,
-  ElementSides,
+  ScrollingUtil,
   TourBackdropService,
   TourState
 } from 'ngx-ui-tour-core';
@@ -29,15 +28,12 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
     this.tourService.unregister(this.tourAnchor);
   }
 
+  // noinspection JSUnusedGlobalSymbols
   public showTourStep(step: IStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
     if (!step.preventScrolling) {
-      if (!isInViewport(htmlElement, ElementSides.Bottom)) {
-        htmlElement.scrollIntoView(false);
-      } else if (!isInViewport(htmlElement, ElementSides.Top)) {
-        htmlElement.scrollIntoView(true);
-      }
+      ScrollingUtil.ensureVisible(htmlElement);
     }
 
     if (step.enableBackdrop) {

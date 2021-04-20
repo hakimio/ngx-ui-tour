@@ -9,8 +9,7 @@ import {
 } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
 import {
-  ElementSides,
-  isInViewport,
+  ScrollingUtil,
   TourAnchorDirective,
   TourBackdropService,
   TourState,
@@ -58,6 +57,7 @@ export class TourAnchorMatMenuDirective
     this.tourService.unregister(this.tourAnchor);
   }
 
+  // noinspection JSUnusedGlobalSymbols
   public showTourStep(step: IStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
@@ -65,11 +65,7 @@ export class TourAnchorMatMenuDirective
     this.tourStepTemplate.templateComponent.step = step;
     // Ignore step.placement
     if (!step.preventScrolling) {
-      if (!isInViewport(htmlElement, ElementSides.Bottom)) {
-        htmlElement.scrollIntoView(false);
-      } else if (!isInViewport(htmlElement, ElementSides.Top)) {
-        htmlElement.scrollIntoView(true);
-      }
+      ScrollingUtil.ensureVisible(htmlElement);
     }
     (<any>this.opener.trigger)._element = this.element;
     this.opener.trigger.menu = this.tourStepTemplate.templateComponent.tourStep;
