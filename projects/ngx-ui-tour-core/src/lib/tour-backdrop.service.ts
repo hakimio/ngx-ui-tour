@@ -2,11 +2,13 @@ import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
 import type { Renderer2 } from '@angular/core';
 import {fromEvent, interval, Subscription} from 'rxjs';
 import {debounce} from 'rxjs/operators';
+import {ScrollingUtil} from './scrolling-util';
 
 @Injectable()
 export class TourBackdropService {
   private renderer: Renderer2;
   private backdropElement: HTMLElement;
+  private targetHtmlElement: HTMLElement;
   windowResizeSubscription$: Subscription;
 
   constructor(rendererFactory: RendererFactory2) {
@@ -20,17 +22,15 @@ export class TourBackdropService {
       this.backdropElement = this.renderer.createElement('div');
       this.renderer.addClass(this.backdropElement, 'ngx-ui-tour_backdrop');
       this.renderer.appendChild(document.body, this.backdropElement);
+
+      this.subscribeToWindowResizeEvent();
     }
 
-    this.subscribeToWindowResizeEvent(targetElement.nativeElement);
+    this.targetHtmlElement = targetElement.nativeElement;
     this.setStyles(boundingRect);
   }
 
-  subscribeToWindowResizeEvent(element: HTMLElement) {
-    if (this.windowResizeSubscription$) {
-      this.windowResizeSubscription$.unsubscribe();
-    }
-
+  subscribeToWindowResizeEvent() {
     const resizeObservable$ = fromEvent(window, 'resize');
     this.windowResizeSubscription$ = resizeObservable$
       .pipe(
@@ -38,8 +38,9 @@ export class TourBackdropService {
       )
       .subscribe(
         () => {
-          const boundingRect = element.getBoundingClientRect();
+          const boundingRect = this.targetHtmlElement.getBoundingClientRect();
           this.setStyles(boundingRect);
+          ScrollingUtil.ensureVisible(this.targetHtmlElement);
         }
       );
   }
