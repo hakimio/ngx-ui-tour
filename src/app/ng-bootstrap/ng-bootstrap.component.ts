@@ -51,66 +51,10 @@ export class NgBootstrapComponent {
     }, {
       anchorId: 'config.route',
       content: 'And then back again.',
-      placement: 'bottom',
       title: 'Route Return',
     }, {
       anchorId: 'config.placement.default',
       content: 'Steps can be positioned around an anchor. You can even have multiple steps use the same anchor.',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'Sliiide to the left.',
-      placement: 'left',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'Sliiide to the right.',
-      placement: 'right',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'Take it back now y\'all.  One hop this time.',
-      placement: 'bottom',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - left-top',
-      placement: 'left-top',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - top-left',
-      placement: 'top-left',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - top-right',
-      placement: 'top-right',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - right-top',
-      placement: 'right-top',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - right-bottom',
-      placement: 'right-bottom',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - bottom-right',
-      placement: 'bottom-right',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - bottom-left',
-      placement: 'bottom-left',
-      title: 'Placement',
-    }, {
-      anchorId: 'config.placement.default',
-      content: 'And on the corners - left-bottom',
-      placement: 'left-bottom',
       title: 'Placement',
     }, {
       anchorId: 'config.buttons.custom',

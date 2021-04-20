@@ -69,7 +69,6 @@ export class NgxBootstrapComponent {
         {
           anchorId: 'config.route',
           content: 'And then back again.',
-          placement: 'bottom',
           title: 'Route Return'
         },
         {
