@@ -1,13 +1,13 @@
 {
   "name": "ngx-ui-tour-console",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <12.0.0",
     "@angular/core": ">=9.0.0 <12.0.0",
-    "ngx-ui-tour-core": "^5.1.1",
+    "ngx-ui-tour-core": "^5.2.0",
     "typescript": ">=3.8.0"
   },
   "dependencies": {

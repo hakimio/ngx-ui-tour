@@ -1,3 +1,16 @@
+<a name="5.2.0"></a>
+
+# [5.2.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-20)
+
+### Features
+
+- Tour step now always stays in view when backdrop is enabled and browser window is resized
+- Interaction with the base page is now blocked when backdrop is enabled
+
+### Fixes
+
+- Fix tour backdrop position for IE11
+
 <a name="5.1.1"></a>
 
 # [5.1.1](https://github.com/hakimio/ngx-ui-tour) (2021-04-09)
