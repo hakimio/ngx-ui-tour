@@ -1,4 +1,4 @@
-# Ngx Ui Tour
+# Ngx UI Tour
 
 [![npm](https://img.shields.io/npm/dt/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
 [![npm](https://img.shields.io/npm/v/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
@@ -42,7 +42,7 @@ and I don't have permissions to publish new npm packages.
 # install the core package
 yarn add ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-ngx-popper)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap)
 yarn add ngx-ui-tour-md-menu
 ```
 
@@ -52,7 +52,7 @@ yarn add ngx-ui-tour-md-menu
 # install the core package
 npm i --save ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-ngx-popper)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap)
 npm i --save ngx-ui-tour-md-menu
 ```
 

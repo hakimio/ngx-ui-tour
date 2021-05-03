@@ -300,47 +300,6 @@
           }
         }
       }
-    },
-    "ngx-ui-tour-ngx-popper": {
-      "root": "projects/ngx-ui-tour-ngx-popper",
-      "sourceRoot": "projects/ngx-ui-tour-ngx-popper/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/ngx-ui-tour-ngx-popper/tsconfig.lib.json",
-            "project": "projects/ngx-ui-tour-ngx-popper/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/ngx-ui-tour-ngx-popper/ng-package.prod.json",
-              "tsConfig": "projects/ngx-ui-tour-ngx-popper/tsconfig.lib.prod.json"
-}
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-ngx-popper/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-ngx-popper/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-ngx-popper/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-ui-tour-ngx-popper/tsconfig.lib.json",
-              "projects/ngx-ui-tour-ngx-popper/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "ngx-ui-tour",

@@ -19,8 +19,7 @@
       "ngx-ui-tour-console": ["dist/ngx-ui-tour-console"],
       "ngx-ui-tour-md-menu": ["dist/ngx-ui-tour-md-menu"],
       "ngx-ui-tour-ng-bootstrap": ["dist/ngx-ui-tour-ng-bootstrap"],
-      "ngx-ui-tour-ngx-bootstrap": ["dist/ngx-ui-tour-ngx-bootstrap"],
-      "ngx-ui-tour-ngx-popper": ["dist/ngx-ui-tour-ngx-popper"]
+      "ngx-ui-tour-ngx-bootstrap": ["dist/ngx-ui-tour-ngx-bootstrap"]
     }
   }
 }
