@@ -1,13 +1,13 @@
 {
   "name": "ngx-ui-tour-core",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=9.0.0 <12.0.0",
-    "@angular/core": ">=9.0.0 <12.0.0",
-    "@angular/router": ">=9.0.0 <12.0.0",
+    "@angular/common": ">=9.0.0 <13.0.0",
+    "@angular/core": ">=9.0.0 <13.0.0",
+    "@angular/router": ">=9.0.0 <13.0.0",
     "rxjs": "^6.0.0",
     "typescript": ">=3.8.0"
   },
