@@ -332,21 +332,33 @@ export class AppComponent {{"{"}}
         Sets a custom end button title for a given step. Default is "End"
       </td>
     </tr>
-    <tr tourAnchor="config.waitFor">
-      <ng-container *ngIf="!isLoading">
-        <td>waitFor</td>
-        <td>Promise | Observable</td>
-        <td>undefined</td>
+    <tr>
+      <td>waitFor</td>
+      <td>Promise | Observable</td>
+      <td>undefined</td>
+      <td>
+        [Deprecated: use "isAsync" instead]
+        Waits for the given Promise or Observable before showing the step contents.
+      </td>
+    </tr>
+    <tr tourAnchor="config.isAsync" *ngIf="showIsAsyncConfig">
+      <ng-container >
+        <td>isAsync</td>
+        <td>boolean</td>
+        <td>false</td>
         <td>
-          Waits for the given Promise or Observable before showing the step contents.
+          Mark your step as async if anchor element is added to DOM with a delay (ie after data is loaded).
         </td>
       </ng-container>
     </tr>
-    <tr
-      tourAnchor="config.fakeData"
-      tr-data-loading
-      (dataLoadingChange)="onLoadingChange($event)"
-    ></tr>
+    <tr>
+      <td colspan="4" *ngIf="isLoading && !showIsAsyncConfig">
+        <strong>Loading data...</strong>
+      </td>
+      <td colspan="4" *ngIf="!isLoading" tourAnchor="config.fakeData">
+        Fake data: {{fakeData | json}}
+      </td>
+    </tr>
   </tbody>
 </table>
 
@@ -451,12 +463,12 @@ this.tourService.initialize$.subscribe((steps: IStepOption[]) => {{ '{' }}
     <tr>
       <td>startWaiting$</td>
       <td>IStepOption</td>
-      <td>Starts waiting for Promise or Observable set in "waitFor" config</td>
+      <td>Starts waiting for async step ("isAsync" or "waitFor" configs set)</td>
     </tr>
     <tr>
       <td>stopWaiting$</td>
       <td>IStepOption</td>
-      <td>"waitFor" config Promise or Observable completes</td>
+      <td>Async anchor is registered or "waitFor" config Promise/Observable completes</td>
     </tr>
   </tbody>
 </table>

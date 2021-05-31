@@ -1,3 +1,16 @@
+<a name="6.0.0"></a>
+
+# [6.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-05-31)
+
+### Features
+
+- Support Angular 12
+- New `isAsync` config used to mark tour step's which anchor element is added to DOM with a delay (ie after data is loaded)
+
+### Deprecations
+
+- `waitFor` config was deprecated in favor of `isAsync`
+
 <a name="5.2.0"></a>
 
 # [5.2.0](https://github.com/hakimio/ngx-ui-tour) (2021-04-20)

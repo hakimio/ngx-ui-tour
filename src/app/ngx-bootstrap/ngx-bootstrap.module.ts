@@ -6,7 +6,6 @@ import { TourNgxBootstrapModule } from 'ngx-ui-tour-ngx-bootstrap';
 import { DocsComponent } from './docs.component';
 import { NgxBootstrapComponent } from './ngx-bootstrap.component';
 import { OtherRouteComponent } from './other-route.component';
-import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [NgxBootstrapComponent, DocsComponent, OtherRouteComponent],
@@ -23,8 +22,7 @@ import {SharedModule} from '../shared/shared.module';
         path: 'other',
       }]
     }]),
-    TourNgxBootstrapModule.forRoot(),
-    SharedModule
+    TourNgxBootstrapModule.forRoot()
   ],
 })
 export class NgxBootstrapModule { }
