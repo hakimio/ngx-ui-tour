@@ -19,8 +19,12 @@ export interface IStepOption {
   prevBtnTitle?: string;
   nextBtnTitle?: string;
   endBtnTitle?: string;
+  /**
+   * @deprecated use "isAsync" instead
+   */
   waitFor?: Promise<void> | Observable<void>;
   enableBackdrop?: boolean;
+  isAsync?: boolean;
 }
 
 export enum TourState {
@@ -273,7 +277,24 @@ export class TourService<T extends IStepOption = IStepOption> {
 
   private showStep(step: T): void {
     const anchor = this.anchors[step && step.anchorId];
+
     if (!anchor) {
+      if (step.isAsync) {
+        this.startWaiting$.next(step);
+        this.anchorRegister$
+          .pipe(
+            filter(anchorId => anchorId === step.anchorId),
+            first()
+          )
+          .subscribe(
+            () => {
+              setTimeout(() => this.showStep(step));
+              this.stopWaiting$.next(step);
+            }
+          );
+        return;
+      }
+
       console.warn(
         'Can\'t attach to unregistered anchor with id ' + step.anchorId
       );

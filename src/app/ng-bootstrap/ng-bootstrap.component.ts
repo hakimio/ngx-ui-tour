@@ -1,6 +1,5 @@
-import { TourService } from 'ngx-ui-tour-ng-bootstrap';
-import { Component } from '@angular/core';
-import {Subject} from 'rxjs';
+import {TourService} from 'ngx-ui-tour-ng-bootstrap';
+import {Component} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -64,14 +63,14 @@ export class NgBootstrapComponent {
       nextBtnTitle: 'My Next',
       endBtnTitle: 'My End'
     }, {
-      anchorId: 'config.waitFor',
-      content: 'Tour step can wait for Promise or Observable before showing the step',
+      anchorId: 'config.isAsync',
+      content: 'Mark your step as async if anchor element is added to DOM with a delay',
       title: 'Wait for async event'
     }, {
       anchorId: 'config.fakeData',
       content: 'Your fake data finished loading',
       title: 'Loading finished',
-      waitFor: new Subject()
+      isAsync: true
     }, {
       anchorId: 'hotkeys',
       content: 'Try using the hotkeys to navigate through the tour.',
@@ -80,11 +79,9 @@ export class NgBootstrapComponent {
       anchorId: 'events',
       content: 'You can subscribe to events',
       title: 'Events',
-    }],
-    {
+    }], {
       route: 'ng-bootstrap',
-    }
-  );
+    });
     this.tourService.start();
   }
 }

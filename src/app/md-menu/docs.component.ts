@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Subject, Subscription} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {of, Subscription} from 'rxjs';
 import {TourService} from 'ngx-ui-tour-md-menu';
-import {DataLoadingComponent} from '../shared/data-loading/data-loading.component';
+import {delay} from 'rxjs/operators';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,38 +10,34 @@ import {DataLoadingComponent} from '../shared/data-loading/data-loading.componen
 })
 export class DocsComponent implements OnInit, OnDestroy {
 
-  isLoading = false;
+  isLoading = true;
+  showIsAsyncConfig = true;
+  fakeData: number[];
   startWaitingSubscription: Subscription;
-
-  @ViewChild(DataLoadingComponent)
-  dataLoadingCmp: DataLoadingComponent;
 
   constructor(
     private readonly tourService: TourService
   ) {}
 
   ngOnInit() {
-    this.subscribeToStartWaiting();
+    this.subscribeToShowStep();
   }
 
-  subscribeToStartWaiting() {
+  subscribeToShowStep() {
     this.startWaitingSubscription = this.tourService
       .startWaiting$
-      .subscribe(() => this.dataLoadingCmp.loadData());
+      .subscribe(() => this.loadData());
   }
 
-  onLoadingChange(isLoading: boolean) {
-    this.isLoading = isLoading;
-    if (!this.isLoading) {
-      this.showAsyncStep();
-    }
-  }
-  
-  showAsyncStep() {
-    const steps = this.tourService.steps,
-      step = steps.find(step => step.anchorId === 'config.fakeData');
-
-    (<Subject<void>>step.waitFor).next();
+  loadData() {
+    this.showIsAsyncConfig = false;
+    of([1, 2, 3])
+      .pipe(delay(1000))
+      .subscribe(result => {
+        this.isLoading = false;
+        this.fakeData = result;
+        this.showIsAsyncConfig = true;
+      });
   }
 
   ngOnDestroy() {
