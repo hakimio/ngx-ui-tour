@@ -1154,6 +1154,8 @@ __webpack_require__.r(__webpack_exports__);
 class NgBootstrapComponent {
     constructor(tourService) {
         this.tourService = tourService;
+    }
+    ngOnInit() {
         this.tourService.initialize([{
                 anchorId: 'start.tour',
                 content: 'Welcome to the Ngx-UI-Tour tour!',

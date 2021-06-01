@@ -4558,6 +4558,8 @@ __webpack_require__.r(__webpack_exports__);
 class NgxBootstrapComponent {
     constructor(tourService) {
         this.tourService = tourService;
+    }
+    ngOnInit() {
         this.tourService.initialize([
             {
                 anchorId: 'start.tour',

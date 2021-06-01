@@ -159,9 +159,9 @@
               return m.MdMenuModule;
             });
           },
-          path: ''
+          path: 'md-menu'
         }, {
-          redirectTo: '',
+          redirectTo: 'md-menu',
           path: '**'
         }])]]
       });
@@ -214,10 +214,6 @@
       /*! @angular/router */
       9895);
 
-      var _c0 = function _c0() {
-        return ["active"];
-      };
-
       var _DemoComponent = function _DemoComponent() {
         _classCallCheck(this, _DemoComponent);
       };
@@ -230,8 +226,8 @@
         type: _DemoComponent,
         selectors: [["app-root"]],
         decls: 19,
-        vars: 8,
-        consts: [[1, "page-header", "pb-3"], [1, "project-name"], [1, "project-tagline"], [1, "nav", "nav-pills"], ["role", "presentation", 1, "nav-item"], ["routerLink", "", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "ng-bootstrap", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "ngx-bootstrap", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "console", 1, "nav-link", 3, "routerLinkActive"]],
+        vars: 0,
+        consts: [[1, "page-header", "pb-3"], [1, "project-name"], [1, "project-tagline"], [1, "nav", "nav-pills"], ["role", "presentation", 1, "nav-item"], ["routerLinkActive", "active", "routerLink", "md-menu", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "ng-bootstrap", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "ngx-bootstrap", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "console", 1, "nav-link"]],
         template: function DemoComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
@@ -254,7 +250,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "a", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "MdMenu");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, " MdMenu ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -264,7 +260,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "a", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "NgBootstrap");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " NgBootstrap ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -274,7 +270,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "NgxBootstrap");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, " NgxBootstrap ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -284,7 +280,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "a", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Console");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " Console ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -295,24 +291,6 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "router-outlet");
-          }
-
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](4, _c0));
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](5, _c0));
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](6, _c0));
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](7, _c0));
           }
         },
         directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkWithHref, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkActive, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterOutlet],

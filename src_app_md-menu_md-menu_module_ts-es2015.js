@@ -940,6 +940,8 @@ function MdMenuComponent_ng_template_6_Template(rf, ctx) { if (rf & 1) {
 class MdMenuComponent {
     constructor(tourService) {
         this.tourService = tourService;
+    }
+    ngOnInit() {
         this.tourService.initialize([{
                 anchorId: 'start.tour',
                 content: 'Welcome to the Ngx-UI-Tour tour!',

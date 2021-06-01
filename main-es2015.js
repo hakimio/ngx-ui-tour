@@ -68,9 +68,9 @@ DemoModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ�
                     path: 'console',
                 }, {
                     loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_rxjs__esm2015_internal_operators_delay_js-dist_ngx-ui-tour-core___ivy_ng-e0207a"), __webpack_require__.e("default-dist_ngx-ui-tour-md-menu___ivy_ngcc___fesm2015_ngx-ui-tour-md-menu_js"), __webpack_require__.e("src_app_md-menu_md-menu_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./md-menu/md-menu.module */ 1451)).then(m => m.MdMenuModule),
-                    path: '',
+                    path: 'md-menu',
                 }, {
-                    redirectTo: '',
+                    redirectTo: 'md-menu',
                     path: '**',
                 }]),
         ]] });
@@ -96,11 +96,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 9895);
 
 
-const _c0 = function () { return ["active"]; };
 class DemoComponent {
 }
 DemoComponent.ɵfac = function DemoComponent_Factory(t) { return new (t || DemoComponent)(); };
-DemoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DemoComponent, selectors: [["app-root"]], decls: 19, vars: 8, consts: [[1, "page-header", "pb-3"], [1, "project-name"], [1, "project-tagline"], [1, "nav", "nav-pills"], ["role", "presentation", 1, "nav-item"], ["routerLink", "", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "ng-bootstrap", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "ngx-bootstrap", 1, "nav-link", 3, "routerLinkActive"], ["routerLink", "console", 1, "nav-link", 3, "routerLinkActive"]], template: function DemoComponent_Template(rf, ctx) { if (rf & 1) {
+DemoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DemoComponent, selectors: [["app-root"]], decls: 19, vars: 0, consts: [[1, "page-header", "pb-3"], [1, "project-name"], [1, "project-tagline"], [1, "nav", "nav-pills"], ["role", "presentation", 1, "nav-item"], ["routerLinkActive", "active", "routerLink", "md-menu", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "ng-bootstrap", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "ngx-bootstrap", 1, "nav-link"], ["routerLinkActive", "active", "routerLink", "console", 1, "nav-link"]], template: function DemoComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Ngx UI Tour");
@@ -111,36 +110,27 @@ DemoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "ul", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "li", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "a", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "MdMenu");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, " MdMenu ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "li", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "a", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "NgBootstrap");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " NgBootstrap ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "li", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "NgxBootstrap");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, " NgxBootstrap ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "li", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "a", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Console");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " Console ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "router-outlet");
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](4, _c0));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](5, _c0));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](6, _c0));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLinkActive", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](7, _c0));
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkWithHref, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkActive, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterOutlet], encapsulation: 2 });
 
 
