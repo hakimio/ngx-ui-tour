@@ -5585,7 +5585,7 @@
       /*! @angular/common */
       8583);
 
-      function DocsComponent_tr_319_Template(rf, ctx) {
+      function DocsComponent_tr_320_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 21);
 
@@ -5621,7 +5621,7 @@
         }
       }
 
-      function DocsComponent_td_321_Template(rf, ctx) {
+      function DocsComponent_td_322_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
 
@@ -5635,7 +5635,7 @@
         }
       }
 
-      function DocsComponent_td_322_Template(rf, ctx) {
+      function DocsComponent_td_323_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 23);
 
@@ -5707,7 +5707,7 @@
       _DocsComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: _DocsComponent,
         selectors: [["docs"]],
-        decls: 481,
+        decls: 482,
         vars: 40,
         consts: [["tourAnchor", "angular-ui-tour", "href", "http://benmarch.github.io/angular-ui-tour"], ["href", "https://github.com/valor-software/ngx-bootstrap", "rel", "nofollow", "target", "_blank"], ["tourAnchor", "installation"], ["tourAnchor", "usage"], ["tourAnchor", "tourService.start"], ["href", "https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/ngx-bootstrap"], [1, "table"], ["tourAnchor", "config.anchorId"], ["tourAnchor", "config.enableBackdrop"], ["tourAnchor", "config.route"], ["tourAnchor", "config.nextStep"], ["tourAnchor", "config.placement.default"], ["href", "https://valor-software.com/ngx-bootstrap/index-bs4.html#/popover#popover-directive"], ["tourAnchor", "config.containerClass"], ["tourAnchor", "config.buttons.custom"], ["tourAnchor", "config.isAsync", 4, "ngIf"], ["colspan", "4", 4, "ngIf"], ["colspan", "4", "tourAnchor", "config.fakeData", 4, "ngIf"], ["tourAnchor", "hotkeys"], ["tourAnchor", "events"], ["tourAnchor", "template"], ["tourAnchor", "config.isAsync"], ["colspan", "4"], ["colspan", "4", "tourAnchor", "config.fakeData"]],
         template: function DocsComponent_Template(rf, ctx) {
@@ -6658,37 +6658,41 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](311, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](312, "waitFor");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](312, "del");
 
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](313, "waitFor");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](313, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](314, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](314, "Promise | Observable");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](315, "Promise | Observable");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](315, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](316, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](316, "undefined");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](317, "undefined");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](317, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](318, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](318, " [Deprecated: use \"isAsync\" instead] Waits for the given Promise or Observable before showing the step contents. ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](319, " [Deprecated: use \"isAsync\" instead] Waits for the given Promise or Observable before showing the step contents. ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](319, DocsComponent_tr_319_Template, 10, 0, "tr", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](320, DocsComponent_tr_320_Template, 10, 0, "tr", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](320, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](321, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](321, DocsComponent_td_321_Template, 3, 0, "td", 16);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](322, DocsComponent_td_322_Template, 3, 0, "td", 16);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](322, DocsComponent_td_322_Template, 3, 3, "td", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](323, DocsComponent_td_323_Template, 3, 3, "td", 17);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -6696,103 +6700,103 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](323, "h2");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](324, "h2");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](324, "Defaults");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](325, "Defaults");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](325, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](326, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](326, "You can set default values in the ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](327, "You can set default values in the ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](327, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](328, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](328, "TourService.initialize");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](329, "TourService.initialize");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](329, " function.");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](330, " function.");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](330, "pre");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](331, "pre");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](331);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](332);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](332, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](333, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](333, "Any value explicitly defined in a step will override the default value.");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](334, "Any value explicitly defined in a step will override the default value.");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](334, "h2", 18);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](335, "h2", 18);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](335, "Hotkeys");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](336, "Hotkeys");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](336, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](337, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](337, " Hotkeys are provided using Angular's ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](338, " Hotkeys are provided using Angular's ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](338, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](339, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](339, "@HostListener");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](340, "@HostListener");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](340, " decorator. Hotkeys are enabled when the tour starts and disabled when the tour ends.\n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](341, " decorator. Hotkeys are enabled when the tour starts and disabled when the tour ends.\n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](341, "ul");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](342, "ul");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](342, "li");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](343, "li");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](343, "strong");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](344, "strong");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](344, "left arrow");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](345, "left arrow");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](345, "span");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](346, "span");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](346, " - previous step");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](347, " - previous step");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](347, "li");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](348, "li");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](348, "strong");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](349, "strong");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](349, "right arrow");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](350, "right arrow");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](350, "span");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](351, "span");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](351, " - next step");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](352, " - next step");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](352, "li");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](353, "li");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](353, "strong");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](354, "strong");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](354, "esc");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](355, "esc");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](355, "span");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](356, "span");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](356, " - end tour");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](357, " - end tour");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -6800,73 +6804,73 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](357, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](358, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](358, " You can disable hotkeys by calling ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](359, " You can disable hotkeys by calling ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](359, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](360, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](360, "tourService.disableHotkeys()");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](361, "tourService.disableHotkeys()");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](361, " or re-enable with ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](362, " or re-enable with ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](362, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](363, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](363, "tourService.enableHotkeys()");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](364, "tourService.enableHotkeys()");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](364, "h2", 19);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](365, "h2", 19);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](365, "Event Observables");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](366, "Event Observables");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](366, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](367, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](367, "The ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](368, "The ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](368, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](369, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](369, "TourService");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](370, "TourService");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](370, " emits events that can be subscribed to like this:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](371, " emits events that can be subscribed to like this:");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](371, "pre");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](372, "pre");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](372);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](373);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](373, "table", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](374, "table", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](374, "thead");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](375, "thead");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](375, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](376, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](376, "th");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](377, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](377, "Name");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](378, "Name");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](378, "th");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](379, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](379, "Payload");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](380, "Payload");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](380, "th");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](381, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](381, "Emitted When");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](382, "Emitted When");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -6874,245 +6878,245 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](382, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](383, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](383, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](384, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](384, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](385, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](385, "stepShow$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](386, "stepShow$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](386, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](387, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](387, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](388, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](388, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](389, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](389, "A step is shown");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](390, "A step is shown");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](390, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](391, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](391, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](392, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](392, "stepHide$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](393, "stepHide$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](393, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](394, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](394, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](395, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](395, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](396, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](396, "A step is hidden");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](397, "A step is hidden");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](397, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](398, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](398, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](399, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](399, "initialize$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](400, "initialize$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](400, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](401, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](401, "IStepOption[]");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](402, "IStepOption[]");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](402, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](403, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](403, "The tour is configured with a set of steps");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](404, "The tour is configured with a set of steps");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](404, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](405, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](405, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](406, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](406, "start$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](407, "start$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](407, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](408, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](408, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](409, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](409, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](410, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](410, "The tour begins");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](411, "The tour begins");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](411, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](412, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](412, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](413, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](413, "end$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](414, "end$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](414, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](415, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](415, "any");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](416, "any");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](416, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](417, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](417, "The tour ends");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](418, "The tour ends");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](418, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](419, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](419, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](420, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](420, "pause$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](421, "pause$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](421, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](422, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](422, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](423, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](423, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](424, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](424, "The tour is paused");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](425, "The tour is paused");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](425, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](426, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](426, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](427, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](427, "resume$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](428, "resume$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](428, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](429, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](429, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](430, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](430, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](431, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](431, "The tour resumes");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](432, "The tour resumes");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](432, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](433, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](433, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](434, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](434, "anchorRegister$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](435, "anchorRegister$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](435, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](436, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](436, "string");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](437, "string");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](437, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](438, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](438, "An anchor is registered with the tour");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](439, "An anchor is registered with the tour");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](439, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](440, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](440, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](441, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](441, "anchorUnregister$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](442, "anchorUnregister$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](442, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](443, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](443, "string");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](444, "string");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](444, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](445, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](445, "An anchor is unregistered from the tour");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](446, "An anchor is unregistered from the tour");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](446, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](447, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](447, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](448, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](448, "startWaiting$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](449, "startWaiting$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](449, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](450, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](450, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](451, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](451, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](452, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](452, "Starts waiting for async step (\"isAsync\" or \"waitFor\" configs set)");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](453, "Starts waiting for async step (\"isAsync\" or \"waitFor\" configs set)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](453, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](454, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](454, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](455, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](455, "stopWaiting$");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](456, "stopWaiting$");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](456, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](457, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](457, "IStepOption");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](458, "IStepOption");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](458, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](459, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](459, "Async anchor is registered or \"waitFor\" config Promise/Observable completes");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](460, "Async anchor is registered or \"waitFor\" config Promise/Observable completes");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -7122,65 +7126,65 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](460, "h2", 20);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](461, "h2", 20);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](461, "Custom template");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](462, "Custom template");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](462, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](463, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](463, " You can also customize the tour step template by providing an ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](464, " You can also customize the tour step template by providing an ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](464, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](465, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](465, "<ng-template let-step=\"step\" >");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](466, "<ng-template let-step=\"step\" >");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](466, " inside the ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](467, " inside the ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](467, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](468, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](468, "<tour-step-template>");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](469, "<tour-step-template>");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](469, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](470, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](470, " The default template is equivalent to this:\n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](471, " The default template is equivalent to this:\n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](471, "pre");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](472, "pre");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](472, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](473, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](473);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](474);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](474, "h2");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](475, "h2");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](475, "Styling Active Tour Anchor");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](476, "Styling Active Tour Anchor");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](476, "p");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](477, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](477, " The currently active tour anchor element has a ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](478, " The currently active tour anchor element has a ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](478, "code");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](479, "code");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](479, "touranchor--is-active");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](480, "touranchor--is-active");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](480, " class applied to it, so you can apply your own custom styles to that class to highlight the element being referenced.\n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](481, " class applied to it, so you can apply your own custom styles to that class to highlight the element being referenced.\n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
@@ -7210,7 +7214,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolateV"](["\nimport ", "{", "MyTourService", "}", " from '@app-utils/my-tour.service';\n\n@Component(", "{", "\n  selector: 'my-app',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n", "}", ")\nexport class AppComponent ", "{", "\n\n  constructor(\n    private readonly myTourService: MyTourService\n  ) ", "{", "\n    this.myTourService.start([", "{", "\n      anchorId: 'start-tour',\n      title: 'Welcome',\n      content: 'Welcome to the Ngx-UI-Tour tour!'\n    ", "}", "]);\n  ", "}", "\n\n", "}", "\n    "]);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](192);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](193);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showIsAsyncConfig);
 
