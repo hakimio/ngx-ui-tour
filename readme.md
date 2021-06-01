@@ -240,7 +240,7 @@ Each step can have the following properties.
 | **prevBtnTitle** |	string |	false |	Sets a custom prev button title for a given step. Default is "Prev" |
 | **nextBtnTitle** |	string |	false |	Sets a custom next button title for a given step. Default is "Next" |
 | **endBtnTitle** |	string |	false |	Sets a custom end button title for a given step. Default is "End" |
-| **waitFor** |	Promise &#124; Observable |	undefined |	[**Deprecated**: use "isAsync" instead] Waits for the given Promise or Observable before showing the step contents. |
+| **~~waitFor~~** |	Promise &#124; Observable |	undefined |	[Deprecated: use "isAsync" instead] Waits for the given Promise or Observable before showing the step contents. |
 | **isAsync** |	boolean |	false |	Mark your step as async if anchor element is added to DOM with a delay (ie after data is loaded). |
 
 ## Defaults
