@@ -980,7 +980,7 @@ class MdMenuComponent {
             }, {
                 anchorId: 'another.route',
                 content: 'Like this!',
-                route: 'other',
+                route: 'md-menu/other',
                 title: 'Another Route',
             }, {
                 anchorId: 'config.route',
