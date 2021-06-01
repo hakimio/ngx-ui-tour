@@ -1,5 +1,5 @@
 import {TourService} from 'ngx-ui-tour-ngx-bootstrap';
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,8 +8,13 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./ngx-bootstrap.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxBootstrapComponent {
-  constructor(public tourService: TourService) {
+export class NgxBootstrapComponent implements OnInit {
+
+  constructor(
+    public tourService: TourService
+  ) {}
+
+  ngOnInit() {
     this.tourService.initialize(
       [
         {
@@ -130,4 +135,5 @@ export class NgxBootstrapComponent {
     );
     this.tourService.start();
   }
+
 }

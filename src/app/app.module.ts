@@ -27,9 +27,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
       path: 'console',
     }, {
       loadChildren: () => import('./md-menu/md-menu.module').then(m => m.MdMenuModule),
-      path: '',
+      path: 'md-menu',
     }, {
-      redirectTo: '',
+      redirectTo: 'md-menu',
       path: '**',
     }]),
   ],

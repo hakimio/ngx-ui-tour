@@ -1,13 +1,18 @@
 import { TourService } from 'ngx-ui-tour-console';
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'console-route',
   templateUrl: './console.component.html',
 })
-export class ConsoleComponent {
-  constructor(public tourService: TourService) {
+export class ConsoleComponent implements OnInit {
+
+  constructor(
+    public tourService: TourService
+  ) {}
+
+  ngOnInit() {
     this.tourService.initialize([{
       anchorId: 'start.tour',
       content: 'Welcome to the Ngx-UI-Tour tour!',
@@ -74,4 +79,5 @@ export class ConsoleComponent {
     });
     this.tourService.start();
   }
+
 }

@@ -1,13 +1,18 @@
 import {TourService} from 'ngx-ui-tour-ng-bootstrap';
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'ng-bootstrap-route',
   templateUrl: './ng-bootstrap.component.html',
 })
-export class NgBootstrapComponent {
-  constructor(public tourService: TourService) {
+export class NgBootstrapComponent implements OnInit {
+
+  constructor(
+    public tourService: TourService
+  ) {}
+
+  ngOnInit() {
     this.tourService.initialize([{
       anchorId: 'start.tour',
       content: 'Welcome to the Ngx-UI-Tour tour!',
@@ -84,4 +89,5 @@ export class NgBootstrapComponent {
     });
     this.tourService.start();
   }
+
 }
