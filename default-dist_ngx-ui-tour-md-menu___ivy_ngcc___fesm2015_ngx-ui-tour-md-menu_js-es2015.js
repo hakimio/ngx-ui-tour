@@ -2663,7 +2663,7 @@ __webpack_require__.r(__webpack_exports__);
  * found in the LICENSE file at https://angular.io/license
  */
 /** Current version of the Angular Component Development Kit. */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
 
 /**
  * @license
@@ -2736,7 +2736,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 5435);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 8002);
 /**
- * @license Angular v12.0.2
+ * @license Angular v12.0.3
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5827,7 +5827,7 @@ function MatOption_span_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("(", ctx_r1.group.label, ")");
 } }
 const _c2 = ["*"];
-const VERSION$1 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+const VERSION$1 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
 
 /**
  * @license
@@ -5861,7 +5861,7 @@ AnimationDurations.EXITING = '195ms';
 // i.e. avoid core to depend on the @angular/material primary entry-point
 // Can be removed once the Material primary entry-point no longer
 // re-exports all secondary entry-points
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
 /** @docs-private */
 function MATERIAL_SANITY_CHECKS_FACTORY() {
     return true;

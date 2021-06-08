@@ -226,7 +226,7 @@
 
       });
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -1880,7 +1880,7 @@
       /*! @angular/core */
       7716);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -18843,6 +18843,7 @@
           }
           /**
            * Returns a stream that emits whenever the size of the viewport changes.
+           * This stream emits outside of the Angular zone.
            * @param throttleTime Time in milliseconds to throttle the stream.
            */
 
@@ -21158,7 +21159,7 @@
       /*! @angular/core */
       7716);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -25416,21 +25417,22 @@
             this._ngForOfDirty = true;
           }
           /**
-           * A function that defines how to track changes for items in the iterable.
+           * Specifies a custom `TrackByFunction` to compute the identity of items in an iterable.
            *
-           * When items are added, moved, or removed in the iterable,
-           * the directive must re-render the appropriate DOM nodes.
-           * To minimize churn in the DOM, only nodes that have changed
-           * are re-rendered.
+           * If a custom `TrackByFunction` is not provided, `NgForOf` will use the item's [object
+           * identity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+           * as the key.
            *
-           * By default, the change detector assumes that
-           * the object instance identifies the node in the iterable.
-           * When this function is supplied, the directive uses
-           * the result of calling this function to identify the item node,
-           * rather than the identity of the object itself.
+           * `NgForOf` uses the computed key to associate items in an iterable with DOM elements
+           * it produces for these items.
            *
-           * The function receives two inputs,
-           * the iteration index and the associated node data.
+           * A custom `TrackByFunction` is useful to provide good user experience in cases when items in an
+           * iterable rendered using `NgForOf` have a natural identifier (for example, custom ID or a
+           * primary key), and this iterable could be updated with new object instances that still
+           * represent the same underlying entity (for example, when data is re-fetched from the server,
+           * and the iterable is recreated and re-rendered, but most of the data is still the same).
+           *
+           * @see `TrackByFunction`
            */
 
         }, {
@@ -28484,7 +28486,7 @@
        */
 
 
-      var _VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+      var _VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.
@@ -32409,7 +32411,7 @@
       /*! rxjs/operators */
       8345);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -58100,7 +58102,7 @@
        */
 
 
-      var _VERSION2 = new _Version('12.0.2');
+      var _VERSION2 = new _Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.
@@ -73819,7 +73821,7 @@
       /*! @angular/common */
       8583);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -75213,7 +75215,7 @@
       /*! @angular/core */
       7716);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -78512,7 +78514,7 @@
        */
 
 
-      var _VERSION3 = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('12.0.2');
+      var _VERSION3 = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.
@@ -79275,7 +79277,7 @@
       /*! rxjs/operators */
       3282);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -84203,7 +84205,12 @@
 
       /**
        * The [DI token](guide/glossary/#di-token) for a router configuration.
-       * @see `ROUTES`
+       *
+       * `ROUTES` is a low level API for router configuration via dependency injection.
+       *
+       * We recommend that in almost all cases to use higher level APIs such as `RouterModule.forRoot()`,
+       * `RouterModule.forChild()`, `provideRoutes`, or `Router.resetConfig()`.
+       *
        * @publicApi
        */
 
@@ -87611,7 +87618,7 @@
        */
 
 
-      var _VERSION4 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+      var _VERSION4 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.

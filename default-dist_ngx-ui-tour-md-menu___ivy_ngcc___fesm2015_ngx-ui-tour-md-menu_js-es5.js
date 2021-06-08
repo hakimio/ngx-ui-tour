@@ -4472,7 +4472,7 @@
       /** Current version of the Angular Component Development Kit. */
 
 
-      var _VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+      var _VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.
@@ -4802,7 +4802,7 @@
       /*! rxjs/operators */
       8002);
       /**
-       * @license Angular v12.0.2
+       * @license Angular v12.0.3
        * (c) 2010-2021 Google LLC. https://angular.io/
        * License: MIT
        */
@@ -9771,7 +9771,7 @@
       }
 
       var _c2 = ["*"];
-      var VERSION$1 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+      var VERSION$1 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
       /**
        * @license
        * Copyright Google LLC All Rights Reserved.
@@ -9811,7 +9811,7 @@
       // Can be removed once the Material primary entry-point no longer
       // re-exports all secondary entry-points
 
-      var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.2');
+      var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.0.3');
       /** @docs-private */
 
       function MATERIAL_SANITY_CHECKS_FACTORY() {
