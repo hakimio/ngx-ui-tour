@@ -52,19 +52,24 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-ui-tour:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ngx-ui-tour:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-ui-tour:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -117,8 +122,10 @@
             "production": {
               "project": "projects/ngx-ui-tour-console/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-console/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -158,8 +165,10 @@
             "production": {
               "project": "projects/ngx-ui-tour-core/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-core/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-builders/jest:run",
@@ -198,8 +207,10 @@
             "production": {
               "project": "projects/ngx-ui-tour-md-menu/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-md-menu/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -239,8 +250,10 @@
             "production": {
               "project": "projects/ngx-ui-tour-ng-bootstrap/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-ng-bootstrap/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -280,8 +293,10 @@
             "production": {
               "project": "projects/ngx-ui-tour-ngx-bootstrap/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-ngx-bootstrap/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
