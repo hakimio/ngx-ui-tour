@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+    font: var(--tui-font-text-m);
+    overflow-x: hidden;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 0.9375rem;
+    margin: 1rem 0;
+
+    > li {
+        margin-bottom: 1.25rem;
+    }
+}
+
+a {
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background: 0 0;
+    font-size: inherit;
+    line-height: inherit;
+    transition-property: color;
+    transition-duration: var(--tui-duration, 300ms);
+    transition-timing-function: ease-in-out;
+    color: var(--tui-link);
+    text-decoration: none;
+    text-align: left;
+    text-transform: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    outline: 0;
+}

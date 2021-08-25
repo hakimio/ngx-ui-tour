@@ -1,16 +1,63 @@
-<a href="https://github.com/hakimio/ngx-ui-tour" class="btn btn-default"
-  >View on GitHub</a
+<tui-doc-page
+    header="Material Design"
+    package="ngx-ui-tour-md-menu"
 >
-<a
-  style="cursor: pointer"
-  (click)="tourService.toggle()"
-  class="btn btn-primary"
-  tourAnchor="start.tour"
-  >Start Demo Tour</a
->
+    <ng-template pageTab>
+        <p>
+           <code>ngx-ui-tour</code> is a UI tour library built for Angular. It's inspired by
+            <a tuiLink target="_blank" tourAnchor="angular-ui-tour" href="http://benmarch.github.io/angular-ui-tour">angular-ui-tour</a>.
+        </p>
+        <p>
+            <code>TourMatMenuModule</code> is an implementation of the tour UI that uses
+            <a tuiLink href="http://material.angular.io" target="_blank">Angular Material</a> MatMenu to display tour steps.
+        </p>
+        <p>
+            <button
+                tuiButton
+                type="button"
+                (click)="tourService.start()"
+                tourAnchor="start.tour"
+            >
+                Start Demo Tour
+            </button>
+        </p>
+    </ng-template>
+    <ng-template pageTab>
+        <app-header tourAnchor="installation" id="installation">Installation</app-header>
 
-<router-outlet></router-outlet>
-<tour-step-template> </tour-step-template>
-<ng-template #jsonTemplate let-step="step">
-  {{ step | json }}
-</ng-template>
+        <ol>
+            <li>
+                <code>npm install ngx-ui-tour-core ngx-ui-tour-md-menu @angular/material</code>
+            </li>
+            <li>
+                Import <code>TourMatMenuModule.forRoot()</code> into your app module
+            </li>
+            <li>
+                Make sure <code>RouterModule</code> is imported in your app module
+            </li>
+            <li>
+                Make sure Angular Material is
+                <a tuiLink href="https://material.angular.io/guide/getting-started" target="_blank">installed correctly</a>
+            </li>
+        </ol>
+        <app-usage moduleName="TourMatMenuModule"></app-usage>
+    </ng-template>
+    <ng-template pageTab>
+        <app-step-config></app-step-config>
+        <app-tour-service-api></app-tour-service-api>
+        <app-events></app-events>
+    </ng-template>
+    <ng-template pageTab>
+        <app-faq></app-faq>
+    </ng-template>
+    <ng-template pageTab>
+        <app-hotkeys></app-hotkeys>
+        <app-defaults></app-defaults>
+        <app-custom-template
+            [defaultTemplate]="defaultTemplate"
+        ></app-custom-template>
+        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+    </ng-template>
+</tui-doc-page>
+
+<tour-step-template></tour-step-template>

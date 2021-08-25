@@ -1,0 +1,25 @@
+<div tourAnchor="events">
+    <app-header id="events">Event Observables</app-header>
+
+    <p>
+        The <code>TourService</code> emits events that can be subscribed to like this:
+    </p>
+
+    <tui-doc-code
+        filename="app.component.ts"
+        [code]="examples.onInitialize"
+    ></tui-doc-code>
+</div>
+
+<tui-doc-documentation
+    [isAPI]="true"
+    [showValues]="false"
+>
+    <ng-template
+        *ngFor="let event of events"
+        [documentationPropertyName]="event.name"
+        [documentationPropertyType]="event.payload"
+    >
+        {{event.description}}
+    </ng-template>
+</tui-doc-documentation>

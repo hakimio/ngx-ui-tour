@@ -1,0 +1,25 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+:host {
+    position: relative;
+    display: block;
+    clear: right;
+    margin-top: 2rem;
+}
+
+.title {
+    font: var(--tui-font-heading-5);
+    margin: 0 0 0.5rem;
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+
+    @media #{$mobile} {
+        font: var(--tui-font-heading-6);
+    }
+
+    button {
+        margin-left: 0.75rem;
+    }
+}

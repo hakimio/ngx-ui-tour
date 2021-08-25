@@ -1,0 +1,11 @@
+app-header {
+    margin-top: 0;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+:host::ng-deep .touranchor--is-active {
+    outline: 2px solid var(--tui-negative);
+}

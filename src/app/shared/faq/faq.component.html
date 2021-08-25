@@ -1,0 +1,52 @@
+<app-header id="center-tour-step">How to center tour step?</app-header>
+
+<p>You can create an invisible anchor point for the tour step you want to center.</p>
+<ol>
+    <li>Add a simple div to your html template which will be used as the tour anchor
+        <tui-doc-code
+            filename="app.component.html"
+            [code]="examples.centeredStepHtml"
+        ></tui-doc-code>
+    </li>
+    <li>
+        Add CSS for the div
+        <tui-doc-code
+            filename="app.component.css"
+            [code]="examples.centeredStepCss"
+        ></tui-doc-code>
+    </li>
+    <li>
+        Use previously defined tour anchor
+        <tui-doc-code
+            filename="app.component.ts"
+            [code]="examples.centeredStepTs"
+        ></tui-doc-code>
+    </li>
+</ol>
+
+<app-header id="disable-scrolling">How to disable main content scrolling when UI tour is active?</app-header>
+
+<p>You can toggle CSS class which disables main content element scrolling when tour starts/ends.</p>
+<ol>
+    <li>
+        Create custom <code>TourService</code>:
+        <tui-doc-code
+            filename="my-tour.service.ts"
+            [code]="examples.customTourService"
+        ></tui-doc-code>
+    </li>
+    <li>
+        Add the <code>no-scroll</code> CSS class to your global stylesheet
+        <tui-doc-code
+            filename="styles.css"
+            [code]="examples.noScrollCss"
+        ></tui-doc-code>
+    </li>
+    <li>
+        Use your custom <code>TourService</code> to start the UI tour:
+        <tui-doc-code
+            filename="app.component.ts"
+            [code]="examples.customTourServiceUsage"
+        ></tui-doc-code>
+    </li>
+</ol>

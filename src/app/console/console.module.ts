@@ -1,28 +1,23 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { TourConsoleModule } from 'ngx-ui-tour-console';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {TourAnchorConsoleDirective, TourConsoleModule} from 'ngx-ui-tour-console';
 
-import { ConsoleComponent } from './console.component';
-import { DocsComponent } from './docs.component';
-import { OtherRouteComponent } from './other-route.component';
+import {ConsoleComponent} from './console.component';
+import {generateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {SharedModule} from '../shared/shared.module';
+import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 
 @NgModule({
-  declarations: [ConsoleComponent, DocsComponent, OtherRouteComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([{
-      component: ConsoleComponent,
-      path: '',
-      children: [{
-        component: DocsComponent,
-        path: '',
-      }, {
-        component: OtherRouteComponent,
-        path: 'other',
-      }]
-    }]),
-    TourConsoleModule.forRoot()
-  ],
+    declarations: [ConsoleComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(generateRoutes(ConsoleComponent)),
+        TourConsoleModule.forRoot(),
+        SharedModule.withAnchorDirectiveType(TourAnchorConsoleDirective),
+        TuiDocPageModule,
+        TuiLinkModule,
+        TuiButtonModule
+    ]
 })
-export class ConsoleModule { }
+export class ConsoleModule {}
