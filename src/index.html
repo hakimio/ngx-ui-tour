@@ -41,10 +41,31 @@
         }(window.location))
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
+    <style>
+        .loader {
+            margin: 90px auto 0;
+            border: 8px solid #f6f6f6;
+            border-top: 8px solid #3682db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            text-indent: -9999em;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <app-root>Loading...</app-root>
-</div>
+    <app-root>
+        <div class="loader">Loading...</div>
+    </app-root>
 </body>
 </html>
