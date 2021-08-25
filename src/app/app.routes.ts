@@ -5,13 +5,13 @@ export const ROUTES = [{
     loadChildren: () => import('./ng-bootstrap/ng-bootstrap.module').then(m => m.NgBootstrapModule),
     path: 'ng-bootstrap',
     data: {
-        title: 'NgBootstrap',
+        title: 'NG Bootstrap',
     }
 }, {
     loadChildren: () => import('./ngx-bootstrap/ngx-bootstrap.module').then(m => m.NgxBootstrapModule),
     path: 'ngx-bootstrap',
     data: {
-        title: 'NgxBootstrap',
+        title: 'Ngx Bootstrap',
     }
 }, {
     loadChildren: () => import('./console/console.module').then(m => m.ConsoleModule),
