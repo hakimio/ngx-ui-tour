@@ -1,0 +1,12 @@
+<app-header id="tour-service">TourService</app-header>
+<p>
+    The <code>TourService</code> controls the tour. Some key functions include:
+</p>
+
+<app-list>
+    <app-list-item
+        *ngFor="let method of methods"
+        [name]="method.name"
+        [description]="method.description"
+    ></app-list-item>
+</app-list>

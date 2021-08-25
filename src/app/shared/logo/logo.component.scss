@@ -1,0 +1,17 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+:host {
+    display: flex;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: normal;
+
+    @media #{$mobile} {
+        font-size: 0;
+    }
+}
+
+.logo {
+    width: 1.875rem;
+    margin-right: 0.625rem;
+}

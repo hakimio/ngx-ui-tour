@@ -1,0 +1,16 @@
+<tui-doc-main>
+    <ng-container ngProjectAs="tuiDocHeader">
+        <a
+            tuiLink
+            tuiMode="onLight"
+            class="link"
+            href="https://github.com/hakimio/ngx-ui-tour"
+            target="_blank"
+        >
+            <img class="github" src="assets/github.svg" alt=""/>
+            GitHub
+        </a>
+    </ng-container>
+    <tui-theme-android *ngIf="isAndroid"></tui-theme-android>
+    <tui-theme-ios *ngIf="isIos"></tui-theme-ios>
+</tui-doc-main>

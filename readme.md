@@ -1,4 +1,13 @@
-# Ngx UI Tour
+![Ngx UI Tour](https://user-images.githubusercontent.com/768105/130578626-8b6cbefb-217c-4943-8661-22459a7b67a3.png)
+
+> UI tour library for Angular 9+
+
+Angular Material, Ng Bootstrap and Ngx Bootstrap UIs are supported.
+
+`ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tuour`. The project had to be forked since the original is no longer 
+maintained.
+
+---
 
 [![npm](https://img.shields.io/npm/dt/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
 [![npm](https://img.shields.io/npm/v/ngx-ui-tour-core.svg)](https://www.npmjs.com/package/ngx-ui-tour-core)
@@ -6,13 +15,11 @@
 
 ## Table of contents
 
-- [About](#about)
-- [Demo](#demo)
+- [Demo and documentation](#demo-and-documentation)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Simple project](#simple-project)
   - [Lazy loaded modules](#lazy-loaded-modules)
-- [Documentation](#documentation)
 - [FAQ](#faq)
 - [TourService](#tourservice)
 - [Step Configuration](#step-configuration)
@@ -23,16 +30,9 @@
 - [Styling Active Tour Anchor](#styling-active-tour-anchor)
 - [License](#license)
 
-## About
+## Demo and documentation
 
-Ui tour library for Angular 9+. 
-
-This is a fork of __Isaac Mann's__ `ngx-tour` library. The fork was created because the original is no longer maintained,
-and I don't have permissions to publish new npm packages.
-
-## Demo
-
-[hakimio.github.io/ngx-ui-tour](https://hakimio.github.io/ngx-ui-tour)
+Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://hakimio.github.io/ngx-ui-tour)
 
 ## Installation
 
@@ -93,10 +93,7 @@ this.tourService.initialize([{
     ```
 6. Start the tour with `tourService.start()` in the same component you initialized your steps. Call this right after 
    the initialization.
-7. Check out [the demo source code](https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/md-menu/mat-lazy-tour) for an example.
-
-## Documentation
-Full documentation can be found in [the demo app](https://hakimio.github.io/ngx-ui-tour). 
+7. Check out [the demo source code](https://github.com/hakimio/ngx-ui-tour/tree/master/projects/lazy-tour-demo/src/app) for an example.
 
 ## FAQ
 
@@ -237,9 +234,9 @@ Each step can have the following properties.
 | **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
 | **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
 | **preventScrolling** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
-| **prevBtnTitle** |	string |	false |	Sets a custom prev button title for a given step. Default is "Prev" |
-| **nextBtnTitle** |	string |	false |	Sets a custom next button title for a given step. Default is "Next" |
-| **endBtnTitle** |	string |	false |	Sets a custom end button title for a given step. Default is "End" |
+| **prevBtnTitle** |	string |	"Prev" |	Sets a custom prev button title for a given step. Default is "Prev" |
+| **nextBtnTitle** |	string |	"Next" |	Sets a custom next button title for a given step. Default is "Next" |
+| **endBtnTitle** |	string |	"End" |	Sets a custom end button title for a given step. Default is "End" |
 | **~~waitFor~~** |	Promise &#124; Observable |	undefined |	[Deprecated: use "isAsync" instead] Waits for the given Promise or Observable before showing the step contents. |
 | **isAsync** |	boolean |	false |	Mark your step as async if anchor element is added to DOM with a delay (ie after data is loaded). |
 
@@ -273,14 +270,12 @@ this.tourService.initialize$.subscribe((steps: IStepOption[]) => {
 | **stepShow$** |	IStepOption	| A step is shown |
 | **stepHide$** |	IStepOption |	A step is hidden |
 | **initialize$**	| IStepOption[]	| The tour is configured with a set of steps
-| **start$**	| IStepOption |	The tour begins
-| **end$** |	any |	The tour ends
-| **pause$** |	IStepOption |	The tour is paused
-| **resume$** |	IStepOption |	The tour resumes
+| **start$**	| void |	The tour begins
+| **end$** |	void |	The tour ends
+| **pause$** |	void |	The tour is paused
+| **resume$** |	void |	The tour resumes
 | **anchorRegister$** |	string |	An anchor is registered with the tour
 | **anchorUnregister$** |	string |	An anchor is unregistered from the tour
-| **startWaiting$** | IStepOption | Starts waiting for async step ("isAsync" or "waitFor" configs set)
-| **stopWaiting$** | IStepOption | Async anchor is registered or "waitFor" config Promise/Observable completes
 
 ## Custom template
 You can also customize the tour step template by providing an `<ng-template let-step="step">` inside the 

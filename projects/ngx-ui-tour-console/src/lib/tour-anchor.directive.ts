@@ -6,13 +6,17 @@ import {
   TourBackdropService,
   TourState
 } from 'ngx-ui-tour-core';
-import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[tourAnchor]',
 })
 export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchorDirective {
+
   @Input() public tourAnchor: string;
+
+  @HostBinding('class.touranchor--is-active')
+  public isActive = false;
 
   constructor(
       private tourService: TourService,
@@ -32,6 +36,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
   public showTourStep(step: IStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
+    this.isActive = true;
     if (!step.preventScrolling) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
@@ -49,6 +54,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
   }
 
   public hideTourStep(): void {
+    this.isActive = false;
     if (this.tourService.getStatus() === TourState.OFF) {
       this.tourBackdrop.close();
     }

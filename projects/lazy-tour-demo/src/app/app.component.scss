@@ -1,0 +1,36 @@
+.sidenav-container {
+    flex: 1;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+mat-nav-list {
+    width: 150px;
+}
+
+.main-content {
+    padding: 24px;
+}
+
+:host {
+    a {
+        color: rgba(0, 0, 0, .65);
+
+        ::ng-deep .mat-list-item-content {
+            padding-left: 25px;
+        }
+
+        &:hover {
+            color: rgba(0, 0, 0, .87);
+        }
+
+        &.sidenav-item-selected {
+            background: rgba(63, 81, 181, .15);
+            color: #3f51b5;
+        }
+
+        &.sidenav-item-selected:hover {
+            background: rgba(63, 81, 181, .3);
+        }
+    }
+}

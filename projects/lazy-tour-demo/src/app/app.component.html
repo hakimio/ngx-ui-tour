@@ -1,0 +1,19 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <a
+                *ngFor="let page of pages"
+                mat-list-item
+                [routerLink]="page.path"
+                routerLinkActive="sidenav-item-selected"
+            >
+                {{page.name}}
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
+
+<tour-step-template></tour-step-template>

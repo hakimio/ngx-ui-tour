@@ -1,0 +1,21 @@
+<tour-step-template>
+    <ng-template let-step="step">
+        <mat-card (click)="$event.stopPropagation()">
+            <mat-card-title>
+                {{step?.title}}
+            </mat-card-title>
+            <mat-card-content>
+                {{step?.content}}
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-icon-button [disabled]="!tourService.hasPrev(step)" (click)="tourService.prev()">
+                    <mat-icon>chevron_left</mat-icon>
+                </button>
+                <button mat-icon-button [disabled]="!tourService.hasNext(step)" (click)="tourService.next()">
+                    <mat-icon>chevron_right</mat-icon>
+                </button>
+                <button mat-button (click)="tourService.end()">{{step?.endBtnTitle}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-template>
+</tour-step-template>

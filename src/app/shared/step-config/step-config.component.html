@@ -1,0 +1,120 @@
+
+<app-header id="step-config">Step Configuration</app-header>
+
+<p>Each step can have the following properties.</p>
+
+<tui-doc-documentation>
+    <ng-template
+        documentationPropertyName="stepId"
+        documentationPropertyType="string"
+    >
+        A unique identifier for the step (optional)
+    </ng-template>
+    <ng-template
+        documentationPropertyName="anchorId"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'some.anchor.id'"
+    >
+        <div tourAnchor="config.anchorId">The anchor to which the step will be attached</div>
+    </ng-template>
+    <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'My Title'"
+    >
+        The title of the tour step
+    </ng-template>
+    <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'<b>Lorem</b> ipsum dolores'"
+    >
+        The content text of the tour step
+    </ng-template>
+    <ng-template
+        documentationPropertyName="enableBackdrop"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        <div tourAnchor="config.enableBackdrop">Enable active element highlighting</div>
+    </ng-template>
+    <ng-template
+        documentationPropertyName="route"
+        documentationPropertyType="string | UrlSegment[]"
+    >
+        <div tourAnchor="config.route">The route to navigate to before showing the tour step (optional)</div>
+    </ng-template>
+    <ng-template
+        *ngIf="isContainerClassVisible"
+        documentationPropertyName="containerClass"
+        documentationPropertyType="string"
+    >
+        <div tourAnchor="config.containerClass">Custom CSS class for popover container (optional)</div>
+    </ng-template>
+    <ng-template
+        documentationPropertyName="nextStep"
+        documentationPropertyType="number | string"
+    >
+        The step index or stepId of the next step (optional)
+    </ng-template>
+    <ng-template
+        documentationPropertyName="prevStep"
+        documentationPropertyType="number | string"
+    >
+        The step index or stepId of the previous step (optional)
+    </ng-template>
+    <ng-template
+        *ngIf="placementConfig"
+        documentationPropertyName="placement"
+        [documentationPropertyType]="placementConfig.type"
+        [documentationPropertyValue]="placementConfig.value"
+        [documentationPropertyValues]="placementConfig.values"
+    >
+        <div tourAnchor="config.placement">
+            Tour step position with respect to the anchor (optional).
+            <span [innerHTML]="placementConfig.extraInfo"></span>
+        </div>
+    </ng-template>
+    <ng-template
+        documentationPropertyName="preventScrolling"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        If active, stops automatic page scroll to tour anchor element
+    </ng-template>
+    <ng-template
+        documentationPropertyName="prevBtnTitle"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'Prev'"
+    >
+        <div tourAnchor="config.buttons.custom">"Previous" button title</div>
+    </ng-template>
+    <ng-template
+        documentationPropertyName="nextBtnTitle"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'Next'"
+    >
+        "Next" button title
+    </ng-template>
+    <ng-template
+        documentationPropertyName="endBtnTitle"
+        documentationPropertyType="string"
+        [documentationPropertyValue]="'End'"
+    >
+        "End" button title
+    </ng-template>
+    <ng-template
+        documentationPropertyName="waitFor"
+        documentationPropertyType="Promise | Observable"
+        [documentationPropertyDeprecated]="true"
+    >
+        Use "isAsync" instead
+    </ng-template>
+    <ng-template
+        documentationPropertyName="isAsync"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        <div tourAnchor="config.isAsync">Mark your step as async if anchor element is added to DOM with a delay.</div>
+    </ng-template>
+</tui-doc-documentation>

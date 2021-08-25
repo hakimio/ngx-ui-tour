@@ -1,28 +1,23 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { TourNgxBootstrapModule } from 'ngx-ui-tour-ngx-bootstrap';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {TourAnchorNgxBootstrapDirective, TourNgxBootstrapModule} from 'ngx-ui-tour-ngx-bootstrap';
 
-import { DocsComponent } from './docs.component';
-import { NgxBootstrapComponent } from './ngx-bootstrap.component';
-import { OtherRouteComponent } from './other-route.component';
+import {NgxBootstrapComponent} from './ngx-bootstrap.component';
+import {generateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {SharedModule} from '../shared/shared.module';
+import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 
 @NgModule({
-  declarations: [NgxBootstrapComponent, DocsComponent, OtherRouteComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([{
-      component: NgxBootstrapComponent,
-      path: '',
-      children: [{
-        component: DocsComponent,
-        path: '',
-      }, {
-        component: OtherRouteComponent,
-        path: 'other',
-      }]
-    }]),
-    TourNgxBootstrapModule.forRoot()
-  ],
+    declarations: [NgxBootstrapComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(generateRoutes(NgxBootstrapComponent)),
+        TourNgxBootstrapModule.forRoot(),
+        SharedModule.withAnchorDirectiveType(TourAnchorNgxBootstrapDirective),
+        TuiButtonModule,
+        TuiLinkModule,
+        TuiDocPageModule
+    ]
 })
-export class NgxBootstrapModule { }
+export class NgxBootstrapModule {}

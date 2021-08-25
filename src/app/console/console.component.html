@@ -1,7 +1,62 @@
-<a href="https://github.com/hakimio/ngx-ui-tour" class="btn btn-default">View on GitHub</a>
-<a style="cursor: pointer" (click)="tourService.toggle()" class="btn btn-primary" tourAnchor="start.tour">Start Demo Tour</a>
-<a style="cursor: pointer" (click)="tourService.prev()" class="btn btn-default">Prev</a>
-<a style="cursor: pointer" (click)="tourService.next()" class="btn btn-default">Next</a>
+<tui-doc-page
+    header="Console"
+    package="ngx-ui-tour-console"
+>
+    <ng-template pageTab>
+        <p>
+            <code>ngx-ui-tour</code> is a UI tour library built for Angular. It's inspired by
+            <a tuiLink target="_blank" tourAnchor="angular-ui-tour" href="http://benmarch.github.io/angular-ui-tour">angular-ui-tour</a>.
+        </p>
+        <p>
+            <code>TourConsoleModule</code> is a minimal implementation of the tour UI that uses only the browser's
+            JavaScript console to display tour steps.
+        </p>
+        <p class="strong">Use left/right arrow keys to navigate through the tour and escape key to end the tour.</p>
+        <p>
+            <button
+                tuiButton
+                type="button"
+                (click)="tourService.start()"
+                tourAnchor="start.tour"
+            >
+                Start Demo Tour
+            </button>
+        </p>
+    </ng-template>
+    <ng-template pageTab>
+        <app-header tourAnchor="installation" id="installation">Installation</app-header>
 
-<router-outlet></router-outlet>
+        <ol>
+            <li>
+                <code>npm install ngx-ui-tour-core ngx-ui-tour-console</code>
+            </li>
+            <li>
+                Import <code>TourConsoleModule.forRoot()</code> into your app module
+            </li>
+            <li>
+                Make sure <code>RouterModule</code> is imported in your app module
+            </li>
+        </ol>
+        <app-usage moduleName="TourConsoleModule"></app-usage>
+    </ng-template>
+    <ng-template pageTab>
+        <app-step-config>
+            <app-placement-config
+                value="above"
+                [values]="['above', 'below', 'after', 'before']"
+            ></app-placement-config>
+        </app-step-config>
+        <app-tour-service-api></app-tour-service-api>
+        <app-events></app-events>
+    </ng-template>
+    <ng-template pageTab>
+        <app-faq></app-faq>
+    </ng-template>
+    <ng-template pageTab>
+        <app-hotkeys></app-hotkeys>
+        <app-defaults></app-defaults>
+        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+    </ng-template>
+</tui-doc-page>
+
 <tour-hotkey-listener></tour-hotkey-listener>
