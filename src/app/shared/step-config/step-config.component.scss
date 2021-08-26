@@ -2,9 +2,10 @@ app-header {
     margin-top: 0;
 }
 
+/* Workaround for the UI tour to highlight whole table cell instead of just the description text */
 div[tourAnchor] {
-    padding-top: 45px;
-    margin-top: -45px;
-    padding-bottom: 16px;
-    margin-bottom: -16px;
+    padding-top: 2.75rem;
+    margin-top: -2.75rem;
+    padding-bottom: 1rem;
+    margin-bottom: -1rem;
 }
