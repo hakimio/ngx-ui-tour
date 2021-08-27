@@ -34,3 +34,12 @@ a {
     cursor: pointer;
     outline: 0;
 }
+
+tui-doc-code pre code {
+    .hljs-attribute,
+    .hljs-number,
+    .hljs-regexp,
+    .hljs-link {
+        color: var(--tui-link);
+    }
+}
