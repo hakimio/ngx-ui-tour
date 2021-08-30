@@ -233,6 +233,7 @@ Each step can have the following properties.
 | **route**	| string &#124; UrlSegment[] |	undefined |	The route to which the tour should navigate before attempting to show this tour step. If undefined, no navigation is attempted. |
 | **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
 | **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
+| **placement** |	MdMenuPlacement |	undefined |	Tour step position with respect to the anchor. |
 | **preventScrolling** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
 | **prevBtnTitle** |	string |	"Prev" |	Sets a custom prev button title for a given step. Default is "Prev" |
 | **nextBtnTitle** |	string |	"Next" |	Sets a custom next button title for a given step. Default is "Next" |
