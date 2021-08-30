@@ -25,6 +25,7 @@ export interface IStepOption {
   waitFor?: Promise<void> | Observable<void>;
   enableBackdrop?: boolean;
   isAsync?: boolean;
+  isOptional?: boolean;
 }
 
 export enum TourState {
@@ -33,6 +34,12 @@ export enum TourState {
   PAUSED
 }
 
+enum Direction {
+  Forwards,
+  Backwards
+}
+
+// noinspection JSUnusedGlobalSymbols
 @Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
   public stepShow$: Subject<T> = new Subject();
@@ -74,6 +81,7 @@ export class TourService<T extends IStepOption = IStepOption> {
   public anchors: { [anchorId: string]: TourAnchorDirective } = {};
   private status: TourState = TourState.OFF;
   private isHotKeysEnabled = true;
+  private direction = Direction.Forwards;
 
   constructor(private router: Router) {}
 
@@ -146,6 +154,7 @@ export class TourService<T extends IStepOption = IStepOption> {
   }
 
   public next(): void {
+    this.direction = Direction.Forwards;
     if (this.hasNext(this.currentStep)) {
       this.goToStep(
         this.loadStep(
@@ -167,6 +176,7 @@ export class TourService<T extends IStepOption = IStepOption> {
   }
 
   public prev(): void {
+    this.direction = Direction.Backwards;
     if (this.hasPrev(this.currentStep)) {
       this.goToStep(
         this.loadStep(
@@ -292,6 +302,10 @@ export class TourService<T extends IStepOption = IStepOption> {
               this.stopWaiting$.next(step);
             }
           );
+        return;
+      }
+      if (step.isOptional) {
+        this.direction === Direction.Forwards ? this.next() : this.prev();
         return;
       }
 
