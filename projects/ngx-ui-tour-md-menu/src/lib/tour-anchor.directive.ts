@@ -12,8 +12,7 @@ import {
   ScrollingUtil,
   TourAnchorDirective,
   TourBackdropService,
-  TourState,
-  IStepOption
+  TourState
 } from 'ngx-ui-tour-core';
 import { Subscription } from 'rxjs';
 
@@ -21,6 +20,7 @@ import { TourAnchorOpenerComponent } from './tour-anchor-opener.component';
 import { TourStepTemplateService } from './tour-step-template.service';
 import { first } from 'rxjs/operators';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
+import {IMdStepOption} from './step-option.interface';
 
 @Directive({
   selector: '[tourAnchor]'
@@ -58,7 +58,7 @@ export class TourAnchorMatMenuDirective
   }
 
   // noinspection JSUnusedGlobalSymbols
-  public showTourStep(step: IStepOption): void {
+  public showTourStep(step: IMdStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
     this.isActive = true;
@@ -69,6 +69,8 @@ export class TourAnchorMatMenuDirective
     }
     (<any>this.opener.trigger)._element = this.element;
     this.opener.trigger.menu = this.tourStepTemplate.templateComponent.tourStep;
+    this.opener.trigger.menu.xPosition = step.placement?.xPosition || 'after';
+    this.opener.trigger.menu.yPosition = step.placement?.yPosition || 'below';
     this.opener.trigger.ngAfterContentInit();
     this.opener.trigger.openMenu();
 

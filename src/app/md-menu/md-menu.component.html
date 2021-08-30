@@ -43,7 +43,11 @@
         <app-usage moduleName="TourMatMenuModule"></app-usage>
     </ng-template>
     <ng-template pageTab>
-        <app-step-config></app-step-config>
+        <app-step-config>
+            <app-placement-config
+                type="MdMenuPlacement"
+            ></app-placement-config>
+        </app-step-config>
         <app-tour-service-api></app-tour-service-api>
         <app-events></app-events>
     </ng-template>
