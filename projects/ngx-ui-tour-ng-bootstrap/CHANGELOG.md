@@ -1,3 +1,11 @@
+<a name="8.1.0"></a>
+
+# [8.1.0](https://github.com/hakimio/ngx-ui-tour) (2021-08-30)
+
+### Features
+
+- New `isOptional` config used to mark tour steps which should be skipped when their anchor element is not found
+
 <a name="8.0.0"></a>
 
 # [8.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-05-31)
@@ -5,7 +13,7 @@
 ### Features
 
 - Support Angular 12
-- New `isAsync` config used to mark tour step's which anchor element is added to DOM with a delay (ie after data is loaded)
+- New `isAsync` config used to mark tour steps which anchor element is added to DOM with a delay (ie after data is loaded)
 
 ### Deprecations
 

@@ -1,14 +1,14 @@
 {
   "name": "ngx-ui-tour-ngx-bootstrap",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <13.0.0",
     "@angular/core": ">=9.0.0 <13.0.0",
-    "ngx-bootstrap": ">=3.1.0 <7.0.0",
-    "ngx-ui-tour-core": "^6.0.0",
+    "ngx-bootstrap": ">=3.1.0 <8.0.0",
+    "ngx-ui-tour-core": "^6.1.0",
     "typescript": ">=3.8.0"
   },
   "dependencies": {
