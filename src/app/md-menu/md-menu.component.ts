@@ -1,6 +1,5 @@
-import {TourService} from 'ngx-ui-tour-md-menu';
+import {IStepOption, TourService} from 'ngx-ui-tour-md-menu';
 import {Component, OnInit} from '@angular/core';
-import {IStepOption} from 'ngx-ui-tour-core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 
 @Component({
@@ -53,6 +52,11 @@ export class MdMenuComponent implements OnInit {
         anchorId: 'config.route',
         content: 'Tours can span multiple routes.',
         title: 'Route',
+        route: 'md-menu/API'
+    }, {
+        anchorId: 'config.placement',
+        content: 'Steps can be positioned around an anchor.',
+        title: 'Placement',
         route: 'md-menu/API'
     }, {
         anchorId: 'config.buttons.custom',

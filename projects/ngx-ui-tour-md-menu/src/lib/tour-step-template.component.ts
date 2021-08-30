@@ -6,11 +6,12 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import { MatMenu } from '@angular/material/menu';
-import { IStepOption, TourHotkeyListenerComponent } from 'ngx-ui-tour-core';
+import {MatMenu} from '@angular/material/menu';
+import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 
-import { TourStepTemplateService } from './tour-step-template.service';
-import { NgxmTourService } from './ngx-md-menu-tour.service';
+import {TourStepTemplateService} from './tour-step-template.service';
+import {NgxmTourService} from './ngx-md-menu-tour.service';
+import {IMdStepOption} from './step-option.interface';
 
 @Component({
   selector: 'tour-step-template',
@@ -65,12 +66,12 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent
   @ViewChild(MatMenu) public tourStep: MatMenu;
 
   @Input()
-  public stepTemplate: TemplateRef<{ step: IStepOption }>;
+  public stepTemplate: TemplateRef<{ step: IMdStepOption }>;
 
   @ContentChild(TemplateRef)
-  public stepTemplateContent: TemplateRef<{ step: IStepOption }>;
+  public stepTemplateContent: TemplateRef<{ step: IMdStepOption }>;
 
-  public step: IStepOption = {};
+  public step: IMdStepOption = {};
 
   constructor(
     private tourStepTemplateService: TourStepTemplateService,
