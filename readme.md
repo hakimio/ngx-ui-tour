@@ -234,7 +234,7 @@ Each step can have the following properties.
 | **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
 | **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
 | **placement** |	MdMenuPlacement |	undefined |	Tour step position with respect to the anchor. |
-| **preventScrolling** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
+| **disableScrollToAnchor** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
 | **prevBtnTitle** |	string |	"Prev" |	Sets a custom prev button title for a given step. Default is "Prev" |
 | **nextBtnTitle** |	string |	"Next" |	Sets a custom next button title for a given step. Default is "Next" |
 | **endBtnTitle** |	string |	"End" |	Sets a custom end button title for a given step. Default is "End" |
@@ -247,7 +247,7 @@ You can set default values in the `TourService.initialize()` function.
 ```ts
 this.tourService.initialize(steps, {
     route: '',
-    preventScrolling: true,
+    disablePageScrolling: true
 });
 ```
 Any value explicitly defined in a step will override the default value.
