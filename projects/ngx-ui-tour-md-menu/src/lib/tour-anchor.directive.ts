@@ -75,7 +75,7 @@ export class TourAnchorMatMenuDirective
     this.opener.trigger.openMenu();
 
     if (step.enableBackdrop) {
-      this.tourBackdrop.show(this.element);
+      this.tourBackdrop.show(this.element, !step.disablePageScrolling);
     } else {
       this.tourBackdrop.close();
     }
