@@ -93,6 +93,7 @@ export class MdMenuComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'md-menu',
+            closeOnOutsideClick: true
         });
     }
 

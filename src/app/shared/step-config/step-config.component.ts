@@ -12,6 +12,9 @@ export class StepConfigComponent {
     @Input()
     isContainerClassVisible = false;
 
+    @Input()
+    isCloseOnOutsideClickVisible = false;
+
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;
 

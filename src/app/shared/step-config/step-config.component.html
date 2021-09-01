@@ -52,6 +52,14 @@
         <div tourAnchor="config.containerClass">Custom CSS class for popover container (optional)</div>
     </ng-template>
     <ng-template
+        *ngIf="isCloseOnOutsideClickVisible"
+        documentationPropertyName="closeOnOutsideClick"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        Enable to close the tour on outside click
+    </ng-template>
+    <ng-template
         documentationPropertyName="nextStep"
         documentationPropertyType="number | string"
     >
