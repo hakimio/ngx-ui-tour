@@ -4,6 +4,14 @@
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
+  "description": "UI tour library for Angular 9+",
+  "keywords": [
+    "angular",
+    "ngx",
+    "tour",
+    "product-tour",
+    "ui-tour"
+  ],
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <13.0.0",
     "@angular/core": ">=9.0.0 <13.0.0",

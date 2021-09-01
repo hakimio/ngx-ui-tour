@@ -1,6 +1,15 @@
 {
   "name": "ngx-ui-tour-ng-bootstrap",
   "version": "8.1.0",
+  "description": "UI tour library for Angular 9+",
+  "keywords": [
+    "angular",
+    "ngx",
+    "ng-bootstrap",
+    "tour",
+    "product-tour",
+    "ui-tour"
+  ],
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
