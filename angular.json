@@ -148,7 +148,7 @@
             "production": {
               "project": "projects/ngx-ui-tour-console/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-console/tsconfig.lib.prod.json"
-},
+            },
             "development": {}
           },
           "defaultConfiguration": "production"
@@ -191,7 +191,7 @@
             "production": {
               "project": "projects/ngx-ui-tour-core/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-core/tsconfig.lib.prod.json"
-},
+            },
             "development": {}
           },
           "defaultConfiguration": "production"
@@ -233,7 +233,7 @@
             "production": {
               "project": "projects/ngx-ui-tour-md-menu/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-md-menu/tsconfig.lib.prod.json"
-},
+            },
             "development": {}
           },
           "defaultConfiguration": "production"
@@ -276,7 +276,7 @@
             "production": {
               "project": "projects/ngx-ui-tour-ng-bootstrap/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-ng-bootstrap/tsconfig.lib.prod.json"
-},
+            },
             "development": {}
           },
           "defaultConfiguration": "production"
@@ -319,7 +319,7 @@
             "production": {
               "project": "projects/ngx-ui-tour-ngx-bootstrap/ng-package.prod.json",
               "tsConfig": "projects/ngx-ui-tour-ngx-bootstrap/tsconfig.lib.prod.json"
-},
+            },
             "development": {}
           },
           "defaultConfiguration": "production"
