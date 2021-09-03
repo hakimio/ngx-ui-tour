@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+$sticky-header-height: 4rem;
+
+html {
+    // Temporary fix for anchor links until following PR is released: TinkoffCreditSystems/taiga-ui/pull/662
+    scroll-padding-top: $sticky-header-height;
+}
+
 body {
     font: var(--tui-font-text-m);
     overflow-x: hidden;
