@@ -42,6 +42,9 @@ enum Direction {
 // noinspection JSUnusedGlobalSymbols
 @Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
+
+  private readonly WAIT_AFTER_NAVIGATION = 150;
+
   public stepShow$: Subject<T> = new Subject();
   public stepHide$: Subject<T> = new Subject();
   public initialize$: Subject<T[]> = new Subject();
@@ -244,7 +247,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
     navigatePromise.then(navigated => {
       if (navigated !== false && !step.waitFor) {
-        setTimeout(() => this.setCurrentStep(step));
+        setTimeout(() => this.setCurrentStep(step), this.WAIT_AFTER_NAVIGATION);
       } else if (navigated !== false) {
         this.wait(step);
       }
