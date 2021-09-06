@@ -241,6 +241,7 @@ Each step can have the following properties.
 | **~~waitFor~~** |	Promise &#124; Observable |	undefined |	[Deprecated: use "isAsync" instead] Waits for the given Promise or Observable before showing the step contents. |
 | **isAsync** |	boolean |	false |	Mark your step as "async" if anchor element is added to DOM with a delay (ie after data is loaded). |
 | **isOptional** |	boolean |	false |	Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked both "optional" and "async". |
+| **delayAfterNavigation** |	number |	0 |	Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use custom scrollbar and the page is not scrolled all the way before the tour step is shown. |
 
 ## Defaults
 You can set default values in the `TourService.initialize()` function.

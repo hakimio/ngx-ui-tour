@@ -1,6 +1,7 @@
 import {IStepOption, TourService} from 'ngx-ui-tour-md-menu';
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
+import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 
 @Component({
     selector: 'app-md-menu',
@@ -87,12 +88,15 @@ export class MdMenuComponent implements OnInit {
     readonly defaultTemplate = defaultTemplate;
 
     constructor(
-        public tourService: TourService
+        public tourService: TourService,
+        @Inject(DELAY_AFTER_NAVIGATION)
+        private readonly delayAfterNavigation: number
     ) {}
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'md-menu',
+            delayAfterNavigation: this.delayAfterNavigation
         });
     }
 
