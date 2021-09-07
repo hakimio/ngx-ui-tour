@@ -16,11 +16,11 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "paths": {
-      "ngx-ui-tour-core": ["dist/ngx-ui-tour-core"],
-      "ngx-ui-tour-console": ["dist/ngx-ui-tour-console"],
-      "ngx-ui-tour-md-menu": ["dist/ngx-ui-tour-md-menu"],
-      "ngx-ui-tour-ng-bootstrap": ["dist/ngx-ui-tour-ng-bootstrap"],
-      "ngx-ui-tour-ngx-bootstrap": ["dist/ngx-ui-tour-ngx-bootstrap"]
+      "ngx-ui-tour-core": ["projects/ngx-ui-tour-core/src/public_api"],
+      "ngx-ui-tour-console": ["projects/ngx-ui-tour-console/src/public_api"],
+      "ngx-ui-tour-md-menu": ["projects/ngx-ui-tour-md-menu/src/public_api"],
+      "ngx-ui-tour-ng-bootstrap": ["projects/ngx-ui-tour-ng-bootstrap/src/public_api"],
+      "ngx-ui-tour-ngx-bootstrap": ["projects/ngx-ui-tour-ngx-bootstrap/src/public_api"]
     }
   }
 }
