@@ -3,8 +3,8 @@ import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 import type {UrlSegment} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {Subject, Observable, merge as mergeStatic, from} from 'rxjs';
-import {first, map, filter} from 'rxjs/operators';
+import {Subject, Observable, merge as mergeStatic} from 'rxjs';
+import {first, map, filter, delay} from 'rxjs/operators';
 
 export interface IStepOption {
     stepId?: string;
@@ -19,10 +19,6 @@ export interface IStepOption {
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
-    /**
-     * @deprecated use "isAsync" instead
-     */
-    waitFor?: Promise<void> | Observable<void>;
     enableBackdrop?: boolean;
     isAsync?: boolean;
     isOptional?: boolean;
@@ -52,8 +48,6 @@ export class TourService<T extends IStepOption = IStepOption> {
     public end$: Subject<any> = new Subject();
     public pause$: Subject<T> = new Subject();
     public resume$: Subject<T> = new Subject();
-    public startWaiting$: Subject<T> = new Subject();
-    public stopWaiting$: Subject<T> = new Subject();
     public anchorRegister$: Subject<string> = new Subject();
     public anchorUnregister$: Subject<string> = new Subject();
     public events$: Observable<{ name: string; value: any }> = mergeStatic(
@@ -268,25 +262,9 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (!navigated) {
             console.warn('Navigation to route failed: ', step.route);
             this.end();
-        } else if (!step.waitFor) {
-            setTimeout(() => this.setCurrentStep(step), this.WAIT_AFTER_NAVIGATION);
         } else {
-            this.wait(step);
+            setTimeout(() => this.setCurrentStep(step), this.WAIT_AFTER_NAVIGATION);
         }
-    }
-
-    private wait(step: T) {
-        const waitFor$ = from(step.waitFor);
-
-        this.startWaiting$.next(step);
-        waitFor$
-            .pipe(first())
-            .subscribe(
-                () => {
-                    setTimeout(() => this.setCurrentStep(step));
-                    this.stopWaiting$.next(step);
-                }
-            );
     }
 
     private loadStep(stepId: number | string): T {
@@ -314,17 +292,14 @@ export class TourService<T extends IStepOption = IStepOption> {
 
         if (!anchor) {
             if (step.isAsync) {
-                this.startWaiting$.next(step);
                 this.anchorRegister$
                     .pipe(
                         filter(anchorId => anchorId === step.anchorId),
-                        first()
+                        first(),
+                        delay(0)
                     )
                     .subscribe(
-                        () => {
-                            setTimeout(() => this.showStep(step));
-                            this.stopWaiting$.next(step);
-                        }
+                        () => this.showStep(step)
                     );
                 return;
             }
