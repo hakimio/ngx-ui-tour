@@ -127,6 +127,10 @@ this.tourService.start();
 
 ### How to disable main content scrolling when UI tour is active?
 
+### NOTE: starting with v7 you can simply enable `disablePageScrolling` step config if you are using `md-menu` tour UI
+
+#### If you are using older version or different UI implementation you can still use following guide to achieve this
+
 You can toggle CSS class which disables main content element scrolling when tour starts/ends.
 1. Create custom `TourService`:
 ```ts
