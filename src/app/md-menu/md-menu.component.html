@@ -43,7 +43,9 @@
         <app-usage moduleName="TourMatMenuModule"></app-usage>
     </ng-template>
     <ng-template pageTab>
-        <app-step-config>
+        <app-step-config
+            [isDisablePageScrollingVisible]="true"
+        >
             <app-placement-config
                 type="MdMenuPlacement"
             ></app-placement-config>

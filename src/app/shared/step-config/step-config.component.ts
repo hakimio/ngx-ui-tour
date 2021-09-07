@@ -12,6 +12,9 @@ export class StepConfigComponent {
     @Input()
     isContainerClassVisible = false;
 
+    @Input()
+    isDisablePageScrollingVisible = false;
+
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;
 
