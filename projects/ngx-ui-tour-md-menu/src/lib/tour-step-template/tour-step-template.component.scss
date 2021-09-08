@@ -36,4 +36,8 @@ mat-card-title {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
+    button.close {
+        margin: -8px -8px -8px 0;
+    }
 }

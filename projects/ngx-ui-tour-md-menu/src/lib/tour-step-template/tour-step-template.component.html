@@ -11,7 +11,14 @@
     <mat-card (click)="$event.stopPropagation()">
         <mat-card-title>
             <div class="title-text">{{step?.title}}</div>
-            <mat-icon class="title-close" (click)="tourService.end()">close</mat-icon>
+            <button
+                mat-button
+                mat-icon-button
+                (click)="tourService.end()"
+                class="close"
+            >
+                <mat-icon>close</mat-icon>
+            </button>
         </mat-card-title>
 
         <mat-card-content [innerHTML]="step?.content"></mat-card-content>
