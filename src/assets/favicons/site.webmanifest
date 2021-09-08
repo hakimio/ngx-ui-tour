@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Ngx UI Tour",
+    "short_name": "UI Tour",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
