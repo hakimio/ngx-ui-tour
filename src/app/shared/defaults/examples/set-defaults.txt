@@ -1,4 +1,4 @@
 this.tourService.initialize(steps, {
     route: '',
-    preventScrolling: true
+    disablePageScrolling: true
 });

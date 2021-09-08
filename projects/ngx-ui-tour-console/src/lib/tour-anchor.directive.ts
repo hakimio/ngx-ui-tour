@@ -37,7 +37,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
     const htmlElement: HTMLElement = this.element.nativeElement;
 
     this.isActive = true;
-    if (!step.preventScrolling) {
+    if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
 

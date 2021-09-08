@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {default as centeredStepCss} from '!!raw-loader!./examples/centered-step-css.txt';
 import {default as centeredStepHtml} from '!!raw-loader!./examples/centered-step-html.txt';
 import {default as centeredStepTs} from '!!raw-loader!./examples/centered-step-ts.txt';
@@ -12,6 +12,9 @@ import {default as customTourServiceUsage} from '!!raw-loader!./examples/custom-
     styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent {
+
+    @Input()
+    showDisablePageScrollingNote = false;
 
     readonly examples = {
         centeredStepCss,

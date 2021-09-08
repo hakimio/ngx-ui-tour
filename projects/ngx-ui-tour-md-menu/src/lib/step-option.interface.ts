@@ -3,6 +3,8 @@ import {MenuPositionX, MenuPositionY} from '@angular/material/menu';
 
 export interface IMdStepOption extends IStepOption {
     placement?: MdMenuPlacement;
+    closeOnOutsideClick?: boolean;
+    disablePageScrolling?: boolean;
 }
 
 export interface MdMenuPlacement {

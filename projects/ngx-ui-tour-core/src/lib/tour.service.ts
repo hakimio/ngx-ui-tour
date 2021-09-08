@@ -15,7 +15,7 @@ export interface IStepOption {
     nextStep?: number | string;
     prevStep?: number | string;
     placement?: any;
-    preventScrolling?: boolean;
+    disableScrollToAnchor?: boolean;
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
