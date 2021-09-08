@@ -3,9 +3,8 @@
     padding: 0 !important;
 }
 
-.title-close {
-    cursor: pointer;
-    margin-left: 8px;
+mat-card {
+    min-width: 200px;
 }
 
 mat-card-actions {
