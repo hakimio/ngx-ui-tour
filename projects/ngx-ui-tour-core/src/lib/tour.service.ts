@@ -26,6 +26,7 @@ export interface IStepOption {
     enableBackdrop?: boolean;
     isAsync?: boolean;
     isOptional?: boolean;
+    delayAfterNavigation?: number;
 }
 
 export enum TourState {
@@ -42,8 +43,6 @@ enum Direction {
 // noinspection JSUnusedGlobalSymbols
 @Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
-
-    private readonly WAIT_AFTER_NAVIGATION = 150;
 
     public stepShow$: Subject<T> = new Subject();
     public stepHide$: Subject<T> = new Subject();
@@ -269,7 +268,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             console.warn('Navigation to route failed: ', step.route);
             this.end();
         } else if (!step.waitFor) {
-            setTimeout(() => this.setCurrentStep(step), this.WAIT_AFTER_NAVIGATION);
+            setTimeout(() => this.setCurrentStep(step), step.delayAfterNavigation);
         } else {
             this.wait(step);
         }

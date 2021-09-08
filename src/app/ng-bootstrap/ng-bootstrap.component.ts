@@ -1,6 +1,7 @@
 import {TourService, IStepOption} from 'ngx-ui-tour-ng-bootstrap';
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
+import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 
 @Component({
     selector: 'app-ng-bootstrap',
@@ -89,13 +90,16 @@ export class NgBootstrapComponent implements OnInit {
     readonly defaultTemplate = defaultTemplate;
 
     constructor(
-        public readonly tourService: TourService
+        public readonly tourService: TourService,
+        @Inject(DELAY_AFTER_NAVIGATION)
+        private readonly delayAfterNavigation: number
     ) {}
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'ng-bootstrap',
-            placement: 'top-left'
+            placement: 'top-left',
+            delayAfterNavigation: this.delayAfterNavigation
         });
     }
 

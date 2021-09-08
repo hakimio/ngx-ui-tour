@@ -6,6 +6,7 @@ import {pages} from './pages';
 import {HighlightOptions} from 'ngx-highlightjs';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
+import {InjectionToken} from '@angular/core';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -24,6 +25,10 @@ export const HIGHLIGHT_OPTIONS_VALUE: HighlightOptions = {
         css: () => import('highlight.js/lib/languages/css')
     }
 };
+
+export const DELAY_AFTER_NAVIGATION = new InjectionToken<number>('DelayAfterNavigation', {
+    factory: () => 0
+});
 
 export const APP_PROVIDERS = [
     Title,
@@ -54,5 +59,9 @@ export const APP_PROVIDERS = [
     {
         provide: TUI_ANIMATIONS_DURATION,
         useValue: 300
+    },
+    {
+        provide: DELAY_AFTER_NAVIGATION,
+        useValue: 150
     }
 ];

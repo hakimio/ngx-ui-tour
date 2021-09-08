@@ -1,5 +1,6 @@
 import {TourService, IStepOption} from 'ngx-ui-tour-console';
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 
 @Component({
     selector: 'app-console',
@@ -80,12 +81,15 @@ export class ConsoleComponent implements OnInit {
     }];
     
     constructor(
-        public readonly tourService: TourService
+        public readonly tourService: TourService,
+        @Inject(DELAY_AFTER_NAVIGATION)
+        private readonly delayAfterNavigation: number
     ) {}
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
-            route: 'console'
+            route: 'console',
+            delayAfterNavigation: this.delayAfterNavigation
         });
     }
 
