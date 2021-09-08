@@ -1,0 +1,52 @@
+<mat-menu [overlapTrigger]="false" class="tour-step">
+    <ng-container
+        *ngTemplateOutlet="
+                    stepTemplate || stepTemplateContent || defaultTemplate;
+                    context: { step: step }
+                "
+    ></ng-container>
+</mat-menu>
+
+<ng-template #defaultTemplate let-step="step">
+    <mat-card (click)="$event.stopPropagation()">
+        <mat-card-title>
+            <div class="title-text">{{step?.title}}</div>
+            <button
+                mat-button
+                mat-icon-button
+                (click)="tourService.end()"
+                class="close"
+            >
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-card-title>
+
+        <mat-card-content [innerHTML]="step?.content"></mat-card-content>
+
+        <mat-card-actions align="end">
+            <button
+                mat-button
+                class="prev"
+                [disabled]="!tourService.hasPrev(step)"
+                (click)="tourService.prev()"
+            >
+                <mat-icon>chevron_left</mat-icon> {{step?.prevBtnTitle}}
+            </button>
+            <button
+                mat-button
+                class="next"
+                *ngIf="tourService.hasNext(step)"
+                (click)="tourService.next()"
+            >
+                {{step?.nextBtnTitle}} <mat-icon>chevron_right</mat-icon>
+            </button>
+            <button
+                mat-button
+                (click)="tourService.end()"
+                *ngIf="!tourService.hasNext(step)"
+            >
+                {{step?.endBtnTitle}}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</ng-template>

@@ -1,0 +1,42 @@
+
+::ng-deep .tour-step .mat-menu-content {
+    padding: 0 !important;
+}
+
+mat-card {
+    min-width: 200px;
+}
+
+mat-card-actions {
+    justify-content: space-between;
+
+    button {
+        margin: 0;
+
+        &.prev {
+            padding-left: 4px;
+        }
+
+        &.next {
+            padding-right: 4px;
+        }
+    }
+}
+
+mat-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title-text {
+        line-height: 24px;
+        font-size: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    button.close {
+        margin: -8px -8px -8px 0;
+    }
+}

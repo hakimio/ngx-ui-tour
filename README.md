@@ -293,25 +293,42 @@ The default template is equivalent to this:
 
 ```html
 <tour-step-template>
-  <ng-template let-step="step">
-    <mat-card (click)="$event.stopPropagation()">
-      <mat-card-title>
-        {{step?.title}}
-      </mat-card-title>
-      <mat-card-content>
-        {{step?.content}}
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button [disabled]="!tourService.hasPrev(step)" (click)="tourService.prev()">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-        <button mat-icon-button [disabled]="!tourService.hasNext(step)" (click)="tourService.next()">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-        <button mat-button (click)="tourService.end()">{{step?.endBtnTitle}}</button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
+    <ng-template let-step="step">
+        <mat-card (click)="$event.stopPropagation()">
+            <mat-card-title>
+                <div class="title-text">{{step?.title}}</div>
+                <mat-icon class="title-close" (click)="tourService.end()">close</mat-icon>
+            </mat-card-title>
+
+            <mat-card-content [innerHTML]="step?.content"></mat-card-content>
+
+            <mat-card-actions align="end">
+                <button
+                    mat-button
+                    class="prev"
+                    [disabled]="!tourService.hasPrev(step)"
+                    (click)="tourService.prev()"
+                >
+                    <mat-icon>chevron_left</mat-icon> {{step?.prevBtnTitle}}
+                </button>
+                <button
+                    mat-button
+                    class="next"
+                    *ngIf="tourService.hasNext(step)"
+                    (click)="tourService.next()"
+                >
+                    {{step?.nextBtnTitle}} <mat-icon>chevron_right</mat-icon>
+                </button>
+                <button
+                    mat-button
+                    (click)="tourService.end()"
+                    *ngIf="!tourService.hasNext(step)"
+                >
+                    {{step?.endBtnTitle}}
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-template>
 </tour-step-template>
 ```
 
