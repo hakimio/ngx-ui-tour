@@ -1,3 +1,20 @@
+<a name="7.0.0"></a>
+
+# [7.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-09-08)
+
+### Features
+- New `delayAfterNavigation` config to set a delay between navigation to a different route and showing the step contents
+- New `closeOnOutsideClick` config to set if the tour should close on outside click
+- New `disablePageScrolling` config to prevent page scrolling when UI tour is active
+- Default tour step template has been updated
+- "Angular Ivy" partial compilation to reduce initial build time of applications using this library
+
+### Breaking Changes
+- The tour no longer closes on outside click by default. If you prefer the old behavior, you can enable `closeOnOutsideClick` config
+- "Angular ViewEngine" compiler is no longer supported
+- Removed deprecated `waitFor` config and associated events (`startWaiting$` and `stopWaiting$`). `isAsync` should be used instead.
+- `preventScrolling` config was renamed to `disableScrollToAnchor` to avoid ambiguity
+
 <a name="6.1.0"></a>
 
 # [6.1.0](https://github.com/hakimio/ngx-ui-tour) (2021-08-30)
