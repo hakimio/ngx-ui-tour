@@ -235,6 +235,7 @@ Each step can have the following properties.
 | **content**	| string	| ""	| The content text of the tour step |
 | **enableBackdrop**	| boolean	| false	| Controls whether to enable active element highlighting |
 | **route**	| string &#124; UrlSegment[] |	undefined |	The route to which the tour should navigate before attempting to show this tour step. If undefined, no navigation is attempted. |
+| **closeOnOutsideClick**	| boolean |	false |	Enable to close the tour on outside click ("md-menu" UI only) |
 | **disablePageScrolling** |	boolean |	false |	Prevents user from being able to scroll the page when the UI tour is active ("md-menu" UI only) |
 | **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
 | **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |

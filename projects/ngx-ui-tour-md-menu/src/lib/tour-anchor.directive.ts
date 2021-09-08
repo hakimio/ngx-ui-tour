@@ -67,12 +67,16 @@ export class TourAnchorMatMenuDirective
     if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
-    (<any>this.opener.trigger)._element = this.element;
-    this.opener.trigger.menu = this.tourStepTemplate.templateComponent.tourStep;
-    this.opener.trigger.menu.xPosition = step.placement?.xPosition || 'after';
-    this.opener.trigger.menu.yPosition = step.placement?.yPosition || 'below';
-    this.opener.trigger.ngAfterContentInit();
-    this.opener.trigger.openMenu();
+    const trigger = this.opener.trigger;
+    (<any>trigger)._element = this.element;
+
+    const menu = this.tourStepTemplate.templateComponent.tourStep;
+    trigger.menu = menu;
+    menu.xPosition = step.placement?.xPosition || 'after';
+    menu.yPosition = step.placement?.yPosition || 'below';
+    menu.hasBackdrop = !!step.closeOnOutsideClick;
+    trigger.ngAfterContentInit();
+    trigger.openMenu();
 
     if (step.enableBackdrop) {
       this.tourBackdrop.show(this.element, !step.disablePageScrolling);
@@ -87,7 +91,7 @@ export class TourAnchorMatMenuDirective
     if (this.menuCloseSubscription) {
       this.menuCloseSubscription.unsubscribe();
     }
-    this.menuCloseSubscription = this.opener.trigger.menuClosed
+    this.menuCloseSubscription = trigger.menuClosed
       .pipe(first())
       .subscribe(() => {
         if (this.tourService.getStatus() !== TourState.OFF) {
