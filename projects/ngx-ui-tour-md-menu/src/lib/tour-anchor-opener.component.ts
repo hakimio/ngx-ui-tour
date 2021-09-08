@@ -1,18 +1,35 @@
-import { Component, ViewChild, Input } from '@angular/core';
-import { MatMenuTrigger, MatMenu } from '@angular/material/menu';
+import {Component, ViewChild, Input,} from '@angular/core';
+import {MatMenuTrigger, MatMenu, MAT_MENU_SCROLL_STRATEGY} from '@angular/material/menu';
+import {Overlay, ScrollStrategy} from '@angular/cdk/overlay';
+import {NgxmTourService} from './ngx-md-menu-tour.service';
+
+export function scrollFactory(overlay: Overlay, tourService: NgxmTourService): () => ScrollStrategy {
+  return () => {
+    const step = tourService.currentStep,
+        scrollStrategies = overlay.scrollStrategies,
+        disablePageScrolling = !!step.disablePageScrolling;
+
+    return disablePageScrolling ? scrollStrategies.block() : scrollStrategies.reposition();
+  };
+}
 
 @Component({
+  providers: [{
+    provide: MAT_MENU_SCROLL_STRATEGY,
+    useFactory: scrollFactory,
+    deps: [Overlay, NgxmTourService]
+  }],
   selector: 'tourAnchorOpener',
   styles: [
     `
-      :host {
-        display: none;
-      }
-    `
+            :host {
+                display: none;
+            }
+        `
   ],
   template: `
-    <span [matMenuTriggerFor]="menu" #trigger="matMenuTrigger"></span>
-  `
+        <span [matMenuTriggerFor]="menu" #trigger="matMenuTrigger"></span>
+    `
 })
 export class TourAnchorOpenerComponent {
   @Input() menu: MatMenu = new MatMenu(undefined, undefined, {

@@ -45,6 +45,7 @@
     <ng-template pageTab>
         <app-step-config
             [isCloseOnOutsideClickVisible]="true"
+            [isDisablePageScrollingVisible]="true"
         >
             <app-placement-config
                 type="MdMenuPlacement"
@@ -54,7 +55,9 @@
         <app-events></app-events>
     </ng-template>
     <ng-template pageTab>
-        <app-faq></app-faq>
+        <app-faq
+            [showDisablePageScrollingNote]="true"
+        ></app-faq>
     </ng-template>
     <ng-template pageTab>
         <app-hotkeys></app-hotkeys>

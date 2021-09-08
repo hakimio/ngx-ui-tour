@@ -64,7 +64,7 @@ export class TourAnchorMatMenuDirective
     this.isActive = true;
     this.tourStepTemplate.templateComponent.step = step;
     // Ignore step.placement
-    if (!step.preventScrolling) {
+    if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
     const trigger = this.opener.trigger;
@@ -79,7 +79,7 @@ export class TourAnchorMatMenuDirective
     trigger.openMenu();
 
     if (step.enableBackdrop) {
-      this.tourBackdrop.show(this.element);
+      this.tourBackdrop.show(this.element, !step.disablePageScrolling);
     } else {
       this.tourBackdrop.close();
     }
