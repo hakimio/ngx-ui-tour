@@ -47,7 +47,8 @@ export class MdMenuComponent implements OnInit {
         content: 'You can enable backdrop to highlight active element.',
         title: 'Backdrop',
         enableBackdrop: true,
-        route: 'md-menu/API'
+        route: 'md-menu/API',
+        disablePageScrolling: true
     }, {
         anchorId: 'config.route',
         content: 'Tours can span multiple routes.',
@@ -92,7 +93,7 @@ export class MdMenuComponent implements OnInit {
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
-            route: 'md-menu',
+            route: 'md-menu'
         });
     }
 

@@ -56,7 +56,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
     step.endBtnTitle = step.endBtnTitle || 'End';
 
     this.popoverDirective.open({ step });
-    if (!step.preventScrolling) {
+    if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
 
