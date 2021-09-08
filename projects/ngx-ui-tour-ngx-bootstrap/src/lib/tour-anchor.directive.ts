@@ -56,7 +56,7 @@ export class TourAnchorNgxBootstrapDirective
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
     this.popoverDirective.show();
-    if (!step.preventScrolling) {
+    if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
     if (step.enableBackdrop) {

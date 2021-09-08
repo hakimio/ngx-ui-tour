@@ -26,6 +26,13 @@
 
 <app-header id="disable-scrolling">How to disable main content scrolling when UI tour is active?</app-header>
 
+<div
+    *ngIf="showDisablePageScrollingNote"
+    class="important-text"
+>
+    NOTE: starting with v7 you can simply enable <code>disablePageScrolling</code> option in step config
+</div>
+
 <p>You can toggle CSS class which disables main content element scrolling when tour starts/ends.</p>
 <ol>
     <li>

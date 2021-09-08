@@ -15,13 +15,14 @@ export interface IStepOption {
     nextStep?: number | string;
     prevStep?: number | string;
     placement?: any;
-    preventScrolling?: boolean;
+    disableScrollToAnchor?: boolean;
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
     enableBackdrop?: boolean;
     isAsync?: boolean;
     isOptional?: boolean;
+    delayAfterNavigation?: number;
 }
 
 export enum TourState {
@@ -38,8 +39,6 @@ enum Direction {
 // noinspection JSUnusedGlobalSymbols
 @Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
-
-    private readonly WAIT_AFTER_NAVIGATION = 150;
 
     public stepShow$: Subject<T> = new Subject();
     public stepHide$: Subject<T> = new Subject();
@@ -263,7 +262,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             console.warn('Navigation to route failed: ', step.route);
             this.end();
         } else {
-            setTimeout(() => this.setCurrentStep(step), this.WAIT_AFTER_NAVIGATION);
+            setTimeout(() => this.setCurrentStep(step), step.delayAfterNavigation);
         }
     }
 

@@ -52,6 +52,22 @@
         <div tourAnchor="config.containerClass">Custom CSS class for popover container (optional)</div>
     </ng-template>
     <ng-template
+        *ngIf="isCloseOnOutsideClickVisible"
+        documentationPropertyName="closeOnOutsideClick"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        Enable to close the tour on outside click
+    </ng-template>
+    <ng-template
+        *ngIf="isDisablePageScrollingVisible"
+        documentationPropertyName="disablePageScrolling"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        Prevents user from being able to scroll the page when the UI tour is active
+    </ng-template>
+    <ng-template
         documentationPropertyName="nextStep"
         documentationPropertyType="number | string"
     >
@@ -76,7 +92,7 @@
         </div>
     </ng-template>
     <ng-template
-        documentationPropertyName="preventScrolling"
+        documentationPropertyName="disableScrollToAnchor"
         documentationPropertyType="boolean"
         [documentationPropertyValue]="false"
     >
@@ -117,5 +133,13 @@
     >
         Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked
         both "optional" and "async".
+    </ng-template>
+    <ng-template
+        documentationPropertyName="delayAfterNavigation"
+        documentationPropertyType="number"
+        [documentationPropertyValue]="0"
+    >
+        Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use
+        custom scrollbar and the page is not scrolled all the way before the tour step is shown.
     </ng-template>
 </tui-doc-documentation>
