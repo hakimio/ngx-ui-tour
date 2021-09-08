@@ -7293,10 +7293,12 @@ ng-packagr@^12.2.1:
     sass "^1.32.8"
     stylus "^0.54.8"
 
-ngx-bootstrap@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-6.2.0.tgz#678b274dabfda31411eb1234c981d1967750d890"
-  integrity sha512-5WKHo6/ltkenw4UyXZwED8rODCgp2RGbWurzYzZsF/gH1JO5SN7TJ+AL6kXYk6XM42sDA2WhN9Db+ZPNjiyHnA==
+ngx-bootstrap@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-7.1.0.tgz#60cd83b1d2da52ffd9f8ca6f270e77010d55cf5a"
+  integrity sha512-2qUTqq+DtimKpYNEga85G00zdMEZ2fcvtYaZkrdZRtwqyCXbPC69LXXzLkgu5697m83++iFWvwFp0IJDuGev1A==
+  dependencies:
+    tslib "^2.0.0"
 
 ngx-highlightjs@^4.1.4:
   version "4.1.4"
