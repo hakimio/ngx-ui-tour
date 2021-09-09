@@ -6,6 +6,7 @@
                 mat-list-item
                 [routerLink]="page.path"
                 routerLinkActive="sidenav-item-selected"
+                [routerLinkActiveOptions]="{exact: true}"
             >
                 {{page.name}}
             </a>

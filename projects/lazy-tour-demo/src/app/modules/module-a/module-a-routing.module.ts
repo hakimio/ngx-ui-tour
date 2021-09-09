@@ -5,12 +5,12 @@ import {ModuleAComponent} from './module-a.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'module-a-component',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        component: ModuleAComponent
     },
     {
-        path: 'module-a-component',
-        component: ModuleAComponent
+        path: '**',
+        redirectTo: ''
     }
 ];
 

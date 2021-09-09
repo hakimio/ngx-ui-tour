@@ -9,7 +9,7 @@ export class AppComponent {
 
     pages: Page[] = [{
         name: 'Home',
-        path: 'module-app-home'
+        path: ''
     }, {
         name: 'Module A',
         path: 'module-a'

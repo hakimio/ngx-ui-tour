@@ -6,11 +6,7 @@ import {HomeComponent} from './components/home/home.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'module-app-home',
-        pathMatch: 'full'
-    },
-    {
-        path: 'module-app-home',
+        pathMatch: 'full',
         component: HomeComponent
     },
     {
@@ -20,6 +16,10 @@ const routes: Routes = [
     {
         path: 'module-b',
         loadChildren: () => import('./modules/module-b/module-b.module').then(m => m.ModuleBModule)
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
 
