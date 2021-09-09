@@ -10,7 +10,9 @@
     "ngx",
     "tour",
     "product-tour",
-    "ui-tour"
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
   ],
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <13.0.0",

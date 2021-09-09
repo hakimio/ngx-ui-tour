@@ -6,9 +6,12 @@
     "angular",
     "ngx",
     "ngx-bootstrap",
+    "bootstrap",
     "tour",
     "product-tour",
-    "ui-tour"
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
   ],
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
