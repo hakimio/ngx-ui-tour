@@ -18,32 +18,27 @@ export class NgxBootstrapComponent implements OnInit {
     }, {
         anchorId: 'angular-ui-tour',
         content: 'Thanks to angular-ui-tour for the inspiration for the library',
-        title: 'angular-ui-tour',
-        isAsync: true
+        title: 'angular-ui-tour'
     }, {
         anchorId: 'installation',
         content: 'First, install the library...',
         title: 'Installation',
-        route: 'ngx-bootstrap/Setup',
-        isAsync: true
+        route: 'ngx-bootstrap/Setup'
     }, {
         anchorId: 'usage',
         content: '...then use it.',
         title: 'Usage',
-        route: 'ngx-bootstrap/Setup',
-        isAsync: true
+        route: 'ngx-bootstrap/Setup'
     }, {
         anchorId: 'tourService.start',
         content: 'Don\'t forget to actually start the tour.',
         title: 'Start the tour',
-        route: 'ngx-bootstrap/Setup',
-        isAsync: true
+        route: 'ngx-bootstrap/Setup'
     }, {
         anchorId: 'config.anchorId',
         content: 'Every step needs an anchor.',
         title: 'Anchor',
-        route: 'ngx-bootstrap/API',
-        isAsync: true
+        route: 'ngx-bootstrap/API'
     }, {
         anchorId: 'config.enableBackdrop',
         content: 'You can enable backdrop to highlight active element.',
@@ -83,14 +78,12 @@ export class NgxBootstrapComponent implements OnInit {
         anchorId: 'events',
         content: 'You can subscribe to events',
         title: 'Events',
-        route: 'ngx-bootstrap/API',
-        isAsync: true
+        route: 'ngx-bootstrap/API'
     }, {
         anchorId: 'hotkeys',
         content: 'Try using the hotkeys to navigate through the tour.',
         title: 'Hotkeys',
-        route: 'ngx-bootstrap/Misc',
-        isAsync: true
+        route: 'ngx-bootstrap/Misc'
     }];
     readonly bootstrapCssCdn = '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
     readonly defaultTemplate = defaultTemplate;
