@@ -236,7 +236,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
         } else {
-            this.setCurrentStep(step);
+            this.setCurrentStepAsync(step);
         }
     }
 
@@ -252,7 +252,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         const isActive = this.router.isActive(url, matchOptions);
 
         if (isActive) {
-            this.setCurrentStep(step);
+            this.setCurrentStepAsync(step);
             return;
         }
 
@@ -262,7 +262,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             console.warn('Navigation to route failed: ', step.route);
             this.end();
         } else {
-            setTimeout(() => this.setCurrentStep(step), step.delayAfterNavigation);
+            this.setCurrentStepAsync(step, step.delayAfterNavigation);
         }
     }
 
@@ -284,6 +284,10 @@ export class TourService<T extends IStepOption = IStepOption> {
                     this.hideStep(this.currentStep);
                 }
             });
+    }
+
+    private setCurrentStepAsync(step: T, delay = 0): void {
+        setTimeout(() => this.setCurrentStep(step), delay);
     }
 
     private showStep(step: T): void {
