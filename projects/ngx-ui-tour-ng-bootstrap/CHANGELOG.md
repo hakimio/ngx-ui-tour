@@ -1,3 +1,12 @@
+<a name="9.0.1"></a>
+
+# [9.0.1](https://github.com/hakimio/ngx-ui-tour) (2021-09-09)
+
+### Fixes
+
+- Use strict check to determine if tour step "route" config is set to avoid ignoring empty string routes
+- Show tour steps asynchronously to avoid trying to show tour step before anchor element is registered in some cases
+
 <a name="9.0.0"></a>
 
 # [9.0.0](https://github.com/hakimio/ngx-ui-tour) (2021-09-08)
