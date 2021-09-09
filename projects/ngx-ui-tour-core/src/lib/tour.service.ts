@@ -233,7 +233,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.hideStep(this.currentStep);
         }
 
-        if (step.route) {
+        if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
         } else {
             this.setCurrentStep(step);
