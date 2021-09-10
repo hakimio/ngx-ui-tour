@@ -9,6 +9,7 @@ export const TOUR_ANCHOR_DIRECTIVE = new InjectionToken<TourAnchorDirective>('To
 export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDirective>>('TourAnchorDirectiveType');
 
 @Directive({
+    // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[tourAnchor]',
     // All directive providers should be declared here because their instances should not be shared
     providers: [

@@ -19,7 +19,7 @@ export function scrollFactory(overlay: Overlay, tourService: NgxmTourService): (
     useFactory: scrollFactory,
     deps: [Overlay, NgxmTourService]
   }],
-  selector: 'tourAnchorOpener',
+  selector: 'tour-anchor-opener',
   styles: [
     `
             :host {
