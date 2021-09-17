@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-ui-tour-tui-dropdown",
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "ngx-ui-tour-core": "ngxUiTourCore",
+      "@taiga-ui/core": "taigaUiCore",
+      "@taiga-ui/cdk": "taigaUiCdk"
+    }
+  }
+}
