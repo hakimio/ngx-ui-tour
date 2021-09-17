@@ -26,6 +26,12 @@ export const ROUTES = [{
         title: 'Material Design'
     }
 }, {
+    loadChildren: () => import('./tui-dropdown/tui-dropdown.module').then(m => m.TuiDropdownModule),
+    path: 'tui-dropdown',
+    data: {
+        title: 'Taiga UI Dropdown'
+    }
+}, {
     redirectTo: 'md-menu',
     path: '**'
 }];
