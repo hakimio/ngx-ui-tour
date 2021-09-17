@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.app.json",
-          "tsconfig.spec.json"
+          "projects/lazy-tour-demo/tsconfig.app.json",
+          "projects/lazy-tour-demo/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
