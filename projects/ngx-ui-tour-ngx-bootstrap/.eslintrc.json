@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.lib.json",
-          "tsconfig.spec.json"
+          "projects/ngx-ui-tour-ngx-bootstrap/tsconfig.lib.json",
+          "projects/ngx-ui-tour-ngx-bootstrap/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
