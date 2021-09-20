@@ -57,6 +57,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         if (step.placement?.verticalDirection)
             this.tuiDropdown.direction = step.placement.verticalDirection;
         this.tuiDropdown.limitMinWidth = 'auto';
+        this.tuiDropdown.minHeight = 170;
         this.tuiDropdown.content = templateComponent.template;
 
         if (step.enableBackdrop) {
