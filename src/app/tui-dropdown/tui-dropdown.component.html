@@ -1,0 +1,70 @@
+<tui-doc-page
+    header="Taiga UI Dropdown"
+    package="ngx-ui-tour-tui-dropdown"
+>
+    <ng-template pageTab>
+        <p>
+            <code>ngx-ui-tour</code> is a UI tour library built for Angular. It's inspired by
+            <a tuiLink target="_blank" tourAnchor="angular-ui-tour" href="http://benmarch.github.io/angular-ui-tour">angular-ui-tour</a>.
+        </p>
+        <p>
+            <code>TourTuiDropdownModule</code> is an implementation of the tour UI that uses
+            <a tuiLink href="https://taiga-ui.dev" target="_blank">Taiga UI</a> Dropdown to display tour steps.
+        </p>
+        <p>
+            <button
+                tuiButton
+                type="button"
+                (click)="start()"
+                tourAnchor="start.tour"
+            >
+                Start Demo Tour
+            </button>
+        </p>
+    </ng-template>
+    <ng-template pageTab>
+        <app-header tourAnchor="installation" id="installation">Installation</app-header>
+
+        <ol>
+            <li>
+                <code>npm install ngx-ui-tour-core ngx-ui-tour-tui-dropdown @taiga-ui/core @taiga-ui/cdk @taiga-ui/icons</code>
+            </li>
+            <li>
+                Import <code>TourTuiDropdownModule.forRoot()</code> into your app module
+            </li>
+            <li>
+                Make sure <code>RouterModule</code> is imported in your app module
+            </li>
+            <li>
+                Make sure Taiga UI is
+                <a tuiLink href="https://taiga-ui.dev/getting-started" target="_blank">installed correctly</a>
+            </li>
+        </ol>
+        <app-usage moduleName="TourTuiDropdownModule"></app-usage>
+    </ng-template>
+
+    <ng-template pageTab>
+        <app-step-config>
+            <app-placement-config
+                type="TuiDdPlacement"
+            ></app-placement-config>
+        </app-step-config>
+        <app-tour-service-api></app-tour-service-api>
+        <app-events></app-events>
+    </ng-template>
+
+    <ng-template pageTab>
+        <app-faq></app-faq>
+    </ng-template>
+
+    <ng-template pageTab>
+        <app-hotkeys></app-hotkeys>
+        <app-defaults></app-defaults>
+        <app-custom-template
+            [defaultTemplate]="defaultTemplate"
+        ></app-custom-template>
+        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+    </ng-template>
+</tui-doc-page>
+
+<tour-step-template></tour-step-template>

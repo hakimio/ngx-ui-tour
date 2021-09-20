@@ -2,7 +2,7 @@
 
 > UI tour library for Angular 9+
 
-Angular Material, Ng Bootstrap and Ngx Bootstrap UIs are supported.
+Angular Material, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
 
 `ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tour`. The project had to be forked since the original is no longer 
 maintained.
@@ -42,7 +42,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 # install the core package
 yarn add ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown)
 yarn add ngx-ui-tour-md-menu
 ```
 
@@ -52,7 +52,7 @@ yarn add ngx-ui-tour-md-menu
 # install the core package
 npm i --save ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown)
 npm i --save ngx-ui-tour-md-menu
 ```
 
