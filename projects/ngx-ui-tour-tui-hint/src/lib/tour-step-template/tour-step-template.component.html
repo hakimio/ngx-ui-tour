@@ -1,0 +1,66 @@
+<ng-template #tuiDropdownTemplate>
+    <ng-container
+        *ngTemplateOutlet="
+            stepTemplate || stepTemplateContent || defaultTemplate;
+            context: { step: step }
+        "
+    ></ng-container>
+</ng-template>
+
+<ng-template
+    #defaultTemplate
+    let-step="step"
+>
+    <div class="main-container">
+        <div class="title-container">
+            <h3>{{step?.title}}</h3>
+            <button
+                tuiIconButton
+                icon="tuiIconCloseLarge"
+                appearance="flat"
+                size="m"
+                (click)="tourService.end()"
+            ></button>
+        </div>
+        <p
+            class="content"
+            [innerHTML]="step?.content"
+        ></p>
+        <div class="buttons">
+            <button
+                tuiButton
+                type="button"
+                icon="tuiIconChevronLeft"
+                appearance="flat"
+                size="m"
+                [disabled]="!tourService.hasPrev(step)"
+                (click)="tourService.prev()"
+                class="prev"
+            >
+                {{step?.prevBtnTitle}}
+            </button>
+            <button
+                tuiButton
+                type="button"
+                iconRight="tuiIconChevronRight"
+                appearance="flat"
+                size="m"
+                *ngIf="tourService.hasNext(step)"
+                (click)="tourService.next()"
+                class="next"
+            >
+                {{step?.nextBtnTitle}}
+            </button>
+            <button
+                tuiButton
+                type="button"
+                appearance="flat"
+                size="m"
+                *ngIf="!tourService.hasNext(step)"
+                (click)="tourService.end()"
+            >
+                {{step?.endBtnTitle}}
+            </button>
+        </div>
+    </div>
+</ng-template>

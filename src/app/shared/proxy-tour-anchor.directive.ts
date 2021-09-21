@@ -16,8 +16,9 @@ import {TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective} f
 import {TourAnchorNgxBootstrapDirective, TourAnchorNgxBootstrapPopoverDirective} from 'ngx-ui-tour-ngx-bootstrap';
 import {TourAnchorConsoleDirective} from 'ngx-ui-tour-console';
 import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
-import {TUI_DROPDOWN_DIRECTIVE, TuiDropdownDirective} from '@taiga-ui/core';
+import {TUI_DROPDOWN_DIRECTIVE, TuiDropdownDirective, TuiManualHintDirective} from '@taiga-ui/core';
 import {TuiParentsScrollService} from '@taiga-ui/cdk';
+import {TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
 
 export const TOUR_ANCHOR_DIRECTIVE = new InjectionToken<TourAnchorDirective>('TourAnchorDirective');
 export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDirective>>('TourAnchorDirectiveType');
@@ -40,6 +41,8 @@ export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDire
             provide: TUI_DROPDOWN_DIRECTIVE,
             useExisting: forwardRef(() => TuiDropdownDirective)
         },
+        TourAnchorTuiHintDirective,
+        TuiManualHintDirective,
         {
             provide: TOUR_ANCHOR_DIRECTIVE,
             useFactory: () => {

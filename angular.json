@@ -485,6 +485,46 @@
           }
         }
       }
+    },
+    "ngx-ui-tour-tui-hint": {
+      "projectType": "library",
+      "root": "projects/ngx-ui-tour-tui-hint",
+      "sourceRoot": "projects/ngx-ui-tour-tui-hint/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-ui-tour-tui-hint/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-ui-tour-tui-hint/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-ui-tour-tui-hint/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-ui-tour-tui-hint/src/test.ts",
+            "tsConfig": "projects/ngx-ui-tour-tui-hint/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-ui-tour-tui-hint/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-ui-tour-tui-hint/**/*.ts",
+              "projects/ngx-ui-tour-tui-hint/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-ui-tour",

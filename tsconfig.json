@@ -21,7 +21,8 @@
       "ngx-ui-tour-md-menu": ["dist/ngx-ui-tour-md-menu"],
       "ngx-ui-tour-ng-bootstrap": ["dist/ngx-ui-tour-ng-bootstrap"],
       "ngx-ui-tour-ngx-bootstrap": ["dist/ngx-ui-tour-ngx-bootstrap"],
-      "ngx-ui-tour-tui-dropdown": ["dist/ngx-ui-tour-tui-dropdown"]
+      "ngx-ui-tour-tui-dropdown": ["dist/ngx-ui-tour-tui-dropdown"],
+      "ngx-ui-tour-tui-hint": ["dist/ngx-ui-tour-tui-hint"]
     }
   }
 }

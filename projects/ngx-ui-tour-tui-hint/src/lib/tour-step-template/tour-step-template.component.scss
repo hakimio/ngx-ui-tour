@@ -1,0 +1,45 @@
+::ng-deep tui-hints-host {
+    z-index: 150 !important;
+}
+
+.main-container {
+    min-width: 240px;
+    max-width: 280px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font: var(--tui-font-heading-6);
+        margin: 0;
+    }
+
+    button {
+        margin: -0.25rem -0.5rem;
+    }
+}
+
+.content {
+    margin: 1.5rem 0;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 -0.5rem -0.25rem;
+
+    ::ng-deep button.prev tui-wrapper {
+        padding-left: 1rem !important;
+    }
+
+    ::ng-deep button.next tui-wrapper {
+        padding-right: 1rem !important;
+    }
+}

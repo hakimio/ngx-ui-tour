@@ -32,6 +32,12 @@ export const ROUTES = [{
         title: 'Taiga UI Dropdown'
     }
 }, {
+    loadChildren: () => import('./tui-hint/tui-hint.module').then(m => m.TuiHintModule),
+    path: 'tui-hint',
+    data: {
+        title: 'Taiga UI Hint'
+    }
+}, {
     redirectTo: 'md-menu',
     path: '**'
 }];

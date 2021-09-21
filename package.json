@@ -30,6 +30,8 @@
     "build:lib:ngx-bootstrap:base": "ng build ngx-ui-tour-ngx-bootstrap && cpy README.md projects/ngx-ui-tour-ngx-bootstrap/CHANGELOG.md dist/ngx-ui-tour-ngx-bootstrap/",
     "build:lib:tui-dropdown": "npm run build:lib:core && npm run build:lib:tui-dropdown:base",
     "build:lib:tui-dropdown:base": "ng build ngx-ui-tour-tui-dropdown && cpy README.md projects/ngx-ui-tour-tui-dropdown/CHANGELOG.md dist/ngx-ui-tour-tui-dropdown/",
+    "build:lib:tui-hint": "npm run build:lib:core && npm run build:lib:tui-hint:base",
+    "build:lib:tui-hint:base": "ng build ngx-ui-tour-tui-hint && cpy README.md projects/ngx-ui-tour-tui-hint/CHANGELOG.md dist/ngx-ui-tour-tui-hint/",
     "test": "ng test",
     "lint": "ng lint",
     "pub": "npm run pub:lib && npm run pub:demo",
@@ -40,7 +42,8 @@
     "pub:lib:ng-bootstrap": "cd dist/ngx-ui-tour-ng-bootstrap && npm publish",
     "pub:lib:ngx-bootstrap": "cd dist/ngx-ui-tour-ngx-bootstrap && npm publish",
     "pub:lib:md-menu": "cd dist/ngx-ui-tour-md-menu && npm publish",
-    "pub:lib:tui-dropdown": "cd dist/ngx-ui-tour-tui-dropdown && npm publish"
+    "pub:lib:tui-dropdown": "cd dist/ngx-ui-tour-tui-dropdown && npm publish",
+    "pub:lib:tui-hint": "cd dist/ngx-ui-tour-tui-hint && npm publish"
   },
   "dependencies": {
     "@angular/animations": "^12.2.3",
