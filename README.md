@@ -42,7 +42,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 # install the core package
 yarn add ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown, ngx-ui-tour-tui-hint)
 yarn add ngx-ui-tour-md-menu
 ```
 
@@ -52,7 +52,7 @@ yarn add ngx-ui-tour-md-menu
 # install the core package
 npm i --save ngx-ui-tour-core
 
-# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown)
+# install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown, ngx-ui-tour-tui-hint)
 npm i --save ngx-ui-tour-md-menu
 ```
 

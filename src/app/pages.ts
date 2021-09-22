@@ -17,8 +17,12 @@ export const pages: TuiDocPages = [{
     title: 'Taiga UI',
     subPages: [{
         section: 'Tour UI Libraries',
-        title: 'Drop Down',
+        title: 'Dropdown',
         route: 'tui-dropdown'
+    }, {
+        section: 'Tour UI Libraries',
+        title: 'Hint',
+        route: 'tui-hint'
     }]
 }, {
     section: 'Tour UI Libraries',
