@@ -18,8 +18,6 @@ export class TourBackdropService {
     }
 
     public show(targetElement: ElementRef, isScrollingEnabled = true) {
-        const boundingRect = targetElement.nativeElement.getBoundingClientRect();
-
         if (!this.backdropElement) {
             this.createBackdrop();
             this.subscribeToWindowResizeEvent();
@@ -27,7 +25,7 @@ export class TourBackdropService {
 
         this.isScrollingEnabled = isScrollingEnabled;
         this.targetHtmlElement = targetElement.nativeElement;
-        this.setBackdropElStyles(boundingRect);
+        this.setBackdropElStyles();
     }
 
     private createBackdrop() {
@@ -64,8 +62,7 @@ export class TourBackdropService {
             )
             .subscribe(
                 () => {
-                    const boundingRect = this.targetHtmlElement.getBoundingClientRect();
-                    this.setBackdropElStyles(boundingRect);
+                    this.setBackdropElStyles();
                     ScrollingUtil.ensureVisible(this.targetHtmlElement);
                 }
             );
@@ -85,8 +82,9 @@ export class TourBackdropService {
         this.backdropElement = null;
     }
 
-    private setBackdropElStyles(boundingRect: DOMRect) {
-        const scrollX = window.scrollX ?? window.pageXOffset,
+    private setBackdropElStyles() {
+        const boundingRect = this.targetHtmlElement.getBoundingClientRect(),
+            scrollX = window.scrollX ?? window.pageXOffset,
             scrollY = window.scrollY ?? window.pageYOffset,
             styles: Partial<CSSStyleDeclaration> = {
                 position: this.isScrollingEnabled ? 'absolute' : 'fixed',
