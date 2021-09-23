@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ngx-bootstrap",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "UI tour library for Angular 9+",
   "keywords": [
     "angular",
@@ -20,7 +20,7 @@
     "@angular/common": ">=9.0.0 <13.0.0",
     "@angular/core": ">=9.0.0 <13.0.0",
     "ngx-bootstrap": ">=3.1.0 <8.0.0",
-    "ngx-ui-tour-core": "7.0.1",
+    "ngx-ui-tour-core": "7.0.2",
     "typescript": ">=3.8.0"
   },
   "dependencies": {
