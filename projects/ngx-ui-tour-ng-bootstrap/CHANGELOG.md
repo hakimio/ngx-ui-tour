@@ -1,3 +1,11 @@
+<a name="9.0.2"></a>
+
+# [9.0.2](https://github.com/hakimio/ngx-ui-tour) (2021-09-23)
+
+### Fixes
+
+- Switched back to "View Engine" compilation mode to fix Angular v11 and older builds
+
 <a name="9.0.1"></a>
 
 # [9.0.1](https://github.com/hakimio/ngx-ui-tour) (2021-09-09)

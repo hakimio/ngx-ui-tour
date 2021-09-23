@@ -14,14 +14,14 @@
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Tomas Rimkus <tomas.r@programmer.net>",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <13.0.0",
     "@angular/core": ">=9.0.0 <13.0.0",
     "@taiga-ui/core": "^2.15.0",
     "@taiga-ui/cdk": "^2.15.0",
     "@taiga-ui/icons": "^2.15.0",
-    "ngx-ui-tour-core": "7.0.1",
+    "ngx-ui-tour-core": "7.0.2",
     "typescript": ">=3.8.0"
   },
   "dependencies": {
