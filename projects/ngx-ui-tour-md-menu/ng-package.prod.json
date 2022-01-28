@@ -3,5 +3,8 @@
   "dest": "../../dist/ngx-ui-tour-md-menu",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "ngx-ui-tour-core"
+  ]
 }

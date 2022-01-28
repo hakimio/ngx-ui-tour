@@ -1,3 +1,16 @@
+<a name="10.0.0"></a>
+
+# [10.0.0](https://github.com/hakimio/ngx-ui-tour) (2022-01-28)
+
+### Features
+
+- Support Angular 13 and RxJS v7
+- "Ivy" partial compilation mode
+- "ngx-ui-tour-core" is now a "hard" dependency and doesn't need to be installed separately
+
+### Breaking changes
+- Due to "Ivy" partial compilation mode, Angular versions below v12 are no longer supported
+
 <a name="9.0.2"></a>
 
 # [9.0.2](https://github.com/hakimio/ngx-ui-tour) (2021-09-23)

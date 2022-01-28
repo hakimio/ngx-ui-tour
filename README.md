@@ -34,14 +34,23 @@ maintained.
 
 Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://hakimio.github.io/ngx-ui-tour)
 
+## Compatibility
+
+### Angular and RxJS versions
+
+Since libraries built with Angular Ivy partial compilation mode can only be used with Angular v12 or higher, 
+ngx-ui-tour v8 no longer supports older Angular versions.
+
+| Angular | RxJS | ngx-ui-tour |
+|---------|------|-------------|
+| 12-13   | 6, 7 | 8           |
+| 9-12    | 6    | 7           |
+
 ## Installation
 
 ### yarn
 
 ```bash
-# install the core package
-yarn add ngx-ui-tour-core
-
 # install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown, ngx-ui-tour-tui-hint)
 yarn add ngx-ui-tour-md-menu
 ```
@@ -49,9 +58,6 @@ yarn add ngx-ui-tour-md-menu
 ### npm
 
 ```bash
-# install the core package
-npm i --save ngx-ui-tour-core
-
 # install one of the UI packages (ngx-ui-tour-md-menu, ngx-ui-tour-ng-bootstrap, ngx-ui-tour-ngx-bootstrap, ngx-ui-tour-tui-dropdown, ngx-ui-tour-tui-hint)
 npm i --save ngx-ui-tour-md-menu
 ```
@@ -273,17 +279,17 @@ this.tourService.initialize$.subscribe((steps: IStepOption[]) => {
     console.log('tour configured with these steps:', steps);
 });
 ```
-| Name	| Payload	| Emitted When
-| :-----: |:-------------:|:-------------:|
-| **stepShow$** |	IStepOption	| A step is shown |
-| **stepHide$** |	IStepOption |	A step is hidden |
-| **initialize$**	| IStepOption[]	| The tour is configured with a set of steps
-| **start$**	| void |	The tour begins
-| **end$** |	void |	The tour ends
-| **pause$** |	void |	The tour is paused
-| **resume$** |	void |	The tour resumes
-| **anchorRegister$** |	string |	An anchor is registered with the tour
-| **anchorUnregister$** |	string |	An anchor is unregistered from the tour
+|         Name	         |    Payload	    |                Emitted When                |
+|:---------------------:|:--------------:|:------------------------------------------:|
+|     **stepShow$**     | 	IStepOption	  |              A step is shown               |
+|     **stepHide$**     |  	IStepOption  |             	A step is hidden              |
+|   **initialize$**	    | IStepOption[]	 | The tour is configured with a set of steps |
+|      **start$**	      |      void      |              	The tour begins              |
+|       **end$**        |     	void      |               	The tour ends               |
+|      **pause$**       |     	void      |            	The tour is paused             |
+|      **resume$**      |     	void      |             	The tour resumes              |
+|  **anchorRegister$**  |    	string     |   	An anchor is registered with the tour   |
+| **anchorUnregister$** |    	string     |  	An anchor is unregistered from the tour  |
 
 ## Custom template
 You can also customize the tour step template by providing an `<ng-template let-step="step">` inside the 
