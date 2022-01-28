@@ -24,9 +24,6 @@ export {
         TourStepTemplateComponent,
         TourAnchorOpenerComponent
     ],
-    entryComponents: [
-        TourAnchorOpenerComponent
-    ],
     exports: [
         TourAnchorMatMenuDirective,
         TourStepTemplateComponent,
