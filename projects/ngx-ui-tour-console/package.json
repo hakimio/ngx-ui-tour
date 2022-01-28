@@ -1,10 +1,10 @@
 {
   "name": "ngx-ui-tour-console",
-  "version": "7.0.2",
+  "version": "8.0.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
-  "description": "UI tour library for Angular 9+",
+  "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
     "ngx",
@@ -15,12 +15,12 @@
     "onboarding-tour"
   ],
   "peerDependencies": {
-    "@angular/common": ">=9.0.0 <13.0.0",
-    "@angular/core": ">=9.0.0 <13.0.0",
-    "ngx-ui-tour-core": "7.0.2",
+    "@angular/common": ">=12.0.0 <14.0.0",
+    "@angular/core": ">=12.0.0 <14.0.0",
     "typescript": ">=3.8.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "ngx-ui-tour-core": "8.0.0"
   }
 }
