@@ -69,6 +69,7 @@
     "@tinkoff/ng-event-plugins": "^2.5.1",
     "@tinkoff/ng-polymorpheus": "^3.1.12",
     "highlight.js": "^10.7.3",
+    "markdown-it": "^12.3.2",
     "ngx-bootstrap": "^8.0.0",
     "ngx-highlightjs": "^4.1.4",
     "rxjs": "^7.5.2",
