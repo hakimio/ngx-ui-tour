@@ -16,6 +16,7 @@ maintained.
 ## Table of contents
 
 - [Demo and documentation](#demo-and-documentation)
+- [Compatibility](#compatibility)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Simple project](#simple-project)
