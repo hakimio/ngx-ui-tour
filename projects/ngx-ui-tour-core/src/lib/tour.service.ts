@@ -169,8 +169,21 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
         return (
             step.nextStep !== undefined ||
-            this.steps.indexOf(step) < this.steps.length - 1
+            (this.steps.indexOf(step) < this.steps.length - 1 && !this.isNextOptionalAnchorMissing(step))
         );
+    }
+
+    private isNextOptionalAnchorMissing(step: T): boolean {
+        const stepIndex = this.steps.indexOf(step);
+
+        for (let i = stepIndex + 1; i < this.steps.length; i++) {
+            const nextStep = this.steps[i];
+
+            if (!nextStep.isOptional || this.anchors[nextStep.anchorId])
+                return false;
+        }
+
+        return true;
     }
 
     public prev(): void {
@@ -189,7 +202,21 @@ export class TourService<T extends IStepOption = IStepOption> {
             console.warn('Can\'t get previous step. No currentStep.');
             return false;
         }
-        return step.prevStep !== undefined || this.steps.indexOf(step) > 0;
+        return step.prevStep !== undefined ||
+            (this.steps.indexOf(step) > 0 && !this.isPrevOptionalAnchorMising(step));
+    }
+
+    private isPrevOptionalAnchorMising(step: T): boolean {
+        const stepIndex = this.steps.indexOf(step);
+
+        for (let i = stepIndex - 1; i > -1; i--) {
+            const prevStep = this.steps[i];
+
+            if (!prevStep.isOptional || this.anchors[prevStep.anchorId])
+                return false;
+        }
+
+        return true;
     }
 
     public goto(stepId: number | string): void {
