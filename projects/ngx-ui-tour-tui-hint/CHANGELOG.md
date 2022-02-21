@@ -1,3 +1,11 @@
+<a name="2.0.1"></a>
+
+# [2.0.1](https://github.com/hakimio/ngx-ui-tour) (2022-02-21)
+
+### Fixes
+
+- Fixed optional steps in the beginning or end of the tour
+
 <a name="2.0.0"></a>
 
 # [2.0.0](https://github.com/hakimio/ngx-ui-tour) (2022-01-28)
