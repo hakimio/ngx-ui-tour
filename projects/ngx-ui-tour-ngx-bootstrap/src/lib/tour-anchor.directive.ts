@@ -42,7 +42,7 @@ export class TourAnchorNgxBootstrapDirective
   public showTourStep(step: IStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
-    this.isActive = true;
+    this.isActive =  step.useIsActiveCSSClass ? true : false;
     this.popoverDirective.popover = this.tourStepTemplate.template;
     this.popoverDirective.popoverContext = { step };
     this.popoverDirective.popoverTitle = step.title;

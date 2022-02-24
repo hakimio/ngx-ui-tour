@@ -46,7 +46,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
             templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
-        this.isActive = true;
+        this.isActive =  step.useIsActiveCSSClass ? true : false;
 
         if (!step.disableScrollToAnchor) {
             ScrollingUtil.ensureVisible(htmlElement);

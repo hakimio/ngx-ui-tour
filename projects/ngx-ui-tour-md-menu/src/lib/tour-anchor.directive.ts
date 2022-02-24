@@ -61,7 +61,7 @@ export class TourAnchorMatMenuDirective
   public showTourStep(step: IMdStepOption): void {
     const htmlElement: HTMLElement = this.element.nativeElement;
 
-    this.isActive = true;
+    this.isActive =  step.useIsActiveCSSClass ? true : false; 
     this.tourStepTemplate.templateComponent.step = step;
     // Ignore step.placement
     if (!step.disableScrollToAnchor) {
