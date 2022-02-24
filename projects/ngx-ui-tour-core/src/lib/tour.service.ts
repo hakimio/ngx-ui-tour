@@ -23,7 +23,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
-    useIsActiveCSSClass: boolean;
+    useIsActiveCSSClass?: boolean;
 }
 
 export enum TourState {
