@@ -1,3 +1,11 @@
+<a name="8.0.2"></a>
+
+# [8.0.2](https://github.com/hakimio/ngx-ui-tour) (2022-03-30)
+
+### Fixes
+
+- Fixed unexpected focus behaviour. Bug #53
+
 <a name="8.0.1"></a>
 
 # [8.0.1](https://github.com/hakimio/ngx-ui-tour) (2022-02-21)
