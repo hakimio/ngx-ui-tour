@@ -28,7 +28,7 @@ export function scrollFactory(overlay: Overlay, tourService: NgxmTourService): (
         `
   ],
   template: `
-        <span [matMenuTriggerFor]="menu" #trigger="matMenuTrigger"></span>
+        <span [matMenuTriggerFor]="menu" [matMenuTriggerRestoreFocus]="false" #trigger="matMenuTrigger"></span>
     `
 })
 export class TourAnchorOpenerComponent {
