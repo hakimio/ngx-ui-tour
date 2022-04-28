@@ -45,7 +45,7 @@
                 iconRight="tuiIconChevronRight"
                 appearance="flat"
                 size="m"
-                *ngIf="tourService.hasNext(step)"
+                *ngIf="tourService.hasNext(step) && !step.nextOn"
                 (click)="tourService.next()"
                 class="next"
             >

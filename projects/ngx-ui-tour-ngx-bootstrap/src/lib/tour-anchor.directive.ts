@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
-import type {OnDestroy, OnInit} from '@angular/core';
+import type { OnDestroy, OnInit } from '@angular/core';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import { ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState } from 'ngx-ui-tour-core';
 import { INgxbStepOption as IStepOption } from './step-option.interface';
 
 import { NgxbTourService } from './ngx-bootstrap-tour.service';
@@ -55,6 +55,16 @@ export class TourAnchorNgxBootstrapDirective
     step.prevBtnTitle = step.prevBtnTitle || 'Prev';
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
+
+    if (step.nextOn) {
+      const onNext = () => {
+        htmlElement.removeEventListener(step.nextOn, onNext);
+        this.tourService.next();
+      };
+
+      htmlElement.addEventListener(step.nextOn, onNext);
+    }
+
     this.popoverDirective.show();
     if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);

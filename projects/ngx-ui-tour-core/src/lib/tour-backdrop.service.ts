@@ -1,14 +1,13 @@
-import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
-import type {Renderer2} from '@angular/core';
-import {fromEvent, interval, Subscription} from 'rxjs';
-import {debounce} from 'rxjs/operators';
-import {ScrollingUtil} from './scrolling-util';
+import { ElementRef, Injectable, RendererFactory2 } from '@angular/core';
+import type { Renderer2 } from '@angular/core';
+import { fromEvent, interval, merge, Subscription } from 'rxjs';
+import { debounce } from 'rxjs/operators';
+import { ScrollingUtil } from './scrolling-util';
 
 @Injectable()
 export class TourBackdropService {
     private renderer: Renderer2;
-    private backdropBaseElement: HTMLElement;
-    private backdropElement: HTMLElement;
+    private backdropElements: HTMLElement[];
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
     windowResizeSubscription$: Subscription;
@@ -18,85 +17,115 @@ export class TourBackdropService {
     }
 
     public show(targetElement: ElementRef, isScrollingEnabled = true) {
-        if (!this.backdropElement) {
+        this.isScrollingEnabled = isScrollingEnabled;
+        this.targetHtmlElement = targetElement.nativeElement;
+
+        if (!this.backdropElements || this.backdropElements.length < 4) {
             this.createBackdrop();
             this.subscribeToWindowResizeEvent();
         }
-
-        this.isScrollingEnabled = isScrollingEnabled;
-        this.targetHtmlElement = targetElement.nativeElement;
-        this.setBackdropElStyles();
     }
 
     private createBackdrop() {
-        this.createBackdropBaseElement();
-        this.createBackdropElement();
-    }
+        const boundingRect = this.targetHtmlElement.getBoundingClientRect(),
+            scrollX = window.scrollX ?? window.pageXOffset,
+            scrollY = window.scrollY ?? window.pageYOffset,
+            width = window.innerWidth,
+            height = window.innerHeight;
 
-    private createBackdropBaseElement() {
-        const baseElStyles: Partial<CSSStyleDeclaration> = {
-            position: 'fixed',
-            height: '100%',
-            width: '100%',
-            top: '0',
-            left: '0',
-            zIndex: '100'
+        let leftBackdropElement, topBackdropElement, bottomBackdropElement, rightBackdropElement;
+
+        if (!this.backdropElements || this.backdropElements.length < 4) {
+            leftBackdropElement = this.renderer.createElement('div');
+            topBackdropElement = this.renderer.createElement('div');
+            bottomBackdropElement = this.renderer.createElement('div');
+            rightBackdropElement = this.renderer.createElement('div');
+
+            this.renderer.addClass(leftBackdropElement, 'ngx-ui-tour_backdrop');
+            this.renderer.addClass(topBackdropElement, 'ngx-ui-tour_backdrop');
+            this.renderer.addClass(bottomBackdropElement, 'ngx-ui-tour_backdrop');
+            this.renderer.addClass(rightBackdropElement, 'ngx-ui-tour_backdrop');
+
+            this.renderer.appendChild(document.body, leftBackdropElement);
+            this.renderer.appendChild(document.body, topBackdropElement);
+            this.renderer.appendChild(document.body, bottomBackdropElement);
+            this.renderer.appendChild(document.body, rightBackdropElement);
+
+            this.backdropElements = [leftBackdropElement, topBackdropElement, bottomBackdropElement, rightBackdropElement];
+        } else {
+            leftBackdropElement = this.backdropElements[0];
+            topBackdropElement = this.backdropElements[1];
+            bottomBackdropElement = this.backdropElements[2];
+            rightBackdropElement = this.backdropElements[3];
+        }
+
+        const leftBackdropStyles: Partial<CSSStyleDeclaration> = {
+            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            width: `${boundingRect.left + scrollX}px`,
+            height: `${height + scrollY}px`,
+            top: `0px`,
+            left: `0px`,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: '101'
+        };
+        const topBackdropStyles: Partial<CSSStyleDeclaration> = {
+            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            width: `${boundingRect.width}px`,
+            height: `${boundingRect.top + scrollY}px`,
+            top: `0px`,
+            left: `${boundingRect.left + scrollX}px`,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: '101'
+        };
+        const bottomBackdropStyles: Partial<CSSStyleDeclaration> = {
+            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            width: `${boundingRect.width}px`,
+            height: `${height + scrollY - (boundingRect.top + scrollY) - boundingRect.height}px`,
+            top: `${boundingRect.top + scrollY + boundingRect.height}px`,
+            left: `${boundingRect.left + scrollX}px`,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: '101'
+        };
+        const rightBackdropStyles: Partial<CSSStyleDeclaration> = {
+            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            width: `${width + scrollX - (boundingRect.left + scrollX + boundingRect.width)}px`,
+            height: `${height + scrollY}px`,
+            top: `0px`,
+            left: `${boundingRect.left + scrollX + boundingRect.width}px`,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: '101'
         };
 
-        this.backdropBaseElement = this.renderer.createElement('div');
-        this.applyStyles(baseElStyles, this.backdropBaseElement);
-        this.renderer.appendChild(document.body, this.backdropBaseElement);
-    }
-
-    private createBackdropElement() {
-        this.backdropElement = this.renderer.createElement('div');
-        this.renderer.addClass(this.backdropElement, 'ngx-ui-tour_backdrop');
-        this.renderer.appendChild(document.body, this.backdropElement);
+        this.applyStyles(leftBackdropStyles, leftBackdropElement);
+        this.applyStyles(topBackdropStyles, topBackdropElement);
+        this.applyStyles(bottomBackdropStyles, bottomBackdropElement);
+        this.applyStyles(rightBackdropStyles, rightBackdropElement);
     }
 
     private subscribeToWindowResizeEvent() {
-        const resizeObservable$ = fromEvent(window, 'resize');
+        const resizeObservable$ = merge(fromEvent(window, 'resize'), fromEvent(window, 'scroll'));
         this.windowResizeSubscription$ = resizeObservable$
             .pipe(
                 debounce(() => interval(10))
             )
             .subscribe(
                 () => {
-                    this.setBackdropElStyles();
+                    this.createBackdrop();
                     ScrollingUtil.ensureVisible(this.targetHtmlElement);
                 }
             );
     }
 
     public close() {
-        if (this.backdropElement) {
+        if (this.backdropElements) {
             this.removeBackdropElement();
             this.windowResizeSubscription$.unsubscribe();
         }
     }
 
     private removeBackdropElement() {
-        this.renderer.removeChild(document.body, this.backdropBaseElement);
-        this.renderer.removeChild(document.body, this.backdropElement);
-        this.backdropBaseElement = null;
-        this.backdropElement = null;
-    }
-
-    private setBackdropElStyles() {
-        const boundingRect = this.targetHtmlElement.getBoundingClientRect(),
-            scrollX = window.scrollX ?? window.pageXOffset,
-            scrollY = window.scrollY ?? window.pageYOffset,
-            styles: Partial<CSSStyleDeclaration> = {
-                position: this.isScrollingEnabled ? 'absolute' : 'fixed',
-                width: `${boundingRect.width}px`,
-                height: `${boundingRect.height}px`,
-                top: `${boundingRect.top + scrollY}px`,
-                left: `${boundingRect.left + scrollX}px`,
-                boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.7)',
-                zIndex: '101'
-            };
-
-        this.applyStyles(styles, this.backdropElement);
+        this.backdropElements.forEach(backdropElement => this.renderer.removeChild(document.body, backdropElement));
+        this.backdropElements = undefined;
     }
 
     private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {

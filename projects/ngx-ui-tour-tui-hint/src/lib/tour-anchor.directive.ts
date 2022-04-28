@@ -1,9 +1,9 @@
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
-import {TuiManualHintDirective} from '@taiga-ui/core';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
-import {TourTuiHintService} from './tour-tui-hint.service';
-import {ITuiHintStepOption} from './step-option.interface';
-import {TourStepTemplateService} from './tour-step-template.service';
+import { Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { TuiManualHintDirective } from '@taiga-ui/core';
+import { ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState } from 'ngx-ui-tour-core';
+import { TourTuiHintService } from './tour-tui-hint.service';
+import { ITuiHintStepOption } from './step-option.interface';
+import { TourStepTemplateService } from './tour-step-template.service';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -25,7 +25,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly tuiHint: TuiManualHintDirective,
         private elementRef: ElementRef
-    ) {}
+    ) { }
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -59,6 +59,15 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         step.prevBtnTitle = step.prevBtnTitle || 'Prev';
         step.nextBtnTitle = step.nextBtnTitle || 'Next';
         step.endBtnTitle = step.endBtnTitle || 'End';
+
+        if (step.nextOn) {
+            const onNext = () => {
+                htmlElement.removeEventListener(step.nextOn, onNext);
+                this.tourService.next();
+            };
+
+            htmlElement.addEventListener(step.nextOn, onNext);
+        }
 
         this.tuiHint.tuiManualHintShow = true;
     }

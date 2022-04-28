@@ -7,7 +7,7 @@ import {
   Input,
   ViewContainerRef
 } from '@angular/core';
-import type {OnDestroy, OnInit} from '@angular/core';
+import type { OnDestroy, OnInit } from '@angular/core';
 import {
   ScrollingUtil,
   TourAnchorDirective,
@@ -19,8 +19,8 @@ import { Subscription } from 'rxjs';
 import { TourAnchorOpenerComponent } from './tour-anchor-opener.component';
 import { TourStepTemplateService } from './tour-step-template.service';
 import { first } from 'rxjs/operators';
-import {NgxmTourService} from './ngx-md-menu-tour.service';
-import {IMdStepOption} from './step-option.interface';
+import { NgxmTourService } from './ngx-md-menu-tour.service';
+import { IMdStepOption } from './step-option.interface';
 
 @Directive({
   selector: '[tourAnchor]'
@@ -87,6 +87,15 @@ export class TourAnchorMatMenuDirective
     step.prevBtnTitle = step.prevBtnTitle || 'Prev';
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
+
+    if (step.nextOn) {
+      const onNext = () => {
+        htmlElement.removeEventListener(step.nextOn, onNext);
+        this.tourService.next();
+      };
+
+      htmlElement.addEventListener(step.nextOn, onNext);
+    }
 
     if (this.menuCloseSubscription) {
       this.menuCloseSubscription.unsubscribe();

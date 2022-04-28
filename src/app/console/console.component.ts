@@ -62,6 +62,12 @@ export class ConsoleComponent implements OnInit {
         title: 'Wait for async event',
         route: 'console/API'
     }, {
+        anchorId: 'config.nextOn',
+        content: 'Click on attribute description to go ahead with next step.',
+        title: 'Next On',
+        route: 'console/API',
+        nextOn: 'click'
+    }, {
         anchorId: 'events',
         content: 'You can subscribe to events',
         title: 'Events',

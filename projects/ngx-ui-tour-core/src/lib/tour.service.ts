@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
-import type {UrlSegment} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { IsActiveMatchOptions, NavigationStart, Router } from '@angular/router';
+import type { UrlSegment } from '@angular/router';
 
-import {TourAnchorDirective} from './tour-anchor.directive';
-import {Subject, Observable, merge as mergeStatic} from 'rxjs';
-import {first, map, filter, delay} from 'rxjs/operators';
+import { TourAnchorDirective } from './tour-anchor.directive';
+import { Subject, Observable, merge as mergeStatic } from 'rxjs';
+import { first, map, filter, delay } from 'rxjs/operators';
 
 export interface IStepOption {
     stepId?: string;
@@ -23,6 +23,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
+    nextOn?: string;
 }
 
 export enum TourState {
@@ -50,13 +51,13 @@ export class TourService<T extends IStepOption = IStepOption> {
     public anchorRegister$: Subject<string> = new Subject();
     public anchorUnregister$: Subject<string> = new Subject();
     public events$: Observable<{ name: string; value: any }> = mergeStatic(
-        this.stepShow$.pipe(map(value => ({name: 'stepShow', value}))),
-        this.stepHide$.pipe(map(value => ({name: 'stepHide', value}))),
-        this.initialize$.pipe(map(value => ({name: 'initialize', value}))),
-        this.start$.pipe(map(value => ({name: 'start', value}))),
-        this.end$.pipe(map(value => ({name: 'end', value}))),
-        this.pause$.pipe(map(value => ({name: 'pause', value}))),
-        this.resume$.pipe(map(value => ({name: 'resume', value}))),
+        this.stepShow$.pipe(map(value => ({ name: 'stepShow', value }))),
+        this.stepHide$.pipe(map(value => ({ name: 'stepHide', value }))),
+        this.initialize$.pipe(map(value => ({ name: 'initialize', value }))),
+        this.start$.pipe(map(value => ({ name: 'start', value }))),
+        this.end$.pipe(map(value => ({ name: 'end', value }))),
+        this.pause$.pipe(map(value => ({ name: 'pause', value }))),
+        this.resume$.pipe(map(value => ({ name: 'resume', value }))),
         this.anchorRegister$.pipe(
             map(value => ({
                 name: 'anchorRegister',
@@ -81,7 +82,7 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     constructor(
         private readonly router: Router
-    ) {}
+    ) { }
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {

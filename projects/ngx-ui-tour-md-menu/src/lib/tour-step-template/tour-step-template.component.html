@@ -35,7 +35,7 @@
             <button
                 mat-button
                 class="next"
-                *ngIf="tourService.hasNext(step)"
+                *ngIf="tourService.hasNext(step) && !step.nextOn"
                 (click)="tourService.next()"
             >
                 {{step?.nextBtnTitle}} <mat-icon>chevron_right</mat-icon>

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
-import type {OnDestroy, OnInit} from '@angular/core';
+import type { OnDestroy, OnInit } from '@angular/core';
 import { NgbPopover, Placement } from '@ng-bootstrap/ng-bootstrap';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import { ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState } from 'ngx-ui-tour-core';
 
 import { NgbTourService } from './ng-bootstrap-tour.service';
 import { INgbStepOption } from './step-option.interface';
@@ -47,13 +47,22 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
     this.isActive = true;
     this.popoverDirective.ngbPopover = this.tourStepTemplate.template;
     this.popoverDirective.popoverTitle = step.title;
-    this.popoverDirective.container =  'body';
+    this.popoverDirective.container = 'body';
     this.popoverDirective.placement = <Placement>(step.placement || 'top')
       .replace('before', 'left').replace('after', 'right')
       .replace('below', 'bottom').replace('above', 'top');
     step.prevBtnTitle = step.prevBtnTitle || 'Prev';
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
+
+    if (step.nextOn) {
+      const onNext = () => {
+        htmlElement.removeEventListener(step.nextOn, onNext);
+        this.tourService.next();
+      };
+
+      htmlElement.addEventListener(step.nextOn, onNext);
+    }
 
     this.popoverDirective.open({ step });
     if (!step.disableScrollToAnchor) {

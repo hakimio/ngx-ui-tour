@@ -27,7 +27,7 @@ import { TourStepTemplateService } from './tour-step-template.service';
           « {{ step?.prevBtnTitle }}
         </button>
         <button
-          *ngIf="tourService.hasNext(step)"
+          *ngIf="tourService.hasNext(step) && !step.nextOn"
           class="btn btn-sm btn-default"
           (click)="tourService.next()"
         >
