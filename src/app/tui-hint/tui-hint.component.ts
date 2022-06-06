@@ -69,11 +69,11 @@ export class TuiHintComponent implements OnInit {
         title: 'Wait for async event',
         route: 'tui-hint/API'
     }, {
-        anchorId: 'config.nextOn',
-        content: 'Click on attribute description to go ahead with next step.',
-        title: 'Next On',
+        anchorId: 'config.goToNextOnAnchorEvent',
+        content: 'Click on the config description to go to the next step',
+        title: 'Go To Next On Anchor Event',
         route: 'tui-hint/API',
-        nextOn: 'click'
+        goToNextOnAnchorEvent: 'click'
     }, {
         anchorId: 'events',
         content: 'You can subscribe to events',

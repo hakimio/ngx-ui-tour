@@ -26,7 +26,7 @@ import { NgbTourService } from './ng-bootstrap-tour.service';
           « {{ step?.prevBtnTitle }}
         </button>
         <button
-          *ngIf="tourService.hasNext(step) && !step.nextOn"
+          *ngIf="tourService.hasNext(step) && !step.goToNextOnAnchorEvent"
           class="btn btn-sm btn-default"
           (click)="tourService.next()"
         >

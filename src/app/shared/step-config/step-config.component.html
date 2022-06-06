@@ -143,11 +143,11 @@
         custom scrollbar and the page is not scrolled all the way before the tour step is shown.
     </ng-template>
     <ng-template
-        documentationPropertyName="nextOn"
+        documentationPropertyName="goToNextOnAnchorEvent"
         documentationPropertyType="string"
         [documentationPropertyValue]="'click'"
     >
-        <div tourAnchor="config.nextOn" (click)="action()" style="cursor: pointer;">
+        <div tourAnchor="config.goToNextOnAnchorEvent" style="cursor: pointer;">
             Use this to wait for certain event on step target before going to the next step like click on a button
             or hit enter on an input.
         </div>

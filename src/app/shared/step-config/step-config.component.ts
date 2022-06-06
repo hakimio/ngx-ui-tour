@@ -21,7 +21,4 @@ export class StepConfigComponent {
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;
 
-    action() {
-        console.log('your code here!');
-    }
 }

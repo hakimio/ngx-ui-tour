@@ -5,10 +5,13 @@ import {
   HostBinding,
   Injector,
   Input,
+  Renderer2,
+  RendererFactory2,
   ViewContainerRef
 } from '@angular/core';
-import type { OnDestroy, OnInit } from '@angular/core';
+import type {OnDestroy, OnInit} from '@angular/core';
 import {
+  GoToNextOnAnchorUtil,
   ScrollingUtil,
   TourAnchorDirective,
   TourBackdropService,
@@ -19,8 +22,8 @@ import { Subscription } from 'rxjs';
 import { TourAnchorOpenerComponent } from './tour-anchor-opener.component';
 import { TourStepTemplateService } from './tour-step-template.service';
 import { first } from 'rxjs/operators';
-import { NgxmTourService } from './ngx-md-menu-tour.service';
-import { IMdStepOption } from './step-option.interface';
+import {NgxmTourService} from './ngx-md-menu-tour.service';
+import {IMdStepOption} from './step-option.interface';
 
 @Directive({
   selector: '[tourAnchor]'
@@ -33,6 +36,8 @@ export class TourAnchorMatMenuDirective
 
   @HostBinding('class.touranchor--is-active') public isActive: boolean;
 
+  private renderer: Renderer2;
+
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -40,13 +45,15 @@ export class TourAnchorMatMenuDirective
     private element: ElementRef,
     private tourService: NgxmTourService,
     private tourStepTemplate: TourStepTemplateService,
-    private tourBackdrop: TourBackdropService
+    private tourBackdrop: TourBackdropService,
+    private rendererFactory: RendererFactory2
   ) {
     this.opener = this.viewContainer.createComponent(
       this.componentFactoryResolver.resolveComponentFactory(
         TourAnchorOpenerComponent
       )
     ).instance;
+    this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   public ngOnInit(): void {
@@ -55,6 +62,7 @@ export class TourAnchorMatMenuDirective
 
   public ngOnDestroy(): void {
     this.tourService.unregister(this.tourAnchor);
+    GoToNextOnAnchorUtil.unregister(this.tourAnchor);
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -88,14 +96,7 @@ export class TourAnchorMatMenuDirective
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
 
-    if (step.nextOn) {
-      const onNext = () => {
-        htmlElement.removeEventListener(step.nextOn, onNext);
-        this.tourService.next();
-      };
-
-      htmlElement.addEventListener(step.nextOn, onNext);
-    }
+    GoToNextOnAnchorUtil.register(htmlElement,step, this.tourService, this.renderer, this.tourAnchor);
 
     if (this.menuCloseSubscription) {
       this.menuCloseSubscription.unsubscribe();
