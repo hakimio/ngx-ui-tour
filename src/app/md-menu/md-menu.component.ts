@@ -69,11 +69,11 @@ export class MdMenuComponent implements OnInit {
         title: 'Wait for async event',
         route: 'md-menu/API'
     }, {
-        anchorId: 'config.goToNextOnAnchorEvent',
+        anchorId: 'config.goToNextOnAnchorClick',
         content: 'Click on the config description to go to the next step',
         title: 'Go To Next On Anchor Event',
         route: 'md-menu/API',
-        goToNextOnAnchorEvent: 'click'
+        goToNextOnAnchorClick: true
     }, {
         anchorId: 'events',
         content: 'You can subscribe to events',

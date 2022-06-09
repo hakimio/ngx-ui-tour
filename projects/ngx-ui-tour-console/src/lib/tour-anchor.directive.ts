@@ -4,10 +4,9 @@ import {
   IStepOption,
   ScrollingUtil,
   TourBackdropService,
-  TourState,
-  GoToNextOnAnchorUtil
+  TourState
 } from 'ngx-ui-tour-core';
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, Renderer2, RendererFactory2} from '@angular/core';
+import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[tourAnchor]',
@@ -19,16 +18,11 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
   @HostBinding('class.touranchor--is-active')
   public isActive = false;
 
-  private renderer: Renderer2;
-
   constructor(
       private tourService: TourService,
       private element: ElementRef,
-      private tourBackdrop: TourBackdropService,
-      private rendererFactory: RendererFactory2
-  ) {
-    this.renderer = rendererFactory.createRenderer(null, null);
-  }
+      private tourBackdrop: TourBackdropService
+  ) {}
 
   public ngOnInit(): void {
     this.tourService.register(this.tourAnchor, this);
@@ -36,7 +30,6 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   public ngOnDestroy(): void {
     this.tourService.unregister(this.tourAnchor);
-    GoToNextOnAnchorUtil.unregister(this.tourAnchor);
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -47,7 +40,6 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
     if (!step.disableScrollToAnchor) {
       ScrollingUtil.ensureVisible(htmlElement);
     }
-    GoToNextOnAnchorUtil.register(htmlElement,step, this.tourService, this.renderer, this.tourAnchor);
 
     if (step.enableBackdrop) {
       this.tourBackdrop.show(this.element);
@@ -66,5 +58,9 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
     if (this.tourService.getStatus() === TourState.OFF) {
       this.tourBackdrop.close();
     }
+  }
+
+  get nativeElement(): HTMLElement {
+    return this.element.nativeElement;
   }
 }

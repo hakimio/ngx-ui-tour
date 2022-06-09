@@ -1,5 +1,6 @@
-import {ElementRef, Injectable, Renderer2, RendererFactory2} from '@angular/core';
-import {fromEvent, interval, merge, Subscription} from 'rxjs';
+import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
+import type {Renderer2} from '@angular/core';
+import {fromEvent, interval, Subscription} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 
@@ -26,24 +27,47 @@ export class TourBackdropService {
     }
 
     private createBackdrop() {
-        const boundingRect = this.targetHtmlElement.getBoundingClientRect(),
+        const elementBoundingRect = this.targetHtmlElement.getBoundingClientRect(),
+            documentBoundingRect = document.documentElement.getBoundingClientRect(),
             scrollX = window.scrollX ?? window.pageXOffset,
-            scrollY = window.scrollY ?? window.pageYOffset,
-            width = window.innerWidth,
-            height = window.innerHeight;
+            scrollY = window.scrollY ?? window.pageYOffset;
 
         if (!this.backdropElements) {
             this.backdropElements = this.createBackdropElements();
         }
 
-        this.applyStyles(this.createBackdropStyle(boundingRect.left + scrollX, height + scrollY, 0, 0), this.backdropElements[0]);
-        this.applyStyles(this.createBackdropStyle(boundingRect.width, boundingRect.top + scrollY, 0, boundingRect.left + scrollX), this.backdropElements[1]);
-        this.applyStyles(this.createBackdropStyle(boundingRect.width, height + scrollY - (boundingRect.top + scrollY) - boundingRect.height, boundingRect.top + scrollY + boundingRect.height, boundingRect.left + scrollX), this.backdropElements[2]);
-        this.applyStyles(this.createBackdropStyle(width + scrollX - (boundingRect.left + scrollX + boundingRect.width), height + scrollY, 0, boundingRect.left + scrollX + boundingRect.width), this.backdropElements[3]);
+        // leftBackdropElement
+        this.applyStyles(this.createBackdropStyle({
+            width: elementBoundingRect.left + scrollX,
+            height: documentBoundingRect.height,
+            top: 0,
+            left: 0
+        }), this.backdropElements[0]);
+        // topBackdropElement
+        this.applyStyles(this.createBackdropStyle({
+            width: elementBoundingRect.width,
+            height: elementBoundingRect.top + scrollY,
+            top: 0,
+            left: elementBoundingRect.left + scrollX
+        }), this.backdropElements[1]);
+        // bottomBackdropElement
+        this.applyStyles(this.createBackdropStyle({
+            width: elementBoundingRect.width,
+            height: documentBoundingRect.height - (elementBoundingRect.top + scrollY) - elementBoundingRect.height,
+            top: elementBoundingRect.top + scrollY + elementBoundingRect.height,
+            left: elementBoundingRect.left + scrollX
+        }), this.backdropElements[2]);
+        //rightBackdropElement
+        this.applyStyles(this.createBackdropStyle({
+            width: documentBoundingRect.width - (elementBoundingRect.left + scrollX + elementBoundingRect.width),
+            height: documentBoundingRect.height,
+            top: 0,
+            left: elementBoundingRect.left + scrollX + elementBoundingRect.width
+        }), this.backdropElements[3]);
     }
 
     private subscribeToWindowResizeEvent() {
-        const resizeObservable$ = merge(fromEvent(window, 'resize'), fromEvent(window, 'scroll'));
+        const resizeObservable$ = fromEvent(window, 'resize');
         this.windowResizeSubscription$ = resizeObservable$
             .pipe(
                 debounce(() => interval(10))
@@ -74,13 +98,13 @@ export class TourBackdropService {
         }
     }
 
-    private createBackdropStyle(width: number, height: number, top: number, left: number) {
+    private createBackdropStyle(rectangle: { width: number; height: number; top: number; left: number; }) {
         return {
             position: this.isScrollingEnabled ? 'absolute' : 'fixed',
-            width: `${width}px`,
-            height: `${height}px`,
-            top: `${top}px`,
-            left: `${left}px`,
+            width: `${rectangle.width}px`,
+            height: `${rectangle.height}px`,
+            top: `${rectangle.top}px`,
+            left: `${rectangle.left}px`,
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
             zIndex: '101'
         } as Partial<CSSStyleDeclaration>;

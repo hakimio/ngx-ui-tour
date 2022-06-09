@@ -254,7 +254,7 @@ Each step can have the following properties.
 | **isAsync** |	boolean |	false |	Mark your step as "async" if anchor element is added to DOM with a delay (ie after data is loaded). |
 | **isOptional** |	boolean |	false |	Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked both "optional" and "async". |
 | **delayAfterNavigation** |	number |	0 |	Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use custom scrollbar and the page is not scrolled all the way before the tour step is shown. |
-| **goToNextOnAnchorEvent** | string | undefined |	Use this to wait for certain event on step target before going to the next step like click on a button or hit enter on an input. |
+| **goToNextOnAnchorClick** | boolean | false |	Use this to wait for click event on step target before going to the next step. |
 
 ## Defaults
 You can set default values in the `TourService.initialize()` function.

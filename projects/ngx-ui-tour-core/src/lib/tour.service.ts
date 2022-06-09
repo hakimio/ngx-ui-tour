@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Injectable, RendererFactory2} from '@angular/core';
+import type {Renderer2} from '@angular/core';
 import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 import type {UrlSegment} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {Subject, Observable, merge as mergeStatic} from 'rxjs';
+import {Subject, Observable, merge as mergeStatic, Subscription} from 'rxjs';
 import {first, map, filter, delay} from 'rxjs/operators';
 
 export interface IStepOption {
@@ -23,7 +24,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
-    goToNextOnAnchorEvent?: string;
+    goToNextOnAnchorClick?: boolean;
 }
 
 export enum TourState {
@@ -79,10 +80,15 @@ export class TourService<T extends IStepOption = IStepOption> {
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
+    private goToNextOnListeners: { [anchorId: string]: [() => void, Subscription] } = {};
+    private renderer: Renderer2;
 
     constructor(
-        private readonly router: Router
-    ) {}
+        private readonly router: Router,
+        private readonly rendererFactory: RendererFactory2
+    ) {
+        this.renderer = rendererFactory.createRenderer(null, null);
+    }
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
@@ -232,6 +238,18 @@ export class TourService<T extends IStepOption = IStepOption> {
             throw new Error('anchorId ' + anchorId + ' already registered!');
         }
         this.anchors[anchorId] = anchor;
+        const step = this.steps.find(s => s.anchorId === anchorId);
+        if (step?.goToNextOnAnchorClick) {
+            const onNext = () => {
+                this.next();
+                this.unregister(anchorId);
+            };
+
+            this.goToNextOnListeners[anchorId] = [
+                this.renderer.listen(anchor.nativeElement, 'click', onNext),
+                this.end$.subscribe(() => this.unregister(anchorId))
+            ];
+        }
         this.anchorRegister$.next(anchorId);
     }
 
@@ -240,6 +258,11 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
         delete this.anchors[anchorId];
+        if (this.goToNextOnListeners[anchorId]) {
+            this.goToNextOnListeners[anchorId][0]();
+            this.goToNextOnListeners[anchorId][1].unsubscribe();
+            delete this.goToNextOnListeners[anchorId];
+        }
         this.anchorUnregister$.next(anchorId);
     }
 

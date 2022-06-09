@@ -5,13 +5,10 @@ import {
   HostBinding,
   Injector,
   Input,
-  Renderer2,
-  RendererFactory2,
   ViewContainerRef
 } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
 import {
-  GoToNextOnAnchorUtil,
   ScrollingUtil,
   TourAnchorDirective,
   TourBackdropService,
@@ -36,8 +33,6 @@ export class TourAnchorMatMenuDirective
 
   @HostBinding('class.touranchor--is-active') public isActive: boolean;
 
-  private renderer: Renderer2;
-
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -45,15 +40,13 @@ export class TourAnchorMatMenuDirective
     private element: ElementRef,
     private tourService: NgxmTourService,
     private tourStepTemplate: TourStepTemplateService,
-    private tourBackdrop: TourBackdropService,
-    private rendererFactory: RendererFactory2
+    private tourBackdrop: TourBackdropService
   ) {
     this.opener = this.viewContainer.createComponent(
       this.componentFactoryResolver.resolveComponentFactory(
         TourAnchorOpenerComponent
       )
     ).instance;
-    this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   public ngOnInit(): void {
@@ -62,7 +55,6 @@ export class TourAnchorMatMenuDirective
 
   public ngOnDestroy(): void {
     this.tourService.unregister(this.tourAnchor);
-    GoToNextOnAnchorUtil.unregister(this.tourAnchor);
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -96,8 +88,6 @@ export class TourAnchorMatMenuDirective
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
 
-    GoToNextOnAnchorUtil.register(htmlElement,step, this.tourService, this.renderer, this.tourAnchor);
-
     if (this.menuCloseSubscription) {
       this.menuCloseSubscription.unsubscribe();
     }
@@ -120,5 +110,9 @@ export class TourAnchorMatMenuDirective
     if (this.tourService.getStatus() === TourState.OFF) {
       this.tourBackdrop.close();
     }
+  }
+
+  get nativeElement(): HTMLElement {
+    return this.element.nativeElement;
   }
 }
