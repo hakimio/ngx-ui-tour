@@ -23,7 +23,7 @@ export class TourAnchorNgxBootstrapDirective
   constructor(
     private tourService: NgxbTourService,
     private tourStepTemplate: TourStepTemplateService,
-    private element: ElementRef,
+    public element: ElementRef,
     @Host() private popoverDirective: TourAnchorNgxBootstrapPopoverDirective,
     private tourBackdrop: TourBackdropService
   ) {
@@ -72,9 +72,5 @@ export class TourAnchorNgxBootstrapDirective
     if (this.tourService.getStatus() === TourState.OFF) {
       this.tourBackdrop.close();
     }
-  }
-
-  get nativeElement(): HTMLElement {
-    return this.element.nativeElement;
   }
 }

@@ -36,34 +36,36 @@ export class TourBackdropService {
             this.backdropElements = this.createBackdropElements();
         }
 
-        // leftBackdropElement
-        this.applyStyles(this.createBackdropStyle({
+        const leftRect = {
             width: elementBoundingRect.left + scrollX,
             height: documentBoundingRect.height,
             top: 0,
             left: 0
-        }), this.backdropElements[0]);
-        // topBackdropElement
-        this.applyStyles(this.createBackdropStyle({
+        },
+        topRect = {
             width: elementBoundingRect.width,
             height: elementBoundingRect.top + scrollY,
             top: 0,
             left: elementBoundingRect.left + scrollX
-        }), this.backdropElements[1]);
-        // bottomBackdropElement
-        this.applyStyles(this.createBackdropStyle({
+        },
+        bottomRect = {
             width: elementBoundingRect.width,
-            height: documentBoundingRect.height - (elementBoundingRect.top + scrollY) - elementBoundingRect.height,
-            top: elementBoundingRect.top + scrollY + elementBoundingRect.height,
+            height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
+            top: elementBoundingRect.bottom + scrollY,
             left: elementBoundingRect.left + scrollX
-        }), this.backdropElements[2]);
-        //rightBackdropElement
-        this.applyStyles(this.createBackdropStyle({
-            width: documentBoundingRect.width - (elementBoundingRect.left + scrollX + elementBoundingRect.width),
+        },
+        rightRect = {
+            width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
             height: documentBoundingRect.height,
             top: 0,
-            left: elementBoundingRect.left + scrollX + elementBoundingRect.width
-        }), this.backdropElements[3]);
+            left: elementBoundingRect.right + scrollX
+        },
+        rectangles = [leftRect, topRect, bottomRect, rightRect];
+
+        for (let i = 0; i < rectangles.length; i++) {
+            const styles = this.createBackdropStyles(rectangles[i]);
+            this.applyStyles(styles, this.backdropElements[i]);
+        }
     }
 
     private subscribeToWindowResizeEvent() {
@@ -88,7 +90,9 @@ export class TourBackdropService {
     }
 
     private removeBackdropElement() {
-        this.backdropElements.forEach(backdropElement => this.renderer.removeChild(document.body, backdropElement));
+        this.backdropElements.forEach(
+            backdropElement => this.renderer.removeChild(document.body, backdropElement)
+        );
         this.backdropElements = undefined;
     }
 
@@ -98,7 +102,7 @@ export class TourBackdropService {
         }
     }
 
-    private createBackdropStyle(rectangle: { width: number; height: number; top: number; left: number; }) {
+    private createBackdropStyles(rectangle: { width: number; height: number; top: number; left: number; }) {
         return {
             position: this.isScrollingEnabled ? 'absolute' : 'fixed',
             width: `${rectangle.width}px`,
@@ -118,11 +122,8 @@ export class TourBackdropService {
     }
 
     private createBackdropElements() {
-        const leftBackdropElement = this.createBackdropElement();
-        const topBackdropElement = this.createBackdropElement();
-        const bottomBackdropElement = this.createBackdropElement();
-        const rightBackdropElement = this.createBackdropElement();
-
-        return [leftBackdropElement, topBackdropElement, bottomBackdropElement, rightBackdropElement];
+        return Array
+            .from({ length: 4 })
+            .map(() => this.createBackdropElement());
     }
 }

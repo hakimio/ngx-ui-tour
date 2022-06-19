@@ -70,7 +70,7 @@ export class TuiDropdownComponent implements OnInit {
     }, {
         anchorId: 'config.goToNextOnAnchorClick',
         content: 'Click on the config description to go to the next step',
-        title: 'Go To Next On Anchor Event',
+        title: 'Next on Anchor Click',
         route: 'tui-dropdown/API',
         goToNextOnAnchorClick: true
     }, {

@@ -20,7 +20,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   constructor(
       private tourService: TourService,
-      private element: ElementRef,
+      public element: ElementRef,
       private tourBackdrop: TourBackdropService
   ) {}
 
@@ -58,9 +58,5 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
     if (this.tourService.getStatus() === TourState.OFF) {
       this.tourBackdrop.close();
     }
-  }
-
-  get nativeElement(): HTMLElement {
-    return this.element.nativeElement;
   }
 }

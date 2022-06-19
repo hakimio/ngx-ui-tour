@@ -4,7 +4,7 @@ import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 import type {UrlSegment} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {Subject, Observable, merge as mergeStatic, Subscription} from 'rxjs';
+import {Subject, Observable, merge as mergeStatic} from 'rxjs';
 import {first, map, filter, delay} from 'rxjs/operators';
 
 export interface IStepOption {
@@ -80,7 +80,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
-    private goToNextOnListeners: { [anchorId: string]: [() => void, Subscription] } = {};
+    private unListenNextOnAnchorClickFn: () => void;
     private renderer: Renderer2;
 
     constructor(
@@ -127,6 +127,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.status = TourState.OFF;
         this.hideStep(this.currentStep);
         this.currentStep = undefined;
+        this.removeLastAnchorClickListener();
         this.end$.next();
     }
 
@@ -238,18 +239,6 @@ export class TourService<T extends IStepOption = IStepOption> {
             throw new Error('anchorId ' + anchorId + ' already registered!');
         }
         this.anchors[anchorId] = anchor;
-        const step = this.steps.find(s => s.anchorId === anchorId);
-        if (step?.goToNextOnAnchorClick) {
-            const onNext = () => {
-                this.next();
-                this.unregister(anchorId);
-            };
-
-            this.goToNextOnListeners[anchorId] = [
-                this.renderer.listen(anchor.nativeElement, 'click', onNext),
-                this.end$.subscribe(() => this.unregister(anchorId))
-            ];
-        }
         this.anchorRegister$.next(anchorId);
     }
 
@@ -258,11 +247,6 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
         delete this.anchors[anchorId];
-        if (this.goToNextOnListeners[anchorId]) {
-            this.goToNextOnListeners[anchorId][0]();
-            this.goToNextOnListeners[anchorId][1].unsubscribe();
-            delete this.goToNextOnListeners[anchorId];
-        }
         this.anchorUnregister$.next(anchorId);
     }
 
@@ -284,10 +268,28 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.hideStep(this.currentStep);
         }
 
+        this.removeLastAnchorClickListener();
+        this.listenToOnAnchorClick(step);
+
         if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
         } else {
             this.setCurrentStepAsync(step);
+        }
+    }
+
+    private removeLastAnchorClickListener() {
+        if (this.unListenNextOnAnchorClickFn) {
+            this.unListenNextOnAnchorClickFn();
+            this.unListenNextOnAnchorClickFn = undefined;
+        }
+    }
+
+    private listenToOnAnchorClick(step: T) {
+        if (step.goToNextOnAnchorClick) {
+            const anchor = this.anchors[step.anchorId];
+            this.unListenNextOnAnchorClickFn = this.renderer
+                .listen(anchor.element.nativeElement, 'click', () => this.next());
         }
     }
 

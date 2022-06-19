@@ -71,7 +71,7 @@ export class NgBootstrapComponent implements OnInit {
     }, {
         anchorId: 'config.goToNextOnAnchorClick',
         content: 'Click on the config description to go to the next step',
-        title: 'Go To Next On Anchor Event',
+        title: 'Next on Anchor Click',
         route: 'ng-bootstrap/API',
         goToNextOnAnchorClick: true
     }, {

@@ -30,7 +30,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         private readonly tourBackdropService: TourBackdropService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly tuiDropdown: TuiDropdownDirective,
-        private elementRef: ElementRef
+        public element: ElementRef
     ) {}
 
     ngOnInit(): void {
@@ -42,7 +42,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
     }
 
     showTourStep(step: ITuiDdStepOption) {
-        const htmlElement: HTMLElement = this.elementRef.nativeElement,
+        const htmlElement: HTMLElement = this.element.nativeElement,
             templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
@@ -61,7 +61,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         this.tuiDropdown.content = templateComponent.template;
 
         if (step.enableBackdrop) {
-            this.tourBackdropService.show(this.elementRef);
+            this.tourBackdropService.show(this.element);
         } else {
             this.tourBackdropService.close();
         }
@@ -80,9 +80,5 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         if (this.tourService.getStatus() === TourState.OFF) {
             this.tourBackdropService.close();
         }
-    }
-
-    get nativeElement(): HTMLElement {
-        return this.elementRef.nativeElement;
     }
 }

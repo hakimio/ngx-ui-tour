@@ -23,7 +23,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
   constructor(
     private tourService: NgbTourService,
     private tourStepTemplate: TourStepTemplateService,
-    private element: ElementRef,
+    public element: ElementRef,
     @Host() private popoverDirective: TourAnchorNgBootstrapPopoverDirective,
     private tourBackdrop: TourBackdropService
   ) {
@@ -73,9 +73,5 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
       this.tourBackdrop.close();
     }
     this.popoverDirective.close();
-  }
-
-  get nativeElement(): HTMLElement {
-    return this.element.nativeElement;
   }
 }
