@@ -4,6 +4,13 @@ import {fromEvent, interval, Subscription} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 
+export interface Rectangle {
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+}
+
 @Injectable()
 export class TourBackdropService {
     private renderer: Renderer2;
@@ -36,31 +43,31 @@ export class TourBackdropService {
             this.backdropElements = this.createBackdropElements();
         }
 
-        const leftRect = {
+        const leftRect: Rectangle = {
             width: elementBoundingRect.left + scrollX,
             height: documentBoundingRect.height,
             top: 0,
             left: 0
         },
-        topRect = {
+        topRect: Rectangle = {
             width: elementBoundingRect.width,
             height: elementBoundingRect.top + scrollY,
             top: 0,
             left: elementBoundingRect.left + scrollX
         },
-        bottomRect = {
+        bottomRect: Rectangle = {
             width: elementBoundingRect.width,
             height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
             top: elementBoundingRect.bottom + scrollY,
             left: elementBoundingRect.left + scrollX
         },
-        rightRect = {
+        rightRect: Rectangle = {
             width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
             height: documentBoundingRect.height,
             top: 0,
             left: elementBoundingRect.right + scrollX
         },
-        rectangles = [leftRect, topRect, bottomRect, rightRect];
+        rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
 
         for (let i = 0; i < rectangles.length; i++) {
             const styles = this.createBackdropStyles(rectangles[i]);
