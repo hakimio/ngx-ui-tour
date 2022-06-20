@@ -4,7 +4,7 @@ import {fromEvent, interval, Subscription} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 
-export interface Rectangle {
+interface Rectangle {
     width: number;
     height: number;
     top: number;
@@ -109,7 +109,7 @@ export class TourBackdropService {
         }
     }
 
-    private createBackdropStyles(rectangle: { width: number; height: number; top: number; left: number; }) {
+    private createBackdropStyles(rectangle: Rectangle) {
         return {
             position: this.isScrollingEnabled ? 'absolute' : 'fixed',
             width: `${rectangle.width}px`,
