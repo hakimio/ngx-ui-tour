@@ -68,6 +68,12 @@ export class TuiDropdownComponent implements OnInit {
         title: 'Wait for async event',
         route: 'tui-dropdown/API'
     }, {
+        anchorId: 'config.goToNextOnAnchorClick',
+        content: 'Click on the config description to go to the next step',
+        title: 'Next on Anchor Click',
+        route: 'tui-dropdown/API',
+        goToNextOnAnchorClick: true
+    }, {
         anchorId: 'events',
         content: 'You can subscribe to events',
         title: 'Events',

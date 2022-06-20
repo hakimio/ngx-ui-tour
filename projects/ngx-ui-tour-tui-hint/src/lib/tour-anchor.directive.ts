@@ -24,7 +24,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         private readonly tourBackdropService: TourBackdropService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly tuiHint: TuiManualHintDirective,
-        private elementRef: ElementRef
+        public element: ElementRef
     ) {}
 
     ngOnInit(): void {
@@ -36,7 +36,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
     }
 
     showTourStep(step: ITuiHintStepOption) {
-        const htmlElement: HTMLElement = this.elementRef.nativeElement,
+        const htmlElement: HTMLElement = this.element.nativeElement,
             templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
@@ -51,7 +51,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         this.tuiHint.mode = 'onDark';
 
         if (step.enableBackdrop) {
-            this.tourBackdropService.show(this.elementRef);
+            this.tourBackdropService.show(this.element);
         } else {
             this.tourBackdropService.close();
         }
@@ -71,5 +71,4 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
             this.tourBackdropService.close();
         }
     }
-
 }

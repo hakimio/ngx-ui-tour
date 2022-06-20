@@ -4,11 +4,17 @@ import {fromEvent, interval, Subscription} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 
+interface Rectangle {
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+}
+
 @Injectable()
 export class TourBackdropService {
     private renderer: Renderer2;
-    private backdropBaseElement: HTMLElement;
-    private backdropElement: HTMLElement;
+    private backdropElements: HTMLElement[];
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
     windowResizeSubscription$: Subscription;
@@ -18,40 +24,55 @@ export class TourBackdropService {
     }
 
     public show(targetElement: ElementRef, isScrollingEnabled = true) {
-        if (!this.backdropElement) {
+        this.isScrollingEnabled = isScrollingEnabled;
+        this.targetHtmlElement = targetElement.nativeElement;
+
+        if (!this.backdropElements) {
             this.createBackdrop();
             this.subscribeToWindowResizeEvent();
         }
-
-        this.isScrollingEnabled = isScrollingEnabled;
-        this.targetHtmlElement = targetElement.nativeElement;
-        this.setBackdropElStyles();
     }
 
     private createBackdrop() {
-        this.createBackdropBaseElement();
-        this.createBackdropElement();
-    }
+        const elementBoundingRect = this.targetHtmlElement.getBoundingClientRect(),
+            documentBoundingRect = document.documentElement.getBoundingClientRect(),
+            scrollX = window.scrollX ?? window.pageXOffset,
+            scrollY = window.scrollY ?? window.pageYOffset;
 
-    private createBackdropBaseElement() {
-        const baseElStyles: Partial<CSSStyleDeclaration> = {
-            position: 'fixed',
-            height: '100%',
-            width: '100%',
-            top: '0',
-            left: '0',
-            zIndex: '100'
-        };
+        if (!this.backdropElements) {
+            this.backdropElements = this.createBackdropElements();
+        }
 
-        this.backdropBaseElement = this.renderer.createElement('div');
-        this.applyStyles(baseElStyles, this.backdropBaseElement);
-        this.renderer.appendChild(document.body, this.backdropBaseElement);
-    }
+        const leftRect: Rectangle = {
+            width: elementBoundingRect.left + scrollX,
+            height: documentBoundingRect.height,
+            top: 0,
+            left: 0
+        },
+        topRect: Rectangle = {
+            width: elementBoundingRect.width,
+            height: elementBoundingRect.top + scrollY,
+            top: 0,
+            left: elementBoundingRect.left + scrollX
+        },
+        bottomRect: Rectangle = {
+            width: elementBoundingRect.width,
+            height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
+            top: elementBoundingRect.bottom + scrollY,
+            left: elementBoundingRect.left + scrollX
+        },
+        rightRect: Rectangle = {
+            width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
+            height: documentBoundingRect.height,
+            top: 0,
+            left: elementBoundingRect.right + scrollX
+        },
+        rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
 
-    private createBackdropElement() {
-        this.backdropElement = this.renderer.createElement('div');
-        this.renderer.addClass(this.backdropElement, 'ngx-ui-tour_backdrop');
-        this.renderer.appendChild(document.body, this.backdropElement);
+        for (let i = 0; i < rectangles.length; i++) {
+            const styles = this.createBackdropStyles(rectangles[i]);
+            this.applyStyles(styles, this.backdropElements[i]);
+        }
     }
 
     private subscribeToWindowResizeEvent() {
@@ -62,41 +83,24 @@ export class TourBackdropService {
             )
             .subscribe(
                 () => {
-                    this.setBackdropElStyles();
+                    this.createBackdrop();
                     ScrollingUtil.ensureVisible(this.targetHtmlElement);
                 }
             );
     }
 
     public close() {
-        if (this.backdropElement) {
+        if (this.backdropElements) {
             this.removeBackdropElement();
             this.windowResizeSubscription$.unsubscribe();
         }
     }
 
     private removeBackdropElement() {
-        this.renderer.removeChild(document.body, this.backdropBaseElement);
-        this.renderer.removeChild(document.body, this.backdropElement);
-        this.backdropBaseElement = null;
-        this.backdropElement = null;
-    }
-
-    private setBackdropElStyles() {
-        const boundingRect = this.targetHtmlElement.getBoundingClientRect(),
-            scrollX = window.scrollX ?? window.pageXOffset,
-            scrollY = window.scrollY ?? window.pageYOffset,
-            styles: Partial<CSSStyleDeclaration> = {
-                position: this.isScrollingEnabled ? 'absolute' : 'fixed',
-                width: `${boundingRect.width}px`,
-                height: `${boundingRect.height}px`,
-                top: `${boundingRect.top + scrollY}px`,
-                left: `${boundingRect.left + scrollX}px`,
-                boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.7)',
-                zIndex: '101'
-            };
-
-        this.applyStyles(styles, this.backdropElement);
+        this.backdropElements.forEach(
+            backdropElement => this.renderer.removeChild(document.body, backdropElement)
+        );
+        this.backdropElements = undefined;
     }
 
     private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {
@@ -105,4 +109,28 @@ export class TourBackdropService {
         }
     }
 
+    private createBackdropStyles(rectangle: Rectangle) {
+        return {
+            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            width: `${rectangle.width}px`,
+            height: `${rectangle.height}px`,
+            top: `${rectangle.top}px`,
+            left: `${rectangle.left}px`,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: '101'
+        } as Partial<CSSStyleDeclaration>;
+    }
+
+    private createBackdropElement() {
+        const backdropElement = this.renderer.createElement('div');
+        this.renderer.addClass(backdropElement, 'ngx-ui-tour_backdrop');
+        this.renderer.appendChild(document.body, backdropElement);
+        return backdropElement;
+    }
+
+    private createBackdropElements() {
+        return Array
+            .from({ length: 4 })
+            .map(() => this.createBackdropElement());
+    }
 }

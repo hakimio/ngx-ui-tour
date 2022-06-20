@@ -20,7 +20,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   constructor(
       private tourService: TourService,
-      private element: ElementRef,
+      public element: ElementRef,
       private tourBackdrop: TourBackdropService
   ) {}
 

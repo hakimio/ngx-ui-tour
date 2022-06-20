@@ -69,6 +69,12 @@ export class NgBootstrapComponent implements OnInit {
         title: 'Wait for async event',
         route: 'ng-bootstrap/API'
     }, {
+        anchorId: 'config.goToNextOnAnchorClick',
+        content: 'Click on the config description to go to the next step',
+        title: 'Next on Anchor Click',
+        route: 'ng-bootstrap/API',
+        goToNextOnAnchorClick: true
+    }, {
         anchorId: 'events',
         content: 'You can subscribe to events',
         title: 'Events',

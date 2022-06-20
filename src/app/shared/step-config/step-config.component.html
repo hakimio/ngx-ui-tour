@@ -142,4 +142,13 @@
         Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use
         custom scrollbar and the page is not scrolled all the way before the tour step is shown.
     </ng-template>
+    <ng-template
+        documentationPropertyName="goToNextOnAnchorClick"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="true"
+    >
+        <div tourAnchor="config.goToNextOnAnchorClick" style="cursor: pointer;">
+            Go to next step on anchor element click instead of "Next" button.
+        </div>
+    </ng-template>
 </tui-doc-documentation>

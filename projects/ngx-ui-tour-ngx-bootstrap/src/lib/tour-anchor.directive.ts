@@ -23,7 +23,7 @@ export class TourAnchorNgxBootstrapDirective
   constructor(
     private tourService: NgxbTourService,
     private tourStepTemplate: TourStepTemplateService,
-    private element: ElementRef,
+    public element: ElementRef,
     @Host() private popoverDirective: TourAnchorNgxBootstrapPopoverDirective,
     private tourBackdrop: TourBackdropService
   ) {

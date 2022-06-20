@@ -1,4 +1,5 @@
-import {Injectable} from '@angular/core';
+import {Injectable, RendererFactory2} from '@angular/core';
+import type {Renderer2} from '@angular/core';
 import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 import type {UrlSegment} from '@angular/router';
 
@@ -23,6 +24,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
+    goToNextOnAnchorClick?: boolean;
 }
 
 export enum TourState {
@@ -78,10 +80,15 @@ export class TourService<T extends IStepOption = IStepOption> {
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
+    private unListenNextOnAnchorClickFn: () => void;
+    private renderer: Renderer2;
 
     constructor(
-        private readonly router: Router
-    ) {}
+        private readonly router: Router,
+        private readonly rendererFactory: RendererFactory2
+    ) {
+        this.renderer = rendererFactory.createRenderer(null, null);
+    }
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
@@ -120,6 +127,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.status = TourState.OFF;
         this.hideStep(this.currentStep);
         this.currentStep = undefined;
+        this.removeLastAnchorClickListener();
         this.end$.next();
     }
 
@@ -260,10 +268,28 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.hideStep(this.currentStep);
         }
 
+        this.removeLastAnchorClickListener();
+        this.listenToOnAnchorClick(step);
+
         if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
         } else {
             this.setCurrentStepAsync(step);
+        }
+    }
+
+    private removeLastAnchorClickListener() {
+        if (this.unListenNextOnAnchorClickFn) {
+            this.unListenNextOnAnchorClickFn();
+            this.unListenNextOnAnchorClickFn = undefined;
+        }
+    }
+
+    private listenToOnAnchorClick(step: T) {
+        if (step.goToNextOnAnchorClick) {
+            const anchor = this.anchors[step.anchorId];
+            this.unListenNextOnAnchorClickFn = this.renderer
+                .listen(anchor.element.nativeElement, 'click', () => this.next());
         }
     }
 

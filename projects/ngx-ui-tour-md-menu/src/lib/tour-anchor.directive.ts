@@ -37,7 +37,7 @@ export class TourAnchorMatMenuDirective
     private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private viewContainer: ViewContainerRef,
-    private element: ElementRef,
+    public element: ElementRef,
     private tourService: NgxmTourService,
     private tourStepTemplate: TourStepTemplateService,
     private tourBackdrop: TourBackdropService
