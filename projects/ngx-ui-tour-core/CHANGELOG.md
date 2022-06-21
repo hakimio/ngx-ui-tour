@@ -1,3 +1,11 @@
+<a name="8.1.1"></a>
+
+# [8.1.1](https://github.com/hakimio/ngx-ui-tour) (2022-06-21)
+
+### Fixes
+
+- Fix backdrop position updating
+
 <a name="8.1.0"></a>
 
 # [8.1.0](https://github.com/hakimio/ngx-ui-tour) (2022-06-21)
