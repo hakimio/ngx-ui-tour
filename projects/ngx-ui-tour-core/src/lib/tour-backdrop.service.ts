@@ -28,46 +28,42 @@ export class TourBackdropService {
         this.targetHtmlElement = targetElement.nativeElement;
 
         if (!this.backdropElements) {
-            this.createBackdrop();
+            this.backdropElements = this.createBackdropElements();
             this.subscribeToWindowResizeEvent();
         }
+        this.setBackdropPosition();
     }
 
-    private createBackdrop() {
+    private setBackdropPosition() {
         const elementBoundingRect = this.targetHtmlElement.getBoundingClientRect(),
             documentBoundingRect = document.documentElement.getBoundingClientRect(),
-            scrollX = window.scrollX ?? window.pageXOffset,
-            scrollY = window.scrollY ?? window.pageYOffset;
-
-        if (!this.backdropElements) {
-            this.backdropElements = this.createBackdropElements();
-        }
-
-        const leftRect: Rectangle = {
-            width: elementBoundingRect.left + scrollX,
-            height: documentBoundingRect.height,
-            top: 0,
-            left: 0
-        },
-        topRect: Rectangle = {
-            width: elementBoundingRect.width,
-            height: elementBoundingRect.top + scrollY,
-            top: 0,
-            left: elementBoundingRect.left + scrollX
-        },
-        bottomRect: Rectangle = {
-            width: elementBoundingRect.width,
-            height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
-            top: elementBoundingRect.bottom + scrollY,
-            left: elementBoundingRect.left + scrollX
-        },
-        rightRect: Rectangle = {
-            width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
-            height: documentBoundingRect.height,
-            top: 0,
-            left: elementBoundingRect.right + scrollX
-        },
-        rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
+            scrollX = window.scrollX,
+            scrollY = window.scrollY,
+            leftRect: Rectangle = {
+                width: elementBoundingRect.left + scrollX,
+                height: documentBoundingRect.height,
+                top: 0,
+                left: 0
+            },
+            topRect: Rectangle = {
+                width: elementBoundingRect.width,
+                height: elementBoundingRect.top + scrollY,
+                top: 0,
+                left: elementBoundingRect.left + scrollX
+            },
+            bottomRect: Rectangle = {
+                width: elementBoundingRect.width,
+                height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
+                top: elementBoundingRect.bottom + scrollY,
+                left: elementBoundingRect.left + scrollX
+            },
+            rightRect: Rectangle = {
+                width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
+                height: documentBoundingRect.height,
+                top: 0,
+                left: elementBoundingRect.right + scrollX
+            },
+            rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
 
         for (let i = 0; i < rectangles.length; i++) {
             const styles = this.createBackdropStyles(rectangles[i]);
@@ -83,7 +79,7 @@ export class TourBackdropService {
             )
             .subscribe(
                 () => {
-                    this.createBackdrop();
+                    this.setBackdropPosition();
                     ScrollingUtil.ensureVisible(this.targetHtmlElement);
                 }
             );
