@@ -1,5 +1,9 @@
-::ng-deep tui-dropdown-box {
-    z-index: 150 !important;
+::ng-deep tui-dropdown-host {
+    z-index: auto !important;
+
+    tui-dropdown-box {
+        z-index: 150 !important;
+    }
 }
 
 .main-container {
