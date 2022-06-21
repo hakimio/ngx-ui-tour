@@ -1,3 +1,16 @@
+<a name="2.1.0"></a>
+
+# [2.1.0](https://github.com/hakimio/ngx-ui-tour) (2022-06-21)
+
+### Features
+
+- New `goToNextOnAnchorClick` config which can be used to go to the next step by clicking on anchor element instead
+  of "Next" button. Implemented by Luca Oliano (@lucaoliano).
+
+### Fixes
+
+- Fix backdrop showing over the `tui-dropdown` when using latest Taiga UI version 
+
 <a name="2.0.1"></a>
 
 # [2.0.1](https://github.com/hakimio/ngx-ui-tour) (2022-02-21)
