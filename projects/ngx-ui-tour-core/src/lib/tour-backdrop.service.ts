@@ -36,12 +36,14 @@ export class TourBackdropService {
 
     private setBackdropPosition() {
         const elementBoundingRect = this.targetHtmlElement.getBoundingClientRect(),
-            documentBoundingRect = document.documentElement.getBoundingClientRect(),
+            docEl = document.documentElement,
+            scrollHeight = docEl.scrollHeight,
+            scrollWidth = docEl.scrollWidth,
             scrollX = window.scrollX,
             scrollY = window.scrollY,
             leftRect: Rectangle = {
                 width: elementBoundingRect.left + scrollX,
-                height: documentBoundingRect.height,
+                height: scrollHeight,
                 top: 0,
                 left: 0
             },
@@ -53,13 +55,13 @@ export class TourBackdropService {
             },
             bottomRect: Rectangle = {
                 width: elementBoundingRect.width,
-                height: documentBoundingRect.height - (elementBoundingRect.bottom + scrollY),
+                height: scrollHeight - (elementBoundingRect.bottom + scrollY),
                 top: elementBoundingRect.bottom + scrollY,
                 left: elementBoundingRect.left + scrollX
             },
             rightRect: Rectangle = {
-                width: documentBoundingRect.width - (elementBoundingRect.right + scrollX),
-                height: documentBoundingRect.height,
+                width: scrollWidth - (elementBoundingRect.right + scrollX),
+                height: scrollHeight,
                 top: 0,
                 left: elementBoundingRect.right + scrollX
             },
