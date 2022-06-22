@@ -1,3 +1,11 @@
+<a name="8.1.2"></a>
+
+# [8.1.2](https://github.com/hakimio/ngx-ui-tour) (2022-06-22)
+
+### Fixes
+
+- Fix backdrop not expanding to full height in some cases
+
 <a name="8.1.1"></a>
 
 # [8.1.1](https://github.com/hakimio/ngx-ui-tour) (2022-06-21)
