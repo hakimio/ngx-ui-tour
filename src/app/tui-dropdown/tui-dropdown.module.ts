@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TourTuiDropdownModule, TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
 import {TuiDropdownComponent} from './tui-dropdown.component';
-import {generateRoutes, TuiDocDocumentationModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {tuiGenerateRoutes, TuiDocDocumentationModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {RouterModule} from '@angular/router';
 import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 import {SharedModule} from '../shared/shared.module';
@@ -14,7 +14,7 @@ import {SharedModule} from '../shared/shared.module';
     imports: [
         CommonModule,
         TourTuiDropdownModule.forRoot(),
-        RouterModule.forChild(generateRoutes(TuiDropdownComponent)),
+        RouterModule.forChild(tuiGenerateRoutes(TuiDropdownComponent)),
         TuiDocPageModule,
         TuiDocDocumentationModule,
         TuiLinkModule,

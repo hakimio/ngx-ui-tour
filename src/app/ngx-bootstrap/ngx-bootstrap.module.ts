@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {TourAnchorNgxBootstrapDirective, TourNgxBootstrapModule} from 'ngx-ui-tour-ngx-bootstrap';
 
 import {NgxBootstrapComponent} from './ngx-bootstrap.component';
-import {generateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {tuiGenerateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {SharedModule} from '../shared/shared.module';
 import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 
@@ -12,7 +12,7 @@ import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
     declarations: [NgxBootstrapComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(generateRoutes(NgxBootstrapComponent)),
+        RouterModule.forChild(tuiGenerateRoutes(NgxBootstrapComponent)),
         TourNgxBootstrapModule.forRoot(),
         SharedModule.withAnchorDirectiveType(TourAnchorNgxBootstrapDirective),
         TuiButtonModule,

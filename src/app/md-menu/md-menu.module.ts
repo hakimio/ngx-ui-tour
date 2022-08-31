@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TourMatMenuModule, TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 import {MdMenuComponent} from './md-menu.component';
-import {generateRoutes, TuiDocDocumentationModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {tuiGenerateRoutes, TuiDocDocumentationModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 import {SharedModule} from '../shared/shared.module';
 
@@ -12,7 +12,7 @@ import {SharedModule} from '../shared/shared.module';
     imports: [
         CommonModule,
         TourMatMenuModule.forRoot(),
-        RouterModule.forChild(generateRoutes(MdMenuComponent)),
+        RouterModule.forChild(tuiGenerateRoutes(MdMenuComponent)),
         TuiDocPageModule,
         TuiDocDocumentationModule,
         TuiLinkModule,

@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {TourAnchorConsoleDirective, TourConsoleModule} from 'ngx-ui-tour-console';
 
 import {ConsoleComponent} from './console.component';
-import {generateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {tuiGenerateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {SharedModule} from '../shared/shared.module';
 import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
 
@@ -12,7 +12,7 @@ import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
     declarations: [ConsoleComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(generateRoutes(ConsoleComponent)),
+        RouterModule.forChild(tuiGenerateRoutes(ConsoleComponent)),
         TourConsoleModule.forRoot(),
         SharedModule.withAnchorDirectiveType(TourAnchorConsoleDirective),
         TuiDocPageModule,

@@ -1,5 +1,5 @@
 import {Attribute, Component, Inject} from '@angular/core';
-import {TuiNotification, TuiNotificationsService} from '@taiga-ui/core';
+import {TuiAlertService, TuiNotification} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {LOCATION} from '@ng-web-apis/common';
 import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
@@ -23,8 +23,8 @@ export class HeaderComponent {
         @Attribute('id')
         readonly id: string | null,
         @Inject(Clipboard) private readonly clipboard: Clipboard,
-        @Inject(TuiNotificationsService)
-        private readonly notifications: TuiNotificationsService,
+        @Inject(TuiAlertService)
+        private readonly alertService: TuiAlertService,
         @Inject(LOCATION) private readonly location: Location,
         @Inject(TUI_COPY_TEXTS) private readonly copyTexts$: Observable<[string, string]>,
         @Inject(TUI_DOC_EXAMPLE_TEXTS) readonly texts: [string, string, string]
@@ -34,13 +34,13 @@ export class HeaderComponent {
         const hashPosition = this.location.href.indexOf('#');
         const currentUrl =
             hashPosition > -1
-                ? this.location.href.substr(0, hashPosition)
+                ? this.location.href.substring(0, hashPosition)
                 : this.location.href;
         const url = `${currentUrl}#${this.id}`;
 
         this.clipboard.copy(url);
-        this.notifications
-            .show(this.texts[1], {
+        this.alertService
+            .open(this.texts[1], {
                 label: this.texts[2],
                 status: TuiNotification.Success
             })
