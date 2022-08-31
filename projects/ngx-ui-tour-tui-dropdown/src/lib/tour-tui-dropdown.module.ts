@@ -6,15 +6,18 @@ import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 import {TourBackdropService, TourModule, TourService} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TuiButtonModule, TuiDropdownModule} from '@taiga-ui/core';
-
-const COMPONENTS = [
-    TourStepTemplateComponent,
-    TourAnchorTuiDropdownDirective
-];
+import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @NgModule({
-    declarations: COMPONENTS,
-    exports: COMPONENTS,
+    declarations: [
+        TourStepTemplateComponent,
+        TourAnchorTuiDropdownDirective,
+        TourAnchorOpenerComponent
+    ],
+    exports: [
+        TourStepTemplateComponent,
+        TourAnchorTuiDropdownDirective
+    ],
     imports: [
         CommonModule,
         TourModule,

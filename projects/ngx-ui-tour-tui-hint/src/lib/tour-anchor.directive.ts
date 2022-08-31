@@ -1,15 +1,12 @@
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
-import {TuiManualHintDirective} from '@taiga-ui/core';
+import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
 import {TourTuiHintService} from './tour-tui-hint.service';
 import {ITuiHintStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
+import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @Directive({
-    selector: '[tourAnchor]',
-    providers: [
-        TuiManualHintDirective
-    ]
+    selector: '[tourAnchor]'
 })
 export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
@@ -19,20 +16,26 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
     @HostBinding('class.touranchor--is-active')
     isActive: boolean;
 
+    private opener: TourAnchorOpenerComponent;
+
     constructor(
         private readonly tourService: TourTuiHintService,
         private readonly tourBackdropService: TourBackdropService,
         private readonly tourStepTemplateService: TourStepTemplateService,
-        private readonly tuiHint: TuiManualHintDirective,
-        public element: ElementRef
+        private readonly viewContainer: ViewContainerRef,
+        public readonly element: ElementRef
     ) {}
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
     }
 
-    public ngOnDestroy(): void {
+    ngOnDestroy(): void {
         this.tourService.unregister(this.tourAnchor);
+    }
+
+    private createOpener() {
+        this.opener = this.viewContainer.createComponent(TourAnchorOpenerComponent).instance;
     }
 
     showTourStep(step: ITuiHintStepOption) {
@@ -42,13 +45,17 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         templateComponent.step = step;
         this.isActive = true;
 
+        if (!this.opener) {
+            this.createOpener();
+        }
+
         if (!step.disableScrollToAnchor) {
             ScrollingUtil.ensureVisible(htmlElement);
         }
 
-        this.tuiHint.direction = step.placement || 'bottom-right';
-        this.tuiHint.content = templateComponent.template;
-        this.tuiHint.mode = 'onDark';
+        const tuiHint = this.opener.hint;
+
+        (tuiHint as any).elementRef = this.element;
 
         if (step.enableBackdrop) {
             this.tourBackdropService.show(this.element);
@@ -60,12 +67,12 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         step.nextBtnTitle = step.nextBtnTitle || 'Next';
         step.endBtnTitle = step.endBtnTitle || 'End';
 
-        this.tuiHint.tuiManualHintShow = true;
+        this.opener.isShown = true;
     }
 
     hideTourStep() {
         this.isActive = false;
-        this.tuiHint.tuiManualHintShow = false;
+        this.opener.isShown = false;
 
         if (this.tourService.getStatus() === TourState.OFF) {
             this.tourBackdropService.close();

@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {IStepOption, TourService} from 'ngx-ui-tour-tui-hint';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
-import {TuiDirection} from '@taiga-ui/core';
+import {TuiHintDirection} from '@taiga-ui/core';
 
 @Component({
     selector: 'app-tui-hint',
@@ -86,13 +86,19 @@ export class TuiHintComponent implements OnInit {
         route: 'tui-hint/Misc'
     }];
     readonly defaultTemplate = defaultTemplate;
-    readonly hintPlacements: ReadonlyArray<TuiDirection> = [
-        'left',
-        'right',
-        'bottom-left',
-        'bottom-right',
+    readonly hintPlacements: ReadonlyArray<TuiHintDirection> = [
         'top-left',
-        'top-right'
+        'top',
+        'top-right',
+        'bottom-left',
+        'bottom',
+        'bottom-right',
+        'left-top',
+        'left',
+        'left-bottom',
+        'right-top',
+        'right',
+        'right-bottom'
     ];
 
     constructor(
