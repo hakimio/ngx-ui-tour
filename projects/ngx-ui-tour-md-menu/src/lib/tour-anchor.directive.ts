@@ -1,24 +1,11 @@
-import {
-  ComponentFactoryResolver,
-  Directive,
-  ElementRef,
-  HostBinding,
-  Injector,
-  Input,
-  ViewContainerRef
-} from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
-import {
-  ScrollingUtil,
-  TourAnchorDirective,
-  TourBackdropService,
-  TourState
-} from 'ngx-ui-tour-core';
-import { Subscription } from 'rxjs';
+import {Directive, ElementRef, HostBinding, Injector, Input, ViewContainerRef} from '@angular/core';
+import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {Subscription} from 'rxjs';
 
-import { TourAnchorOpenerComponent } from './tour-anchor-opener.component';
-import { TourStepTemplateService } from './tour-step-template.service';
-import { first } from 'rxjs/operators';
+import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
+import {TourStepTemplateService} from './tour-step-template.service';
+import {first} from 'rxjs/operators';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
 
@@ -34,7 +21,6 @@ export class TourAnchorMatMenuDirective
   @HostBinding('class.touranchor--is-active') public isActive: boolean;
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private viewContainer: ViewContainerRef,
     public element: ElementRef,
@@ -42,11 +28,7 @@ export class TourAnchorMatMenuDirective
     private tourStepTemplate: TourStepTemplateService,
     private tourBackdrop: TourBackdropService
   ) {
-    this.opener = this.viewContainer.createComponent(
-      this.componentFactoryResolver.resolveComponentFactory(
-        TourAnchorOpenerComponent
-      )
-    ).instance;
+    this.opener = this.viewContainer.createComponent(TourAnchorOpenerComponent).instance;
   }
 
   public ngOnInit(): void {
