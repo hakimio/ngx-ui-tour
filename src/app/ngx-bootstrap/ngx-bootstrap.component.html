@@ -51,9 +51,12 @@
             [isContainerClassVisible]="true"
         >
             <app-placement-config
-                value="top"
+                value="auto"
                 extraInfo="Accepts <a target='_blank' href='https://valor-software.com/ngx-bootstrap/#/popover#placement'>Popover placement</a> options."
-                [values]="['top', 'right', 'bottom', 'left', 'auto']"
+                [values]="['top', 'bottom', 'left', 'right', 'auto', 'top left', 'top right', 'right top',
+                    'right bottom', 'bottom right', 'bottom left', 'left bottom', 'left top', 'start', 'end',
+                    'top start', 'top end', 'end top', 'end bottom', 'bottom end', 'bottom start', 'start bottom',
+                    'start top']"
             ></app-placement-config>
         </app-step-config>
         <app-tour-service-api></app-tour-service-api>

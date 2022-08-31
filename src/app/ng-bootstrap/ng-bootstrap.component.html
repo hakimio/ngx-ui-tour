@@ -48,10 +48,11 @@
     <ng-template pageTab>
         <app-step-config>
             <app-placement-config
-                value="top"
+                value="auto"
                 extraInfo="Accepts <a href='https://ng-bootstrap.github.io/#/components/popover/api#NgbPopover'>NgbPopover</a> placement options."
-                [values]="['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right', 'left', 'left-top',
-                'left-bottom', 'right', 'right-top', 'right-bottom']"
+                [values]="['auto', 'top', 'bottom', 'start', 'left', 'end', 'right', 'top-start', 'top-left', 'top-end',
+                 'top-right', 'bottom-start', 'bottom-left', 'bottom-end', 'bottom-right', 'start-top', 'left-top',
+                 'start-bottom', 'left-bottom', 'end-top', 'right-top', 'end-bottom', 'right-bottom']"
             ></app-placement-config>
         </app-step-config>
         <app-tour-service-api></app-tour-service-api>

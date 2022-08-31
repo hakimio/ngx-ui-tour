@@ -51,7 +51,7 @@ export class TourAnchorNgxBootstrapDirective
     if (step.containerClass) {
       this.popoverDirective.containerClass += ` ${step.containerClass}`;
     }
-    this.popoverDirective.placement = step.placement || 'top';
+    this.popoverDirective.placement = step.placement || 'auto';
     step.prevBtnTitle = step.prevBtnTitle || 'Prev';
     step.nextBtnTitle = step.nextBtnTitle || 'Next';
     step.endBtnTitle = step.endBtnTitle || 'End';
