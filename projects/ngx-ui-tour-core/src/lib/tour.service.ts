@@ -7,6 +7,7 @@ import {TourAnchorDirective} from './tour-anchor.directive';
 import {Subject, Observable, merge as mergeStatic} from 'rxjs';
 import {first, map, filter, delay} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
+import {TourBackdropService} from './tour-backdrop.service';
 
 export interface IStepOption {
     stepId?: string;
@@ -98,7 +99,8 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     constructor(
         private readonly router: Router,
-        private readonly rendererFactory: RendererFactory2
+        private readonly rendererFactory: RendererFactory2,
+        private readonly backdrop: TourBackdropService
     ) {
         this.renderer = rendererFactory.createRenderer(null, null);
     }
@@ -147,6 +149,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.hideStep(this.currentStep);
         this.currentStep = undefined;
         this.removeLastAnchorClickListener();
+        this.backdrop.close();
         this.end$.next();
     }
 
@@ -391,6 +394,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.listenToOnAnchorClick(step);
         this.scrollToAnchor(step);
         anchor.showTourStep(step);
+        this.toggleBackdrop(step);
         this.stepShow$.next(step);
     }
 
@@ -408,10 +412,21 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
 
-        const anchor = this.anchors[step && step.anchorId],
+        const anchor = this.anchors[step?.anchorId],
             htmlElement = anchor.element.nativeElement;
 
         ScrollingUtil.ensureVisible(htmlElement);
+    }
+
+    private toggleBackdrop(step: T) {
+        const anchor = this.anchors[step?.anchorId],
+            isScrollingEnabled = anchor.getIsScrollingEnabled?.() ?? true;
+
+        if (step.enableBackdrop) {
+            this.backdrop.show(anchor.element, isScrollingEnabled);
+        } else {
+            this.backdrop.close();
+        }
     }
 
 }

@@ -1,10 +1,4 @@
-import {
-  TourAnchorDirective,
-  TourService,
-  IStepOption,
-  TourBackdropService,
-  TourState
-} from 'ngx-ui-tour-core';
+import {IStepOption, TourAnchorDirective, TourService} from 'ngx-ui-tour-core';
 import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 
 @Directive({
@@ -19,8 +13,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   constructor(
       private tourService: TourService,
-      public element: ElementRef,
-      private tourBackdrop: TourBackdropService
+      public element: ElementRef
   ) {}
 
   public ngOnInit(): void {
@@ -35,12 +28,6 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
   public showTourStep(step: IStepOption): void {
     this.isActive = true;
 
-    if (step.enableBackdrop) {
-      this.tourBackdrop.show(this.element);
-    } else {
-      this.tourBackdrop.close();
-    }
-
     console.group(step.title);
     console.log(step.content);
     console.log(`${step.placement || 'above'} ${this.tourAnchor}`);
@@ -49,8 +36,5 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   public hideTourStep(): void {
     this.isActive = false;
-    if (this.tourService.getStatus() === TourState.OFF) {
-      this.tourBackdrop.close();
-    }
   }
 }

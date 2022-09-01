@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
-import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import { INgxbStepOption as IStepOption } from './step-option.interface';
 
 import { NgxbTourService } from './ngx-bootstrap-tour.service';
@@ -24,8 +24,7 @@ export class TourAnchorNgxBootstrapDirective
     private tourService: NgxbTourService,
     private tourStepTemplate: TourStepTemplateService,
     public element: ElementRef,
-    @Host() private popoverDirective: TourAnchorNgxBootstrapPopoverDirective,
-    private tourBackdrop: TourBackdropService
+    @Host() private popoverDirective: TourAnchorNgxBootstrapPopoverDirective
   ) {
     this.popoverDirective.triggers = '';
   }
@@ -51,18 +50,10 @@ export class TourAnchorNgxBootstrapDirective
     }
     this.popoverDirective.placement = step.placement || 'auto';
     this.popoverDirective.show();
-    if (step.enableBackdrop) {
-      this.tourBackdrop.show(this.element);
-    } else {
-      this.tourBackdrop.close();
-    }
   }
 
   public hideTourStep(): void {
     this.isActive = false;
     this.popoverDirective.hide();
-    if (this.tourService.getStatus() === TourState.OFF) {
-      this.tourBackdrop.close();
-    }
   }
 }

@@ -1,6 +1,6 @@
 import type {OnDestroy, OnInit} from '@angular/core';
 import {Directive, ElementRef, HostBinding, Injector, Input, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {Subscription} from 'rxjs';
 
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
@@ -25,8 +25,7 @@ export class TourAnchorMatMenuDirective
         private viewContainer: ViewContainerRef,
         public element: ElementRef,
         private tourService: NgxmTourService,
-        private tourStepTemplate: TourStepTemplateService,
-        private tourBackdrop: TourBackdropService
+        private tourStepTemplate: TourStepTemplateService
     ) {
     }
 
@@ -62,12 +61,6 @@ export class TourAnchorMatMenuDirective
         this.opener.markForCheck();
         trigger.openMenu();
 
-        if (step.enableBackdrop) {
-            this.tourBackdrop.show(this.element, !step.disablePageScrolling);
-        } else {
-            this.tourBackdrop.close();
-        }
-
         if (this.menuCloseSubscription) {
             this.menuCloseSubscription.unsubscribe();
         }
@@ -77,7 +70,6 @@ export class TourAnchorMatMenuDirective
                 if (this.tourService.getStatus() !== TourState.OFF) {
                     this.tourService.end();
                 }
-                this.tourBackdrop.close();
             });
     }
 
@@ -87,8 +79,11 @@ export class TourAnchorMatMenuDirective
             this.menuCloseSubscription.unsubscribe();
         }
         this.opener.trigger.closeMenu();
-        if (this.tourService.getStatus() === TourState.OFF) {
-            this.tourBackdrop.close();
-        }
+    }
+
+    getIsScrollingEnabled() {
+        const step = this.tourService.currentStep;
+
+        return !step.disablePageScrolling;
     }
 }
