@@ -63,10 +63,6 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
             this.tourBackdropService.close();
         }
 
-        step.prevBtnTitle = step.prevBtnTitle || 'Prev';
-        step.nextBtnTitle = step.nextBtnTitle || 'Next';
-        step.endBtnTitle = step.endBtnTitle || 'End';
-
         this.opener.isShown = true;
     }
 

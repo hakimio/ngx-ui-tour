@@ -38,6 +38,18 @@ enum Direction {
     Backwards
 }
 
+const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
+    disableScrollToAnchor: false,
+    prevBtnTitle: 'Prev',
+    nextBtnTitle: 'Next',
+    endBtnTitle: 'End',
+    enableBackdrop: false,
+    isAsync: false,
+    isOptional: false,
+    delayAfterNavigation: 0,
+    goToNextOnAnchorClick: false
+};
+
 // noinspection JSUnusedGlobalSymbols
 @Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
@@ -93,7 +105,13 @@ export class TourService<T extends IStepOption = IStepOption> {
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
             this.status = TourState.OFF;
-            this.steps = steps.map(step => Object.assign({}, stepDefaults, step));
+            this.steps = steps.map(
+                step => ({
+                    ...DEFAULT_STEP_OPTIONS,
+                    ...stepDefaults,
+                    ...step
+                })
+            );
             this.initialize$.next(this.steps);
         }
     }

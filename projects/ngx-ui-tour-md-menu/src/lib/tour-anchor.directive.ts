@@ -74,10 +74,6 @@ export class TourAnchorMatMenuDirective
             this.tourBackdrop.close();
         }
 
-        step.prevBtnTitle = step.prevBtnTitle || 'Prev';
-        step.nextBtnTitle = step.nextBtnTitle || 'Next';
-        step.endBtnTitle = step.endBtnTitle || 'End';
-
         if (this.menuCloseSubscription) {
             this.menuCloseSubscription.unsubscribe();
         }
