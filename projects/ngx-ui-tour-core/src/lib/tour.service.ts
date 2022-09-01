@@ -287,7 +287,6 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
 
         this.removeLastAnchorClickListener();
-        this.listenToOnAnchorClick(step);
 
         if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
@@ -388,6 +387,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.end();
             return;
         }
+        this.listenToOnAnchorClick(step);
         anchor.showTourStep(step);
         this.stepShow$.next(step);
     }
