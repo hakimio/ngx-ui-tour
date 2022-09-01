@@ -26,7 +26,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
-    goToNextOnAnchorClick?: boolean;
+    nextOnAnchorClick?: boolean;
 }
 
 export enum TourState {
@@ -49,7 +49,7 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     isAsync: false,
     isOptional: false,
     delayAfterNavigation: 0,
-    goToNextOnAnchorClick: false
+    nextOnAnchorClick: false
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -307,7 +307,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     private listenToOnAnchorClick(step: T) {
-        if (step.goToNextOnAnchorClick) {
+        if (step.nextOnAnchorClick) {
             const anchor = this.anchors[step.anchorId];
             this.unListenNextOnAnchorClickFn = this.renderer
                 .listen(anchor.element.nativeElement, 'click', () => this.next());
