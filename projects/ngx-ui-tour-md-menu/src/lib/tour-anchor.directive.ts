@@ -1,6 +1,6 @@
 import type {OnDestroy, OnInit} from '@angular/core';
 import {Directive, ElementRef, HostBinding, Injector, Input, ViewContainerRef} from '@angular/core';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
 import {Subscription} from 'rxjs';
 
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
@@ -44,14 +44,8 @@ export class TourAnchorMatMenuDirective
 
     // noinspection JSUnusedGlobalSymbols
     showTourStep(step: IMdStepOption): void {
-        const htmlElement: HTMLElement = this.element.nativeElement;
-
         this.isActive = true;
         this.tourStepTemplate.templateComponent.step = step;
-
-        if (!step.disableScrollToAnchor) {
-            ScrollingUtil.ensureVisible(htmlElement);
-        }
 
         if (!this.opener) {
             this.createOpener();

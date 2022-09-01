@@ -2,7 +2,6 @@ import {
   TourAnchorDirective,
   TourService,
   IStepOption,
-  ScrollingUtil,
   TourBackdropService,
   TourState
 } from 'ngx-ui-tour-core';
@@ -34,12 +33,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
   // noinspection JSUnusedGlobalSymbols
   public showTourStep(step: IStepOption): void {
-    const htmlElement: HTMLElement = this.element.nativeElement;
-
     this.isActive = true;
-    if (!step.disableScrollToAnchor) {
-      ScrollingUtil.ensureVisible(htmlElement);
-    }
 
     if (step.enableBackdrop) {
       this.tourBackdrop.show(this.element);

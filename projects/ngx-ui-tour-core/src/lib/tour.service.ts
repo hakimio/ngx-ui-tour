@@ -6,6 +6,7 @@ import type {UrlSegment} from '@angular/router';
 import {TourAnchorDirective} from './tour-anchor.directive';
 import {Subject, Observable, merge as mergeStatic} from 'rxjs';
 import {first, map, filter, delay} from 'rxjs/operators';
+import {ScrollingUtil} from './scrolling-util';
 
 export interface IStepOption {
     stepId?: string;
@@ -388,6 +389,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
         this.listenToOnAnchorClick(step);
+        this.scrollToAnchor(step);
         anchor.showTourStep(step);
         this.stepShow$.next(step);
     }
@@ -400,4 +402,16 @@ export class TourService<T extends IStepOption = IStepOption> {
         anchor.hideTourStep();
         this.stepHide$.next(step);
     }
+
+    private scrollToAnchor(step: T) {
+        if (step.disableScrollToAnchor) {
+            return;
+        }
+
+        const anchor = this.anchors[step && step.anchorId],
+            htmlElement = anchor.element.nativeElement;
+
+        ScrollingUtil.ensureVisible(htmlElement);
+    }
+
 }

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
 import { NgbPopover, Placement } from '@ng-bootstrap/ng-bootstrap';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
 
 import { NgbTourService } from './ng-bootstrap-tour.service';
 import { INgbStepOption } from './step-option.interface';
@@ -42,8 +42,6 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
 
   // noinspection JSUnusedGlobalSymbols
   public showTourStep(step: INgbStepOption): void {
-    const htmlElement: HTMLElement = this.element.nativeElement;
-
     this.isActive = true;
     this.popoverDirective.ngbPopover = this.tourStepTemplate.template;
     this.popoverDirective.popoverTitle = step.title;
@@ -53,9 +51,6 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
       .replace('below', 'bottom').replace('above', 'top');
 
     this.popoverDirective.open({ step });
-    if (!step.disableScrollToAnchor) {
-      ScrollingUtil.ensureVisible(htmlElement);
-    }
 
     if (step.enableBackdrop) {
       this.tourBackdrop.show(this.element);

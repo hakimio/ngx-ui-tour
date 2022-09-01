@@ -1,5 +1,5 @@
 import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ScrollingUtil, TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
 import {TourTuiHintService} from './tour-tui-hint.service';
 import {ITuiHintStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
@@ -39,18 +39,13 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
     }
 
     showTourStep(step: ITuiHintStepOption) {
-        const htmlElement: HTMLElement = this.element.nativeElement,
-            templateComponent = this.tourStepTemplateService.templateComponent;
+        const templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
         this.isActive = true;
 
         if (!this.opener) {
             this.createOpener();
-        }
-
-        if (!step.disableScrollToAnchor) {
-            ScrollingUtil.ensureVisible(htmlElement);
         }
 
         const tuiHint = this.opener.hint;
