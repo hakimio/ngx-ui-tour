@@ -37,13 +37,11 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 ## Compatibility
 
-### Angular and RxJS versions
-
-Since libraries built with Angular Ivy partial compilation mode can only be used with Angular v12 or higher, 
-ngx-ui-tour v8 no longer supports older Angular versions.
+### Angular and RxJS version compatibility
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 14      | 6, 7 | 9           |
 | 12-13   | 6, 7 | 8           |
 | 9-12    | 6    | 7           |
 
