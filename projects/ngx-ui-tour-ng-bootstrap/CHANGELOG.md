@@ -1,3 +1,20 @@
+<a name="11.0.0"></a>
+
+# [11.0.0](https://github.com/hakimio/ngx-ui-tour) (2022-09-02)
+
+### Features
+- Support for Angular 14 and NG Bootstrap 13
+- Navigation to next step with right arrow key is now disabled when current step has `nextOnAnchorClick` option enabled.
+
+### Fixes
+- When `nextOnAnchorClick` step option is enabled, it should only start listening to anchor click event after
+  checking if the anchor element has been registered.
+
+### Breaking changes
+- `goToNextOnAnchorClick` step config was renamed to `nextOnAnchorClick`
+- Angular v13 and lower versions are no longer supported
+- Default placement option was changed from "top" to "auto"
+
 <a name="10.1.2"></a>
 
 # [10.1.2](https://github.com/hakimio/ngx-ui-tour) (2022-06-22)

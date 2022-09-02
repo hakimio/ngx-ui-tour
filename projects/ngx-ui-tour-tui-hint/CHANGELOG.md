@@ -1,3 +1,20 @@
+<a name="3.0.0"></a>
+
+# [3.0.0](https://github.com/hakimio/ngx-ui-tour) (2022-09-02)
+
+### Features
+- Support for Angular 14 and Taiga UI 3
+- Navigation to next step with right arrow key is now disabled when current step has `nextOnAnchorClick` option enabled.
+
+### Fixes
+- When `nextOnAnchorClick` step option is enabled, it should only start listening to anchor click event after
+  checking if the anchor element has been registered.
+
+### Breaking changes
+- `goToNextOnAnchorClick` step config was renamed to `nextOnAnchorClick`
+- Angular 13 and lower versions are no longer supported
+- Taiga UI 2 is no longer supported
+
 <a name="2.1.2"></a>
 
 # [2.1.2](https://github.com/hakimio/ngx-ui-tour) (2022-06-22)

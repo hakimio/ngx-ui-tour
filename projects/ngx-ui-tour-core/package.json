@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-core",
-  "version": "8.1.2",
+  "version": "9.0.0",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -15,9 +15,9 @@
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=12.0.0 <14.0.0",
-    "@angular/core": ">=12.0.0 <14.0.0",
-    "@angular/router": ">=12.0.0 <14.0.0",
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/router": "^14.0.0",
     "rxjs": ">=6.0.0",
     "typescript": ">=3.8.0"
   },
