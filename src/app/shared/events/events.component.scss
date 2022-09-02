@@ -1,3 +1,9 @@
 tui-doc-documentation {
     margin-top: 1rem;
 }
+
+:host::ng-deep {
+    td.t-cell:last-child {
+        text-align: left;
+    }
+}
