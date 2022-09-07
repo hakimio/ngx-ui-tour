@@ -232,27 +232,27 @@ Goes to the previous step
 ## Step Configuration
 Each step can have the following properties.
 
-| Name	| Type	| Default	| Description |
-| :-----: |:-------------:|:-------------:|-------------|
-| **stepId**	| string	| ""	| A unique identifier for the step |
-| **anchorId** |	string	| required	| The anchor to which the step will be attached |
-| **title** |	string |	"" |	The title of the tour step |
-| **content**	| string	| ""	| The content text of the tour step |
-| **enableBackdrop**	| boolean	| false	| Controls whether to enable active element highlighting |
-| **route**	| string &#124; UrlSegment[] |	undefined |	The route to which the tour should navigate before attempting to show this tour step. If undefined, no navigation is attempted. |
-| **closeOnOutsideClick**	| boolean |	false |	Enable to close the tour on outside click ("md-menu" UI only) |
-| **disablePageScrolling** |	boolean |	false |	Prevents user from being able to scroll the page when the UI tour is active ("md-menu" UI only) |
-| **nextStep** |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
-| **prevStep** |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
-| **placement** |	MdMenuPlacement |	undefined |	Tour step position with respect to the anchor. |
+|           Name	           | Type	| Default	| Description |
+|:-------------------------:|:-------------:|:-------------:|-------------|
+|        **stepId**	        | string	| ""	| A unique identifier for the step |
+|       **anchorId**        |	string	| required	| The anchor to which the step will be attached |
+|         **title**         |	string |	"" |	The title of the tour step |
+|       **content**	        | string	| ""	| The content text of the tour step |
+|    **enableBackdrop**	    | boolean	| false	| Controls whether to enable active element highlighting |
+|        **route**	         | string &#124; UrlSegment[] |	undefined |	The route to which the tour should navigate before attempting to show this tour step. If undefined, no navigation is attempted. |
+| **closeOnOutsideClick**	  | boolean |	false |	Enable to close the tour on outside click ("md-menu" UI only) |
+| **disablePageScrolling**  |	boolean |	false |	Prevents user from being able to scroll the page when the UI tour is active ("md-menu" UI only) |
+|       **nextStep**        |	number &#124; string	| undefined	| The step index or stepId of the next step. If undefined, the next step in the steps array is used. |
+|       **prevStep**        |	number &#124; string |	undefined |	The step index or stepId of the previous step. If undefined, the previous step in the steps array is used. |
+|       **placement**       |	MdMenuPlacement |	undefined |	Tour step position with respect to the anchor. |
 | **disableScrollToAnchor** |	boolean |	false |	Tour steps automatically scroll to the middle of the screen, if they are off the screen when shown. Setting this value to true will disable the scroll behavior. |
-| **prevBtnTitle** |	string |	"Prev" |	Sets a custom prev button title for a given step. Default is "Prev" |
-| **nextBtnTitle** |	string |	"Next" |	Sets a custom next button title for a given step. Default is "Next" |
-| **endBtnTitle** |	string |	"End" |	Sets a custom end button title for a given step. Default is "End" |
-| **isAsync** |	boolean |	false |	Mark your step as "async" if anchor element is added to DOM with a delay (ie after data is loaded). |
-| **isOptional** |	boolean |	false |	Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked both "optional" and "async". |
-| **delayAfterNavigation** |	number |	0 |	Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use custom scrollbar and the page is not scrolled all the way before the tour step is shown. |
-| **goToNextOnAnchorClick** | boolean | false |	Go to next step on anchor element click instead of "Next" button. |
+|     **prevBtnTitle**      |	string |	"Prev" |	Sets a custom prev button title for a given step. Default is "Prev" |
+|     **nextBtnTitle**      |	string |	"Next" |	Sets a custom next button title for a given step. Default is "Next" |
+|      **endBtnTitle**      |	string |	"End" |	Sets a custom end button title for a given step. Default is "End" |
+|        **isAsync**        |	boolean |	false |	Mark your step as "async" if anchor element is added to DOM with a delay (ie after data is loaded). |
+|      **isOptional**       |	boolean |	false |	Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked both "optional" and "async". |
+| **delayAfterNavigation**  |	number |	0 |	Delay between navigation to a different route and showing the tour step in ms. Might be needed if you use custom scrollbar and the page is not scrolled all the way before the tour step is shown. |
+|   **nextOnAnchorClick**   | boolean | false |	Go to next step on anchor element click instead of "Next" button. |
 
 ## Defaults
 You can set default values in the `TourService.initialize()` function.
