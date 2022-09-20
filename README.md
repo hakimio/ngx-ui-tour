@@ -34,13 +34,28 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 ## Compatibility
 
-### Angular and RxJS version compatibility
+### Material Design and Ngx Bootstrap tour UIs
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
 | 14      | 6, 7 | 9           |
 | 12-13   | 6, 7 | 8           |
 | 9-12    | 6    | 7           |
+
+### NG Bootstrap tour UI
+
+| Angular | RxJS | ngx-ui-tour |
+|---------|------|-------------|
+| 14      | 6, 7 | 11          |
+| 12-13   | 6, 7 | 10          |
+| 9-12    | 6    | 9           |
+
+### Taiga UI tour UI
+
+| Angular | RxJS | Taiga UI | ngx-ui-tour |
+|---------|------|----------|-------------|
+| 14      | 6, 7 | 3        | 3           |
+| 12-13   | 6, 7 | 2        | 2           |
 
 ## Installation and Usage
 
