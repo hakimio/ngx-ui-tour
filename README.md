@@ -56,6 +56,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 |---------|------|----------|-------------|
 | 14      | 6, 7 | 3        | 3           |
 | 12-13   | 6, 7 | 2        | 2           |
+| 9-12    | 6    | 2        | 1           |
 
 ## Installation and Usage
 
