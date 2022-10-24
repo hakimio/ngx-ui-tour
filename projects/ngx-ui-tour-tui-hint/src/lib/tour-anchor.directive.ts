@@ -1,5 +1,5 @@
 import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourTuiHintService} from './tour-tui-hint.service';
 import {ITuiHintStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
@@ -20,7 +20,6 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
 
     constructor(
         private readonly tourService: TourTuiHintService,
-        private readonly tourBackdropService: TourBackdropService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly viewContainer: ViewContainerRef,
         public readonly element: ElementRef
@@ -52,21 +51,11 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
 
         (tuiHint as any).elementRef = this.element;
 
-        if (step.enableBackdrop) {
-            this.tourBackdropService.show(this.element);
-        } else {
-            this.tourBackdropService.close();
-        }
-
         this.opener.isShown = true;
     }
 
     hideTourStep() {
         this.isActive = false;
         this.opener.isShown = false;
-
-        if (this.tourService.getStatus() === TourState.OFF) {
-            this.tourBackdropService.close();
-        }
     }
 }

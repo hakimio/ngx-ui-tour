@@ -1,5 +1,5 @@
 import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective, TourBackdropService, TourState} from 'ngx-ui-tour-core';
+import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {ITuiDdStepOption} from './step-option.interface';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 import {TourStepTemplateService} from './tour-step-template.service';
@@ -20,7 +20,6 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
     constructor(
         private readonly tourService: TourTuiDropdownService,
-        private readonly tourBackdropService: TourBackdropService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly viewContainer: ViewContainerRef,
         public readonly element: ElementRef
@@ -52,21 +51,11 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
         (tuiDropdown as any).elementRef = this.element;
 
-        if (step.enableBackdrop) {
-            this.tourBackdropService.show(this.element);
-        } else {
-            this.tourBackdropService.close();
-        }
-
         this.opener.isShown = true;
     }
 
     hideTourStep() {
         this.isActive = false;
         this.opener.isShown = false;
-
-        if (this.tourService.getStatus() === TourState.OFF) {
-            this.tourBackdropService.close();
-        }
     }
 }

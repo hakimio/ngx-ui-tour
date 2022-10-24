@@ -7,7 +7,7 @@ import {TourAnchorDirective} from './tour-anchor.directive';
 import {Subject, Observable, merge as mergeStatic} from 'rxjs';
 import {first, map, filter, delay} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
-import {TourBackdropService} from './tour-backdrop.service';
+import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 
 export interface IStepOption {
     stepId?: string;
@@ -23,6 +23,7 @@ export interface IStepOption {
     nextBtnTitle?: string;
     endBtnTitle?: string;
     enableBackdrop?: boolean;
+    backdropConfig?: BackdropConfig;
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
@@ -423,7 +424,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             isScrollingEnabled = anchor.getIsScrollingEnabled?.() ?? true;
 
         if (step.enableBackdrop) {
-            this.backdrop.show(anchor.element, isScrollingEnabled);
+            this.backdrop.show(anchor.element, step.backdropConfig, isScrollingEnabled);
         } else {
             this.backdrop.close();
         }

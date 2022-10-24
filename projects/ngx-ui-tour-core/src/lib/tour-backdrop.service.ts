@@ -11,6 +11,11 @@ interface Rectangle {
     left: number;
 }
 
+export interface BackdropConfig {
+    zIndex?: string;
+    backgroundColor?: string;
+}
+
 @Injectable()
 export class TourBackdropService {
     private renderer: Renderer2;
@@ -18,14 +23,16 @@ export class TourBackdropService {
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
     windowResizeSubscription$: Subscription;
+    private config: BackdropConfig;
 
     constructor(rendererFactory: RendererFactory2) {
         this.renderer = rendererFactory.createRenderer(null, null);
     }
 
-    public show(targetElement: ElementRef, isScrollingEnabled = true) {
+    public show(targetElement: ElementRef, config: BackdropConfig, isScrollingEnabled = true) {
         this.isScrollingEnabled = isScrollingEnabled;
         this.targetHtmlElement = targetElement.nativeElement;
+        this.config = config;
 
         if (!this.backdropElements) {
             this.backdropElements = this.createBackdropElements();
@@ -114,8 +121,8 @@ export class TourBackdropService {
             height: `${rectangle.height}px`,
             top: `${rectangle.top}px`,
             left: `${rectangle.left}px`,
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            zIndex: '101'
+            backgroundColor: this.config?.backgroundColor ?? 'rgba(0, 0, 0, 0.7)',
+            zIndex: this.config?.zIndex ?? '101'
         } as Partial<CSSStyleDeclaration>;
     }
 
