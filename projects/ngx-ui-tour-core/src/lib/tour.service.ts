@@ -1,11 +1,11 @@
-import {Injectable, RendererFactory2} from '@angular/core';
 import type {Renderer2} from '@angular/core';
-import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
+import {Injectable, RendererFactory2} from '@angular/core';
 import type {UrlSegment} from '@angular/router';
+import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {Subject, Observable, merge as mergeStatic} from 'rxjs';
-import {first, map, filter, delay} from 'rxjs/operators';
+import {merge as mergeStatic, Observable, Subject, Subscription} from 'rxjs';
+import {delay, filter, first, map} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 
@@ -97,6 +97,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private direction = Direction.Forwards;
     private unListenNextOnAnchorClickFn: () => void;
     private renderer: Renderer2;
+    private navigationStartSubscription: Subscription;
 
     constructor(
         private readonly router: Router,
@@ -117,7 +118,23 @@ export class TourService<T extends IStepOption = IStepOption> {
                 })
             );
             this.initialize$.next(this.steps);
+            this.subscribeToNavigationStartEvent();
         }
+    }
+
+    private subscribeToNavigationStartEvent()
+    {
+        this.navigationStartSubscription = this.router.events
+            .pipe(
+                filter((event: RouterEvent): event is NavigationStart => event instanceof NavigationStart)
+            )
+            .subscribe(
+                event => {
+                    if (event.navigationTrigger === 'popstate') {
+                        this.end();
+                    }
+                }
+            );
     }
 
     public disableHotkeys(): void {
@@ -136,13 +153,6 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.status = TourState.ON;
         this.goToStep(this.loadStep(stepId));
         this.start$.next();
-        this.router.events
-            .pipe(filter(event => event instanceof NavigationStart), first())
-            .subscribe(() => {
-                if (this.currentStep && this.currentStep.hasOwnProperty('route')) {
-                    this.hideStep(this.currentStep);
-                }
-            });
     }
 
     public end(): void {
@@ -152,6 +162,9 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.removeLastAnchorClickListener();
         this.backdrop.close();
         this.end$.next();
+        if (this.navigationStartSubscription) {
+            this.navigationStartSubscription.unsubscribe();
+        }
     }
 
     public pause(): void {
@@ -352,13 +365,6 @@ export class TourService<T extends IStepOption = IStepOption> {
     private setCurrentStep(step: T): void {
         this.currentStep = step;
         this.showStep(this.currentStep);
-        this.router.events
-            .pipe(filter(event => event instanceof NavigationStart), first())
-            .subscribe(() => {
-                if (this.currentStep && this.currentStep.hasOwnProperty('route')) {
-                    this.hideStep(this.currentStep);
-                }
-            });
     }
 
     private setCurrentStepAsync(step: T, delay = 0): void {
