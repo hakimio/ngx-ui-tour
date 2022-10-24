@@ -1,3 +1,13 @@
+<a name="11.1.0"></a>
+
+# [11.1.0](https://github.com/hakimio/ngx-ui-tour) (2022-10-24)
+
+### Features
+- New `backdropConfig` step config to configure backdrop `zIndex` and `backgroundColor`
+
+### Fixes
+- Tour should close when user navigates to a different page using browser's back/forward navigation
+
 <a name="11.0.0"></a>
 
 # [11.0.0](https://github.com/hakimio/ngx-ui-tour) (2022-09-02)
