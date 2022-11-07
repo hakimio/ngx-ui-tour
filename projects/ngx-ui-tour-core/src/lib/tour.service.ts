@@ -4,8 +4,8 @@ import type {UrlSegment} from '@angular/router';
 import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {merge as mergeStatic, Observable, Subject, Subscription} from 'rxjs';
-import {delay, filter, first, map} from 'rxjs/operators';
+import {merge as mergeStatic, Observable, Subject} from 'rxjs';
+import {delay, filter, first, map, takeUntil} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 
@@ -97,7 +97,6 @@ export class TourService<T extends IStepOption = IStepOption> {
     private direction = Direction.Forwards;
     private unListenNextOnAnchorClickFn: () => void;
     private renderer: Renderer2;
-    private navigationStartSubscription: Subscription;
 
     constructor(
         private readonly router: Router,
@@ -124,9 +123,10 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     private subscribeToNavigationStartEvent()
     {
-        this.navigationStartSubscription = this.router.events
+        this.router.events
             .pipe(
-                filter((event: RouterEvent): event is NavigationStart => event instanceof NavigationStart)
+                filter((event: RouterEvent): event is NavigationStart => event instanceof NavigationStart),
+                takeUntil(this.end$)
             )
             .subscribe(
                 event => {
@@ -162,9 +162,6 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.removeLastAnchorClickListener();
         this.backdrop.close();
         this.end$.next();
-        if (this.navigationStartSubscription) {
-            this.navigationStartSubscription.unsubscribe();
-        }
     }
 
     public pause(): void {
