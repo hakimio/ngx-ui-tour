@@ -34,7 +34,8 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "angular2-text-mask"
+              "angular2-text-mask",
+              "text-mask-core"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
