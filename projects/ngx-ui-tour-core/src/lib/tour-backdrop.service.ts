@@ -25,13 +25,23 @@ export class TourBackdropService {
     windowResizeSubscription$: Subscription;
     private config: BackdropConfig;
 
+    private resizeObserver: ResizeObserver
+
     constructor(rendererFactory: RendererFactory2) {
         this.renderer = rendererFactory.createRenderer(null, null);
+        this.resizeObserver = new ResizeObserver(entries => {
+            this.setBackdropPosition()
+        });
     }
 
     public show(targetElement: ElementRef, config: BackdropConfig, isScrollingEnabled = true) {
         this.isScrollingEnabled = isScrollingEnabled;
+        if (this.targetHtmlElement) {
+            // don't observe prev element anymore
+            this.resizeObserver.unobserve(this.targetHtmlElement)
+        }
         this.targetHtmlElement = targetElement.nativeElement;
+        this.resizeObserver.observe(this.targetHtmlElement)
         this.config = config;
 
         if (!this.backdropElements) {
@@ -96,6 +106,7 @@ export class TourBackdropService {
 
     public close() {
         if (this.backdropElements) {
+            this.resizeObserver.unobserve(this.targetHtmlElement)
             this.removeBackdropElement();
             this.windowResizeSubscription$.unsubscribe();
         }
