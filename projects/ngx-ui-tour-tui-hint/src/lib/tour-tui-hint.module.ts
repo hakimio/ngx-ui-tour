@@ -1,5 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {TourBackdropService, TourModule, TourService} from 'ngx-ui-tour-core';
+import {TourBackdropService, TourModule, TourService, TourResizeObserverService} from 'ngx-ui-tour-core';
 import {CommonModule} from '@angular/common';
 import {TuiButtonModule, TuiHintModule} from '@taiga-ui/core';
 import {TourStepTemplateComponent} from './tour-step-template/tour-step-template.component';
@@ -33,6 +33,7 @@ export class TourTuiHintModule {
             providers: [
                 TourStepTemplateService,
                 TourBackdropService,
+                TourResizeObserverService,
                 TourService,
                 TourTuiHintService
             ]

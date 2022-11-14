@@ -1,8 +1,9 @@
 import type { Renderer2 } from '@angular/core';
-import { ElementRef, Inject, Injectable, NgZone, RendererFactory2 } from '@angular/core';
-import { fromEvent, interval, Subject, Subscription } from 'rxjs';
+import { ElementRef, Injectable, RendererFactory2 } from '@angular/core';
+import { fromEvent, interval, Subscription } from 'rxjs';
 import { debounce } from 'rxjs/operators';
 import { ScrollingUtil } from './scrolling-util';
+import { TourResizeObserverService } from './tour-resize-observer.service'
 
 interface Rectangle {
     width: number;
@@ -24,21 +25,14 @@ export class TourBackdropService {
     private isScrollingEnabled: boolean;
     windowResizeSubscription$: Subscription;
     private config: BackdropConfig;
-    private resizeSubject = new Subject();
 
-    private resizeObserver: ResizeObserver;
-
-    constructor(rendererFactory: RendererFactory2,
-                @Inject(NgZone) ngZone: NgZone,
+    constructor(
+      rendererFactory: RendererFactory2,
+      private resizeObserverService: TourResizeObserverService,
     ) {
         this.renderer = rendererFactory.createRenderer(null, null);
-        this.resizeObserver = new ResizeObserver(entries => {
-            ngZone.run(() => {
-                this.resizeSubject.next(entries)
-            })
-        });
 
-        this.resizeSubject
+        this.resizeObserverService.resizeSubject
           .pipe(
             debounce(() => interval(10))
           )
@@ -49,10 +43,10 @@ export class TourBackdropService {
         this.isScrollingEnabled = isScrollingEnabled;
         if (this.targetHtmlElement) {
             // don't observe prev element anymore
-            this.resizeObserver.unobserve(this.targetHtmlElement);
+            this.resizeObserverService.unobserve(this.targetHtmlElement);
         }
         this.targetHtmlElement = targetElement.nativeElement;
-        this.resizeObserver.observe(this.targetHtmlElement);
+        this.resizeObserverService.observe(this.targetHtmlElement);
         this.config = config;
 
         if (!this.backdropElements) {
@@ -117,7 +111,7 @@ export class TourBackdropService {
 
     public close() {
         if (this.backdropElements) {
-            this.resizeObserver.unobserve(this.targetHtmlElement)
+            this.resizeObserverService.unobserve(this.targetHtmlElement)
             this.removeBackdropElement();
             this.windowResizeSubscription$.unsubscribe();
         }
@@ -161,8 +155,4 @@ export class TourBackdropService {
             .map(() => this.createBackdropElement());
     }
 
-    ngOnDestroy() {
-        this.resizeSubject.unsubscribe()
-        this.resizeObserver.disconnect()
-    }
 }
