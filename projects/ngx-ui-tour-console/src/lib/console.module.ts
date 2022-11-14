@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
-import { TourHotkeyListenerComponent, TourModule, TourService, TourBackdropService, TourResizeObserverService } from 'ngx-ui-tour-core';
+import { TourHotkeyListenerComponent, TourModule, TourService, TourBackdropService } from 'ngx-ui-tour-core';
 
 import { TourAnchorConsoleDirective } from './tour-anchor.directive';
 
@@ -18,8 +18,7 @@ export class TourConsoleModule {
       ngModule: TourConsoleModule,
       providers: [
         TourService,
-        TourBackdropService,
-        TourResizeObserverService
+        TourBackdropService
       ],
     };
   }

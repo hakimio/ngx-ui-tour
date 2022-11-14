@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TourStepTemplateComponent} from './tour-step-template/tour-step-template.component';
 import {TourAnchorTuiDropdownDirective} from './tour-anchor.directive';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
-import {TourBackdropService, TourModule, TourService, TourResizeObserverService} from 'ngx-ui-tour-core';
+import {TourBackdropService, TourModule, TourService} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TuiButtonModule, TuiDropdownModule} from '@taiga-ui/core';
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
@@ -33,7 +33,6 @@ export class TourTuiDropdownModule {
             providers: [
                 TourStepTemplateService,
                 TourBackdropService,
-                TourResizeObserverService,
                 TourService,
                 TourTuiDropdownService
             ]

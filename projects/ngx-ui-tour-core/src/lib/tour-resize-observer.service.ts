@@ -1,34 +1,42 @@
-import { Inject, Injectable, NgZone } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {fromEvent, Subject, Subscription} from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TourResizeObserverService {
-  private _resizeSubject = new Subject();
+  private resizeSubject = new Subject();
+  private windowResize$: Subscription;
 
-  get resizeSubject() {
-    return this._resizeSubject
-  }
+  public readonly resize$ = this.resizeSubject.asObservable()
 
   private resizeObserver?: ResizeObserver;
 
-  constructor(@Inject(NgZone) ngZone: NgZone) {
-    this.resizeObserver = ResizeObserver ? new ResizeObserver(entries => {
-      ngZone.run(() => {
-        this._resizeSubject.next(entries)
-      })
-    }) : undefined;
+  observeElement(target: Element, options?: ResizeObserverOptions) {
+      if (!this.resizeObserver) {
+          this.resizeObserver = ResizeObserver ? new ResizeObserver(entries => {
+              this.resizeSubject.next(entries)
+          }) : undefined;
+      }
+      this.resizeObserver?.observe(target, options)
   }
 
-  observe(target: Element, options?: ResizeObserverOptions) {
-    this.resizeObserver?.observe(target, options)
+  unobserveElement(target: Element) {
+      this.resizeObserver?.unobserve(target)
   }
 
-  unobserve(target: Element) {
-    this.resizeObserver?.unobserve(target)
+  observeWindowResize() {
+      this.windowResize$ = fromEvent(window, 'resize')
+          .subscribe((e) => this.resizeSubject.next(e));
   }
 
-  ngOnDestroy() {
-    this._resizeSubject.unsubscribe()
+  unobserveWindowResize() {
+      this.windowResize$.unsubscribe()
+  }
+
+  disconnect() {
+    this.resizeSubject.unsubscribe()
     this.resizeObserver?.disconnect()
+    this.resizeObserver = undefined
   }
 }
