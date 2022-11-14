@@ -26,8 +26,8 @@ export class TourBackdropService {
     private config: BackdropConfig;
 
     constructor(
-      rendererFactory: RendererFactory2,
-      private resizeObserverService: TourResizeObserverService,
+        rendererFactory: RendererFactory2,
+        private resizeObserverService: TourResizeObserverService,
     ) {
         this.renderer = rendererFactory.createRenderer(null, null);
     }
