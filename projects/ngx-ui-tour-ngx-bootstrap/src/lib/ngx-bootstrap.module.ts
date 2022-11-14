@@ -24,7 +24,7 @@ export class TourNgxBootstrapModule {
         TourStepTemplateService,
         TourService,
         NgxbTourService,
-        TourBackdropService,
+        TourBackdropService
       ]
     };
   }
