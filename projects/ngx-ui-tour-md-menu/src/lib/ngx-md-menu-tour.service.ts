@@ -3,4 +3,4 @@ import {TourService} from 'ngx-ui-tour-core';
 import {IMdStepOption} from './step-option.interface';
 
 @Injectable()
-export class NgxmTourService extends TourService<IMdStepOption> {}
+export class NgxmTourService<T = IMdStepOption> extends TourService<T> {}
