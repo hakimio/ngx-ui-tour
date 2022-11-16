@@ -23,7 +23,7 @@ export class TourBackdropService {
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
     private config: BackdropConfig;
-    private resizeSubscription: Subscription;
+    private resizeSubscription$: Subscription;
 
     constructor(
         rendererFactory: RendererFactory2,
@@ -89,7 +89,7 @@ export class TourBackdropService {
 
     private subscribeToResizeEvents() {
         this.resizeObserverService.observeWindowResize();
-        this.resizeSubscription = this.resizeObserverService.resize$
+        this.resizeSubscription$ = this.resizeObserverService.resize$
             .subscribe(
                 () => {
                     this.setBackdropPosition();
@@ -103,7 +103,7 @@ export class TourBackdropService {
             this.resizeObserverService.unobserveElement(this.targetHtmlElement)
             this.removeBackdropElement();
             this.resizeObserverService.unobserveWindowResize();
-            this.resizeSubscription.unsubscribe();
+            this.resizeSubscription$.unsubscribe();
         }
     }
 
