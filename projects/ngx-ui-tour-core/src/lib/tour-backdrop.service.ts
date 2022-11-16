@@ -1,7 +1,6 @@
 import type {Renderer2} from '@angular/core';
 import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
-import {interval, Subscription} from 'rxjs';
-import {debounce} from 'rxjs/operators';
+import {Subscription} from 'rxjs';
 import {ScrollingUtil} from './scrolling-util';
 import {TourResizeObserverService} from './tour-resize-observer.service'
 
@@ -24,6 +23,7 @@ export class TourBackdropService {
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
     private config: BackdropConfig;
+    private resizeSubscription: Subscription;
 
     constructor(
         rendererFactory: RendererFactory2,
@@ -89,10 +89,7 @@ export class TourBackdropService {
 
     private subscribeToResizeEvents() {
         this.resizeObserverService.observeWindowResize();
-        this.resizeObserverService.resize$
-            .pipe(
-                debounce(() => interval(10))
-            )
+        this.resizeSubscription = this.resizeObserverService.resize$
             .subscribe(
                 () => {
                     this.setBackdropPosition();
@@ -106,6 +103,7 @@ export class TourBackdropService {
             this.resizeObserverService.unobserveElement(this.targetHtmlElement)
             this.removeBackdropElement();
             this.resizeObserverService.unobserveWindowResize();
+            this.resizeSubscription.unsubscribe();
         }
     }
 
