@@ -5,5 +5,5 @@ import { INgbStepOption } from './step-option.interface';
 
 @Injectable({
     providedIn: 'root',
-  })
-export class NgbTourService extends TourService<INgbStepOption> {}
+})
+export class NgbTourService<T = INgbStepOption> extends TourService<T> {}
