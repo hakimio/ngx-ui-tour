@@ -88,7 +88,6 @@ export class TourBackdropService {
     }
 
     private subscribeToResizeEvents() {
-        this.resizeObserverService.observeWindowResize();
         this.resizeSubscription$ = this.resizeObserverService.resize$
             .subscribe(
                 () => {
@@ -102,7 +101,6 @@ export class TourBackdropService {
         if (this.backdropElements) {
             this.resizeObserverService.unobserveElement(this.targetHtmlElement)
             this.removeBackdropElement();
-            this.resizeObserverService.unobserveWindowResize();
             this.resizeSubscription$.unsubscribe();
         }
     }

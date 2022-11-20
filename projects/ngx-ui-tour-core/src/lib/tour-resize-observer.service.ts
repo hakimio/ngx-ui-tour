@@ -7,8 +7,6 @@ import {debounce, fromEvent, interval, merge, Observable, Subject, Subscription}
 })
 export class TourResizeObserverService {
     private resizeElSubject = new Subject<ResizeObserverEntry[]>();
-    private resizeWindowSubject = new Subject<Event>();
-    private windowResize$: Subscription;
     private isResizeObserverSupported = false;
 
     public readonly resize$: Observable<ResizeObserverEntry[] | Event>;
@@ -19,10 +17,10 @@ export class TourResizeObserverService {
     ) {
         this.isResizeObserverSupported = isPlatformBrowser(platformId) && !!ResizeObserver;
         this.resize$ = merge(
-          this.resizeElSubject,
-          this.resizeWindowSubject
+            this.resizeElSubject,
+            fromEvent(window, 'resize')
         ).pipe(
-          debounce(() => interval(10))
+            debounce(() => interval(10))
         )
     }
 
@@ -39,18 +37,8 @@ export class TourResizeObserverService {
         this.resizeObserver?.unobserve(target);
     }
 
-    observeWindowResize() {
-        this.windowResize$ = fromEvent(window, 'resize')
-            .subscribe((e) => this.resizeWindowSubject.next(e));
-    }
-
-    unobserveWindowResize() {
-        this.windowResize$.unsubscribe();
-    }
 
     disconnect() {
-        this.resizeElSubject.unsubscribe();
-        this.resizeWindowSubject.unsubscribe();
         this.resizeObserver?.disconnect();
         this.resizeObserver = undefined;
     }
