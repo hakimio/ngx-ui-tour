@@ -9,19 +9,18 @@ export class TourResizeObserverService {
     private resizeElSubject = new Subject<ResizeObserverEntry[]>();
     private isResizeObserverSupported = false;
 
-    public readonly resize$: Observable<ResizeObserverEntry[] | Event>;
+    public readonly resize$ = merge(
+        this.resizeElSubject,
+        fromEvent(window, 'resize')
+    ).pipe(
+        debounce(() => interval(10))
+    );
 
     private resizeObserver?: ResizeObserver;
     constructor(
-        @Inject(PLATFORM_ID) private platformId: any,
+        @Inject(PLATFORM_ID) private platformId: Object,
     ) {
         this.isResizeObserverSupported = isPlatformBrowser(platformId) && !!ResizeObserver;
-        this.resize$ = merge(
-            this.resizeElSubject,
-            fromEvent(window, 'resize')
-        ).pipe(
-            debounce(() => interval(10))
-        )
     }
 
     observeElement(target: Element, options?: ResizeObserverOptions) {
