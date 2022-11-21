@@ -1,3 +1,10 @@
+<a name="11.2.0"></a>
+
+# [11.2.0](https://github.com/hakimio/ngx-ui-tour) (2022-11-21)
+
+### Features
+- Custom `StepOption` interface can now be provided when extending `TourService` class from one of the UI libraries
+
 <a name="11.1.0"></a>
 
 # [11.1.0](https://github.com/hakimio/ngx-ui-tour) (2022-10-24)
