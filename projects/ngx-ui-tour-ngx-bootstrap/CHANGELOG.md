@@ -1,3 +1,10 @@
+<a name="9.2.1"></a>
+
+# [9.2.1](https://github.com/hakimio/ngx-ui-tour) (2022-11-21)
+
+### Fixes
+- Fix TypeScript production build error (#82)
+
 <a name="9.2.0"></a>
 
 # [9.2.0](https://github.com/hakimio/ngx-ui-tour) (2022-11-21)
