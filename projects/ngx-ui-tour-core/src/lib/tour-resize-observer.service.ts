@@ -6,7 +6,7 @@ import {debounce, fromEvent, interval, merge, Observable, Subject, Subscription}
     providedIn: 'root'
 })
 export class TourResizeObserverService {
-    private resizeElSubject = new Subject<ResizeObserverEntry[]>();
+    private resizeElSubject = new Subject<void>();
     private isResizeObserverSupported = false;
 
     public readonly resize$ = merge(
@@ -25,8 +25,8 @@ export class TourResizeObserverService {
 
     observeElement(target: Element, options?: ResizeObserverOptions) {
         if (this.isResizeObserverSupported && !this.resizeObserver) {
-            this.resizeObserver = new ResizeObserver(entries => {
-                this.resizeElSubject.next(entries);
+            this.resizeObserver = new ResizeObserver(() => {
+                this.resizeElSubject.next();
             });
         }
         this.resizeObserver?.observe(target, options);
