@@ -1,8 +1,8 @@
-import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
 import type {Renderer2} from '@angular/core';
-import {fromEvent, interval, Subscription} from 'rxjs';
-import {debounce} from 'rxjs/operators';
+import {ElementRef, Injectable, RendererFactory2} from '@angular/core';
+import {Subscription} from 'rxjs';
 import {ScrollingUtil} from './scrolling-util';
+import {TourResizeObserverService} from './tour-resize-observer.service'
 
 interface Rectangle {
     width: number;
@@ -22,21 +22,28 @@ export class TourBackdropService {
     private backdropElements: HTMLElement[];
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
-    windowResizeSubscription$: Subscription;
     private config: BackdropConfig;
+    private resizeSubscription$: Subscription;
 
-    constructor(rendererFactory: RendererFactory2) {
+    constructor(
+        rendererFactory: RendererFactory2,
+        private resizeObserverService: TourResizeObserverService,
+    ) {
         this.renderer = rendererFactory.createRenderer(null, null);
     }
 
     public show(targetElement: ElementRef, config: BackdropConfig, isScrollingEnabled = true) {
         this.isScrollingEnabled = isScrollingEnabled;
+        if (this.targetHtmlElement) {
+            this.resizeObserverService.unobserveElement(this.targetHtmlElement);
+        }
         this.targetHtmlElement = targetElement.nativeElement;
+        this.resizeObserverService.observeElement(this.targetHtmlElement);
         this.config = config;
 
         if (!this.backdropElements) {
             this.backdropElements = this.createBackdropElements();
-            this.subscribeToWindowResizeEvent();
+            this.subscribeToResizeEvents();
         }
         this.setBackdropPosition();
     }
@@ -80,12 +87,8 @@ export class TourBackdropService {
         }
     }
 
-    private subscribeToWindowResizeEvent() {
-        const resizeObservable$ = fromEvent(window, 'resize');
-        this.windowResizeSubscription$ = resizeObservable$
-            .pipe(
-                debounce(() => interval(10))
-            )
+    private subscribeToResizeEvents() {
+        this.resizeSubscription$ = this.resizeObserverService.resize$
             .subscribe(
                 () => {
                     this.setBackdropPosition();
@@ -96,9 +99,14 @@ export class TourBackdropService {
 
     public close() {
         if (this.backdropElements) {
+            this.resizeObserverService.unobserveElement(this.targetHtmlElement)
             this.removeBackdropElement();
-            this.windowResizeSubscription$.unsubscribe();
+            this.resizeSubscription$.unsubscribe();
         }
+    }
+
+    public disconnectResizeObserver() {
+        this.resizeObserverService.disconnect()
     }
 
     private removeBackdropElement() {
@@ -138,4 +146,5 @@ export class TourBackdropService {
             .from({ length: 4 })
             .map(() => this.createBackdropElement());
     }
+
 }

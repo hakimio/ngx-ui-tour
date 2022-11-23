@@ -161,6 +161,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.currentStep = undefined;
         this.removeLastAnchorClickListener();
         this.backdrop.close();
+        this.backdrop.disconnectResizeObserver();
         this.end$.next();
     }
 
