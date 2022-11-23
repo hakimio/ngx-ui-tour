@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-md-menu",
-  "version": "9.2.1",
+  "version": "9.3.0",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "tslib": "^2.0.0",
-    "ngx-ui-tour-core": "9.1.0"
+    "ngx-ui-tour-core": "9.2.0"
   },
   "peerDependencies": {
     "@angular/common": "^14.0.0",

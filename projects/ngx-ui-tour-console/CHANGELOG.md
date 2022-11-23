@@ -1,3 +1,11 @@
+<a name="9.2.0"></a>
+
+# [9.2.0](https://github.com/hakimio/ngx-ui-tour) (2022-11-23)
+
+### Features
+- Backdrop is now resized not only on window resize but also when anchor element resizes for other reasons, ie
+  navigation menu collapses or border is applied to the anchor element to distinguish active tour element.
+
 <a name="9.1.0"></a>
 
 # [9.1.0](https://github.com/hakimio/ngx-ui-tour) (2022-10-24)
