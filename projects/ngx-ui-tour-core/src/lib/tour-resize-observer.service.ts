@@ -1,13 +1,16 @@
 import {isPlatformBrowser} from '@angular/common';
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {debounce, fromEvent, interval, merge, Observable, Subject, Subscription} from 'rxjs';
+import {inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {debounce, fromEvent, interval, merge, Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TourResizeObserverService {
-    private resizeElSubject = new Subject<void>();
-    private isResizeObserverSupported = false;
+
+    private readonly resizeElSubject = new Subject<void>();
+    private readonly platformId = inject(PLATFORM_ID);
+    private readonly isResizeObserverSupported = isPlatformBrowser(this.platformId) && !!ResizeObserver;
+    private resizeObserver?: ResizeObserver;
 
     public readonly resize$ = merge(
         this.resizeElSubject,
@@ -16,29 +19,23 @@ export class TourResizeObserverService {
         debounce(() => interval(10))
     );
 
-    private resizeObserver?: ResizeObserver;
-    constructor(
-        @Inject(PLATFORM_ID) private platformId: Object,
-    ) {
-        this.isResizeObserverSupported = isPlatformBrowser(platformId) && !!ResizeObserver;
-    }
-
-    observeElement(target: Element, options?: ResizeObserverOptions) {
+    observeElement(target: Element) {
         if (this.isResizeObserverSupported && !this.resizeObserver) {
-            this.resizeObserver = new ResizeObserver(() => {
-                this.resizeElSubject.next();
-            });
+            this.resizeObserver = new ResizeObserver(
+                () => this.resizeElSubject.next()
+            );
         }
-        this.resizeObserver?.observe(target, options);
+
+        this.resizeObserver?.observe(target);
     }
 
     unobserveElement(target: Element) {
         this.resizeObserver?.unobserve(target);
     }
 
-
     disconnect() {
         this.resizeObserver?.disconnect();
         this.resizeObserver = undefined;
     }
+
 }
