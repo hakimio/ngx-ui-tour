@@ -1,3 +1,10 @@
+<a name="9.2.1"></a>
+
+# [9.2.1](https://github.com/hakimio/ngx-ui-tour) (2022-11-24)
+
+### Fixes
+- Fix compatibility with RxJS v6
+
 <a name="9.2.0"></a>
 
 # [9.2.0](https://github.com/hakimio/ngx-ui-tour) (2022-11-23)
