@@ -1,6 +1,7 @@
 import {isPlatformBrowser} from '@angular/common';
 import {inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {debounce, fromEvent, interval, merge, Subject} from 'rxjs';
+import {fromEvent, interval, merge, Subject} from 'rxjs';
+import {debounce} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
