@@ -1,3 +1,10 @@
+<a name="11.3.2"></a>
+
+# [11.3.2](https://github.com/hakimio/ngx-ui-tour) (2022-11-25)
+
+### Fixes
+- Fix tooltip not showing up when two consequent steps have the same anchor id
+
 <a name="11.3.1"></a>
 
 # [11.3.1](https://github.com/hakimio/ngx-ui-tour) (2022-11-24)
