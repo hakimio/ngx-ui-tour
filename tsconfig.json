@@ -12,17 +12,37 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2020",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "paths": {
-      "ngx-ui-tour-core": ["dist/ngx-ui-tour-core"],
-      "ngx-ui-tour-console": ["dist/ngx-ui-tour-console"],
-      "ngx-ui-tour-md-menu": ["dist/ngx-ui-tour-md-menu"],
-      "ngx-ui-tour-ng-bootstrap": ["dist/ngx-ui-tour-ng-bootstrap"],
-      "ngx-ui-tour-ngx-bootstrap": ["dist/ngx-ui-tour-ngx-bootstrap"],
-      "ngx-ui-tour-tui-dropdown": ["dist/ngx-ui-tour-tui-dropdown"],
-      "ngx-ui-tour-tui-hint": ["dist/ngx-ui-tour-tui-hint"]
-    }
+      "ngx-ui-tour-core": [
+        "dist/ngx-ui-tour-core"
+      ],
+      "ngx-ui-tour-console": [
+        "dist/ngx-ui-tour-console"
+      ],
+      "ngx-ui-tour-md-menu": [
+        "dist/ngx-ui-tour-md-menu"
+      ],
+      "ngx-ui-tour-ng-bootstrap": [
+        "dist/ngx-ui-tour-ng-bootstrap"
+      ],
+      "ngx-ui-tour-ngx-bootstrap": [
+        "dist/ngx-ui-tour-ngx-bootstrap"
+      ],
+      "ngx-ui-tour-tui-dropdown": [
+        "dist/ngx-ui-tour-tui-dropdown"
+      ],
+      "ngx-ui-tour-tui-hint": [
+        "dist/ngx-ui-tour-tui-hint"
+      ]
+    },
+    "useDefineForClassFields": false
   }
 }
