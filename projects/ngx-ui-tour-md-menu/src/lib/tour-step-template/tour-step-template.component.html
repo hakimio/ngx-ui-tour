@@ -9,19 +9,25 @@
 
 <ng-template #defaultTemplate let-step="step">
     <mat-card (click)="$event.stopPropagation()">
-        <mat-card-title>
-            <div class="title-text">{{step?.title}}</div>
-            <button
-                mat-button
-                mat-icon-button
-                (click)="tourService.end()"
-                class="close"
-            >
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-card-title>
+        <mat-card-header>
+            <div class="header-group">
+                <mat-card-title>
+                    {{step.title}}
+                </mat-card-title>
+                <button
+                    mat-icon-button
+                    (click)="tourService.end()"
+                    class="close"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </mat-card-header>
 
-        <mat-card-content [innerHTML]="step?.content"></mat-card-content>
+        <mat-card-content
+            class="mat-body"
+            [innerHTML]="step.content"
+        ></mat-card-content>
 
         <mat-card-actions align="end">
             <button
@@ -30,22 +36,24 @@
                 [disabled]="!tourService.hasPrev(step)"
                 (click)="tourService.prev()"
             >
-                <mat-icon>chevron_left</mat-icon> {{step?.prevBtnTitle}}
+                <mat-icon>chevron_left</mat-icon>
+                {{step.prevBtnTitle}}
             </button>
             <button
-                mat-button
                 class="next"
                 *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
                 (click)="tourService.next()"
+                mat-button
             >
-                {{step?.nextBtnTitle}} <mat-icon>chevron_right</mat-icon>
+                {{step.nextBtnTitle}}
+                <mat-icon iconPositionEnd>chevron_right</mat-icon>
             </button>
             <button
                 mat-button
                 (click)="tourService.end()"
                 *ngIf="!tourService.hasNext(step)"
             >
-                {{step?.endBtnTitle}}
+                {{step.endBtnTitle}}
             </button>
         </mat-card-actions>
     </mat-card>

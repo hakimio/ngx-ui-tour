@@ -1,42 +1,48 @@
+@use '@angular/material' as mat;
 
-::ng-deep .tour-step .mat-menu-content {
+
+@include mat.icon-button-density(-3);
+
+::ng-deep .tour-step .mat-mdc-menu-content {
     padding: 0 !important;
 }
 
 mat-card {
-    min-width: 200px;
+    min-width: 230px;
+}
+
+mat-card-content {
+    margin: 8px 0;
 }
 
 mat-card-actions {
     justify-content: space-between;
 
-    button {
-        margin: 0;
+    button.prev {
+        padding-left: 4px;
+    }
 
-        &.prev {
-            padding-left: 4px;
-        }
-
-        &.next {
-            padding-right: 4px;
-        }
+    button.next {
+        padding-right: 4px;
     }
 }
 
-mat-card-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+mat-card-header {
+    .header-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: -8px;
+        width: 100%;
 
-    .title-text {
-        line-height: 24px;
-        font-size: 22px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+        mat-card-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
-    button.close {
-        margin: -8px -8px -8px 0;
+        button {
+            margin-right: -8px;
+        }
     }
 }
