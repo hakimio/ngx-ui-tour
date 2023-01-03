@@ -14,7 +14,7 @@ import {SharedModule} from '../shared/shared.module';
     imports: [
         CommonModule,
         RouterModule.forChild(tuiGenerateRoutes(NgBootstrapComponent)),
-        TourNgBootstrapModule.forRoot(),
+        TourNgBootstrapModule,
         TuiDocPageModule,
         TuiLinkModule,
         TuiButtonModule,

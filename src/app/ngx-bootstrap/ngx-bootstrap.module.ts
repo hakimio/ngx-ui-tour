@@ -13,7 +13,7 @@ import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
     imports: [
         CommonModule,
         RouterModule.forChild(tuiGenerateRoutes(NgxBootstrapComponent)),
-        TourNgxBootstrapModule.forRoot(),
+        TourNgxBootstrapModule,
         SharedModule.withAnchorDirectiveType(TourAnchorNgxBootstrapDirective),
         TuiButtonModule,
         TuiLinkModule,

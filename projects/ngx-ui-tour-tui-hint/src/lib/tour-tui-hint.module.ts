@@ -1,11 +1,9 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {TourBackdropService, TourModule, TourService} from 'ngx-ui-tour-core';
+import {NgModule} from '@angular/core';
+import {TourModule} from 'ngx-ui-tour-core';
 import {CommonModule} from '@angular/common';
 import {TuiButtonModule, TuiHintModule} from '@taiga-ui/core';
 import {TourStepTemplateComponent} from './tour-step-template/tour-step-template.component';
 import {TourAnchorTuiHintDirective} from './tour-anchor.directive';
-import {TourStepTemplateService} from './tour-step-template.service';
-import {TourTuiHintService} from './tour-tui-hint.service';
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @NgModule({
@@ -25,18 +23,4 @@ import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
         TourAnchorTuiHintDirective
     ]
 })
-export class TourTuiHintModule {
-
-    public static forRoot(): ModuleWithProviders<TourTuiHintModule> {
-        return {
-            ngModule: TourTuiHintModule,
-            providers: [
-                TourStepTemplateService,
-                TourBackdropService,
-                TourService,
-                TourTuiHintService
-            ]
-        };
-    }
-
-}
+export class TourTuiHintModule {}

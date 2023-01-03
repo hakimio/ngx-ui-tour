@@ -54,7 +54,9 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
 };
 
 // noinspection JSUnusedGlobalSymbols
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class TourService<T extends IStepOption = IStepOption> {
 
     public stepShow$: Subject<T> = new Subject();

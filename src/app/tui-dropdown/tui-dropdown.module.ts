@@ -13,7 +13,7 @@ import {SharedModule} from '../shared/shared.module';
     ],
     imports: [
         CommonModule,
-        TourTuiDropdownModule.forRoot(),
+        TourTuiDropdownModule,
         RouterModule.forChild(tuiGenerateRoutes(TuiDropdownComponent)),
         TuiDocPageModule,
         TuiDocDocumentationModule,

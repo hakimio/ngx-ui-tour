@@ -11,7 +11,7 @@ import {SharedModule} from '../shared/shared.module';
     declarations: [MdMenuComponent],
     imports: [
         CommonModule,
-        TourMatMenuModule.forRoot(),
+        TourMatMenuModule,
         RouterModule.forChild(tuiGenerateRoutes(MdMenuComponent)),
         TuiDocPageModule,
         TuiDocDocumentationModule,

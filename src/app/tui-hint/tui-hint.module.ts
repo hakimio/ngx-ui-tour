@@ -14,7 +14,7 @@ import {TourTuiHintModule, TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hin
     ],
     imports: [
         CommonModule,
-        TourTuiHintModule.forRoot(),
+        TourTuiHintModule,
         RouterModule.forChild(tuiGenerateRoutes(TuiHintComponent)),
         TuiDocPageModule,
         TuiDocDocumentationModule,

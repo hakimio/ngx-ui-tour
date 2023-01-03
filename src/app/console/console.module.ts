@@ -13,7 +13,7 @@ import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
     imports: [
         CommonModule,
         RouterModule.forChild(tuiGenerateRoutes(ConsoleComponent)),
-        TourConsoleModule.forRoot(),
+        TourConsoleModule,
         SharedModule.withAnchorDirectiveType(TourAnchorConsoleDirective),
         TuiDocPageModule,
         TuiLinkModule,

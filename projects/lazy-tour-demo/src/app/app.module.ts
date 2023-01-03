@@ -21,7 +21,7 @@ import {MatListModule} from '@angular/material/list';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        TourMatMenuModule.forRoot(),
+        TourMatMenuModule,
         MatSidenavModule,
         MatListModule
     ],

@@ -15,7 +15,9 @@ export interface BackdropConfig {
     backgroundColor?: string;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class TourBackdropService {
 
     private backdropElements: HTMLElement[];
