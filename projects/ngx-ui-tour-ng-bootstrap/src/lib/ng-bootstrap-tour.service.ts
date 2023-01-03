@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import {IStepOption, TourService} from 'ngx-ui-tour-core';
+import {Injectable} from '@angular/core';
+import {TourService} from 'ngx-ui-tour-core';
 
-import { INgbStepOption } from './step-option.interface';
+import {INgbStepOption} from './step-option.interface';
 
 @Injectable({
     providedIn: 'root',
 })
-export class NgbTourService<T extends IStepOption = INgbStepOption> extends TourService<T> {}
+export class NgbTourService<T extends INgbStepOption = INgbStepOption> extends TourService<T> {}
