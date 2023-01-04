@@ -3,8 +3,7 @@ import type {UrlSegment} from '@angular/router';
 import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {merge as mergeStatic, Observable, Subject} from 'rxjs';
-import {delay, filter, first, map, takeUntil} from 'rxjs/operators';
+import {delay, filter, first, map, merge as mergeStatic, Observable, Subject, takeUntil} from 'rxjs';
 import {ScrollingUtil} from './scrolling-util';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';

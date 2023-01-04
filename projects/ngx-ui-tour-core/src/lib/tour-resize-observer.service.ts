@@ -1,7 +1,6 @@
 import {isPlatformBrowser} from '@angular/common';
 import {inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {fromEvent, interval, merge, Subject} from 'rxjs';
-import {debounce} from 'rxjs/operators';
+import {debounceTime, fromEvent, merge, Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +16,7 @@ export class TourResizeObserverService {
         this.resizeElSubject,
         fromEvent(window, 'resize')
     ).pipe(
-        debounce(() => interval(10))
+        debounceTime(10)
     );
 
     observeElement(target: Element) {

@@ -6,7 +6,7 @@ import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import { NgbTourService } from './ng-bootstrap-tour.service';
 import { INgbStepOption } from './step-option.interface';
 import { TourStepTemplateService } from './tour-step-template.service';
-import {first} from 'rxjs/operators';
+import {firstValueFrom} from 'rxjs';
 
 
 @Directive({ selector: '[tourAnchor]' })
@@ -42,8 +42,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
 
   public async showTourStep(step: INgbStepOption) {
     if (this.popoverDirective.isOpen()) {
-      // TODO: use firstValueFrom() instead of deprecated "toPromise()" after dropping rxjs v6 support
-      await this.popoverDirective.hidden.pipe(first()).toPromise();
+      await firstValueFrom(this.popoverDirective.hidden);
     }
 
     this.isActive = true;

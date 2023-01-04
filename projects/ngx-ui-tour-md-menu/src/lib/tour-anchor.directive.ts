@@ -1,11 +1,10 @@
 import type {OnDestroy, OnInit} from '@angular/core';
 import {Directive, ElementRef, HostBinding, Injector, Input, ViewContainerRef} from '@angular/core';
 import {TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
-import {Subscription} from 'rxjs';
+import {first, Subscription} from 'rxjs';
 
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 import {TourStepTemplateService} from './tour-step-template.service';
-import {first} from 'rxjs/operators';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
 

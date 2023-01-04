@@ -4,8 +4,7 @@ import {Clipboard} from '@angular/cdk/clipboard';
 import {LOCATION} from '@ng-web-apis/common';
 import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, Observable} from 'rxjs';
 
 @Component({
     selector: 'app-header',
