@@ -1,5 +1,4 @@
-import type {Renderer2} from '@angular/core';
-import {Injectable, RendererFactory2} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import type {UrlSegment} from '@angular/router';
 import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angular/router';
 
@@ -8,6 +7,7 @@ import {merge as mergeStatic, Observable, Subject} from 'rxjs';
 import {delay, filter, first, map, takeUntil} from 'rxjs/operators';
 import {ScrollingUtil} from './scrolling-util';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
+import {AnchorClickService} from './anchor-click.service';
 
 export interface IStepOption {
     stepId?: string;
@@ -97,16 +97,10 @@ export class TourService<T extends IStepOption = IStepOption> {
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
-    private unListenNextOnAnchorClickFn: () => void;
-    private renderer: Renderer2;
 
-    constructor(
-        private readonly router: Router,
-        private readonly rendererFactory: RendererFactory2,
-        private readonly backdrop: TourBackdropService
-    ) {
-        this.renderer = rendererFactory.createRenderer(null, null);
-    }
+    private readonly router = inject(Router);
+    private readonly backdrop = inject(TourBackdropService);
+    private readonly anchorClickService = inject(AnchorClickService);
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
@@ -161,7 +155,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.status = TourState.OFF;
         this.hideStep(this.currentStep);
         this.currentStep = undefined;
-        this.removeLastAnchorClickListener();
+        this.anchorClickService.removeListener();
         this.backdrop.close();
         this.backdrop.disconnectResizeObserver();
         this.end$.next();
@@ -304,7 +298,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.hideStep(this.currentStep);
         }
 
-        this.removeLastAnchorClickListener();
+        this.anchorClickService.removeListener();
 
         if (step.route !== undefined && step.route !== null) {
             this.navigateToRouteAndSetStep(step);
@@ -313,18 +307,10 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
     }
 
-    private removeLastAnchorClickListener() {
-        if (this.unListenNextOnAnchorClickFn) {
-            this.unListenNextOnAnchorClickFn();
-            this.unListenNextOnAnchorClickFn = undefined;
-        }
-    }
-
     private listenToOnAnchorClick(step: T) {
         if (step.nextOnAnchorClick) {
-            const anchor = this.anchors[step.anchorId];
-            this.unListenNextOnAnchorClickFn = this.renderer
-                .listen(anchor.element.nativeElement, 'click', () => this.next());
+            const anchorEl = this.anchors[step.anchorId].element.nativeElement;
+            this.anchorClickService.addListener(anchorEl, () => this.next());
         }
     }
 
