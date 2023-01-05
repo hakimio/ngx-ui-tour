@@ -26,6 +26,7 @@ export interface IStepOption {
     isAsync?: boolean;
     isOptional?: boolean;
     delayAfterNavigation?: number;
+    delayBeforeStepShow?: number;
     nextOnAnchorClick?: boolean;
 }
 
@@ -49,6 +50,7 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     isAsync: false,
     isOptional: false,
     delayAfterNavigation: 0,
+    delayBeforeStepShow: 0,
     nextOnAnchorClick: false
 };
 
@@ -353,6 +355,8 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     private setCurrentStepAsync(step: T, delay = 0): void {
+        delay = delay || step.delayBeforeStepShow;
+
         setTimeout(() => this.setCurrentStep(step), delay);
     }
 
