@@ -1,4 +1,4 @@
-<app-header id="simple-project" tourAnchor="usage">Simple project</app-header>
+<app-header id="simple-project" tourAnchor="usage">Usage</app-header>
 
 <ol>
     <li>Add <code>{{tourStepTag}}</code> to your root app component
@@ -22,41 +22,4 @@
     <li>Check out the
         <a tuiLink target="_blank" href="https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/md-menu">demo
             source code</a> for an example.</li>
-</ol>
-
-<app-header id="lazy-loaded-modules">Lazy loaded modules</app-header>
-
-<ol>
-    <li>
-        Add <code>{{tourStepTag}}</code> to your root app component.
-    </li>
-    <li>
-        Import <code>{{moduleName}}.forRoot()</code> into your app module.
-    </li>
-    <li>
-        Import <code>{{moduleName}}</code> into all lazy loaded modules needing the tour.
-    </li>
-    <li>
-        Import the <code>TourService</code> in your highest level eagerly loaded component and initialize all your
-        steps there (even the ones in the lazy loaded modules).
-        <strong>Note:</strong>
-        Make sure every step object contains its route. For example, if the route to a step is '/home' then your step
-        object should have <code>route: '/home'</code> as a member.
-    </li>
-    <li>
-        Define anchor points for your steps by adding the
-        <code>tourAnchor</code> directive throughout your modules (any component that requires it at any level).
-        <tui-doc-code
-            [code]="anchorPoints"
-            filename="app.component.html"
-        ></tui-doc-code>
-    </li>
-    <li>
-        Start the tour with
-        <code>tourService.start()</code> in the same component you initialized your steps. Call this right after the initialization.
-    </li>
-    <li>Check out the
-        <a tuiLink target="_blank" href="https://github.com/hakimio/ngx-ui-tour/tree/master/projects/lazy-tour-demo/src/app">
-            demo source code</a> for an example.
-    </li>
 </ol>

@@ -8,9 +8,6 @@ import {Input} from '@angular/core';
 })
 export class UsageComponent {
 
-    @Input()
-    moduleName: string;
-
     readonly examples = {
         tourSeviceExample
     }
