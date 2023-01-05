@@ -6,7 +6,8 @@ import {TourStepTemplateService} from './tour-step-template.service';
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @Directive({
-    selector: '[tourAnchor]'
+    selector: '[tourAnchor]',
+    standalone: true
 })
 export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
@@ -37,6 +38,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         this.opener = this.viewContainer.createComponent(TourAnchorOpenerComponent).instance;
     }
 
+    // noinspection JSUnusedGlobalSymbols
     showTourStep(step: ITuiHintStepOption) {
         const templateComponent = this.tourStepTemplateService.templateComponent;
 
@@ -54,8 +56,10 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         this.opener.isShown = true;
     }
 
+    // noinspection JSUnusedGlobalSymbols
     hideTourStep() {
         this.isActive = false;
         this.opener.isShown = false;
     }
+
 }

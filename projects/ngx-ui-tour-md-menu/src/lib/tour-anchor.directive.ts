@@ -9,11 +9,14 @@ import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
 
 @Directive({
-    selector: '[tourAnchor]'
+    selector: '[tourAnchor]',
+    standalone: true
 })
-export class TourAnchorMatMenuDirective
-    implements OnInit, OnDestroy, TourAnchorDirective {
-    @Input() public tourAnchor: string;
+export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchorDirective {
+
+    @Input()
+    public tourAnchor: string;
+
     public opener: TourAnchorOpenerComponent;
     public menuCloseSubscription: Subscription;
 
@@ -25,8 +28,7 @@ export class TourAnchorMatMenuDirective
         public element: ElementRef,
         private tourService: NgxmTourService,
         private tourStepTemplate: TourStepTemplateService
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -72,6 +74,7 @@ export class TourAnchorMatMenuDirective
             });
     }
 
+    // noinspection JSUnusedGlobalSymbols
     public hideTourStep(): void {
         this.isActive = false;
         if (this.menuCloseSubscription) {
@@ -80,6 +83,7 @@ export class TourAnchorMatMenuDirective
         this.opener.trigger.closeMenu();
     }
 
+    // noinspection JSUnusedGlobalSymbols
     getIsScrollingEnabled() {
         const step = this.tourService.currentStep;
 

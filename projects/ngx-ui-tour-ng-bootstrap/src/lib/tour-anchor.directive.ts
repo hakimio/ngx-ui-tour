@@ -1,63 +1,73 @@
-import { Directive, ElementRef, Host, HostBinding, Input } from '@angular/core';
 import type {OnDestroy, OnInit} from '@angular/core';
-import { NgbPopover, Placement } from '@ng-bootstrap/ng-bootstrap';
+import {Directive, ElementRef, Host, HostBinding, Input} from '@angular/core';
+import {NgbPopover, Placement} from '@ng-bootstrap/ng-bootstrap';
 import {TourAnchorDirective} from 'ngx-ui-tour-core';
 
-import { NgbTourService } from './ng-bootstrap-tour.service';
-import { INgbStepOption } from './step-option.interface';
-import { TourStepTemplateService } from './tour-step-template.service';
+import {NgbTourService} from './ng-bootstrap-tour.service';
+import {INgbStepOption} from './step-option.interface';
+import {TourStepTemplateService} from './tour-step-template.service';
 import {firstValueFrom} from 'rxjs';
 
 
-@Directive({ selector: '[tourAnchor]' })
-export class TourAnchorNgBootstrapPopoverDirective extends NgbPopover { }
+@Directive({
+    selector: '[tourAnchor]',
+    standalone: true
+})
+export class TourAnchorNgBootstrapPopoverDirective extends NgbPopover {}
 
 @Directive({
-  selector: '[tourAnchor]',
+    selector: '[tourAnchor]',
+    standalone: true
 })
 export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
-  @Input() public tourAnchor: string;
 
-  @HostBinding('class.touranchor--is-active')
-  public isActive: boolean;
+    @Input()
+    public tourAnchor: string;
 
-  constructor(
-    private tourService: NgbTourService,
-    private tourStepTemplate: TourStepTemplateService,
-    public element: ElementRef,
-    @Host() private popoverDirective: TourAnchorNgBootstrapPopoverDirective
-  ) {
-    this.popoverDirective.autoClose = false;
-    this.popoverDirective.triggers = '';
-    this.popoverDirective.toggle = () => { };
-  }
+    @HostBinding('class.touranchor--is-active')
+    public isActive: boolean;
 
-  public ngOnInit(): void {
-    this.tourService.register(this.tourAnchor, this);
-  }
-
-  public ngOnDestroy(): void {
-    this.tourService.unregister(this.tourAnchor);
-  }
-
-  public async showTourStep(step: INgbStepOption) {
-    if (this.popoverDirective.isOpen()) {
-      await firstValueFrom(this.popoverDirective.hidden);
+    constructor(
+        private tourService: NgbTourService,
+        private tourStepTemplate: TourStepTemplateService,
+        public element: ElementRef,
+        @Host()
+        private popoverDirective: TourAnchorNgBootstrapPopoverDirective
+    ) {
+        this.popoverDirective.autoClose = false;
+        this.popoverDirective.triggers = '';
+        this.popoverDirective.toggle = () => {};
     }
 
-    this.isActive = true;
-    this.popoverDirective.ngbPopover = this.tourStepTemplate.template;
-    this.popoverDirective.popoverTitle = step.title;
-    this.popoverDirective.container =  'body';
-    this.popoverDirective.placement = <Placement>(step.placement || 'auto')
-      .replace('before', 'left').replace('after', 'right')
-      .replace('below', 'bottom').replace('above', 'top');
+    public ngOnInit(): void {
+        this.tourService.register(this.tourAnchor, this);
+    }
 
-    this.popoverDirective.open({ step });
-  }
+    public ngOnDestroy(): void {
+        this.tourService.unregister(this.tourAnchor);
+    }
 
-  public hideTourStep(): void {
-    this.isActive = false;
-    this.popoverDirective.close();
-  }
+    // noinspection JSUnusedGlobalSymbols
+    public async showTourStep(step: INgbStepOption) {
+        if (this.popoverDirective.isOpen()) {
+            await firstValueFrom(this.popoverDirective.hidden);
+        }
+
+        this.isActive = true;
+        this.popoverDirective.ngbPopover = this.tourStepTemplate.template;
+        this.popoverDirective.popoverTitle = step.title;
+        this.popoverDirective.container = 'body';
+        this.popoverDirective.placement = <Placement>(step.placement || 'auto')
+            .replace('before', 'left').replace('after', 'right')
+            .replace('below', 'bottom').replace('above', 'top');
+
+        this.popoverDirective.open({step});
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+    public hideTourStep(): void {
+        this.isActive = false;
+        this.popoverDirective.close();
+    }
+
 }

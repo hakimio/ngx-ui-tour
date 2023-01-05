@@ -1,8 +1,3 @@
-/*
- * Public API Surface of ngx-ui-tour-core
- */
-
-export {TourModule} from './lib/tour.module';
 export {IStepOption, TourState, TourService} from './lib/tour.service';
 export {TourAnchorDirective} from './lib/tour-anchor.directive';
 export {TourHotkeyListenerComponent} from './lib/tour-hotkey-listener.component';

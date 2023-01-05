@@ -1,5 +1,5 @@
 import {Component, Input, SkipSelf, TemplateRef, ViewChild} from '@angular/core';
-import {TUI_DROPDOWN_OPTIONS, TuiDropdownDirective, TuiDropdownOptions} from '@taiga-ui/core';
+import {TUI_DROPDOWN_OPTIONS, TuiDropdownDirective, TuiDropdownModule, TuiDropdownOptions} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 
@@ -37,7 +37,9 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
             [tuiDropdown]="template"
             [tuiDropdownManual]="isShown"
         ></span>
-    `
+    `,
+    standalone: true,
+    imports: [TuiDropdownModule]
 })
 export class TourAnchorOpenerComponent {
 

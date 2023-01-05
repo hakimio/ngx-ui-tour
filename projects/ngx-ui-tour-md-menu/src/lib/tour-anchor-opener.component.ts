@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, ViewChild,} from '@angular/core';
-import {MAT_MENU_SCROLL_STRATEGY, MatMenuTrigger} from '@angular/material/menu';
+import {MAT_MENU_SCROLL_STRATEGY, MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {Overlay, ScrollStrategy} from '@angular/cdk/overlay';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 
@@ -30,7 +30,11 @@ export function scrollFactory(overlay: Overlay, tourService: NgxmTourService): (
     template: `
         <!--suppress HtmlUnknownAttribute -->
         <span matMenuTriggerFor [matMenuTriggerRestoreFocus]="false"></span>
-    `
+    `,
+    standalone: true,
+    imports: [
+        MatMenuModule
+    ]
 })
 export class TourAnchorOpenerComponent {
 
