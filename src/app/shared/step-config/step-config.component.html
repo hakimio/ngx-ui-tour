@@ -164,4 +164,13 @@
             Go to next step on anchor element click instead of "Next" button.
         </div>
     </ng-template>
+    <ng-template
+        documentationPropertyName="duplicateAnchorHandling"
+        documentationPropertyType="string"
+        [documentationPropertyValues]="duplicateAnchorHandlingValues"
+        [documentationPropertyValue]="'error'"
+    >
+        If your tour anchor is duplicated on purpose, you can choose to either register first or last anchor occurance
+        instead of throwing an error.
+    </ng-template>
 </tui-doc-documentation>

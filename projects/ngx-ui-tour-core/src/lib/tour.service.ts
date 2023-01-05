@@ -28,6 +28,7 @@ export interface IStepOption {
     delayAfterNavigation?: number;
     delayBeforeStepShow?: number;
     nextOnAnchorClick?: boolean;
+    duplicateAnchorHandling?: 'error' | 'registerFirst' | 'registerLast';
 }
 
 export enum TourState {
@@ -51,7 +52,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     isOptional: false,
     delayAfterNavigation: 0,
     delayBeforeStepShow: 0,
-    nextOnAnchorClick: false
+    nextOnAnchorClick: false,
+    duplicateAnchorHandling: 'error'
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -266,11 +268,25 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (!anchorId) {
             return;
         }
+
         if (this.anchors[anchorId]) {
-            throw new Error('anchorId ' + anchorId + ' already registered!');
+            const step = this.findStepByAnchorId(anchorId),
+                duplicateAnchorHandling = step?.duplicateAnchorHandling ?? 'error';
+
+            switch (duplicateAnchorHandling) {
+                case 'error':
+                    throw new Error(`Tour anchor with id "${anchorId}" already registered!`);
+                case 'registerFirst':
+                    return;
+            }
         }
+
         this.anchors[anchorId] = anchor;
         this.anchorRegister$.next(anchorId);
+    }
+
+    private findStepByAnchorId(anchorId: string): T {
+        return this.steps.find(step => step.anchorId === anchorId);
     }
 
     public unregister(anchorId: string): void {
