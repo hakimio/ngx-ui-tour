@@ -4,13 +4,13 @@ import {CommonModule} from '@angular/common';
 import {ModuleBRoutingModule} from './module-b-routing.module';
 import {ModuleBComponent} from './module-b.component';
 
-import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
+import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 
 @NgModule({
     imports: [
         CommonModule,
         ModuleBRoutingModule,
-        TourMatMenuModule
+        TourAnchorMatMenuDirective
     ],
     declarations: [ModuleBComponent]
 })
