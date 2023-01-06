@@ -5,7 +5,7 @@ describe('IsInViewport', () => {
 
     let htmlElement: HTMLElement;
     let sidesToTest: ElementSides;
-    const initialClientRect = <ClientRect>{
+    const initialClientRect = <DOMRect>{
         top: 137,
         bottom: 255,
         left: 40,
@@ -28,8 +28,8 @@ describe('IsInViewport', () => {
         });
     });
 
-    const testWithRectangle = (rectangle: Partial<ClientRect>, expectedResult: boolean) => {
-        (<Mock>htmlElement.getBoundingClientRect).mockReturnValue(<ClientRect>{
+    const testWithRectangle = (rectangle: Partial<DOMRect>, expectedResult: boolean) => {
+        (<Mock>htmlElement.getBoundingClientRect).mockReturnValue(<DOMRect>{
             ...initialClientRect,
             ...rectangle
         });
