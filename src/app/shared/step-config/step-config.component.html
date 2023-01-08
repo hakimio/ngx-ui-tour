@@ -51,6 +51,12 @@
         <div tourAnchor="config.route">The route to navigate to before showing the tour step (optional)</div>
     </ng-template>
     <ng-template
+        documentationPropertyName="routeFragmentMatchOption"
+        documentationPropertyType="'exact' | 'ignored'"
+    >
+        <div tourAnchor="config.routeFragmentMatchOption">Ignore or exact match/navigate to fragment. 'ignored' by default </div>
+    </ng-template>
+    <ng-template
         *ngIf="isContainerClassVisible"
         documentationPropertyName="containerClass"
         documentationPropertyType="string"

@@ -51,6 +51,11 @@ export class NgxBootstrapComponent implements OnInit {
         title: 'Route',
         route: 'ngx-bootstrap/API'
     }, {
+        anchorId: 'config.routeFragmentMatchOption',
+        content: 'Define whether ignore fragment in route or exact match',
+        title: 'Route behavior',
+        route: 'ngx-bootstrap/API'
+    }, {
         anchorId: 'config.containerClass',
         content: 'You can add custom container class.',
         title: 'Custom CSS Class',

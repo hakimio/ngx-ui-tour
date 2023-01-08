@@ -28,6 +28,7 @@ export interface IStepOption {
     isOptional?: boolean;
     delayAfterNavigation?: number;
     nextOnAnchorClick?: boolean;
+    routeFragmentMatchOption?: 'exact' | 'ignored'
 }
 
 export enum TourState {
@@ -50,7 +51,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     isAsync: false,
     isOptional: false,
     delayAfterNavigation: 0,
-    nextOnAnchorClick: false
+    nextOnAnchorClick: false,
+    routeFragmentMatchOption: 'ignored'
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -331,7 +333,7 @@ export class TourService<T extends IStepOption = IStepOption> {
                 paths: 'exact',
                 matrixParams: 'exact',
                 queryParams: 'subset',
-                fragment: 'ignored'
+                fragment: step.routeFragmentMatchOption
             };
 
         const isActive = this.router.isActive(url, matchOptions);
