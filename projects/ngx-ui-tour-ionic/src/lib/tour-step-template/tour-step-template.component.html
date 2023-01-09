@@ -1,0 +1,62 @@
+<ion-popover
+    [leaveAnimation]="noopLeaveAnimation"
+    [backdropDismiss]="false"
+    [keyboardClose]="false"
+    [showBackdrop]="false"
+    [dismissOnSelect]="false"
+>
+    <ng-template>
+        <ng-container
+            *ngTemplateOutlet="
+                stepTemplate || stepTemplateContent || defaultTemplate;
+                context: {step: step}
+            "
+        ></ng-container>
+    </ng-template>
+</ion-popover>
+
+<ng-template #defaultTemplate let-step="step">
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>{{step.title}}</ion-card-title>
+            <ion-button
+                class="close"
+                fill="clear"
+                shape="round"
+                (click)="tourService.end()"
+            >
+                <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-card-header>
+
+        <ion-card-content
+            [innerHTML]="step.content"
+        ></ion-card-content>
+
+        <div class="footer">
+            <ion-button
+                fill="clear"
+                [disabled]="!tourService.hasPrev(step)"
+                (click)="tourService.prev()"
+            >
+                <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+                {{step.prevBtnTitle}}
+            </ion-button>
+            <ion-button
+                fill="clear"
+                *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
+                (click)="tourService.next()"
+            >
+                {{step.nextBtnTitle}}
+                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-button>
+            <ion-button
+                fill="clear"
+                *ngIf="!tourService.hasNext(step)"
+                (click)="tourService.end()"
+            >
+                {{step.endBtnTitle}}
+            </ion-button>
+        </div>
+    </ion-card>
+</ng-template>

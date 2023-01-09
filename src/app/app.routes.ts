@@ -38,6 +38,12 @@ export const ROUTES = [{
         title: 'Taiga UI Hint'
     }
 }, {
+    loadChildren: () => import('./ion-popover/ion-popover.module').then(m => m.IonPopoverModule),
+    path: 'ion-popover',
+    data: {
+        title: 'Ionic'
+    }
+}, {
     redirectTo: 'md-menu',
     path: '**'
 }];

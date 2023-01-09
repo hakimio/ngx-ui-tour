@@ -2,7 +2,7 @@
 
 > UI tour library for Angular 9+
 
-Angular Material, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
+Angular Material, Ionic, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
 
 `ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tour`. The project had to be forked since the original is no longer 
 maintained.
@@ -52,6 +52,12 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 | 12-13   | 6, 7 | 10          |
 | 9-12    | 6    | 9           |
 
+### Ionic tour UI
+
+| Angular | RxJS | Ionic | ngx-ui-tour |
+|---------|------|-------|-------------|
+| 15      | 7    | 6     | 1           |
+
 ### Taiga UI tour UI
 
 | Angular | RxJS | Taiga UI | ngx-ui-tour |
@@ -64,6 +70,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 ## Installation and Usage
 
 - [Material Design UI](https://hakimio.github.io/ngx-ui-tour/md-menu/Setup)
+- [Ionic UI](https://hakimio.github.io/ngx-ui-tour/ion-popover/Setup)
 - [NG Bootstrap UI](https://hakimio.github.io/ngx-ui-tour/ng-bootstrap/Setup)
 - [Ngx Bootstrap UI](https://hakimio.github.io/ngx-ui-tour/ngx-bootstrap/Setup)
 - [Taiga UI Dropdown UI](https://hakimio.github.io/ngx-ui-tour/tui-dropdown/Setup)

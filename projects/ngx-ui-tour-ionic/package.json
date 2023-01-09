@@ -1,0 +1,27 @@
+{
+  "name": "ngx-ui-tour-ionic",
+  "version": "1.0.0",
+  "description": "UI tour library for Angular 15+",
+  "keywords": [
+    "angular",
+    "ngx",
+    "angular-ionic",
+    "ionic",
+    "ionic-framework",
+    "tour",
+    "product-tour",
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@ionic/angular": "^6.0.0",
+    "typescript": ">=3.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0",
+    "ngx-ui-tour-core": "10.0.0"
+  }
+}

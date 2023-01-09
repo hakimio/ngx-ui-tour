@@ -27,6 +27,9 @@
       "ngx-ui-tour-console": [
         "dist/ngx-ui-tour-console"
       ],
+      "ngx-ui-tour-ionic": [
+        "dist/ngx-ui-tour-ionic"
+      ],
       "ngx-ui-tour-md-menu": [
         "dist/ngx-ui-tour-md-menu"
       ],

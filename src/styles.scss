@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@ionic/angular/css/core.css';
 
 body {
     font: var(--tui-font-text-m);
     overflow-x: hidden;
+
+    /* Ionic scroll issue work-around */
+    &.backdrop-no-scroll {
+        overflow-y: auto;
+    }
 }
 
 ol {

@@ -1,0 +1,41 @@
+ion-popover {
+    pointer-events: none;
+}
+
+ion-card {
+    min-width: 230px;
+    margin: 0;
+    pointer-events: auto;
+}
+
+ion-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+
+    ion-card-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+ion-button.close {
+    --padding-start: 5px;
+    --padding-end: 5px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+    margin: 0 -8px 0;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px 8px;
+
+    ion-button {
+        text-transform: capitalize;
+    }
+}

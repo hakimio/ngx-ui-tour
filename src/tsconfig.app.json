@@ -10,7 +10,8 @@
       "ngx-ui-tour-ng-bootstrap": ["projects/ngx-ui-tour-ng-bootstrap/src/public_api"],
       "ngx-ui-tour-ngx-bootstrap": ["projects/ngx-ui-tour-ngx-bootstrap/src/public_api"],
       "ngx-ui-tour-tui-dropdown": ["projects/ngx-ui-tour-tui-dropdown/src/public_api"],
-      "ngx-ui-tour-tui-hint": ["projects/ngx-ui-tour-tui-hint/src/public_api"]
+      "ngx-ui-tour-tui-hint": ["projects/ngx-ui-tour-tui-hint/src/public_api"],
+      "ngx-ui-tour-ionic": ["projects/ngx-ui-tour-ionic/src/public_api"]
     }
   },
   "files": [
