@@ -1,5 +1,5 @@
 import type {OnDestroy, OnInit} from '@angular/core';
-import {Directive, ElementRef, HostBinding, Injector, Input, ViewContainerRef} from '@angular/core';
+import {Directive, ElementRef, HostBinding, Input, ViewContainerRef} from '@angular/core';
 import {TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {first, Subscription} from 'rxjs';
 
@@ -23,7 +23,6 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
     @HostBinding('class.touranchor--is-active') public isActive: boolean;
 
     constructor(
-        private injector: Injector,
         private viewContainer: ViewContainerRef,
         public element: ElementRef,
         private tourService: NgxmTourService,
