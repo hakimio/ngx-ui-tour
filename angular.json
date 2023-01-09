@@ -15,7 +15,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "assets": [
               "src/assets",
               "src/404.html",
@@ -111,7 +111,7 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
@@ -366,7 +366,7 @@
             "outputPath": "dist/lazy-tour-demo",
             "index": "projects/lazy-tour-demo/src/index.html",
             "main": "projects/lazy-tour-demo/src/main.ts",
-            "polyfills": "projects/lazy-tour-demo/src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/lazy-tour-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -433,7 +433,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/lazy-tour-demo/src/test.ts",
-            "polyfills": "projects/lazy-tour-demo/src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/lazy-tour-demo/tsconfig.spec.json",
             "karmaConfig": "projects/lazy-tour-demo/karma.conf.js",
             "inlineStyleLanguage": "scss",
