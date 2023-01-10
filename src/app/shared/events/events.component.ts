@@ -14,12 +14,12 @@ export class EventsComponent {
 
     readonly events: Event[] = [{
         name: 'stepShow$',
-        payload: 'IStepOption',
-        description: 'A step is shown'
+        payload: 'StepChangeParams',
+        description: 'A step is shown. "Direction" property indicates if the last pressed button was "Next" or "Prev".'
     }, {
         name: 'stepHide$',
-        payload: 'IStepOption',
-        description: 'A step is hidden'
+        payload: 'StepChangeParams',
+        description: 'A step is hidden. "Direction" property indicates if the last pressed button was "Next" or "Prev".'
     }, {
         name: 'initialize$',
         payload: 'IStepOption[]',

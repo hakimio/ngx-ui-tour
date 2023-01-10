@@ -1,4 +1,4 @@
-export {IStepOption, TourState, TourService} from './lib/tour.service';
+export {IStepOption, TourState, TourService, Direction, StepChangeParams} from './lib/tour.service';
 export {TourAnchorDirective} from './lib/tour-anchor.directive';
 export {TourHotkeyListenerComponent} from './lib/tour-hotkey-listener.component';
 export {isInViewport, ElementSides} from './lib/is-in-viewport';

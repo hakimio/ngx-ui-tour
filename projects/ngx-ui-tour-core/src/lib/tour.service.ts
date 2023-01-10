@@ -37,9 +37,14 @@ export enum TourState {
     PAUSED
 }
 
-enum Direction {
+export enum Direction {
     Forwards,
     Backwards
+}
+
+export interface StepChangeParams<T extends IStepOption = IStepOption> {
+    step: T;
+    direction: Direction;
 }
 
 const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
@@ -62,8 +67,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
 })
 export class TourService<T extends IStepOption = IStepOption> {
 
-    public stepShow$: Subject<T> = new Subject();
-    public stepHide$: Subject<T> = new Subject();
+    public stepShow$: Subject<StepChangeParams<T>> = new Subject();
+    public stepHide$: Subject<StepChangeParams<T>> = new Subject();
     public initialize$: Subject<T[]> = new Subject();
     public start$: Subject<void> = new Subject();
     public end$: Subject<void> = new Subject();
@@ -407,7 +412,10 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.scrollToAnchor(step);
         anchor.showTourStep(step);
         this.toggleBackdrop(step);
-        this.stepShow$.next(step);
+        this.stepShow$.next({
+            step,
+            direction: this.direction
+        });
     }
 
     private hideStep(step: T): void {
@@ -416,7 +424,10 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
         anchor.hideTourStep();
-        this.stepHide$.next(step);
+        this.stepHide$.next({
+            step,
+            direction: this.direction
+        });
     }
 
     private scrollToAnchor(step: T) {
