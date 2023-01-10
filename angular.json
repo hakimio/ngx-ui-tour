@@ -75,13 +75,7 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
+              "buildOptimizer": true
             },
             "development": {}
           },
@@ -390,12 +384,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/lazy-tour-demo/src/environments/environment.ts",
-                  "with": "projects/lazy-tour-demo/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
