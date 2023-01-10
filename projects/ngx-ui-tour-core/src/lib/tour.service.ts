@@ -211,7 +211,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.hasNext(this.currentStep)) {
             this.goToStep(
                 this.loadStep(
-                    this.currentStep.nextStep || this.steps.indexOf(this.currentStep) + 1
+                    this.currentStep.nextStep ?? this.steps.indexOf(this.currentStep) + 1
                 )
             );
         }
@@ -246,7 +246,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.hasPrev(this.currentStep)) {
             this.goToStep(
                 this.loadStep(
-                    this.currentStep.prevStep || this.steps.indexOf(this.currentStep) - 1
+                    this.currentStep.prevStep ?? this.steps.indexOf(this.currentStep) - 1
                 )
             );
         }
