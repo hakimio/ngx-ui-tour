@@ -6,7 +6,7 @@ import {TourAnchorConsoleDirective, TourConsoleModule} from 'ngx-ui-tour-console
 import {ConsoleComponent} from './console.component';
 import {tuiGenerateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {SharedModule} from '../shared/shared.module';
-import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 
 @NgModule({
     declarations: [ConsoleComponent],
@@ -17,7 +17,8 @@ import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
         SharedModule.withAnchorDirectiveType(TourAnchorConsoleDirective),
         TuiDocPageModule,
         TuiLinkModule,
-        TuiButtonModule
+        TuiButtonModule,
+        TuiNotificationModule
     ]
 })
 export class ConsoleModule {}

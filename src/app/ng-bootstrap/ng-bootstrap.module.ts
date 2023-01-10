@@ -5,7 +5,7 @@ import {TourNgBootstrapModule} from 'ngx-ui-tour-ng-bootstrap';
 
 import {NgBootstrapComponent} from './ng-bootstrap.component';
 import {tuiGenerateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
-import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
 import {SharedModule} from '../shared/shared.module';
 
@@ -18,7 +18,8 @@ import {SharedModule} from '../shared/shared.module';
         TuiDocPageModule,
         TuiLinkModule,
         TuiButtonModule,
-        SharedModule.withAnchorDirectiveType(TourAnchorNgBootstrapDirective)
+        SharedModule.withAnchorDirectiveType(TourAnchorNgBootstrapDirective),
+        TuiNotificationModule
     ]
 })
 export class NgBootstrapModule {}

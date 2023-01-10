@@ -4,7 +4,7 @@ import {TourTuiDropdownModule, TourAnchorTuiDropdownDirective} from 'ngx-ui-tour
 import {TuiDropdownComponent} from './tui-dropdown.component';
 import {tuiGenerateRoutes, TuiDocDocumentationModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
 import {RouterModule} from '@angular/router';
-import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
@@ -19,7 +19,8 @@ import {SharedModule} from '../shared/shared.module';
         TuiDocDocumentationModule,
         TuiLinkModule,
         TuiButtonModule,
-        SharedModule.withAnchorDirectiveType(TourAnchorTuiDropdownDirective)
+        SharedModule.withAnchorDirectiveType(TourAnchorTuiDropdownDirective),
+        TuiNotificationModule
     ]
 })
 export class TuiDropdownModule {}
