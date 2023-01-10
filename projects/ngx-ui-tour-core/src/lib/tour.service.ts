@@ -120,8 +120,17 @@ export class TourService<T extends IStepOption = IStepOption> {
                     ...step
                 })
             );
+            this.validateSteps();
             this.initialize$.next(this.steps);
             this.subscribeToNavigationStartEvent();
+        }
+    }
+
+    private validateSteps() {
+        for (const step of this.steps) {
+            if (step.isAsync && step.isOptional) {
+                throw new Error(`Tour step with anchor id "${step.anchorId}" can not be both "async" and "optional"!`);
+            }
         }
     }
 
