@@ -337,7 +337,7 @@ export class TourService<T extends IStepOption = IStepOption> {
                 paths: 'exact',
                 matrixParams: 'exact',
                 queryParams: 'subset',
-                fragment: 'ignored'
+                fragment: 'exact'
             };
 
         const isActive = this.router.isActive(url, matchOptions);
