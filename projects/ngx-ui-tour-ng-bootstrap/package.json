@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ng-bootstrap",
-  "version": "11.3.2",
+  "version": "12.0.0",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -17,13 +17,13 @@
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^14.0.0",
     "typescript": ">=3.8.0"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "ngx-ui-tour-core": "9.2.1"
+    "ngx-ui-tour-core": "10.0.0"
   }
 }

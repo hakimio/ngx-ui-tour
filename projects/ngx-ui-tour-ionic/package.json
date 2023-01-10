@@ -14,6 +14,9 @@
     "onboarding",
     "onboarding-tour"
   ],
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Tomas Rimkus <tomas.r@programmer.net>",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",

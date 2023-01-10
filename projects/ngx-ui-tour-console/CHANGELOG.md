@@ -1,3 +1,29 @@
+<a name="10.0.0"></a>
+
+# [10.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-01-10)
+
+### Features
+- Support for Angular 15
+- New `delayBeforeStepShow` config to add delay before showing tour step
+- New `duplicateAnchorHandling` config to customize how duplicate anchor elements should be handled
+- All components and directives are now provided as `standalone`. This allows importing only the components you are
+  using and use anchor directive as host directive.
+- `stepShow$` and `stepHide$` event payloads now include tour direction indicating if the user pressed "Next" or
+  "Prev" button.
+
+### Fixes
+- Fragments/anchors ("foo#bar") are no longer ignored in `route` step config.
+- `prevStep` and `nextStep` configs can now be set to step index "zero".
+
+### Breaking changes
+- `TourModule.forRoot()` method was removed since all services are now provided in "root". Now only the tour module
+  itself has to be imported.
+- Angular 14 is no longer supported.
+- RxJS v6 is no longer supported.
+- `stepShow$` and `stepHide$` event payloads have changed.
+- Steps marked as both `async` and `optional` at the same time will now throw an error since this option combination
+  is not supported by the library.
+
 <a name="9.2.1"></a>
 
 # [9.2.1](https://github.com/hakimio/ngx-ui-tour) (2022-11-24)
