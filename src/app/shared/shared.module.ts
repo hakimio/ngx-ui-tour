@@ -1,7 +1,7 @@
 import {ModuleWithProviders, NgModule, Type} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
-import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {StepConfigComponent} from './step-config/step-config.component';
 import {TuiDocCodeModule, TuiDocDocumentationModule} from '@taiga-ui/addon-doc';
 import {TourServiceApiComponent} from './tour-service-api/tour-service-api.component';
@@ -51,7 +51,8 @@ const COMPONENTS = [
         TuiButtonModule,
         TuiDocDocumentationModule,
         TuiLinkModule,
-        TuiDocCodeModule
+        TuiDocCodeModule,
+        TuiNotificationModule
     ]
 })
 export class SharedModule {
