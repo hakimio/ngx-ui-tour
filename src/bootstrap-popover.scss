@@ -156,7 +156,7 @@ $text-color: #212529;
         }
     }
 
-    &.bs-popover-right {
+    &.bs-popover-right, &.bs-popover-end {
         margin-left: $popover-arrow-width;
 
         .popover-arrow {
@@ -216,7 +216,7 @@ $text-color: #212529;
         }
     }
 
-    &.bs-popover-left {
+    &.bs-popover-left, &.bs-popover-start {
         margin-right: $popover-arrow-width;
 
         .popover-arrow {
