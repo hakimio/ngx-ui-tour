@@ -96,7 +96,8 @@ export class MdMenuComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'md-menu',
-            delayAfterNavigation: this.delayAfterNavigation
+            delayAfterNavigation: this.delayAfterNavigation,
+            centerAnchorOnScroll: true
         });
     }
 

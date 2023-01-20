@@ -18,6 +18,7 @@ export interface IStepOption {
     prevStep?: number | string;
     placement?: any;
     disableScrollToAnchor?: boolean;
+    centerAnchorOnScroll?: boolean;
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
@@ -58,7 +59,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     delayAfterNavigation: 0,
     delayBeforeStepShow: 0,
     nextOnAnchorClick: false,
-    duplicateAnchorHandling: 'error'
+    duplicateAnchorHandling: 'error',
+    centerAnchorOnScroll: false
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -447,7 +449,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         const anchor = this.anchors[step?.anchorId],
             htmlElement = anchor.element.nativeElement;
 
-        ScrollingUtil.ensureVisible(htmlElement);
+        ScrollingUtil.ensureVisible(htmlElement, step.centerAnchorOnScroll);
     }
 
     private toggleBackdrop(step: T) {
@@ -455,7 +457,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             isScrollingEnabled = anchor.getIsScrollingEnabled?.() ?? true;
 
         if (step.enableBackdrop) {
-            this.backdrop.show(anchor.element, step.backdropConfig, isScrollingEnabled);
+            this.backdrop.show(anchor.element, step, isScrollingEnabled);
         } else {
             this.backdrop.close();
         }

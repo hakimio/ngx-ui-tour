@@ -2,6 +2,7 @@ import {ElementRef, inject, Injectable, RendererFactory2} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ScrollingUtil} from './scrolling-util';
 import {TourResizeObserverService} from './tour-resize-observer.service';
+import {IStepOption} from './tour.service';
 
 interface Rectangle {
     width: number;
@@ -23,21 +24,21 @@ export class TourBackdropService {
     private backdropElements: HTMLElement[];
     private targetHtmlElement: HTMLElement;
     private isScrollingEnabled: boolean;
-    private config: BackdropConfig;
+    private step: IStepOption;
     private resizeSubscription: Subscription;
 
     private readonly rendererFactory = inject(RendererFactory2);
     private readonly renderer = this.rendererFactory.createRenderer(null, null);
     private readonly resizeObserverService = inject(TourResizeObserverService);
 
-    public show(targetElement: ElementRef, config: BackdropConfig, isScrollingEnabled = true) {
+    public show(targetElement: ElementRef, step: IStepOption, isScrollingEnabled = true) {
         if (this.targetHtmlElement) {
             this.resizeObserverService.unobserveElement(this.targetHtmlElement);
         }
 
         this.isScrollingEnabled = isScrollingEnabled;
         this.targetHtmlElement = targetElement.nativeElement;
-        this.config = config;
+        this.step = step;
 
         this.resizeObserverService.observeElement(this.targetHtmlElement);
 
@@ -93,7 +94,7 @@ export class TourBackdropService {
             .subscribe(
                 () => {
                     this.setBackdropPosition();
-                    ScrollingUtil.ensureVisible(this.targetHtmlElement);
+                    ScrollingUtil.ensureVisible(this.targetHtmlElement, this.step.centerAnchorOnScroll);
                 }
             );
     }
@@ -124,14 +125,16 @@ export class TourBackdropService {
     }
 
     private createBackdropStyles(rectangle: Rectangle) {
+        const config = this.step.backdropConfig;
+
         return {
             position: this.isScrollingEnabled ? 'absolute' : 'fixed',
             width: `${rectangle.width}px`,
             height: `${rectangle.height}px`,
             top: `${rectangle.top}px`,
             left: `${rectangle.left}px`,
-            backgroundColor: this.config?.backgroundColor ?? 'rgba(0, 0, 0, 0.7)',
-            zIndex: this.config?.zIndex ?? '101'
+            backgroundColor: config?.backgroundColor ?? 'rgba(0, 0, 0, 0.7)',
+            zIndex: config?.zIndex ?? '101'
         } as Partial<CSSStyleDeclaration>;
     }
 
