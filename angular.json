@@ -100,36 +100,6 @@
             "browserTarget": "ngx-ui-tour:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": ["zone.js"],
-            "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
-            "styles": [
-              "src/bootstrap-popover.scss",
-              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
-              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
-              "src/styles.scss"
-            ],
-            "assets": [
-              "src/assets",
-              "src/404.html",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@taiga-ui/icons/src",
-                "output": "assets/taiga-ui/icons"
-              },
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./svg"
-              }
-            ]
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -161,14 +131,6 @@
             "development": {}
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-console/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-console/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-console/karma.conf.js"
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -241,14 +203,6 @@
           },
           "defaultConfiguration": "production"
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-md-menu/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-md-menu/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-md-menu/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -281,14 +235,6 @@
           },
           "defaultConfiguration": "production"
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-ng-bootstrap/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-ng-bootstrap/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-ng-bootstrap/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -320,14 +266,6 @@
             "development": {}
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-ngx-bootstrap/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-ngx-bootstrap/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-ngx-bootstrap/karma.conf.js"
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -417,24 +355,6 @@
             "browserTarget": "lazy-tour-demo:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/lazy-tour-demo/src/test.ts",
-            "polyfills": ["zone.js"],
-            "tsConfig": "projects/lazy-tour-demo/tsconfig.spec.json",
-            "karmaConfig": "projects/lazy-tour-demo/karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/lazy-tour-demo/src/favicon.ico",
-              "projects/lazy-tour-demo/src/assets"
-            ],
-            "styles": [
-              "projects/lazy-tour-demo/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -466,14 +386,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-tui-dropdown/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-tui-dropdown/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-tui-dropdown/karma.conf.js"
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -507,14 +419,6 @@
           },
           "defaultConfiguration": "production"
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-ui-tour-tui-hint/src/test.ts",
-            "tsConfig": "projects/ngx-ui-tour-tui-hint/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-ui-tour-tui-hint/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -546,16 +450,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ngx-ui-tour-ionic/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
