@@ -1,6 +1,6 @@
 import {ElementRef, inject, Injectable, RendererFactory2} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {ScrollingUtil} from './scrolling-util';
+import {ScrollingService} from './scrolling.service';
 import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
 
@@ -29,6 +29,7 @@ export class TourBackdropService {
     private readonly rendererFactory = inject(RendererFactory2);
     private readonly renderer = this.rendererFactory.createRenderer(null, null);
     private readonly resizeObserverService = inject(TourResizeObserverService);
+    private readonly scrollingService = inject(ScrollingService);
 
     public show(targetElement: ElementRef, step: IStepOption) {
         if (this.targetHtmlElement) {
@@ -92,7 +93,10 @@ export class TourBackdropService {
             .subscribe(
                 () => {
                     this.setBackdropPosition();
-                    ScrollingUtil.ensureVisible(this.targetHtmlElement, this.step.centerAnchorOnScroll);
+                    this.scrollingService.ensureVisible(this.targetHtmlElement, {
+                        center: this.step.centerAnchorOnScroll,
+                        smoothScroll: false
+                    });
                 }
             );
     }

@@ -90,7 +90,7 @@ export class ConsoleComponent implements OnInit {
             route: 'console',
             delayAfterNavigation: this.delayAfterNavigation,
             centerAnchorOnScroll: true,
-            disablePageScrolling: true
+            smoothScroll: true
         });
     }
 

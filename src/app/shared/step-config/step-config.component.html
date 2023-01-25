@@ -108,7 +108,15 @@
         documentationPropertyType="boolean"
         [documentationPropertyValue]="false"
     >
-        Enable to center anchor element after it's scrolled into view.
+        Enable to center active anchor element. "Safari" browser does not support this option.
+    </ng-template>
+    <ng-template
+        documentationPropertyName="smoothScroll"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        Use smooth scroll when animations are enabled on OS level. Controlled by "Animate controls and elements inside
+        windows" setting on Windows OS.
     </ng-template>
     <ng-template
         documentationPropertyName="prevBtnTitle"

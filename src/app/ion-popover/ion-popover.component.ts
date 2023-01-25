@@ -94,7 +94,8 @@ export class IonPopoverComponent implements OnInit {
             route: 'ion-popover',
             delayAfterNavigation: this.delayAfterNavigation,
             centerAnchorOnScroll: true,
-            disablePageScrolling: true
+            disablePageScrolling: true,
+            smoothScroll: true
         });
     }
 

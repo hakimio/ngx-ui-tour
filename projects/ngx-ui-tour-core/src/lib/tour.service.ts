@@ -4,7 +4,7 @@ import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angul
 
 import {TourAnchorDirective} from './tour-anchor.directive';
 import {delay, filter, first, map, merge as mergeStatic, Observable, Subject, takeUntil} from 'rxjs';
-import {ScrollingUtil} from './scrolling-util';
+import {ScrollingService} from './scrolling.service';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
@@ -20,6 +20,7 @@ export interface IStepOption {
     placement?: any;
     disableScrollToAnchor?: boolean;
     centerAnchorOnScroll?: boolean;
+    smoothScroll?: boolean;
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
@@ -110,11 +111,13 @@ export class TourService<T extends IStepOption = IStepOption> {
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
+    private waitingForScroll = false;
 
     private readonly router = inject(Router);
     private readonly backdrop = inject(TourBackdropService);
     private readonly anchorClickService = inject(AnchorClickService);
     private readonly scrollBlockingService = inject(ScrollBlockingService);
+    private readonly scrollingService = inject(ScrollingService);
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
@@ -175,6 +178,10 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public end(): void {
+        if (this.waitingForScroll) {
+            return;
+        }
+
         this.status = TourState.OFF;
         this.hideStep(this.currentStep);
         this.currentStep = undefined;
@@ -214,6 +221,10 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public next(): void {
+        if (this.waitingForScroll) {
+            return;
+        }
+
         this.direction = Direction.Forwards;
         if (this.hasNext(this.currentStep)) {
             this.goToStep(
@@ -249,6 +260,10 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public prev(): void {
+        if (this.waitingForScroll) {
+            return;
+        }
+
         this.direction = Direction.Backwards;
         if (this.hasPrev(this.currentStep)) {
             this.goToStep(
@@ -397,7 +412,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         setTimeout(() => this.setCurrentStep(step), delay);
     }
 
-    private showStep(step: T): void {
+    private async showStep(step: T): Promise<void> {
         const anchor = this.anchors[step && step.anchorId];
 
         if (!anchor) {
@@ -425,7 +440,9 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
         this.listenToOnAnchorClick(step);
-        this.scrollToAnchor(step);
+        this.waitingForScroll = true;
+        await this.scrollToAnchor(step);
+        this.waitingForScroll = false;
         anchor.showTourStep(step);
         this.toggleBackdrop(step);
         this.togglePageScrolling(step);
@@ -447,9 +464,9 @@ export class TourService<T extends IStepOption = IStepOption> {
         });
     }
 
-    private scrollToAnchor(step: T) {
+    private scrollToAnchor(step: T): Promise<void> {
         if (step.disableScrollToAnchor) {
-            return;
+            return Promise.resolve();
         }
 
         this.scrollBlockingService.disable();
@@ -457,7 +474,10 @@ export class TourService<T extends IStepOption = IStepOption> {
         const anchor = this.anchors[step?.anchorId],
             htmlElement = anchor.element.nativeElement;
 
-        ScrollingUtil.ensureVisible(htmlElement, step.centerAnchorOnScroll);
+        return this.scrollingService.ensureVisible(htmlElement, {
+            center: step.centerAnchorOnScroll,
+            smoothScroll: step.smoothScroll
+        });
     }
 
     private toggleBackdrop(step: T) {

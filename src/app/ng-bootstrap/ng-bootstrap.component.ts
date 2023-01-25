@@ -99,7 +99,7 @@ export class NgBootstrapComponent implements OnInit {
             route: 'ng-bootstrap',
             delayAfterNavigation: this.delayAfterNavigation,
             centerAnchorOnScroll: true,
-            disablePageScrolling: true
+            smoothScroll: true
         });
     }
 

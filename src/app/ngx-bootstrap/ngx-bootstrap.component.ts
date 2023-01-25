@@ -107,7 +107,7 @@ export class NgxBootstrapComponent implements OnInit {
                 route: 'ngx-bootstrap',
                 delayAfterNavigation: this.delayAfterNavigation,
                 centerAnchorOnScroll: true,
-                disablePageScrolling: true
+                smoothScroll: true
             }
         );
     }

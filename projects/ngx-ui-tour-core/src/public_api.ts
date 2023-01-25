@@ -2,5 +2,4 @@ export {IStepOption, TourState, TourService, Direction, StepChangeParams} from '
 export {TourAnchorDirective} from './lib/tour-anchor.directive';
 export {TourHotkeyListenerComponent} from './lib/tour-hotkey-listener.component';
 export {isInViewport, ElementSides} from './lib/is-in-viewport';
-export {ScrollingUtil} from './lib/scrolling-util';
 export {BackdropConfig} from './lib/tour-backdrop.service';

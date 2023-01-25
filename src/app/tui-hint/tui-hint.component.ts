@@ -111,7 +111,9 @@ export class TuiHintComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'tui-hint',
-            delayAfterNavigation: this.delayAfterNavigation
+            delayAfterNavigation: this.delayAfterNavigation,
+            centerAnchorOnScroll: true,
+            smoothScroll: true
         });
     }
 
