@@ -23,7 +23,6 @@ export class TourBackdropService {
 
     private backdropElements: HTMLElement[];
     private targetHtmlElement: HTMLElement;
-    private isScrollingEnabled: boolean;
     private step: IStepOption;
     private resizeSubscription: Subscription;
 
@@ -31,12 +30,11 @@ export class TourBackdropService {
     private readonly renderer = this.rendererFactory.createRenderer(null, null);
     private readonly resizeObserverService = inject(TourResizeObserverService);
 
-    public show(targetElement: ElementRef, step: IStepOption, isScrollingEnabled = true) {
+    public show(targetElement: ElementRef, step: IStepOption) {
         if (this.targetHtmlElement) {
             this.resizeObserverService.unobserveElement(this.targetHtmlElement);
         }
 
-        this.isScrollingEnabled = isScrollingEnabled;
         this.targetHtmlElement = targetElement.nativeElement;
         this.step = step;
 
@@ -128,7 +126,7 @@ export class TourBackdropService {
         const config = this.step.backdropConfig;
 
         return {
-            position: this.isScrollingEnabled ? 'absolute' : 'fixed',
+            position: !this.step.disablePageScrolling ? 'absolute' : 'fixed',
             width: `${rectangle.width}px`,
             height: `${rectangle.height}px`,
             top: `${rectangle.top}px`,

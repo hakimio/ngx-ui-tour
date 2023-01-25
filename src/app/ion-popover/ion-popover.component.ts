@@ -93,7 +93,8 @@ export class IonPopoverComponent implements OnInit {
         this.tourService.initialize(this.tourSteps, {
             route: 'ion-popover',
             delayAfterNavigation: this.delayAfterNavigation,
-            centerAnchorOnScroll: true
+            centerAnchorOnScroll: true,
+            disablePageScrolling: true
         });
     }
 

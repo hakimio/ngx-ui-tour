@@ -15,9 +15,6 @@ export class StepConfigComponent {
 
     @Input()
     isCloseOnOutsideClickVisible = false;
-  
-    @Input()
-    isDisablePageScrollingVisible = false;
 
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;

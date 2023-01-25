@@ -5,5 +5,4 @@ export interface TourAnchorDirective {
   showTourStep(step: IStepOption): void;
   hideTourStep(): void;
   element: ElementRef;
-  getIsScrollingEnabled?(): boolean;
 }

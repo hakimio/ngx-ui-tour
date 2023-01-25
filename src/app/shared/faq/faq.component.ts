@@ -14,7 +14,7 @@ import {default as customTourServiceUsage} from '!!raw-loader!./examples/custom-
 export class FaqComponent {
 
     @Input()
-    showDisablePageScrollingNote = false;
+    disablePageScrollingIntroducedIn = '10.1';
 
     readonly examples = {
         centeredStepCss,

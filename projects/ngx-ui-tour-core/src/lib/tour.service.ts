@@ -7,6 +7,7 @@ import {delay, filter, first, map, merge as mergeStatic, Observable, Subject, ta
 import {ScrollingUtil} from './scrolling-util';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
+import {ScrollBlockingService} from './scroll-blocking.service';
 
 export interface IStepOption {
     stepId?: string;
@@ -30,6 +31,7 @@ export interface IStepOption {
     delayBeforeStepShow?: number;
     nextOnAnchorClick?: boolean;
     duplicateAnchorHandling?: 'error' | 'registerFirst' | 'registerLast';
+    disablePageScrolling?: boolean;
 }
 
 export enum TourState {
@@ -60,7 +62,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     delayBeforeStepShow: 0,
     nextOnAnchorClick: false,
     duplicateAnchorHandling: 'error',
-    centerAnchorOnScroll: false
+    centerAnchorOnScroll: false,
+    disablePageScrolling: false
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -111,6 +114,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private readonly router = inject(Router);
     private readonly backdrop = inject(TourBackdropService);
     private readonly anchorClickService = inject(AnchorClickService);
+    private readonly scrollBlockingService = inject(ScrollBlockingService);
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (steps && steps.length > 0) {
@@ -177,6 +181,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.anchorClickService.removeListener();
         this.backdrop.close();
         this.backdrop.disconnectResizeObserver();
+        this.scrollBlockingService.disable();
         this.end$.next();
     }
 
@@ -423,6 +428,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.scrollToAnchor(step);
         anchor.showTourStep(step);
         this.toggleBackdrop(step);
+        this.togglePageScrolling(step);
         this.stepShow$.next({
             step,
             direction: this.direction
@@ -446,6 +452,8 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
 
+        this.scrollBlockingService.disable();
+
         const anchor = this.anchors[step?.anchorId],
             htmlElement = anchor.element.nativeElement;
 
@@ -453,13 +461,20 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     private toggleBackdrop(step: T) {
-        const anchor = this.anchors[step?.anchorId],
-            isScrollingEnabled = anchor.getIsScrollingEnabled?.() ?? true;
+        const anchor = this.anchors[step?.anchorId];
 
         if (step.enableBackdrop) {
-            this.backdrop.show(anchor.element, step, isScrollingEnabled);
+            this.backdrop.show(anchor.element, step);
         } else {
             this.backdrop.close();
+        }
+    }
+
+    private togglePageScrolling(step: T) {
+        if (step.disablePageScrolling) {
+            this.scrollBlockingService.enable();
+        } else {
+            this.scrollBlockingService.disable();
         }
     }
 

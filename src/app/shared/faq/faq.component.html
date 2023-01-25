@@ -27,11 +27,11 @@
 <app-header id="disable-scrolling">How to disable main content scrolling when UI tour is active?</app-header>
 
 <tui-notification
-    *ngIf="showDisablePageScrollingNote"
     status="warning"
     class="tui-space_top-3"
 >
-    Starting with <code>v7</code> you can simply enable <code>disablePageScrolling</code> option in step config
+    Starting with <code>v{{disablePageScrollingIntroducedIn}}</code> you can enable
+    <code>disablePageScrolling</code> option to disable page-level scrolling
 </tui-notification>
 
 <p>You can toggle CSS class which disables main content element scrolling when tour starts/ends.</p>

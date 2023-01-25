@@ -82,10 +82,4 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         this.opener.trigger.closeMenu();
     }
 
-    // noinspection JSUnusedGlobalSymbols
-    getIsScrollingEnabled() {
-        const step = this.tourService.currentStep;
-
-        return !step.disablePageScrolling;
-    }
 }
