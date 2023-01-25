@@ -60,6 +60,10 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
         this.popoverDirective.placement = <Placement>(step.placement || 'auto')
             .replace('before', 'left').replace('after', 'right')
             .replace('below', 'bottom').replace('above', 'top');
+        this.popoverDirective.popperOptions = config => ({
+            ...config,
+            strategy: step.disablePageScrolling ? 'fixed' : 'absolute'
+        });
 
         this.popoverDirective.open({step});
     }
