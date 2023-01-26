@@ -112,6 +112,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
     private waitingForScroll = false;
+    private navigationStarted = false;
 
     private readonly router = inject(Router);
     private readonly backdrop = inject(TourBackdropService);
@@ -151,8 +152,8 @@ export class TourService<T extends IStepOption = IStepOption> {
                 takeUntil(this.end$)
             )
             .subscribe(
-                event => {
-                    if (event.navigationTrigger === 'popstate') {
+                () => {
+                    if (!this.navigationStarted) {
                         this.end();
                     }
                 }
@@ -383,7 +384,9 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
 
+        this.navigationStarted = true;
         const navigated = await this.router.navigateByUrl(url);
+        this.navigationStarted = false;
 
         if (!navigated) {
             console.warn('Navigation to route failed: ', step.route);
