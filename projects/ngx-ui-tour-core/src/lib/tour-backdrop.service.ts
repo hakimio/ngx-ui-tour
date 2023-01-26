@@ -49,8 +49,28 @@ export class TourBackdropService {
         this.setBackdropPosition();
     }
 
-    private setBackdropPosition() {
-        const elementBoundingRect = this.targetHtmlElement.getBoundingClientRect(),
+    public closeSpotlight() {
+        if (!this.backdropElements) {
+            return;
+        }
+
+        const targetRect = this.targetHtmlElement.getBoundingClientRect(),
+            centerX = targetRect.left + (targetRect.width / 2),
+            centerY = targetRect.top + (targetRect.height / 2),
+            centerRect = {
+                top: centerY,
+                right: centerX,
+                bottom: centerY,
+                left: centerX,
+                width: 0,
+                height: 0
+            } as DOMRect;
+
+        this.setBackdropPosition(centerRect);
+    }
+
+    private setBackdropPosition(rectangle: DOMRect = null) {
+        const elementBoundingRect = rectangle ?? this.targetHtmlElement.getBoundingClientRect(),
             docEl = document.documentElement,
             scrollHeight = docEl.scrollHeight,
             scrollWidth = docEl.scrollWidth,
