@@ -1,6 +1,6 @@
 name: '🐞 - Bug Report'
 title: '🐞 - '
-description: Report a bug in Ngx UI Tour
+description: Report a bug in "Ngx UI Tour"
 labels: ['bug', 'needs-triage']
 
 body:
