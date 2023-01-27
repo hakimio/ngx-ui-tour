@@ -1,0 +1,31 @@
+name: '🚀 - Feature Request'
+title: '🚀 - '
+description: Suggest a feature for Ngx UI Tour
+labels: ['enhancement', 'needs-triage']
+
+body:
+  - type: dropdown
+    id: affected-ui-implementations
+    attributes:
+      label: Which ngx-ui-tour-* package is relevant to the feature request?
+      options:
+        - md-menu
+        - ionic
+        - ng-bootstrap
+        - ngx-bootstrap
+        - tui-dropdown
+        - tui-hint
+        - console
+        - Don't known / other
+      multiple: false
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: |
+        Detailed description of the feature and possibly proposed solution.
+    validations:
+      required: true

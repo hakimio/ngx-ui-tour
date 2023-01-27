@@ -1,0 +1,78 @@
+name: '🐞 - Bug Report'
+title: '🐞 - '
+description: Report a bug in Ngx UI Tour
+labels: ['bug', 'needs-triage']
+
+body:
+  - type: dropdown
+    id: affected-ui-implementations
+    attributes:
+      label: Which ngx-ui-tour-* package is the source of the bug?
+      options:
+        - md-menu
+        - ionic
+        - ng-bootstrap
+        - ngx-bootstrap
+        - tui-dropdown
+        - tui-hint
+        - console
+        - Don't known / other
+      multiple: false
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction-url
+    attributes:
+      label: Please provide a link to a minimal reproduction of the bug
+      value: https://stackblitz.com/edit/angular-wau2z8?file=src%2Fapp%2Fui-tour-demo.component.ts
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: |
+        How do you trigger this bug?
+        Please provide detailed step-by-step reproduction of the issue.
+        Please provide a screenshot if possible.
+    validations:
+      required: true
+
+  - type: input
+    id: angular-version
+    attributes:
+      label: Angular version
+      placeholder: x.y.z
+    validations:
+      required: true
+
+  - type: input
+    id: ui-tour-version
+    attributes:
+      label: Ngx UI Tour version
+      placeholder: x.y.z
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: browser-specific
+    attributes:
+      label: Which browsers have you used?
+      description: You may select more than one.
+      options:
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Edge
+
+  - type: checkboxes
+    id: operating-systems
+    attributes:
+      label: Which operating systems have you used?
+      description: You may select more than one.
+      options:
+        - label: macOS
+        - label: Windows
+        - label: Linux
+        - label: iOS
+        - label: Android
