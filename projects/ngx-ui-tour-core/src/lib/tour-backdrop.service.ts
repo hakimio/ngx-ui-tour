@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
 import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
+import {DOCUMENT} from '@angular/common';
 
 interface Rectangle {
     width: number;
@@ -30,6 +31,7 @@ export class TourBackdropService {
     private readonly renderer = this.rendererFactory.createRenderer(null, null);
     private readonly resizeObserverService = inject(TourResizeObserverService);
     private readonly scrollingService = inject(ScrollingService);
+    private readonly document = inject(DOCUMENT);
 
     public show(targetElement: ElementRef, step: IStepOption) {
         if (this.targetHtmlElement) {
@@ -71,9 +73,10 @@ export class TourBackdropService {
 
     private setBackdropPosition(rectangle: DOMRect = null) {
         const elementBoundingRect = rectangle ?? this.targetHtmlElement.getBoundingClientRect(),
-            docEl = document.documentElement,
+            docEl = this.document.documentElement,
             scrollHeight = docEl.scrollHeight,
             scrollWidth = docEl.scrollWidth,
+            window = this.document.defaultView,
             scrollX = window.scrollX,
             scrollY = window.scrollY,
             leftRect: Rectangle = {
@@ -135,7 +138,7 @@ export class TourBackdropService {
 
     private removeBackdropElement() {
         this.backdropElements.forEach(
-            backdropElement => this.renderer.removeChild(document.body, backdropElement)
+            backdropElement => this.renderer.removeChild(this.document.body, backdropElement)
         );
         this.backdropElements = undefined;
     }
@@ -163,7 +166,7 @@ export class TourBackdropService {
     private createBackdropElement() {
         const backdropElement = this.renderer.createElement('div');
         this.renderer.addClass(backdropElement, 'ngx-ui-tour_backdrop');
-        this.renderer.appendChild(document.body, backdropElement);
+        this.renderer.appendChild(this.document.body, backdropElement);
         return backdropElement;
     }
 
