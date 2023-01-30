@@ -49,6 +49,16 @@ export class ConsoleComponent implements OnInit {
         title: 'Route',
         route: 'console/API'
     }, {
+        anchorId: 'config.centerAnchorOnScroll',
+        content: 'Enable this config to keep active anchor element centered when possible.',
+        title: 'Center active anchor',
+        route: 'console/API'
+    }, {
+        anchorId: 'config.smoothScroll',
+        content: 'Enable "smoothScroll" option to smoothly scroll to an active element.',
+        title: 'Smooth scroll',
+        route: 'console/API'
+    }, {
         anchorId: 'config.buttons.custom',
         content: 'You can set custom step button names',
         title: 'Button Titles',

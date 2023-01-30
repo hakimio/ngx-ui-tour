@@ -55,6 +55,16 @@ export class IonPopoverComponent implements OnInit {
         title: 'Placement',
         route: 'ion-popover/API'
     }, {
+        anchorId: 'config.centerAnchorOnScroll',
+        content: 'Enable this config to keep active anchor element centered when possible.',
+        title: 'Center active anchor',
+        route: 'ion-popover/API'
+    }, {
+        anchorId: 'config.smoothScroll',
+        content: 'Enable "smoothScroll" option to smoothly scroll to an active element.',
+        title: 'Smooth scroll',
+        route: 'ion-popover/API'
+    },{
         anchorId: 'config.buttons.custom',
         content: 'You can set custom step button names',
         title: 'Button Titles',

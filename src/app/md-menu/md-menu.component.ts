@@ -56,6 +56,16 @@ export class MdMenuComponent implements OnInit {
         title: 'Placement',
         route: 'md-menu/API'
     }, {
+        anchorId: 'config.centerAnchorOnScroll',
+        content: 'Enable this config to keep active anchor element centered when possible.',
+        title: 'Center active anchor',
+        route: 'md-menu/API'
+    }, {
+        anchorId: 'config.smoothScroll',
+        content: 'Enable "smoothScroll" option to smoothly scroll to an active element.',
+        title: 'Smooth scroll',
+        route: 'md-menu/API'
+    }, {
         anchorId: 'config.buttons.custom',
         content: 'You can set custom step button names',
         title: 'Button Titles',

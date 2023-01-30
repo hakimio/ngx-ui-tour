@@ -55,6 +55,16 @@ export class TuiDropdownComponent implements OnInit {
         title: 'Placement',
         route: 'tui-dropdown/API'
     }, {
+        anchorId: 'config.centerAnchorOnScroll',
+        content: 'Enable this config to keep active anchor element centered when possible.',
+        title: 'Center active anchor',
+        route: 'tui-dropdown/API'
+    }, {
+        anchorId: 'config.smoothScroll',
+        content: 'Enable "smoothScroll" option to smoothly scroll to an active element.',
+        title: 'Smooth scroll',
+        route: 'tui-dropdown/API'
+    },{
         anchorId: 'config.buttons.custom',
         content: 'You can set custom step button names',
         title: 'Button Titles',
