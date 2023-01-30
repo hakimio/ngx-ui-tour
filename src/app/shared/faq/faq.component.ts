@@ -5,6 +5,9 @@ import {default as centeredStepTs} from '!!raw-loader!./examples/centered-step-t
 import {default as customTourService} from '!!raw-loader!./examples/custom-tour-service.txt';
 import {default as noScrollCss} from '!!raw-loader!./examples/no-scroll-css.txt';
 import {default as customTourServiceUsage} from '!!raw-loader!./examples/custom-tour-service-usage.txt';
+import {default as backdropPadding} from '!!raw-loader!./examples/backdrop-padding-css.txt';
+import {default as backdropParagraphPadding} from '!!raw-loader!./examples/backdrop-paragraph-padding-css.txt';
+import {default as backdropButtonPadding} from '!!raw-loader!./examples/backdrop-button-padding-html.txt';
 
 @Component({
     selector: 'app-faq',
@@ -22,7 +25,10 @@ export class FaqComponent {
         centeredStepTs,
         customTourService,
         noScrollCss,
-        customTourServiceUsage
+        customTourServiceUsage,
+        backdropPadding,
+        backdropParagraphPadding,
+        backdropButtonPadding
     };
 
 }

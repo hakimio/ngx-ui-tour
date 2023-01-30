@@ -58,3 +58,50 @@
         ></tui-doc-code>
     </li>
 </ol>
+
+<app-header id="backdrop-padding">How to add space around highlighted anchor element</app-header>
+
+<img
+    src="https://user-images.githubusercontent.com/768105/215475778-34d275cf-c6a0-436c-b3e5-9159083cfcaa.png"
+    alt="backdrop spacing"
+    class="backdrop-spacing"
+/>
+
+<p>
+    To add some space between backdrop edges and active tour anchor element, you can use
+    <code>.touranchor--is-active</code> CSS class. Use it to add the required amount of padding and then subtract
+    the same amount using negative margin which will keep overall page layout unchanged.
+</p>
+
+<tui-doc-code
+    filename="app.component.css"
+    [code]="examples.backdropPadding"
+></tui-doc-code>
+
+<p>
+    In case your anchor element already has some margin applied to it, you'll have to adjust padding and margin values
+    accordingly. For example, if your paragraph already has 12px bottom margin, you can use the following CSS to add
+    10px spacing around the paragraph without effecting page layout:
+</p>
+
+<tui-doc-code
+    filename="app.component.css"
+    [code]="examples.backdropParagraphPadding"
+></tui-doc-code>
+
+<p>
+    If you want to apply the same trick to an element where changing its padding is not option, for example, a button
+    element, you can wrap this element with an extra div container and then use the same trick on the container.
+</p>
+
+<tui-doc-code
+    filename="app.component.html"
+    [code]="examples.backdropButtonPadding"
+></tui-doc-code>
+
+<p>
+    You can also check out
+    <a tuiLink target="_blank" href="https://stackblitz.com/edit/angular-wau2z8?file=src%2Fapp%2Fui-tour-demo.component.scss">
+        StackBlitz demo project
+    </a> to see this approach in action.
+</p>
