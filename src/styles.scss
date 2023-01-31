@@ -10,6 +10,14 @@ body {
     &.backdrop-no-scroll {
         overflow-y: auto;
     }
+
+    tui-doc-page > .t-content {
+        padding-bottom: 4rem !important;
+    }
+
+    tui-root._mobile tui-doc-page > .t-content {
+        padding-bottom: 2rem !important;
+    }
 }
 
 ol {
