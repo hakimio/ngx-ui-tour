@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective} from './tour-anchor.directive';
+import {TourAnchorNgBootstrapDirective} from './tour-anchor.directive';
 import {TourStepTemplateComponent} from './tour-step-template.component';
 
-const COMPONENTS = [TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective, TourStepTemplateComponent];
+const COMPONENTS = [TourAnchorNgBootstrapDirective, TourStepTemplateComponent];
 
 @NgModule({
     imports: COMPONENTS,

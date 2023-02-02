@@ -1,7 +1,8 @@
 import {Directive, HostBinding, inject, Inject, InjectionToken, Input, OnDestroy, OnInit, Type} from '@angular/core';
 import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
-import {TourAnchorNgBootstrapDirective, TourAnchorNgBootstrapPopoverDirective} from 'ngx-ui-tour-ng-bootstrap';
+import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
+import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 import {TourAnchorNgxBootstrapDirective, TourAnchorNgxBootstrapPopoverDirective} from 'ngx-ui-tour-ngx-bootstrap';
 import {TourAnchorConsoleDirective} from 'ngx-ui-tour-console';
 import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
@@ -20,7 +21,7 @@ export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDire
         TourAnchorNgxBootstrapDirective,
         TourAnchorNgxBootstrapPopoverDirective,
         TourAnchorNgBootstrapDirective,
-        TourAnchorNgBootstrapPopoverDirective,
+        NgbPopover,
         TourAnchorConsoleDirective,
         TourAnchorTuiDropdownDirective,
         TourAnchorTuiHintDirective,

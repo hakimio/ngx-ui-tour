@@ -11,13 +11,8 @@ import {firstValueFrom} from 'rxjs';
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
-})
-export class TourAnchorNgBootstrapPopoverDirective extends NgbPopover {}
-
-@Directive({
-    selector: '[tourAnchor]',
-    standalone: true
+    standalone: true,
+    hostDirectives: [NgbPopover]
 })
 export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
@@ -32,7 +27,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
         private tourStepTemplate: TourStepTemplateService,
         public element: ElementRef,
         @Host()
-        private popoverDirective: TourAnchorNgBootstrapPopoverDirective
+        private popoverDirective: NgbPopover
     ) {
         this.popoverDirective.autoClose = false;
         this.popoverDirective.triggers = '';
