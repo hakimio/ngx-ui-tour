@@ -11,7 +11,6 @@ export class TourResizeObserverService {
     private readonly platformId = inject(PLATFORM_ID);
     private readonly isResizeObserverSupported = isPlatformBrowser(this.platformId) && !!ResizeObserver;
     private resizeObserver?: ResizeObserver;
-    private initialResize = true;
 
     public readonly resize$ = merge(
         this.resizeElSubject,
@@ -21,18 +20,9 @@ export class TourResizeObserverService {
     );
 
     observeElement(target: Element) {
-        this.initialResize = true;
-
         if (this.isResizeObserverSupported && !this.resizeObserver) {
             this.resizeObserver = new ResizeObserver(
-                () => {
-                    if (this.initialResize) {
-                        this.initialResize = false;
-                        return;
-                    }
-
-                    this.resizeElSubject.next();
-                }
+                () => this.resizeElSubject.next()
             );
         }
 
