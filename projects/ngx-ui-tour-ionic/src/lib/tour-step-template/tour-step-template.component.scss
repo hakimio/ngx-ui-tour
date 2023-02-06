@@ -1,9 +1,9 @@
 ion-popover {
     pointer-events: none;
+    --width: 250px;
 }
 
 ion-card {
-    min-width: 230px;
     margin: 0;
     pointer-events: auto;
 }
