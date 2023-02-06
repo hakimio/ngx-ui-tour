@@ -15,6 +15,10 @@ interface Rectangle {
 export interface BackdropConfig {
     zIndex?: string;
     backgroundColor?: string;
+    /**
+     * Parent container CSS selector or html element reference. Set to fix backdrop stacking issues. Defaults to body.
+     */
+    parentContainer?: string | HTMLElement;
 }
 
 @Injectable({
@@ -138,7 +142,7 @@ export class TourBackdropService {
 
     private removeBackdropElement() {
         this.backdropElements.forEach(
-            backdropElement => this.renderer.removeChild(this.document.body, backdropElement)
+            backdropElement => this.renderer.removeChild(this.parentContainer, backdropElement)
         );
         this.backdropElements = undefined;
     }
@@ -166,7 +170,7 @@ export class TourBackdropService {
     private createBackdropElement() {
         const backdropElement = this.renderer.createElement('div');
         this.renderer.addClass(backdropElement, 'ngx-ui-tour_backdrop');
-        this.renderer.appendChild(this.document.body, backdropElement);
+        this.renderer.appendChild(this.parentContainer, backdropElement);
         return backdropElement;
     }
 
@@ -174,6 +178,21 @@ export class TourBackdropService {
         return Array
             .from({ length: 4 })
             .map(() => this.createBackdropElement());
+    }
+
+    private get parentContainer(): HTMLElement {
+        const parent = this.step.backdropConfig?.parentContainer;
+
+        if (parent instanceof HTMLElement) {
+            return parent;
+        }
+        if (typeof parent === 'string') {
+            const queryResult = this.document.documentElement.querySelector(parent) as HTMLElement;
+
+            return queryResult ?? this.document.body;
+        }
+
+        return this.document.body;
     }
 
 }
