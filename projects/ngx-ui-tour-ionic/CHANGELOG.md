@@ -1,3 +1,17 @@
+<a name="1.2.0"></a>
+
+# [1.2.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-06)
+
+### Features
+- New `backdropConfig.parentContainer` config. Can be set to CSS selector or html element reference. Set it to fix
+  backdrop stacking issues. Defaults to body.
+
+### Fixes
+- Fix backdrop on top of tour step.
+- Fix incorrect step position after navigation.
+- Fix step width in "ios" mode.
+- Use injected `document` reference everywhere for SSR safety.
+
 <a name="1.1.0"></a>
 
 # [1.1.0](https://github.com/hakimio/ngx-ui-tour) (2023-01-26)

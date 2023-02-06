@@ -1,3 +1,14 @@
+<a name="4.2.0"></a>
+
+# [4.2.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-06)
+
+### Features
+- New `backdropConfig.parentContainer` config. Can be set to CSS selector or html element reference. Set it to fix
+  backdrop stacking issues. Defaults to body.
+
+### Fixes
+- Use injected `document` reference everywhere for SSR safety.
+
 <a name="4.1.0"></a>
 
 # [4.1.0](https://github.com/hakimio/ngx-ui-tour) (2023-01-26)
