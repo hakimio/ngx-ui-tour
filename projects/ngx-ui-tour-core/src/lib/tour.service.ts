@@ -21,6 +21,12 @@ export interface IStepOption {
     disableScrollToAnchor?: boolean;
     centerAnchorOnScroll?: boolean;
     smoothScroll?: boolean;
+    /**
+     * CSS selector or html element reference. Only set this config if you have enabled "smoothScroll" and tour step
+     * description pops-up before scrolling has finished or doesn't show up at all. This should only be the case when
+     * scroll container is part of shadow DOM.
+     */
+    scrollContainer?: string | HTMLElement;
     prevBtnTitle?: string;
     nextBtnTitle?: string;
     endBtnTitle?: string;
@@ -480,7 +486,8 @@ export class TourService<T extends IStepOption = IStepOption> {
 
         return this.scrollingService.ensureVisible(htmlElement, {
             center: step.centerAnchorOnScroll,
-            smoothScroll: step.smoothScroll
+            smoothScroll: step.smoothScroll,
+            scrollContainer: step.scrollContainer
         });
     }
 

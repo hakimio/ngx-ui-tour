@@ -6,6 +6,7 @@ import {DOCUMENT} from '@angular/common';
 export interface ScrollOptions {
     center: boolean;
     smoothScroll: boolean;
+    scrollContainer?: string | HTMLElement;
 }
 
 @Injectable({
@@ -15,17 +16,11 @@ export class ScrollingService {
 
     private readonly document = inject(DOCUMENT);
     private readonly window = this.document.defaultView;
-    private readonly waitForScrollFinish$ = fromEvent(this.window, 'scroll')
-        .pipe(
-            timeout({
-                each: 75,
-                with: () => of(undefined)
-            }),
-            debounceTime(50),
-            map(() => undefined)
-        );
+    private scrollOptions: ScrollOptions;
 
     ensureVisible(htmlElement: HTMLElement, options: ScrollOptions): Promise<void> {
+        this.scrollOptions = options;
+
         const behavior: ScrollBehavior = options.smoothScroll ? 'smooth' : 'auto';
 
         if (options.center && !('safari' in this.window)) {
@@ -53,6 +48,35 @@ export class ScrollingService {
         }
 
         return options.smoothScroll ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
+    }
+
+    private get waitForScrollFinish$() {
+        const scrollContainer = this.getScrollContainer();
+
+        return fromEvent(scrollContainer, 'scroll')
+            .pipe(
+                timeout({
+                    each: 75,
+                    with: () => of(undefined)
+                }),
+                debounceTime(50),
+                map(() => undefined)
+            );
+    }
+
+    private getScrollContainer() {
+        const scrollContainer = this.scrollOptions.scrollContainer;
+
+        if (typeof scrollContainer === 'string') {
+            const queryResult = this.document.documentElement.querySelector(scrollContainer) as HTMLElement;
+
+            return queryResult ?? this.window;
+        }
+        if (scrollContainer instanceof HTMLElement) {
+            return scrollContainer;
+        }
+
+        return this.window;
     }
 
 }
