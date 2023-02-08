@@ -1,3 +1,12 @@
+<a name="10.3.0"></a>
+
+# [10.3.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-08)
+
+### Features
+- New `scrollContainer` config. Can be set to CSS selector or html element reference. Only set this config if you have 
+  enabled `smoothScroll` and tour step description pops-up before scrolling has finished or doesn't show up at all.
+  This should only be the case when scroll container is part of shadow DOM.
+
 <a name="10.2.0"></a>
 
 # [10.2.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-06)
