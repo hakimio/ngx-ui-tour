@@ -123,6 +123,14 @@
         </div>
     </ng-template>
     <ng-template
+        documentationPropertyName="scrollContainer"
+        documentationPropertyType="string | HTMLElement"
+    >
+        CSS selector or html element reference. Only set this config if you have enabled "smoothScroll" and tour step
+        description pops-up before scrolling has finished or doesn't show up at all. This should only be the case when
+        scroll container is part of shadow DOM.
+    </ng-template>
+    <ng-template
         documentationPropertyName="prevBtnTitle"
         documentationPropertyType="string"
         [documentationPropertyValue]="'Prev'"
