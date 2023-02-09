@@ -422,7 +422,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         setTimeout(() => this.setCurrentStep(step), delay);
     }
 
-    private async showStep(step: T): Promise<void> {
+    protected async showStep(step: T): Promise<void> {
         const anchor = this.anchors[step && step.anchorId];
 
         if (!anchor) {
