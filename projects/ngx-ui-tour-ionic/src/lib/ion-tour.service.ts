@@ -13,17 +13,28 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
     private readonly document = inject(DOCUMENT);
 
     public initialize(steps: T[], stepDefaults?: T) {
-        const isIOS = this.config.get('mode') === 'ios',
-            ionContent = this.document.documentElement.querySelector('ion-content'),
-            scrollContainer = ionContent?.shadowRoot.querySelector('[part=scroll]') as HTMLElement;
+        const isIOS = this.config.get('mode') === 'ios';
 
         stepDefaults ??= {} as T;
         stepDefaults.backdropConfig ??= {};
         stepDefaults.backdropConfig.parentContainer ??= 'ion-app';
         stepDefaults.delayAfterNavigation ??= isIOS ? 700: 500;
-        stepDefaults.scrollContainer ??= scrollContainer;
 
         super.initialize(steps, stepDefaults);
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+    protected showStep(step: T): Promise<void> {
+        // In case "scrollContainer" is already set to HTMLElement, we DO want to set it again since the current
+        // html element reference might be already removed from DOM
+        if (step.smoothScroll && (!step.scrollContainer || typeof step.scrollContainer !== 'string')) {
+            const ionContentSelector = '.ion-page:not(.ion-page-hidden):not(ion-app) ion-content',
+                ionContent = this.document.documentElement.querySelector(ionContentSelector);
+
+            step.scrollContainer = ionContent?.shadowRoot.querySelector('[part=scroll]') as HTMLElement;
+        }
+
+        return super.showStep(step);
     }
 
 }
