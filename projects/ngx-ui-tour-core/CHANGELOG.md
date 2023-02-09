@@ -1,3 +1,9 @@
+<a name="10.3.1"></a>
+
+# [10.3.1](https://github.com/hakimio/ngx-ui-tour) (2023-02-09)
+
+- Expose `TourService.showStep()` as protected method, so it can be overridden in child class implementations.
+
 <a name="10.3.0"></a>
 
 # [10.3.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-08)

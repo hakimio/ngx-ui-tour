@@ -1,3 +1,10 @@
+<a name="1.3.1"></a>
+
+# [1.3.1](https://github.com/hakimio/ngx-ui-tour) (2023-02-09)
+
+### Fixes
+- Fix `smoothScroll` usage in multi-route UI tours
+
 <a name="1.3.0"></a>
 
 # [1.3.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-08)
