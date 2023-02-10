@@ -190,19 +190,23 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
 
         this.status = TourState.OFF;
-        this.hideStep(this.currentStep);
+        this.disableTour();
         this.currentStep = undefined;
-        this.anchorClickService.removeListener();
-        this.backdrop.close();
-        this.backdrop.disconnectResizeObserver();
-        this.scrollBlockingService.disable();
         this.end$.next();
     }
 
     public pause(): void {
         this.status = TourState.PAUSED;
-        this.hideStep(this.currentStep);
+        this.disableTour();
         this.pause$.next();
+    }
+
+    private disableTour() {
+        this.hideStep(this.currentStep);
+        this.anchorClickService.removeListener();
+        this.backdrop.close();
+        this.backdrop.disconnectResizeObserver();
+        this.scrollBlockingService.disable();
     }
 
     public resume(): void {
