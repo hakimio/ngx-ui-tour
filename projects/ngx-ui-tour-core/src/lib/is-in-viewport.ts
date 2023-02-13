@@ -1,13 +1,13 @@
-export enum ElementSides {
+export const enum ElementSides {
     Top,
     Bottom,
     All
 }
 
-export function isInViewport(htlmElement: HTMLElement, sidesToCheck: ElementSides = ElementSides.All): boolean {
+export function isInViewport(htmlElement: HTMLElement, sidesToCheck: ElementSides = ElementSides.All): boolean {
     const viewportWidth = window.innerWidth,
         viewportHeight = window.innerHeight,
-        boundingRectangle = htlmElement.getBoundingClientRect(),
+        boundingRectangle = htmlElement.getBoundingClientRect(),
         areCornersInViewport = boundingRectangle.left >= 0 && boundingRectangle.right <= viewportWidth,
         isTopInViewport = boundingRectangle.top >= 0,
         isBottomInViewport = boundingRectangle.bottom <= viewportHeight;

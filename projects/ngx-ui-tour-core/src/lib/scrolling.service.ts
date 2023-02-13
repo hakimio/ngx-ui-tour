@@ -2,6 +2,7 @@ import {ElementSides, isInViewport} from './is-in-viewport';
 import {debounceTime, firstValueFrom, fromEvent, map, of, timeout} from 'rxjs';
 import {inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
+import {isCovered} from './is-covered';
 
 export interface ScrollOptions {
     center: boolean;
@@ -33,13 +34,13 @@ export class ScrollingService {
             return options.smoothScroll ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
         }
 
-        if (!isInViewport(htmlElement, ElementSides.Bottom)) {
+        if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {
             htmlElement.scrollIntoView({
                 block: 'end',
                 inline: 'nearest',
                 behavior
             });
-        } else if (!isInViewport(htmlElement, ElementSides.Top)) {
+        } else if (!isInViewport(htmlElement, ElementSides.Top) || isCovered(htmlElement, ElementSides.Top)) {
             htmlElement.scrollIntoView({
                 block: 'start',
                 inline: 'nearest',
