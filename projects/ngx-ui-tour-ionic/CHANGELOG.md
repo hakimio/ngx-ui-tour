@@ -1,3 +1,15 @@
+<a name="1.4.0"></a>
+
+# [1.4.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-14)
+
+### Features
+- Check not only if element is in viewport but also if it's not covered by another element when deciding whether
+  to scroll the anchor element into view.
+
+### Fixes
+- Backdrop should be hidden on tour pause.
+- Fix smooth scroll in Ionic apps which don't use Angular router.
+
 <a name="1.3.1"></a>
 
 # [1.3.1](https://github.com/hakimio/ngx-ui-tour) (2023-02-09)

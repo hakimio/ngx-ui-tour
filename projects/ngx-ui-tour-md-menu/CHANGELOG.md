@@ -1,3 +1,14 @@
+<a name="10.4.0"></a>
+
+# [10.4.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-14)
+
+### Features
+- Check not only if element is in viewport but also if it's not covered by another element when deciding whether
+  to scroll the anchor element into view.
+
+### Fixes
+- Backdrop should be hidden on tour pause.
+
 <a name="10.3.0"></a>
 
 # [10.3.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-08)
