@@ -1,3 +1,10 @@
+<a name="10.4.1"></a>
+
+# [10.4.1](https://github.com/hakimio/ngx-ui-tour) (2023-03-07)
+
+### Features
+- Allow user initiated navigation when the tour is active.
+
 <a name="10.4.0"></a>
 
 # [10.4.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-14)

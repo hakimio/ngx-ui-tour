@@ -199,4 +199,13 @@
         If your tour anchor is duplicated on purpose, you can choose to either register first or last anchor occurance
         instead of throwing an error.
     </ng-template>
+    <ng-template
+      documentationPropertyName="allowUserInitiatedNavigation"
+      documentationPropertyType="boolean"
+      [documentationPropertyValue]="false"
+    >
+        <div tourAnchor="config.allowUserInitiatedNavigation" style="cursor: pointer;">
+            Allow user navigate to other routes not ending the tour. False by default (optional)
+        </div>
+    </ng-template>
 </tui-doc-documentation>

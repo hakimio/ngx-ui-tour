@@ -71,7 +71,9 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     nextOnAnchorClick: false,
     duplicateAnchorHandling: 'error',
     centerAnchorOnScroll: false,
-    disablePageScrolling: false
+    disablePageScrolling: false,
+    smoothScroll: false,
+    allowUserInitiatedNavigation: false
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -159,8 +161,8 @@ export class TourService<T extends IStepOption = IStepOption> {
                 takeUntil(this.end$)
             )
             .subscribe(
-                () => {
-                    if (!this.navigationStarted && !this.currentStep.allowUserInitiatedNavigation) {
+                (event) => {
+                    if (!this.navigationStarted && (event.navigationTrigger === 'popstate' || !this.currentStep.allowUserInitiatedNavigation)) {
                         this.end();
                     }
                 }
