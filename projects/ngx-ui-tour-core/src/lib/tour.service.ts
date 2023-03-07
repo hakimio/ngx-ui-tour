@@ -39,6 +39,7 @@ export interface IStepOption {
     nextOnAnchorClick?: boolean;
     duplicateAnchorHandling?: 'error' | 'registerFirst' | 'registerLast';
     disablePageScrolling?: boolean;
+    allowUserInitiatedNavigation?: boolean;
 }
 
 export enum TourState {
@@ -159,7 +160,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             )
             .subscribe(
                 () => {
-                    if (!this.navigationStarted) {
+                    if (!this.navigationStarted && !this.currentStep.allowUserInitiatedNavigation) {
                         this.end();
                     }
                 }
