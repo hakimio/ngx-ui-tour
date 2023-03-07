@@ -12,7 +12,10 @@ import {firstValueFrom} from 'rxjs';
 @Directive({
     selector: '[tourAnchor]',
     standalone: true,
-    hostDirectives: [NgbPopover]
+    hostDirectives: [{
+        directive: NgbPopover,
+        inputs: ['popoverClass: tourClass']
+    }]
 })
 export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
