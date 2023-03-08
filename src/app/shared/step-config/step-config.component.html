@@ -205,7 +205,9 @@
       [documentationPropertyValue]="false"
     >
         <div tourAnchor="config.allowUserInitiatedNavigation" style="cursor: pointer;">
-            Allow user navigate to other routes not ending the tour. False by default (optional)
+            Enable to keep the tour open while the user navigates to a different page.
+            Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
+            The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
         </div>
     </ng-template>
 </tui-doc-documentation>

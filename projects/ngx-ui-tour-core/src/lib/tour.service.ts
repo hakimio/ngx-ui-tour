@@ -162,7 +162,10 @@ export class TourService<T extends IStepOption = IStepOption> {
             )
             .subscribe(
                 (event) => {
-                    if (!this.navigationStarted && (event.navigationTrigger === 'popstate' || !this.currentStep.allowUserInitiatedNavigation)) {
+                    const browserBackBtnPressed = event.navigationTrigger === 'popstate',
+                      userNavigationAllowed = this.currentStep.allowUserInitiatedNavigation;
+
+                    if (!this.navigationStarted && (browserBackBtnPressed || !userNavigationAllowed)) {
                         this.end();
                     }
                 }
