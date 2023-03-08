@@ -1,7 +1,8 @@
-import {TourService, IStepOption} from 'ngx-ui-tour-ng-bootstrap';
-import {Component, Inject, OnInit} from '@angular/core';
-import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import { TourService } from 'ngx-ui-tour-ng-bootstrap';
+import { Component, Inject, OnInit } from '@angular/core';
+import { default as defaultTemplate } from '!!raw-loader!./examples/default-template.txt';
+import { DELAY_AFTER_NAVIGATION } from '../app.providers';
+import { INgbStepOption } from '../../../projects/ngx-ui-tour-ng-bootstrap/src/lib/step-option.interface'
 
 @Component({
     selector: 'app-ng-bootstrap',
@@ -10,7 +11,7 @@ import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 })
 export class NgBootstrapComponent implements OnInit {
 
-    readonly tourSteps: IStepOption[] = [{
+    readonly tourSteps: INgbStepOption[] = [{
         anchorId: 'start.tour',
         content: 'Welcome to the Ngx-UI-Tour tour!',
         placement: 'bottom',
@@ -49,6 +50,12 @@ export class NgBootstrapComponent implements OnInit {
         anchorId: 'config.route',
         content: 'Tours can span multiple routes.',
         title: 'Route',
+        route: 'ng-bootstrap/API'
+    }, {
+        anchorId: 'config.popoverClass',
+        content: 'You can add custom popover class.',
+        title: 'Custom Popover CSS Class',
+        popoverClass: 'custom-tour-class',
         route: 'ng-bootstrap/API'
     }, {
         anchorId: 'config.placement',
