@@ -1,8 +1,8 @@
-import { TourService } from 'ngx-ui-tour-ng-bootstrap';
-import { Component, Inject, OnInit } from '@angular/core';
-import { default as defaultTemplate } from '!!raw-loader!./examples/default-template.txt';
-import { DELAY_AFTER_NAVIGATION } from '../app.providers';
-import { INgbStepOption } from '../../../projects/ngx-ui-tour-ng-bootstrap/src/lib/step-option.interface'
+import {TourService } from 'ngx-ui-tour-ng-bootstrap';
+import {Component, Inject, OnInit} from '@angular/core';
+import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
+import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {INgbStepOption} from '../../../projects/ngx-ui-tour-ng-bootstrap/src/lib/step-option.interface'
 
 @Component({
     selector: 'app-ng-bootstrap',
