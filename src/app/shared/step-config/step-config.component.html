@@ -199,4 +199,13 @@
         If your tour anchor is duplicated on purpose, you can choose to either register first or last anchor occurance
         instead of throwing an error.
     </ng-template>
+    <ng-template
+      documentationPropertyName="allowUserInitiatedNavigation"
+      documentationPropertyType="boolean"
+      [documentationPropertyValue]="false"
+    >
+        Enable to keep the tour open while the user navigates to a different page.
+        Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
+        The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
+    </ng-template>
 </tui-doc-documentation>
