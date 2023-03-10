@@ -6,7 +6,7 @@
 - New `allowUserInitiatedNavigation` config. Enable to keep the tour open while the user navigates to a different page.
   Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
   The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
-- New `popoverClass` config. Set Custom Popover CSS Class. 
+- New `popoverClass` config. Can be used to set custom popover CSS class. 
 
 <a name="12.4.0"></a>
 
