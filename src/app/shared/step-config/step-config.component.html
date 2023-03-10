@@ -58,6 +58,13 @@
         <div tourAnchor="config.containerClass">Custom CSS class for popover container (optional)</div>
     </ng-template>
     <ng-template
+        *ngIf="isPopoverClassVisible"
+        documentationPropertyName="popoverClass"
+        documentationPropertyType="string"
+    >
+        <div tourAnchor="config.popoverClass">Custom CSS class for popover (optional)</div>
+    </ng-template>
+    <ng-template
         *ngIf="isCloseOnOutsideClickVisible"
         documentationPropertyName="closeOnOutsideClick"
         documentationPropertyType="boolean"
