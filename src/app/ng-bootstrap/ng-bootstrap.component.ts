@@ -2,7 +2,8 @@ import {TourService} from 'ngx-ui-tour-ng-bootstrap';
 import {Component, Inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {INgbStepOption} from '../../../projects/ngx-ui-tour-ng-bootstrap/src/lib/step-option.interface'
+import {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
+
 
 @Component({
     selector: 'app-ng-bootstrap',
@@ -11,7 +12,7 @@ import {INgbStepOption} from '../../../projects/ngx-ui-tour-ng-bootstrap/src/lib
 })
 export class NgBootstrapComponent implements OnInit {
 
-    readonly tourSteps: INgbStepOption[] = [{
+    readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
         content: 'Welcome to the Ngx-UI-Tour tour!',
         placement: 'bottom',
