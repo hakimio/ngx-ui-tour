@@ -8,8 +8,7 @@
 
 .main-container {
     padding: 1rem;
-    min-width: 240px;
-    max-width: 280px;
+    box-sizing: border-box;
 }
 
 .title-container {

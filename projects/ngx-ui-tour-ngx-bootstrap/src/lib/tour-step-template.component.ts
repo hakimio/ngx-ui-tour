@@ -18,25 +18,31 @@ import {NgIf} from '@angular/common';
     selector: 'tour-step-template',
     template: `
         <ng-template #tourStep let-step="step">
-            <p class="tour-step-content" [innerHTML]="step?.content"></p>
-            <div class="tour-step-navigation">
-                <button
-                    *ngIf="tourService.hasPrev(step)"
-                    class="btn btn-sm btn-default"
-                    (click)="tourService.prev()"
-                >
-                    « {{ step?.prevBtnTitle }}
-                </button>
-                <button
-                    *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
-                    class="btn btn-sm btn-default"
-                    (click)="tourService.next()"
-                >
-                    {{ step?.nextBtnTitle }} »
-                </button>
-                <button class="btn btn-sm btn-default" (click)="tourService.end()">
-                    {{ step?.endBtnTitle }}
-                </button>
+            <div
+                [style.width]="step.stepDimensions?.width"
+                [style.min-width]="step.stepDimensions?.minWidth"
+                [style.max-width]="step.stepDimensions?.maxWidth"
+            >
+                <p class="tour-step-content" [innerHTML]="step?.content"></p>
+                <div class="tour-step-navigation">
+                    <button
+                        *ngIf="tourService.hasPrev(step)"
+                        class="btn btn-sm btn-default"
+                        (click)="tourService.prev()"
+                    >
+                        « {{ step?.prevBtnTitle }}
+                    </button>
+                    <button
+                        *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
+                        class="btn btn-sm btn-default"
+                        (click)="tourService.next()"
+                    >
+                        {{ step?.nextBtnTitle }} »
+                    </button>
+                    <button class="btn btn-sm btn-default" (click)="tourService.end()">
+                        {{ step?.endBtnTitle }}
+                    </button>
+                </div>
             </div>
         </ng-template>
     `,

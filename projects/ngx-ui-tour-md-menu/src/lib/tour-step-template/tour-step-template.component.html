@@ -8,7 +8,12 @@
 </mat-menu>
 
 <ng-template #defaultTemplate let-step="step">
-    <mat-card (click)="$event.stopPropagation()">
+    <mat-card
+        (click)="$event.stopPropagation()"
+        [style.width]="step.stepDimensions?.width"
+        [style.min-width]="step.stepDimensions?.minWidth"
+        [style.max-width]="step.stepDimensions?.maxWidth"
+    >
         <mat-card-header>
             <div class="header-group">
                 <mat-card-title>

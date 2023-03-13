@@ -4,6 +4,9 @@
     [keyboardClose]="false"
     [showBackdrop]="false"
     [dismissOnSelect]="false"
+    [style.--min-width]="step?.stepDimensions?.minWidth"
+    [style.--max-width]="step?.stepDimensions?.maxWidth"
+    [style.--width]="step?.stepDimensions?.width"
 >
     <ng-template>
         <ng-container

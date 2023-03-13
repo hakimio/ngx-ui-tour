@@ -9,6 +9,12 @@ import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
 
+export interface StepDimensions {
+    width?: string;
+    minWidth?: string;
+    maxWidth?: string;
+}
+
 export interface IStepOption {
     stepId?: string;
     anchorId?: string;
@@ -40,6 +46,7 @@ export interface IStepOption {
     duplicateAnchorHandling?: 'error' | 'registerFirst' | 'registerLast';
     disablePageScrolling?: boolean;
     allowUserInitiatedNavigation?: boolean;
+    stepDimensions?: StepDimensions;
 }
 
 export enum TourState {
@@ -73,7 +80,12 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     centerAnchorOnScroll: false,
     disablePageScrolling: false,
     smoothScroll: false,
-    allowUserInitiatedNavigation: false
+    allowUserInitiatedNavigation: false,
+    stepDimensions: {
+        maxWidth: '250px',
+        minWidth: '250px',
+        width: 'auto'
+    }
 };
 
 // noinspection JSUnusedGlobalSymbols
