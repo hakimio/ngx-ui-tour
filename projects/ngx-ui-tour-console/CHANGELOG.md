@@ -1,6 +1,6 @@
 <a name="10.5.0"></a>
 
-# [10.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-07)
+# [10.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-13)
 
 ### Features
 - New `allowUserInitiatedNavigation` config. Enable to keep the tour open while the user navigates to a different page.

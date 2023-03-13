@@ -1,11 +1,13 @@
 <a name="10.5.0"></a>
 
-# [10.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-07)
+# [10.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-13)
 
 ### Features
 - New `allowUserInitiatedNavigation` config. Enable to keep the tour open while the user navigates to a different page.
   Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
   The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
+- New `stepDimensions` config. Use it to customize tour step width, min-width and max-width. Accepts "width" CSS
+  property values, ie "250px" or "auto".
 
 <a name="10.4.0"></a>
 
