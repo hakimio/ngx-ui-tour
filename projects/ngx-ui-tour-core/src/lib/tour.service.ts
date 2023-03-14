@@ -82,8 +82,8 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     smoothScroll: false,
     allowUserInitiatedNavigation: false,
     stepDimensions: {
-        maxWidth: '250px',
         minWidth: '250px',
+        maxWidth: '280px',
         width: 'auto'
     }
 };
