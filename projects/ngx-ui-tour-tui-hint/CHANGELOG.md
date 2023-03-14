@@ -1,3 +1,10 @@
+<a name="4.5.1"></a>
+
+# [4.5.1](https://github.com/hakimio/ngx-ui-tour) (2023-03-14)
+
+### Fixes
+- Fix default step max-width.
+
 <a name="4.5.0"></a>
 
 # [4.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-13)
