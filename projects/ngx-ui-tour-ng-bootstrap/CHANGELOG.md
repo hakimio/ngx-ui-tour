@@ -1,3 +1,10 @@
+<a name="12.6.0"></a>
+
+# [12.6.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-24)
+
+### Features
+- New `backdropConfig.offset` config. Can be used to add space between anchor and backdrop.
+
 <a name="12.5.1"></a>
 
 # [12.5.1](https://github.com/hakimio/ngx-ui-tour) (2023-03-14)
