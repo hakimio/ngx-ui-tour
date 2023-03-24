@@ -19,6 +19,7 @@ export interface BackdropConfig {
      * Parent container CSS selector or html element reference. Set to fix backdrop stacking issues. Defaults to body.
      */
     parentContainer?: string | HTMLElement;
+    offset?: number;
 }
 
 @Injectable({
@@ -83,29 +84,31 @@ export class TourBackdropService {
             window = this.document.defaultView,
             scrollX = window.scrollX,
             scrollY = window.scrollY,
+            offset = this.step?.backdropConfig?.offset || 0,
+
             leftRect: Rectangle = {
-                width: elementBoundingRect.left + scrollX,
+                width: elementBoundingRect.left + scrollX - offset,
                 height: scrollHeight,
                 top: 0,
                 left: 0
             },
             topRect: Rectangle = {
-                width: elementBoundingRect.width,
-                height: elementBoundingRect.top + scrollY,
+                width: elementBoundingRect.width + offset * 2,
+                height: elementBoundingRect.top + scrollY - offset,
                 top: 0,
-                left: elementBoundingRect.left + scrollX
+                left: elementBoundingRect.left + scrollX - offset
             },
             bottomRect: Rectangle = {
-                width: elementBoundingRect.width,
-                height: scrollHeight - (elementBoundingRect.bottom + scrollY),
-                top: elementBoundingRect.bottom + scrollY,
-                left: elementBoundingRect.left + scrollX
+                width: elementBoundingRect.width + offset * 2,
+                height: scrollHeight - (elementBoundingRect.bottom + scrollY) - offset,
+                top: elementBoundingRect.bottom + scrollY + offset,
+                left: elementBoundingRect.left + scrollX - offset
             },
             rightRect: Rectangle = {
-                width: scrollWidth - (elementBoundingRect.right + scrollX),
+                width: scrollWidth - (elementBoundingRect.right + scrollX) - offset,
                 height: scrollHeight,
                 top: 0,
-                left: elementBoundingRect.right + scrollX
+                left: elementBoundingRect.right + scrollX + offset
             },
             rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
 

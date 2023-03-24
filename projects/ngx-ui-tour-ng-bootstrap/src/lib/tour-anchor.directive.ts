@@ -7,6 +7,7 @@ import {NgbTourService} from './ng-bootstrap-tour.service';
 import {INgbStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {firstValueFrom} from 'rxjs';
+import {Options} from '@popperjs/core'
 
 
 @Directive({
@@ -59,6 +60,20 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
             ...config,
             strategy: step.disablePageScrolling ? 'fixed' : 'absolute'
         });
+
+        const offset = step?.backdropConfig?.offset
+        if (offset) {
+            this.popoverDirective.popperOptions = (options: Options) => {
+                const offsetModifier = options.modifiers?.find(m => m.name === 'offset' && m.options),
+                  arrowWidth = 10
+
+                if (offsetModifier) {
+                    offsetModifier.options.offset = [0, offset + arrowWidth]
+                }
+
+                return options
+            }
+        }
 
         this.popoverDirective.open({step});
     }
