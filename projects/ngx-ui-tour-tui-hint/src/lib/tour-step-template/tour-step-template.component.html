@@ -11,7 +11,11 @@
     #defaultTemplate
     let-step="step"
 >
-    <div class="main-container">
+    <div
+        [style.width]="step.stepDimensions?.width"
+        [style.min-width]="step.stepDimensions?.minWidth"
+        [style.max-width]="step.stepDimensions?.maxWidth"
+    >
         <div class="title-container">
             <h3>{{step?.title}}</h3>
             <button

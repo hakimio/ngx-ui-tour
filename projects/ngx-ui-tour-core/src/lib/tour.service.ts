@@ -9,6 +9,12 @@ import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
 
+export interface StepDimensions {
+    width?: string;
+    minWidth?: string;
+    maxWidth?: string;
+}
+
 export interface IStepOption {
     stepId?: string;
     anchorId?: string;
@@ -39,6 +45,8 @@ export interface IStepOption {
     nextOnAnchorClick?: boolean;
     duplicateAnchorHandling?: 'error' | 'registerFirst' | 'registerLast';
     disablePageScrolling?: boolean;
+    allowUserInitiatedNavigation?: boolean;
+    stepDimensions?: StepDimensions;
 }
 
 export enum TourState {
@@ -70,7 +78,14 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     nextOnAnchorClick: false,
     duplicateAnchorHandling: 'error',
     centerAnchorOnScroll: false,
-    disablePageScrolling: false
+    disablePageScrolling: false,
+    smoothScroll: false,
+    allowUserInitiatedNavigation: false,
+    stepDimensions: {
+        minWidth: '250px',
+        maxWidth: '280px',
+        width: 'auto'
+    }
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -158,8 +173,11 @@ export class TourService<T extends IStepOption = IStepOption> {
                 takeUntil(this.end$)
             )
             .subscribe(
-                () => {
-                    if (!this.navigationStarted) {
+                (event) => {
+                    const browserBackBtnPressed = event.navigationTrigger === 'popstate',
+                      userNavigationAllowed = this.currentStep?.allowUserInitiatedNavigation;
+
+                    if (!this.navigationStarted && (browserBackBtnPressed || !userNavigationAllowed)) {
                         this.end();
                     }
                 }

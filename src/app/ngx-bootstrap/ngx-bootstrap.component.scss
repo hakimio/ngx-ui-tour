@@ -1,38 +1,4 @@
-
-::ng-deep {
-    .custom-tour-class {
-        background-color: #333;
-        border-color: #333;
-
-        .popover-header, .popover-body {
-            color: #eee;
-            background-color: #333;
-            border-color: #333;
-        }
-
-        &.bs-popover-top .popover-arrow:before,
-        &.bs-popover-top .popover-arrow:after {
-            border-top-color: #333 !important;
-        }
-
-        &.bs-popover-bottom .popover-arrow:before,
-        &.bs-popover-bottom .popover-arrow:after {
-            border-bottom-color: #333 !important;
-        }
-
-        &.bs-popover-right, &.bs-popover-end {
-            .popover-arrow:before, .popover-arrow:after {
-                border-right-color: #333 !important;
-            }
-        }
-
-        &.bs-popover-left, &.bs-popover-start {
-            .popover-arrow:before, .popover-arrow:after {
-                border-left-color: #333 !important;
-            }
-        }
-    }
-}
+@import '../shared/styles/custom-tour-class.scss';
 
 app-header {
     margin-top: 0;

@@ -1,3 +1,22 @@
+<a name="12.5.1"></a>
+
+# [12.5.1](https://github.com/hakimio/ngx-ui-tour) (2023-03-14)
+
+### Fixes
+- Fix default step max-width.
+
+<a name="12.5.0"></a>
+
+# [12.5.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-13)
+
+### Features
+- New `allowUserInitiatedNavigation` config. Enable to keep the tour open while the user navigates to a different page.
+  Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
+  The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
+- New `popoverClass` config. Can be used to set custom popover CSS class.
+- New `stepDimensions` config. Use it to customize tour step width, min-width and max-width. Accepts "width" CSS
+  property values, ie "250px" or "auto".
+
 <a name="12.4.0"></a>
 
 # [12.4.0](https://github.com/hakimio/ngx-ui-tour) (2023-02-14)
