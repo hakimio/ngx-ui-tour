@@ -134,6 +134,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private direction = Direction.Forwards;
     private waitingForScroll = false;
     private navigationStarted = false;
+    private userDefaults: T;
 
     private readonly router = inject(Router);
     private readonly backdrop = inject(TourBackdropService);
@@ -147,6 +148,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.steps = steps.map(
                 step => ({
                     ...DEFAULT_STEP_OPTIONS,
+                    ...this.userDefaults,
                     ...stepDefaults,
                     ...step
                 })
@@ -155,6 +157,14 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.initialize$.next(this.steps);
             this.subscribeToNavigationStartEvent();
         }
+    }
+
+    public setDefaults(defaultOptions: T): void {
+        this.userDefaults = defaultOptions;
+    }
+
+    public getDefaults(): T {
+        return this.userDefaults;
     }
 
     private validateSteps() {
@@ -336,7 +346,8 @@ export class TourService<T extends IStepOption = IStepOption> {
 
         if (this.anchors[anchorId]) {
             const step = this.findStepByAnchorId(anchorId),
-                duplicateAnchorHandling = step?.duplicateAnchorHandling ?? 'error';
+                duplicateAnchorHandling = step?.duplicateAnchorHandling ??
+                    this.userDefaults?.duplicateAnchorHandling ?? 'error';
 
             switch (duplicateAnchorHandling) {
                 case 'error':
