@@ -1,3 +1,10 @@
+<a name="12.6.0"></a>
+
+# [12.6.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-28)
+
+### Features
+- New `tourService.setDefaults()` method which can be used to set defaults without specifying tour steps.
+
 <a name="12.5.1"></a>
 
 # [12.5.1](https://github.com/hakimio/ngx-ui-tour) (2023-03-14)
