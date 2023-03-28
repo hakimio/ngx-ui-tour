@@ -19,6 +19,9 @@ export class StepConfigComponent {
     @Input()
     isCloseOnOutsideClickVisible = false;
 
+    @Input()
+    isShowArrowVisible = false;
+
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;
 

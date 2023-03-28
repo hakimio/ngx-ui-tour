@@ -43,7 +43,9 @@
         <app-usage></app-usage>
     </ng-template>
     <ng-template pageTab>
-        <app-step-config>
+        <app-step-config
+            [isShowArrowVisible]="true"
+        >
             <app-placement-config
                 type="IonPopoverPlacement"
             ></app-placement-config>
