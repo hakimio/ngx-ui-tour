@@ -110,6 +110,15 @@
         </div>
     </ng-template>
     <ng-template
+        *ngIf="isShowArrowVisible"
+        documentationPropertyName="showArrow"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="true"
+    >
+        If enabled, shows an arrow that points to the anchor element when running in <code>ios</code> mode. Does not
+        apply in <code>md</code> mode.
+    </ng-template>
+    <ng-template
         documentationPropertyName="disableScrollToAnchor"
         documentationPropertyType="boolean"
         [documentationPropertyValue]="false"

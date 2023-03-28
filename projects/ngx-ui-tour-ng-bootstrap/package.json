@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ng-bootstrap",
-  "version": "12.5.1",
+  "version": "12.6.0",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "ngx-ui-tour-core": "10.5.1"
+    "ngx-ui-tour-core": "10.6.0"
   }
 }
