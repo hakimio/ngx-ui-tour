@@ -1,3 +1,10 @@
+<a name="1.7.0"></a>
+
+# [1.7.0](https://github.com/hakimio/ngx-ui-tour) (2023-04-24)
+
+### Features
+- Support for Ionic v7
+
 <a name="1.6.0"></a>
 
 # [1.6.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-28)
