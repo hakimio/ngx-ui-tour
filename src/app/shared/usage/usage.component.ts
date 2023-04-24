@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {default as tourSeviceExample} from '!!raw-loader!./examples/tour-service-initialize.txt';
-import {Input} from '@angular/core';
 
 @Component({
     selector: 'app-usage',
