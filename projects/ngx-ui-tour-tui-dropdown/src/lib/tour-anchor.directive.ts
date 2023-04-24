@@ -51,7 +51,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
         const tuiDropdown = this.opener.dropdown;
 
-        (tuiDropdown as any).elementRef = this.element;
+        (tuiDropdown as any).el = this.element;
 
         this.opener.isShown = true;
     }
