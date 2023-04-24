@@ -56,7 +56,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
-| 15      | 7    | 6     | 1           |
+| 15      | 7    | 6, 7  | 1           |
 
 ### Taiga UI tour UI
 
