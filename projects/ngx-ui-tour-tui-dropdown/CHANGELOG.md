@@ -1,3 +1,10 @@
+<a name="4.6.1"></a>
+
+# [4.6.1](https://github.com/hakimio/ngx-ui-tour) (2023-04-24)
+
+### Fixes
+- Fix compatibility with Taiga UI v3.24
+
 <a name="4.6.0"></a>
 
 # [4.6.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-28)
