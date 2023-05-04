@@ -52,6 +52,8 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
 
         const trigger = this.opener.trigger;
         (trigger as any)._element = this.element;
+        // Fixes tour step closing when hovering over mat-menu item, issue #123
+        (trigger as any)._parentMaterialMenu = null;
 
         const menu = this.tourStepTemplate.templateComponent.tourStep;
         trigger.menu = menu;
