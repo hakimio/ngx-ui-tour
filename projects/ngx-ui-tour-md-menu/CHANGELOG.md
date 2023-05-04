@@ -1,3 +1,13 @@
+<a name="10.7.0"></a>
+
+# [10.7.0](https://github.com/hakimio/ngx-ui-tour) (2023-05-04)
+
+### Features
+- New `popoverClass` config. Can be used to set custom tour step popover CSS class.
+
+### Fixes
+- Fix tour step closing when hovering over mat-menu item.
+
 <a name="10.6.0"></a>
 
 # [10.6.0](https://github.com/hakimio/ngx-ui-tour) (2023-03-28)
