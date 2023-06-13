@@ -10,7 +10,7 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
         ...defaults,
         direction: step.placement ?? defaults.direction,
         appearance: 'onDark'
-    }
+    };
 }
 
 @Component({

@@ -12,7 +12,7 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
         direction: step.placement?.verticalDirection ?? defaults.direction,
         limitWidth: 'auto',
         minHeight: 170
-    }
+    };
 }
 
 @Component({

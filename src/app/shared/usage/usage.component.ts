@@ -9,7 +9,7 @@ export class UsageComponent {
 
     readonly examples = {
         tourSeviceExample
-    }
+    };
 
     readonly tourStepTag = '<tour-step-template></tour-step-template>';
     readonly anchorPoints = '<div tourAnchor="some.anchor.id">...</div>';

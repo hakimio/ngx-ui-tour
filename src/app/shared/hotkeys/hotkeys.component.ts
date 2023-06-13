@@ -16,7 +16,7 @@ export class HotkeysComponent {
     }, {
         key: 'esc',
         action: 'End tour'
-    }]
+    }];
 
 }
 

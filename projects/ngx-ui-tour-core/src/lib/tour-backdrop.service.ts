@@ -130,14 +130,14 @@ export class TourBackdropService {
 
     public close() {
         if (this.backdropElements) {
-            this.resizeObserverService.unobserveElement(this.targetHtmlElement)
+            this.resizeObserverService.unobserveElement(this.targetHtmlElement);
             this.removeBackdropElement();
             this.resizeSubscription.unsubscribe();
         }
     }
 
     public disconnectResizeObserver() {
-        this.resizeObserverService.disconnect()
+        this.resizeObserverService.disconnect();
     }
 
     private removeBackdropElement() {

@@ -5,5 +5,5 @@ import {TourStepTemplateComponent} from './tour-step-template/tour-step-template
     providedIn: 'root'
 })
 export class TourStepTemplateService {
-    public templateComponent: TourStepTemplateComponent
+    public templateComponent: TourStepTemplateComponent;
 }
