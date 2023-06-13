@@ -31,6 +31,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
     ) {
         this.popoverDirective.autoClose = false;
         this.popoverDirective.triggers = '';
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         this.popoverDirective.toggle = () => {};
     }
 

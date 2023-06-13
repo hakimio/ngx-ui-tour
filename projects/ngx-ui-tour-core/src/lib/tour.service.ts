@@ -23,7 +23,7 @@ export interface IStepOption {
     route?: string | UrlSegment[];
     nextStep?: number | string;
     prevStep?: number | string;
-    placement?: any;
+    placement?: unknown;
     disableScrollToAnchor?: boolean;
     centerAnchorOnScroll?: boolean;
     smoothScroll?: boolean;
@@ -103,7 +103,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     public resume$: Subject<void> = new Subject();
     public anchorRegister$: Subject<string> = new Subject();
     public anchorUnregister$: Subject<string> = new Subject();
-    public events$: Observable<{ name: string; value: any }> = mergeStatic(
+    public events$: Observable<{ name: string; value: unknown }> = mergeStatic(
         this.stepShow$.pipe(map(value => ({name: 'stepShow', value}))),
         this.stepHide$.pipe(map(value => ({name: 'stepHide', value}))),
         this.initialize$.pipe(map(value => ({name: 'initialize', value}))),

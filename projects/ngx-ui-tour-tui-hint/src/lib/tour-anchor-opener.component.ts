@@ -46,7 +46,7 @@ export class TourAnchorOpenerComponent {
     template: TemplateRef<never>;
 
     @ViewChild(TuiHintDirective, {static: true})
-    hint: TuiHintDirective<any>;
+    hint: TuiHintDirective<void>;
 
     @Input()
     isShown = false;

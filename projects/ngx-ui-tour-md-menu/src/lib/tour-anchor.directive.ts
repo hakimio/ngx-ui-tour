@@ -7,6 +7,7 @@ import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
+import {_MatMenuBase} from '@angular/material/menu';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -51,9 +52,9 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         }
 
         const trigger = this.opener.trigger;
-        (trigger as any)._element = this.element;
+        (trigger as unknown as { _element: ElementRef<HTMLElement> })._element = this.element;
         // Fixes tour step closing when hovering over mat-menu item, issue #123
-        (trigger as any)._parentMaterialMenu = null;
+        (trigger as unknown as { _parentMaterialMenu: _MatMenuBase })._parentMaterialMenu = null;
 
         const menu = this.tourStepTemplate.templateComponent.tourStep;
         trigger.menu = menu;

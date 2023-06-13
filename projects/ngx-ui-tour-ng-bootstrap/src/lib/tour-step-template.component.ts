@@ -53,7 +53,7 @@ import {NgIf} from '@angular/common';
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterContentInit {
 
     @ViewChild('tourStep', {read: TemplateRef, static: true})
-    public defaultTourStepTemplate: TemplateRef<any>;
+    public defaultTourStepTemplate: TemplateRef<{ step: IStepOption }>;
 
     @Input()
     public stepTemplate: TemplateRef<{ step: IStepOption }>;
