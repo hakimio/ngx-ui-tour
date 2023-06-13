@@ -2138,22 +2138,22 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@maskito/angular@0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@maskito/angular/-/angular-0.12.1.tgz#454ad0e74a393d226f660a18998ebf58f686a330"
-  integrity sha512-mTpisQA8rXCCuc+miPkZKjkTT2B7ol6/Sqewj1fV2RixE1OFSF6ZMuARE5xfAvBKA7y32JU5cX1UsCnFEEbudA==
+"@maskito/angular@0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@maskito/angular/-/angular-0.14.0.tgz#909f66295c31e9f278c00f80876a3e29b49e3ca0"
+  integrity sha512-p/t23au/MxNTLEd+RWLuFqcazNFofTil1KjYxkm5nARJAhekzRMHdV86cwucDnyn/WhaIZi602xbFHJPdjAeMg==
   dependencies:
     tslib "^2.3.0"
 
-"@maskito/core@0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-0.12.1.tgz#3878661f7ddd9001669a3e5c83fa292e8f9482b1"
-  integrity sha512-/Np9ZaRBN2beutO/21yFKm+flBWt5LU7n9GKzSQ30Ia5uCTrkxjNPyyuJCOMCRe/f5Ldt1F9aIpwokZiAKazCg==
+"@maskito/core@0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-0.14.0.tgz#0ba05e14ea03062b04ea78bd47c1e66a726237e1"
+  integrity sha512-TO1Z2FgN7XVzG0vH9K6FHrGx0zIaA5jKuWlnfym8HDz0gKUQaSkvgT8pfkONjjuqde7SOVFhciv2lJABoEbbWg==
 
-"@maskito/kit@0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-0.12.1.tgz#0301f78c399f1836de4cefb00d3ca2d39b33a66d"
-  integrity sha512-9Va1GaBJzvtwQn3nYKhmnMgoktqzEwCwOtUcr+LsNCx1lWWSWSD0LkeUoNOVoY3b4xy7E6yT4jxiJX1gUJNtMw==
+"@maskito/kit@0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-0.14.0.tgz#d3293c3bbe2213d766fd0ac76f37a60d5113a877"
+  integrity sha512-ShdODJIFMy2KMYjyPBtR/JeMDDDZkC21LZ28/bUBpPf+dtDlK5VShVsIERIszs0cC6c8Vd7b4VFvpOz0JBjBrg==
 
 "@material/animation@15.0.0-canary.90291f2e2.0":
   version "15.0.0-canary.90291f2e2.0"
@@ -3139,29 +3139,28 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-3.3.1.tgz#1c4afbdfad15e29cd122ecf960a6ee189fd1fadb"
   integrity sha512-I+660Oe9OMLiU+thjV1GgcI27dcvrSpF3xisHWBOU/4mzRtho3YW0cI8lSjcqyB1KirGTA6QeQ0Xif5UHqn8hw==
 
-"@taiga-ui/addon-doc@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/addon-doc/-/addon-doc-3.30.0.tgz#672850e8c27f711d098d7e16d19c677308a7f9e4"
-  integrity sha512-3JlfLLJjIeqc9MtS2Nd3PNL2ZeatGwx7sTLmcLdFN/KbIwsKEtuqxM9i3ipyh5/alzC+XccZUrMPYbDHyuYJ/w==
+"@taiga-ui/addon-doc@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/addon-doc/-/addon-doc-3.31.0.tgz#b11ab7196640b4e3d4219f2cc92d0cd442dbb78e"
+  integrity sha512-RYQWApJBIHM9iZYF/kavHNSIjOTXOjww+ZR7WfoxMERGfn5Jwn+ImBM7wI8s5P796ieeegsnXlnvCUrGUYxAbw==
   dependencies:
     "@angular-devkit/schematics" "12.2.18"
-    highlight.js "11.8.0"
-    markdown-it "12.3.2"
-    ngx-highlightjs "4.1.4"
+    markdown-it "13.0.1"
+    ngx-highlightjs "6.1.3"
     schematics-utilities "1.1.3"
     tslib ">=2.0.0"
 
-"@taiga-ui/addon-mobile@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/addon-mobile/-/addon-mobile-3.30.0.tgz#2e9736da2a891841dfbb93e7dad5773944b65647"
-  integrity sha512-qf50bQin5+KHLc42Us4jb+wWVUOC+fZ4Q65J6BXhh+K7kFGGrrXWZ47Dwtk8nTLeN/P+/dJbSxgDcBQmUXZ8+Q==
+"@taiga-ui/addon-mobile@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/addon-mobile/-/addon-mobile-3.31.0.tgz#1bc4f0ff8f872e8a0d30d0def048f5923b408d6c"
+  integrity sha512-gYrXKjOa8XryCZP8pJ8cyxrrUQQfkL1CnVuYHsMjTora9VU2UNmExduDrfsMOifUoWVeCuwFLZCQOiuzyFf5EQ==
   dependencies:
     tslib ">=2.0.0"
 
-"@taiga-ui/cdk@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/cdk/-/cdk-3.30.0.tgz#70f9016cb28660f27e8feedcc2de63e35948aa96"
-  integrity sha512-sepyrN+Dirh0vUnp93ZOJrjdjma8LVYB+FfUlnk1hGKV0oXtcuxkL0Y9Mwn86msE35j1NC5jktje2HEKbExiNA==
+"@taiga-ui/cdk@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/cdk/-/cdk-3.31.0.tgz#1278fd4a8c38dca51ab8ec2c9c6f77d33d8ee884"
+  integrity sha512-adMaRt0n+7PmlK+XkRDehxjege38exATvBRkeI7F0SzH99JWb6HG5PEXQ3WGUYS9BhDqx0cR+ke0cocdz1LfHQ==
   dependencies:
     "@ng-web-apis/common" "2.1.0"
     "@ng-web-apis/mutation-observer" "2.0.0"
@@ -3173,36 +3172,36 @@
     ng-morph "2.2.4"
     parse5 "6.0.1"
 
-"@taiga-ui/core@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/core/-/core-3.30.0.tgz#fc4fe21cb6b3991e2816fe3898abfcf05ac27461"
-  integrity sha512-dx2dfSKdDC0dWat6N2qVeB/VvW7fI7/D/6fSBflczQwLNl8Ieeyeq3Y0V/lA2YRpD0rf3NzprS5rmrKOqVGtmQ==
+"@taiga-ui/core@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/core/-/core-3.31.0.tgz#3a6c4e1ee131297ae6ceed2bde37dfa1880cb3b0"
+  integrity sha512-OMqbDZO5SQdtz+OKVrruq5dxrvu3LjfWlTX0hNYBjkn5wGYcfcRtzaYFuWe+xcf4fPLp+FBY8UMmN14rZWM+tg==
   dependencies:
-    "@taiga-ui/i18n" "^3.30.0"
+    "@taiga-ui/i18n" "^3.31.0"
     tslib ">=2.0.0"
 
-"@taiga-ui/i18n@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/i18n/-/i18n-3.30.0.tgz#f25404be2a2b38f15acee7bb671494b7aae7cda1"
-  integrity sha512-238T1LaNmXbo/fUTQF3D4CQDV3TXw/NTc1ObpnWNDXKY7HJXEoI/tf09RZEPlQYlDT9yJJeo1m0iYp6JGipYIQ==
+"@taiga-ui/i18n@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/i18n/-/i18n-3.31.0.tgz#fd7c008307b3d4c6f3621f13098dc0c415420dbc"
+  integrity sha512-gzFFWP4GAk0ZMCA7bbt1eFVfioELHSRMSKOqo5YDw6CJnJ19lZEb8QuVbXcZOhNRvEnOJerSX3ij8b5ceR4M7w==
   dependencies:
     tslib ">=2.0.0"
 
-"@taiga-ui/icons@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/icons/-/icons-3.30.0.tgz#b0fb51c738e84e334d950922cdf32ec9eeca95b6"
-  integrity sha512-6wv9DUgTeM+eZbpsaKekhWMx2La9ej9sdfxPDeWAaCJm6+bjDlNTslsaJTlcK+DbAzz5KdU2fKJzVOS+3EoLfQ==
+"@taiga-ui/icons@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/icons/-/icons-3.31.0.tgz#9fb316920fd8f4b3ded8d5930644050823f3ce9f"
+  integrity sha512-BGkeZw1WxuObPWMAyTpkP1vtwlTbPosopj7gyLzq3q06IR3Gt07u16hjnE5Pzpvp/5xeVTUMgdBOu8FtQQIekw==
   dependencies:
     tslib "^2.2.0"
 
-"@taiga-ui/kit@^3.30.0":
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/@taiga-ui/kit/-/kit-3.30.0.tgz#c905ed4f3e56e659cc7d6c9b09f2ea6a34c6feb5"
-  integrity sha512-SWid9SwpUaL4zQad1g+W40Vps4JJF9x8ogFr2zuCjZO/+NMWucFmj2ObrV30Ru5UrPXIiKz9cbyTldvls5y+xA==
+"@taiga-ui/kit@^3.31.0":
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/@taiga-ui/kit/-/kit-3.31.0.tgz#ff64e1383708b78ddfe7d0d0fa617d7cd963988e"
+  integrity sha512-T+mvPdqIgDz6fAYt4n9FosAkHWzsxQU2dhPa1G09RZazttvsRq3jgdH0/anfKGVjXQyMvNzlVMHlizw4ubAx0g==
   dependencies:
-    "@maskito/angular" "0.12.1"
-    "@maskito/core" "0.12.1"
-    "@maskito/kit" "0.12.1"
+    "@maskito/angular" "0.14.0"
+    "@maskito/core" "0.14.0"
+    "@maskito/kit" "0.14.0"
     "@ng-web-apis/intersection-observer" "3.0.1"
     text-mask-core "5.1.2"
     tslib ">=2.0.0"
@@ -5452,10 +5451,10 @@ entities@^4.3.0, entities@^4.4.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
 
-entities@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/entities/-/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
-  integrity sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==
+entities@~3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-3.0.1.tgz#2b887ca62585e96db3903482d336c1006c3001d4"
+  integrity sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==
 
 env-paths@^2.2.0:
   version "2.2.1"
@@ -6569,15 +6568,10 @@ hdr-histogram-percentiles-obj@^3.0.0:
   resolved "https://registry.yarnpkg.com/hdr-histogram-percentiles-obj/-/hdr-histogram-percentiles-obj-3.0.0.tgz#9409f4de0c2dda78e61de2d9d78b1e9f3cba283c"
   integrity sha512-7kIufnBqdsBGcSZLPJwqHT3yhk1QTsSlFsVD3kx5ixH/AlgBs9yM1q6DPhXZ8f8gtdqgh7N7/5btRLpQsS2gHw==
 
-highlight.js@11.8.0:
+highlight.js@^11.0.0:
   version "11.8.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
   integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
-
-highlight.js@^10.0.0:
-  version "10.7.3"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
-  integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
 
 highlightjs-line-numbers.js@^2.8.0:
   version "2.8.0"
@@ -6614,9 +6608,9 @@ html-encoding-sniffer@^3.0.0:
     whatwg-encoding "^2.0.0"
 
 html-entities@^2.3.2:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.5.tgz#9f117bf6a5962efc31e094f6c6dad3cf3b95e33e"
-  integrity sha512-72TJlcMkYsEJASa/3HnX7VT59htM7iSHbH59NSZbtc+22Ap0Txnlx91sfeB+/A7wNZg7UxtZdhAW4y+/jimrdg==
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.6.tgz#966391d58e5737c77bca4025e31721b496ab7454"
+  integrity sha512-9o0+dcpIw2/HxkNuYKxSJUF/MMRZQECK4GnF+oQOmJ83yCVHTWgCH5aOXxK5bozNRmM8wtgryjHD3uloPBDEGw==
 
 html-escaper@^2.0.0:
   version "2.0.2"
@@ -7958,10 +7952,10 @@ lines-and-columns@~2.0.3:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-2.0.3.tgz#b2f0badedb556b747020ab8ea7f0373e22efac1b"
   integrity sha512-cNOjgCnLB+FnvWWtyRTzmB3POJ+cXxTA81LoW7u8JdmhfXzriropYwpjShnz1QLLWsQwY7nIxoDmcPTwphDK9w==
 
-linkify-it@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-3.0.3.tgz#a98baf44ce45a550efb4d49c769d07524cc2fa2e"
-  integrity sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==
+linkify-it@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-4.0.1.tgz#01f1d5e508190d06669982ba31a7d9f56a5751ec"
+  integrity sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==
   dependencies:
     uc.micro "^1.0.1"
 
@@ -8124,14 +8118,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-it@12.3.2:
-  version "12.3.2"
-  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-12.3.2.tgz#bf92ac92283fe983fe4de8ff8abfb5ad72cd0c90"
-  integrity sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==
+markdown-it@13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-13.0.1.tgz#c6ecc431cacf1a5da531423fc6a42807814af430"
+  integrity sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==
   dependencies:
     argparse "^2.0.1"
-    entities "~2.1.0"
-    linkify-it "^3.0.1"
+    entities "~3.0.1"
+    linkify-it "^4.0.1"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
@@ -8512,12 +8506,12 @@ ngx-bootstrap@^10.2.0:
   dependencies:
     tslib "^2.3.0"
 
-ngx-highlightjs@4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/ngx-highlightjs/-/ngx-highlightjs-4.1.4.tgz#630a68c080bd5a3651ac64c2b284d6e7174f6ae2"
-  integrity sha512-yh5p8J+mUNHMm5kQM1CAyRdLT2KiW631l/Rky+rkxwT6NZHG80yImWXZt7RG3heTQzd1wDOWMQ8JznF3KeUv5g==
+ngx-highlightjs@6.1.3:
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/ngx-highlightjs/-/ngx-highlightjs-6.1.3.tgz#d99d7b9442b21950c58e85daa588c8f568c6036e"
+  integrity sha512-QF91hKhD75HpuJOgCGL3M7UyZommAqIgzubpZN2/At7OqBZ3G6NX9n/r6ksezSur34wjYOYQunNJhIvsXQzu6Q==
   dependencies:
-    highlight.js "^10.0.0"
+    highlight.js "^11.0.0"
     highlightjs-line-numbers.js "^2.8.0"
     tslib "^2.0.0"
 
