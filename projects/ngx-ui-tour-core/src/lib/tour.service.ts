@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import type {UrlSegment} from '@angular/router';
-import {IsActiveMatchOptions, NavigationStart, Router, RouterEvent} from '@angular/router';
+import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
 import {delay, filter, first, map, merge as mergeStatic, Observable, Subject, takeUntil} from 'rxjs';
@@ -179,7 +179,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     {
         this.router.events
             .pipe(
-                filter((event: RouterEvent): event is NavigationStart => event instanceof NavigationStart),
+                filter((event): event is NavigationStart => event instanceof NavigationStart),
                 takeUntil(this.end$)
             )
             .subscribe(
