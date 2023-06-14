@@ -98,9 +98,7 @@ export class ConsoleComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'console',
-            delayAfterNavigation: this.delayAfterNavigation,
-            centerAnchorOnScroll: true,
-            smoothScroll: true
+            delayAfterNavigation: this.delayAfterNavigation
         });
     }
 

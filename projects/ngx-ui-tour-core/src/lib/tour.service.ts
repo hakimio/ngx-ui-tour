@@ -78,9 +78,9 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     delayBeforeStepShow: 0,
     nextOnAnchorClick: false,
     duplicateAnchorHandling: 'error',
-    centerAnchorOnScroll: false,
-    disablePageScrolling: false,
-    smoothScroll: false,
+    centerAnchorOnScroll: true,
+    disablePageScrolling: true,
+    smoothScroll: true,
     allowUserInitiatedNavigation: false,
     stepDimensions: {
         minWidth: '250px',

@@ -113,9 +113,7 @@ export class NgBootstrapComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'ng-bootstrap',
-            delayAfterNavigation: this.delayAfterNavigation,
-            centerAnchorOnScroll: true,
-            smoothScroll: true
+            delayAfterNavigation: this.delayAfterNavigation
         });
     }
 

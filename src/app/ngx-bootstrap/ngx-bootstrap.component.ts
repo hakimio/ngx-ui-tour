@@ -115,9 +115,7 @@ export class NgxBootstrapComponent implements OnInit {
             this.tourSteps,
             {
                 route: 'ngx-bootstrap',
-                delayAfterNavigation: this.delayAfterNavigation,
-                centerAnchorOnScroll: true,
-                smoothScroll: true
+                delayAfterNavigation: this.delayAfterNavigation
             }
         );
     }
