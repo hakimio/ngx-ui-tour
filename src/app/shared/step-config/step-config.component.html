@@ -148,9 +148,8 @@
         documentationPropertyName="scrollContainer"
         documentationPropertyType="string | HTMLElement"
     >
-        CSS selector or html element reference. Only set this config if you have enabled "smoothScroll" and tour step
-        description pops-up before scrolling has finished or doesn't show up at all. This should only be the case when
-        scroll container is part of shadow DOM.
+        CSS selector or html element reference. Used to determine scroll container for "smooth scroll" and
+        "disable page scrolling" functions. Defaults to document element if not set.
     </ng-template>
     <ng-template
         documentationPropertyName="prevBtnTitle"

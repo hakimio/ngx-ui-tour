@@ -1,8 +1,9 @@
 import {ElementSides, isInViewport} from './is-in-viewport';
 import {debounceTime, firstValueFrom, fromEvent, map, of, timeout} from 'rxjs';
-import {inject, Injectable} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+import {inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
+import {ScrollUtils} from './scroll-utils';
 
 export interface ScrollOptions {
     center: boolean;
@@ -15,6 +16,8 @@ export interface ScrollOptions {
 })
 export class ScrollingService {
 
+    private readonly platformId = inject(PLATFORM_ID);
+    private readonly isBrowser = isPlatformBrowser(this.platformId);
     private readonly document = inject(DOCUMENT);
     private readonly window = this.document.defaultView;
     private scrollOptions: ScrollOptions;
@@ -22,7 +25,7 @@ export class ScrollingService {
     ensureVisible(htmlElement: HTMLElement, options: ScrollOptions): Promise<void> {
         this.scrollOptions = options;
 
-        const behavior: ScrollBehavior = options.smoothScroll ? 'smooth' : 'auto';
+        const behavior: ScrollBehavior = options.smoothScroll && this.isBrowser ? 'smooth' : 'auto';
 
         if (options.center && !('safari' in this.window)) {
             htmlElement.scrollIntoView({
@@ -30,11 +33,7 @@ export class ScrollingService {
                 inline: 'center',
                 behavior
             });
-
-            return options.smoothScroll ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
-        }
-
-        if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {
+        } else if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {
             htmlElement.scrollIntoView({
                 block: 'end',
                 inline: 'nearest',
@@ -48,11 +47,12 @@ export class ScrollingService {
             });
         }
 
-        return options.smoothScroll ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
+        return behavior === 'smooth' ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
     }
 
     private get waitForScrollFinish$() {
-        const scrollContainer = this.getScrollContainer();
+        const userScrollContainer = this.scrollOptions.scrollContainer,
+            scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document;
 
         return fromEvent(scrollContainer, 'scroll')
             .pipe(
@@ -63,21 +63,6 @@ export class ScrollingService {
                 debounceTime(50),
                 map(() => undefined)
             );
-    }
-
-    private getScrollContainer() {
-        const scrollContainer = this.scrollOptions.scrollContainer;
-
-        if (typeof scrollContainer === 'string') {
-            const queryResult = this.document.documentElement.querySelector(scrollContainer) as HTMLElement;
-
-            return queryResult ?? this.window;
-        }
-        if (scrollContainer instanceof HTMLElement) {
-            return scrollContainer;
-        }
-
-        return this.window;
     }
 
 }

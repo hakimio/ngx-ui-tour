@@ -536,7 +536,7 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     private togglePageScrolling(step: T) {
         if (step.disablePageScrolling) {
-            this.scrollBlockingService.enable();
+            this.scrollBlockingService.enable(step.scrollContainer);
         } else {
             this.scrollBlockingService.disable();
         }

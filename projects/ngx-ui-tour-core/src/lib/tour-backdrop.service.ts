@@ -157,7 +157,7 @@ export class TourBackdropService {
         const config = this.step.backdropConfig;
 
         return {
-            position: !this.step.disablePageScrolling ? 'absolute' : 'fixed',
+            position: 'absolute',
             width: `${rectangle.width}px`,
             height: `${rectangle.height}px`,
             top: `${rectangle.top}px`,
