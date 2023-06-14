@@ -59,7 +59,7 @@
     "@angular/platform-browser": "^16.0.5",
     "@angular/platform-browser-dynamic": "^16.0.5",
     "@angular/router": "^16.0.5",
-    "@ionic/angular": "^7.0.12",
+    "@ionic/angular": "7.0.5",
     "@ng-bootstrap/ng-bootstrap": "^15.0.1",
     "@ng-web-apis/common": "^2.1.0",
     "@ng-web-apis/mutation-observer": "^2.0.0",

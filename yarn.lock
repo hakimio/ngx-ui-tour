@@ -1836,22 +1836,22 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@ionic/angular@^7.0.12":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@ionic/angular/-/angular-7.0.12.tgz#71dd4e074db70b8a0f2fe6214878b957f07e491a"
-  integrity sha512-5fg82Mj9RlPTkMLjScy9UQQTaeuYODGGcekdQljZLRfa4Y4/CKo4/uZf5DQZ2L+DGFdJ6FAAx+tTOQ6Bc196tg==
+"@ionic/angular@7.0.5":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@ionic/angular/-/angular-7.0.5.tgz#95bd6b3a6f29076b1235a464cb4f3b53ecaee5e8"
+  integrity sha512-seTyc70JGPrIOn1LjviFfWT8T5aMdj3J97BdOyWU7TFqyapTwj6Rn7x2OyeV9Rph7wcA9Sz3PD1FBwPEuj5utw==
   dependencies:
-    "@ionic/core" "7.0.12"
+    "@ionic/core" "7.0.5"
     ionicons "^7.0.0"
     jsonc-parser "^3.0.0"
     tslib "^2.3.0"
 
-"@ionic/core@7.0.12":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-7.0.12.tgz#7f4403eddcea37e5274a3972ffa1ca123d1febaf"
-  integrity sha512-DCBrxKQ59oghBxZOWqbJihedJ9rkVpi4ka+VGclOtndvz8PbEOsPArVUDYPGI7md3SVZ0qaVelbSwqQbyHRY7g==
+"@ionic/core@7.0.5":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-7.0.5.tgz#3164af0bcc2aa794d97259671a5f834db5e7d8bf"
+  integrity sha512-dcuE/PEF+GHsPEsLppUASSwWnzVcxFZE7uPMDzTwUPMOFTTaRgWbPxIly/4/VRbV6GSL6MEcuVVxhEdWjSODTg==
   dependencies:
-    "@stencil/core" "^3.3.1"
+    "@stencil/core" "^3.2.2"
     ionicons "^7.1.0"
     tslib "^2.1.0"
 
@@ -3134,10 +3134,10 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.22.3.tgz#83987e20bba855c450f6d6780e3a20192603f13f"
   integrity sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng==
 
-"@stencil/core@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-3.3.1.tgz#1c4afbdfad15e29cd122ecf960a6ee189fd1fadb"
-  integrity sha512-I+660Oe9OMLiU+thjV1GgcI27dcvrSpF3xisHWBOU/4mzRtho3YW0cI8lSjcqyB1KirGTA6QeQ0Xif5UHqn8hw==
+"@stencil/core@^3.2.2":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-3.4.0.tgz#8cdfccb5fa9fb3fd2fc63c60c5552b650e9eac21"
+  integrity sha512-kEtPtV6QegME8YgMjWrhS7KktItbhqOpAuK9aXypDdI/7bLU9iM/4DtnQGWY/DARBophk+XRBfNXcE62Bmi0dw==
 
 "@taiga-ui/addon-doc@^3.31.0":
   version "3.31.0"
