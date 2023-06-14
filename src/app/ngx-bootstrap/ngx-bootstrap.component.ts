@@ -51,10 +51,10 @@ export class NgxBootstrapComponent implements OnInit {
         title: 'Route',
         route: 'ngx-bootstrap/API'
     }, {
-        anchorId: 'config.containerClass',
-        content: 'You can add custom container class.',
+        anchorId: 'config.popoverClass',
+        content: 'You can add custom popover class.',
         title: 'Custom CSS Class',
-        containerClass: 'custom-tour-class',
+        popoverClass: 'custom-tour-class',
         route: 'ngx-bootstrap/API'
     }, {
         anchorId: 'config.placement',

@@ -11,12 +11,6 @@ import {IStepOption} from 'ngx-ui-tour-md-menu';
 export class StepConfigComponent {
 
     @Input()
-    isContainerClassVisible = false;
-
-    @Input()
-    isPopoverClassVisible = false;
-
-    @Input()
     isCloseOnOutsideClickVisible = false;
 
     @Input()

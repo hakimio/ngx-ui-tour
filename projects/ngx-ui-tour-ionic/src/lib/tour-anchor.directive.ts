@@ -41,6 +41,7 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
         templateComponent.step = step;
         popover.alignment = step.placement?.alignment;
         popover.side = step.placement?.side ?? 'bottom';
+        popover.cssClass = step.popoverClass;
 
         const event = {
             target: this.element.nativeElement

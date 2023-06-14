@@ -50,8 +50,8 @@ export class TourAnchorNgxBootstrapDirective implements OnInit, OnDestroy, TourA
         this.popoverDirective.popoverTitle = step.title;
         this.popoverDirective.container = 'body';
         this.popoverDirective.containerClass = 'ngx-bootstrap';
-        if (step.containerClass) {
-            this.popoverDirective.containerClass += ` ${step.containerClass}`;
+        if (step.popoverClass) {
+            this.popoverDirective.containerClass += ` ${step.popoverClass}`;
         }
         this.popoverDirective.placement = step.placement || 'auto';
         this.popoverDirective.show();

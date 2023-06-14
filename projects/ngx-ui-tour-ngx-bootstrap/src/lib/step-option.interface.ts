@@ -3,5 +3,4 @@ import {AvailbleBSPositions} from 'ngx-bootstrap/positioning';
 
 export interface INgxbStepOption extends IStepOption {
     placement?: AvailbleBSPositions;
-    containerClass?: string;
 }

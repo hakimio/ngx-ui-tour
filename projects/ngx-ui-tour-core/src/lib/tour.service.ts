@@ -47,6 +47,7 @@ export interface IStepOption {
     disablePageScrolling?: boolean;
     allowUserInitiatedNavigation?: boolean;
     stepDimensions?: StepDimensions;
+    popoverClass?: string;
 }
 
 export enum TourState {
