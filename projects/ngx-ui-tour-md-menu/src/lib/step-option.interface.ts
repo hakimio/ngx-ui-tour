@@ -9,4 +9,8 @@ export interface IMdStepOption extends IStepOption {
 export interface MdMenuPlacement {
     xPosition?: MenuPositionX;
     yPosition?: MenuPositionY;
+    /**
+     * Enable to position popover horizontally instead of vertically
+     */
+    horizontal?: boolean;
 }

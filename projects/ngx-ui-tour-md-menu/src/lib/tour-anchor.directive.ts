@@ -7,7 +7,14 @@ import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
-import {_MatMenuBase} from '@angular/material/menu';
+import {_MatMenuBase, MatMenuPanel} from '@angular/material/menu';
+import {FlexibleConnectedPositionStrategy, HorizontalConnectionPos, VerticalConnectionPos} from '@angular/cdk/overlay';
+
+interface CustomMenuTrigger {
+    _element: ElementRef<HTMLElement>;
+    _parentMaterialMenu: _MatMenuBase;
+    _setPosition: (menu: MatMenuPanel, positionStrategy: FlexibleConnectedPositionStrategy) => void
+}
 
 @Directive({
     selector: '[tourAnchor]',
@@ -51,10 +58,13 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
             this.createOpener();
         }
 
-        const trigger = this.opener.trigger;
-        (trigger as unknown as { _element: ElementRef<HTMLElement> })._element = this.element;
+        const trigger = this.opener.trigger,
+            customTrigger = trigger as unknown as CustomMenuTrigger;
+        customTrigger._element = this.element;
         // Fixes tour step closing when hovering over mat-menu item, issue #123
-        (trigger as unknown as { _parentMaterialMenu: _MatMenuBase })._parentMaterialMenu = null;
+        customTrigger._parentMaterialMenu = null;
+        // Overrides position setting to support opening to the sides
+        customTrigger._setPosition = (menu, positionStrategy) => this.setPosition(menu, positionStrategy, step);
 
         const menu = this.tourStepTemplate.templateComponent.tourStep;
         trigger.menu = menu;
@@ -77,6 +87,42 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
                     this.tourService.end();
                 }
             });
+    }
+
+    private setPosition(menu: MatMenuPanel, positionStrategy: FlexibleConnectedPositionStrategy, step: IMdStepOption) {
+        let [originX, originFallbackX]: HorizontalConnectionPos[] =
+            menu.xPosition === 'before' ? ['end', 'start'] : ['start', 'end'];
+
+        const [overlayY, overlayFallbackY]: VerticalConnectionPos[] =
+            menu.yPosition === 'above' ? ['bottom', 'top'] : ['top', 'bottom'];
+
+        let [originY, originFallbackY] = [overlayY, overlayFallbackY];
+        let [overlayX, overlayFallbackX] = [originX, originFallbackX];
+
+        if (step.placement?.horizontal) {
+            overlayFallbackX = originX = menu.xPosition === 'before' ? 'start' : 'end';
+            originFallbackX = overlayX = originX === 'end' ? 'start' : 'end';
+        } else if (!menu.overlapTrigger) {
+            originY = overlayY === 'top' ? 'bottom' : 'top';
+            originFallbackY = overlayFallbackY === 'top' ? 'bottom' : 'top';
+        }
+        const offsetX = 0,
+            offsetY = 0;
+
+        const original = {originX, originY, overlayX, overlayY, offsetX, offsetY};
+        const flipX = {
+            originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY,
+            offsetX: -offsetX, offsetY
+        };
+        const flipY = {
+            originX, originY: originFallbackY, overlayX, overlayY: overlayFallbackY, offsetX, offsetY: -offsetY
+        };
+        const flipXY = {
+            originX: originFallbackX, originY: originFallbackY, overlayX: overlayFallbackX, overlayY: overlayFallbackY,
+            offsetX: -offsetX, offsetY: -offsetY
+        };
+
+        positionStrategy.withPositions(step.placement?.horizontal ? [original, flipX] : [original, flipY, flipXY]);
     }
 
     // noinspection JSUnusedGlobalSymbols
