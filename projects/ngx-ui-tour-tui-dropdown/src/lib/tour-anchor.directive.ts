@@ -54,6 +54,12 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         (tuiDropdown as unknown as {el: ElementRef<HTMLElement>}).el = this.element;
 
         this.opener.isShown = true;
+
+        const offset = step.backdropConfig?.offset;
+
+        if (offset) {
+            this.opener.offset = offset + 4;
+        }
     }
 
     // noinspection JSUnusedGlobalSymbols

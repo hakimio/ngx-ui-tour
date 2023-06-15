@@ -105,7 +105,8 @@ export class TuiDropdownComponent implements OnInit {
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
             route: 'tui-dropdown',
-            delayAfterNavigation: this.delayAfterNavigation
+            delayAfterNavigation: this.delayAfterNavigation,
+            disablePageScrolling: false
         });
     }
 

@@ -19,6 +19,9 @@ export class FaqComponent {
     @Input()
     disablePageScrollingIntroducedIn = '10.1';
 
+    @Input()
+    backdropOffsetIntroducedIn: number;
+
     readonly examples = {
         centeredStepCss,
         centeredStepHtml,

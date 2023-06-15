@@ -98,16 +98,19 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
 
         let [originY, originFallbackY] = [overlayY, overlayFallbackY];
         let [overlayX, overlayFallbackX] = [originX, originFallbackX];
+        const isHorizontal = step.placement?.horizontal;
 
-        if (step.placement?.horizontal) {
+        if (isHorizontal) {
             overlayFallbackX = originX = menu.xPosition === 'before' ? 'start' : 'end';
             originFallbackX = overlayX = originX === 'end' ? 'start' : 'end';
         } else if (!menu.overlapTrigger) {
             originY = overlayY === 'top' ? 'bottom' : 'top';
             originFallbackY = overlayFallbackY === 'top' ? 'bottom' : 'top';
         }
-        const offsetX = 0,
-            offsetY = 0;
+
+        const offset = step.backdropConfig?.offset ?? 0,
+            offsetX = isHorizontal ? offset : -offset,
+            offsetY = isHorizontal ? -offset : offset;
 
         const original = {originX, originY, overlayX, overlayY, offsetX, offsetY};
         const flipX = {
@@ -122,7 +125,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
             offsetX: -offsetX, offsetY: -offsetY
         };
 
-        positionStrategy.withPositions(step.placement?.horizontal ? [original, flipX] : [original, flipY, flipXY]);
+        positionStrategy.withPositions(isHorizontal ? [original, flipX] : [original, flipY, flipXY]);
     }
 
     // noinspection JSUnusedGlobalSymbols

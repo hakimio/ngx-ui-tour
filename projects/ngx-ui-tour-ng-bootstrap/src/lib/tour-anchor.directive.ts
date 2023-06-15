@@ -7,6 +7,7 @@ import {NgbTourService} from './ng-bootstrap-tour.service';
 import {INgbStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {firstValueFrom} from 'rxjs';
+import {Options} from '@popperjs/core';
 
 
 @Directive({
@@ -60,7 +61,25 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
             .replace('before', 'left').replace('after', 'right')
             .replace('below', 'bottom').replace('above', 'top');
 
+        const offset = step.backdropConfig?.offset;
+
+        if (offset) {
+            this.popoverDirective.popperOptions = options => this.setOffsetModifier(options, offset);
+        }
+
         this.popoverDirective.open({step});
+    }
+
+    private setOffsetModifier(options: Partial<Options>, offset: number): Partial<Options> {
+        const offsetModifier = options.modifiers
+                ?.find(modifier => modifier.name === 'offset' && modifier.options),
+            arrowHeight = 10;
+
+        if (offsetModifier) {
+            offsetModifier.options.offset = [0, offset + arrowHeight];
+        }
+
+        return options;
     }
 
     // noinspection JSUnusedGlobalSymbols

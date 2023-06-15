@@ -36,6 +36,7 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
         <span
             [tuiDropdown]="template"
             [tuiDropdownManual]="isShown"
+            [tuiDropdownOffset]="offset"
         ></span>
     `,
     standalone: true,
@@ -50,6 +51,9 @@ export class TourAnchorOpenerComponent {
 
     @Input()
     isShown = false;
+
+    @Input()
+    offset = 4;
 
     constructor(
         private readonly tourStepTemplateService: TourStepTemplateService
