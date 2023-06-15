@@ -45,6 +45,8 @@ export class ScrollingService {
                 inline: 'nearest',
                 behavior
             });
+        } else {
+            return Promise.resolve();
         }
 
         return behavior === 'smooth' ? firstValueFrom(this.waitForScrollFinish$) : Promise.resolve();
