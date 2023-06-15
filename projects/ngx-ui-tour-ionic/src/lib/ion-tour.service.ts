@@ -28,8 +28,12 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
         // In case "scrollContainer" is already set to HTMLElement, we DO want to set it again since the current
         // html element reference might be already removed from DOM
         if (step.smoothScroll && (!step.scrollContainer || typeof step.scrollContainer !== 'string')) {
-            const ionContentSelector = '.ion-page:not(.ion-page-hidden):not(ion-app) ion-content, ion-app > ion-content',
-                ionContent = this.document.documentElement.querySelector(ionContentSelector);
+            const docEl = this.document.documentElement,
+                tabsRouter = docEl.querySelector('ion-router-outlet[tabs=true]') as HTMLElement,
+                generalRouter = docEl.querySelector('ion-router-outlet') as HTMLElement,
+                router = tabsRouter ?? generalRouter,
+                ionContent = router ? router.querySelector(':scope > .ion-page:not(.ion-page-hidden) ion-content') :
+                    docEl.querySelector('ion-content');
 
             step.scrollContainer = ionContent?.shadowRoot.querySelector('[part=scroll]') as HTMLElement;
         }
