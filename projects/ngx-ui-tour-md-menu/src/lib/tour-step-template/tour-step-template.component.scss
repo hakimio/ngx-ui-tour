@@ -7,6 +7,11 @@
     padding: 0 !important;
 }
 
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel.tour-step {
+    min-width: unset;
+    max-width: unset;
+}
+
 mat-card-content {
     margin: 8px 0;
 }
