@@ -39,11 +39,11 @@
     justify-content: space-between;
     margin: 0 -0.5rem -0.5rem;
 
-    ::ng-deep button.prev tui-wrapper {
-        padding-left: 1rem !important;
+    ::ng-deep button.prev .t-wrapper {
+        padding-left: 1rem;
     }
 
-    ::ng-deep button.next tui-wrapper {
-        padding-right: 1rem !important;
+    ::ng-deep button.next .t-wrapper {
+        padding-right: 1rem;
     }
 }
