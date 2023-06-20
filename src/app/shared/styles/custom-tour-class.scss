@@ -1,34 +1,12 @@
 ::ng-deep {
-    .custom-tour-class {
-        background-color: #333;
-        border-color: #333;
+    .popover.custom-tour-class {
+        --bs-popover-arrow-border: #333;
+        --bs-popover-bg: #333;
+        --bs-popover-border-color: #333;
+        --bs-popover-body-color: #eee;
 
-        .popover-header, .popover-body {
-            color: #eee;
-            background-color: #333;
-            border-color: #333;
-        }
-
-        &.bs-popover-top .popover-arrow:before,
-        &.bs-popover-top .popover-arrow:after {
-            border-top-color: #333 !important;
-        }
-
-        &.bs-popover-bottom .popover-arrow:before,
-        &.bs-popover-bottom .popover-arrow:after {
-            border-bottom-color: #333 !important;
-        }
-
-        &.bs-popover-right, &.bs-popover-end {
-            .popover-arrow:before, .popover-arrow:after {
-                border-right-color: #333 !important;
-            }
-        }
-
-        &.bs-popover-left, &.bs-popover-start {
-            .popover-arrow:before, .popover-arrow:after {
-                border-left-color: #333 !important;
-            }
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
         }
     }
 }
