@@ -27,7 +27,7 @@
 
         <ol>
             <li>
-                <code>npm install ngx-ui-tour-ng-bootstrap @ng-bootstrap/ng-bootstrap</code>
+                <code>npm install ngx-ui-tour-ng-bootstrap bootstrap @popperjs/core @ng-bootstrap/ng-bootstrap</code>
             </li>
             <li>
                 Import <code>TourNgBootstrapModule</code> into your app module
@@ -39,11 +39,15 @@
                 Make sure <code>RouterModule</code> is imported in your app module
             </li>
             <li>
-                Include bootstrap css in your <code>index.html</code>:
-                <br>
-                <code>
-                    {{bootstrapCssCdn}}
-                </code>
+                Add bootstrap SCSS to your <code>styles.scss</code>:
+                <tui-doc-code
+                    filename="styles.scss"
+                    [code]="bootstrapScssImport"
+                ></tui-doc-code>
+            </li>
+            <li>
+                Make sure NG Bootstrap is
+                <a tuiLink href="https://ng-bootstrap.github.io/#/getting-started#installation" target="_blank">installed correctly</a>
             </li>
         </ol>
         <app-usage></app-usage>

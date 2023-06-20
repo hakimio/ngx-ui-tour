@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {TourAnchorNgxBootstrapDirective, TourNgxBootstrapModule} from 'ngx-ui-tour-ngx-bootstrap';
 
 import {NgxBootstrapComponent} from './ngx-bootstrap.component';
-import {tuiGenerateRoutes, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {tuiGenerateRoutes, TuiDocPageModule, TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {SharedModule} from '../shared/shared.module';
 import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 
@@ -18,7 +18,8 @@ import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/c
         TuiButtonModule,
         TuiLinkModule,
         TuiDocPageModule,
-        TuiNotificationModule
+        TuiNotificationModule,
+        TuiDocCodeModule
     ]
 })
 export class NgxBootstrapModule {}
