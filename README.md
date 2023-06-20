@@ -1,6 +1,6 @@
 ![Ngx UI Tour](https://user-images.githubusercontent.com/768105/130578626-8b6cbefb-217c-4943-8661-22459a7b67a3.png)
 
-> UI tour library for Angular 9+
+> UI tour library for Angular
 
 Angular Material, Ionic, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
 
@@ -38,6 +38,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 16      | 7    | 11          |
 | 15      | 7    | 10          |
 | 14      | 6, 7 | 9           |
 | 12-13   | 6, 7 | 8           |
@@ -47,6 +48,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 16      | 7    | 13          |
 | 15      | 7    | 12          |
 | 14      | 6, 7 | 11          |
 | 12-13   | 6, 7 | 10          |
@@ -56,12 +58,14 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
+| 16      | 7    | 6, 7  | 2           |
 | 15      | 7    | 6, 7  | 1           |
 
 ### Taiga UI tour UI
 
 | Angular | RxJS | Taiga UI | ngx-ui-tour |
 |---------|------|----------|-------------|
+| 16      | 7    | 3        | 5           |
 | 15      | 7    | 3        | 4           |
 | 14      | 6, 7 | 3        | 3           |
 | 12-13   | 6, 7 | 2        | 2           |
