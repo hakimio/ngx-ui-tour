@@ -16,6 +16,9 @@ export class StepConfigComponent {
     @Input()
     isShowArrowVisible = false;
 
+    @Input()
+    isUseLegacyTitleVisible = false;
+
     @ContentChild(PlacementConfigComponent)
     placementConfig: PlacementConfigComponent;
 

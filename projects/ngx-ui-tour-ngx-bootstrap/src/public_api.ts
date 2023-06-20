@@ -1,4 +1,4 @@
-export {TourStepTemplateComponent} from './lib/tour-step-template.component';
+export {TourStepTemplateComponent} from './lib/tour-step-template/tour-step-template.component';
 export {TourAnchorNgxBootstrapDirective, TourAnchorNgxBootstrapPopoverDirective} from './lib/tour-anchor.directive';
 export {TourNgxBootstrapModule} from './lib/ngx-bootstrap.module';
 

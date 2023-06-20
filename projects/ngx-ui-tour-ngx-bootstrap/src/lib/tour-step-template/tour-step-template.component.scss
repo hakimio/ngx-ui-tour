@@ -1,0 +1,42 @@
+::ng-deep .tour-step .popover-body {
+    padding: 0;
+}
+
+.main-container {
+    padding: 0.5rem 1rem 0.75rem;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    gap: 0.25rem;
+
+    h5 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .btn {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        &.prev {
+            padding-left: 0.25rem;
+        }
+        &.next {
+            padding-right: 0.25rem;
+        }
+    }
+}

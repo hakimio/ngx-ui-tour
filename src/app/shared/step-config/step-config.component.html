@@ -221,4 +221,13 @@
         Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
         The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
     </ng-template>
+    <ng-template
+        *ngIf="isUseLegacyTitleVisible"
+        documentationPropertyName="useLegacyTitle"
+        documentationPropertyType="boolean"
+        [documentationPropertyValue]="false"
+    >
+        Enable to use popover title for showing step title like in previous versions of the library. Title style
+        can not be customized using step template when the option is enabled.
+    </ng-template>
 </tui-doc-documentation>
