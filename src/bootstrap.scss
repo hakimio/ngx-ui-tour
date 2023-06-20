@@ -1,0 +1,27 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/utilities/api';
+@import 'bootstrap/scss/helpers';
+
+ngb-popover-window, popover-container {
+    color: var(--#{$prefix}body-color);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba($black, 0);
+
+    @import 'bootstrap/scss/reboot';
+    @import 'bootstrap/scss/type';
+}
+
+.popover, .popover-arrow {
+    position: absolute;
+}
