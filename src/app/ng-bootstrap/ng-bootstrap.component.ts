@@ -53,7 +53,7 @@ export class NgBootstrapComponent implements OnInit {
     }, {
         anchorId: 'config.popoverClass',
         content: 'You can add custom popover class.',
-        title: 'Custom Popover CSS Class',
+        title: 'Custom CSS Class',
         popoverClass: 'custom-tour-class',
         route: 'ng-bootstrap/API'
     }, {
