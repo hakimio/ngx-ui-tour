@@ -466,17 +466,21 @@
     "@schematics/angular:component": {
       "prefix": "app",
       "style": "scss",
-      "skipTests": true
+      "skipTests": true,
+      "changeDetection": "OnPush",
+      "standalone": true
     },
     "@schematics/angular:directive": {
       "prefix": "app",
-      "skipTests": true
+      "skipTests": true,
+      "standalone": true
     },
     "@schematics/angular:class": {
       "skipTests": true
     },
     "@schematics/angular:pipe": {
-      "skipTests": true
+      "skipTests": true,
+      "standalone": true
     },
     "@schematics/angular:service": {
       "skipTests": true
