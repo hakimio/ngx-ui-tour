@@ -1,3 +1,21 @@
+<a name="2.0.0"></a>
+
+# [2.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-06-21)
+
+### Features
+- Support for Angular 16
+- "Disabling page scrolling" feature now uses `scrollContainer` config to determine affected container. Before
+  `scrollContainer` was only used by "smooth scrolling" feature.
+- New `popoverClass` config
+
+### Fixes
+- Fix smooth scroll in Ionic apps using tabs based layout
+
+### Breaking Changes
+- Angular 15 is no longer supported
+- `overflow: hidden` is now used instead of `position: fixed` to disable page scrolling.
+- `centerAnchorOnScroll`, `disablePageScrolling` and `smoothScroll` options are now enabled by default.
+
 <a name="1.7.0"></a>
 
 # [1.7.0](https://github.com/hakimio/ngx-ui-tour) (2023-04-24)

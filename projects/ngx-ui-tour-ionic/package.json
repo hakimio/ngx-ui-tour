@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ionic",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "UI tour library for Angular 15+",
   "keywords": [
     "angular",
@@ -18,13 +18,12 @@
   "author": "Tomas Rimkus <tomas.r@programmer.net>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@ionic/angular": "^6.0.0 || ^7.0.0",
-    "typescript": ">=3.8.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@ionic/angular": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "ngx-ui-tour-core": "10.6.0"
+    "ngx-ui-tour-core": "11.0.0"
   }
 }
