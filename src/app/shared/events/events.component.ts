@@ -1,10 +1,22 @@
 import {Component} from '@angular/core';
 import {default as onInitialize} from '!!raw-loader!./examples/on-initialize.txt';
+import {NgFor} from '@angular/common';
+import {TuiDocCodeModule, TuiDocDocumentationModule} from '@taiga-ui/addon-doc';
+import {HeaderComponent} from '../header/header.component';
+import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 
 @Component({
     selector: 'app-events',
     templateUrl: './events.component.html',
-    styleUrls: ['./events.component.scss']
+    styleUrls: ['./events.component.scss'],
+    standalone: true,
+    imports: [
+        ProxyTourAnchorDirective,
+        HeaderComponent,
+        TuiDocCodeModule,
+        TuiDocDocumentationModule,
+        NgFor
+    ]
 })
 export class EventsComponent {
 

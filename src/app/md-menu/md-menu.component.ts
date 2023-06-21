@@ -1,12 +1,27 @@
-import {IStepOption, TourService} from 'ngx-ui-tour-md-menu';
-import {Component, Inject, OnInit} from '@angular/core';
+import {IStepOption, TourAnchorMatMenuDirective, TourMatMenuModule, TourService} from 'ngx-ui-tour-md-menu';
+import {Component, inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-md-menu',
     templateUrl: './md-menu.component.html',
-    styleUrls: ['./md-menu.component.scss']
+    styleUrls: ['./md-menu.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourMatMenuModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorMatMenuDirective)
+    ]
 })
 export class MdMenuComponent implements OnInit {
 
@@ -96,11 +111,8 @@ export class MdMenuComponent implements OnInit {
     }];
     readonly defaultTemplate = defaultTemplate;
 
-    constructor(
-        public tourService: TourService,
-        @Inject(DELAY_AFTER_NAVIGATION)
-        private readonly delayAfterNavigation: number
-    ) {}
+    public readonly tourService = inject(TourService);
+    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {

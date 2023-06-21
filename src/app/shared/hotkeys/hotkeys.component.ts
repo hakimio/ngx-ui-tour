@@ -1,9 +1,20 @@
 import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
+import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
+import {HeaderComponent} from '../header/header.component';
+import {LIST_COMPONENTS} from '../list';
 
 @Component({
     selector: 'app-hotkeys',
     templateUrl: './hotkeys.component.html',
-    styleUrls: ['./hotkeys.component.scss']
+    styleUrls: ['./hotkeys.component.scss'],
+    standalone: true,
+    imports: [
+        HeaderComponent,
+        ProxyTourAnchorDirective,
+        LIST_COMPONENTS,
+        NgFor
+    ]
 })
 export class HotkeysComponent {
 

@@ -34,7 +34,8 @@ export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDire
                 return inject(type);
             }
         }
-    ]
+    ],
+    standalone: true
 })
 export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
 

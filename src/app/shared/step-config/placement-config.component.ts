@@ -2,7 +2,8 @@ import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-placement-config',
-    template: ''
+    template: '',
+    standalone: true
 })
 export class PlacementConfigComponent {
 

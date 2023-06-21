@@ -1,13 +1,27 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {IStepOption, TourService} from 'ngx-ui-tour-tui-hint';
+import {Component, inject, OnInit} from '@angular/core';
+import {IStepOption, TourAnchorTuiHintDirective, TourService, TourTuiHintModule} from 'ngx-ui-tour-tui-hint';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
-import {TuiHintDirection} from '@taiga-ui/core';
+import {TuiButtonModule, TuiHintDirection, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-tui-hint',
     templateUrl: './tui-hint.component.html',
-    styleUrls: ['./tui-hint.component.scss']
+    styleUrls: ['./tui-hint.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourTuiHintModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorTuiHintDirective)
+    ]
 })
 export class TuiHintComponent implements OnInit {
 
@@ -111,12 +125,8 @@ export class TuiHintComponent implements OnInit {
         'right-bottom'
     ];
 
-    constructor(
-        private readonly tourService: TourService,
-        @Inject(DELAY_AFTER_NAVIGATION)
-        private readonly delayAfterNavigation: number
-    ) {
-    }
+    public readonly tourService = inject(TourService);
+    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {

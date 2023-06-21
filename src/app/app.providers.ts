@@ -1,12 +1,14 @@
-import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
+import {HIGHLIGHT_OPTIONS, HighlightOptions} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {pages} from './pages';
-import {HighlightOptions} from 'ngx-highlightjs';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import {InjectionToken} from '@angular/core';
+import {InjectionToken, provideZoneChangeDetection} from '@angular/core';
+import {PreloadAllModules, provideRouter, withPreloading} from '@angular/router';
+import {ROUTES} from './app.routes';
+import {provideAnimations} from '@angular/platform-browser/animations';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -63,5 +65,12 @@ export const APP_PROVIDERS = [
     {
         provide: DELAY_AFTER_NAVIGATION,
         useValue: 150
-    }
+    },
+    provideZoneChangeDetection({
+        eventCoalescing: true
+    }),
+    provideAnimations(),
+    provideRouter(ROUTES,
+        withPreloading(PreloadAllModules)
+    )
 ];

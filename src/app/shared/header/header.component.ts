@@ -1,15 +1,22 @@
 import {Attribute, Component, Inject} from '@angular/core';
-import {TuiAlertService, TuiNotification} from '@taiga-ui/core';
+import {TuiAlertService, TuiButtonModule, TuiNotification} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {LOCATION} from '@ng-web-apis/common';
 import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
 import {map, Observable} from 'rxjs';
+import {AsyncPipe, NgIf} from '@angular/common';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    styleUrls: ['./header.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        TuiButtonModule,
+        AsyncPipe
+    ]
 })
 export class HeaderComponent {
 

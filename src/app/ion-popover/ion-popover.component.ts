@@ -1,12 +1,26 @@
-import {IStepOption, TourService} from 'ngx-ui-tour-ionic';
+import {IStepOption, TourAnchorIonPopoverDirective, TourIonPopoverModule, TourService} from 'ngx-ui-tour-ionic';
 import {Component, inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
+import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-ion-popover',
     templateUrl: './ion-popover.component.html',
-    styleUrls: ['./ion-popover.component.scss']
+    styleUrls: ['./ion-popover.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourIonPopoverModule,
+        TuiButtonModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorIonPopoverDirective)
+    ]
 })
 export class IonPopoverComponent implements OnInit {
 

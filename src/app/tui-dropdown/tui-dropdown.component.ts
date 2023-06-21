@@ -1,12 +1,32 @@
-import {IStepOption, TourService} from 'ngx-ui-tour-tui-dropdown';
-import {Component, Inject, OnInit} from '@angular/core';
+import {
+    IStepOption,
+    TourAnchorTuiDropdownDirective,
+    TourService,
+    TourTuiDropdownModule
+} from 'ngx-ui-tour-tui-dropdown';
+import {Component, inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-tui-dropdown',
     templateUrl: './tui-dropdown.component.html',
-    styleUrls: ['./tui-dropdown.component.scss']
+    styleUrls: ['./tui-dropdown.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourTuiDropdownModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorTuiDropdownDirective)
+    ]
 })
 export class TuiDropdownComponent implements OnInit {
 
@@ -96,11 +116,8 @@ export class TuiDropdownComponent implements OnInit {
     }];
     readonly defaultTemplate = defaultTemplate;
 
-    constructor(
-        private readonly tourService: TourService,
-        @Inject(DELAY_AFTER_NAVIGATION)
-        private readonly delayAfterNavigation: number
-    ) {}
+    public readonly tourService = inject(TourService);
+    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {

@@ -1,9 +1,14 @@
 import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
+import {HeaderComponent} from '../header/header.component';
+import {LIST_COMPONENTS} from '../list';
 
 @Component({
     selector: 'app-tour-service-api',
     templateUrl: './tour-service-api.component.html',
-    styleUrls: ['./tour-service-api.component.scss']
+    styleUrls: ['./tour-service-api.component.scss'],
+    standalone: true,
+    imports: [HeaderComponent, LIST_COMPONENTS, NgFor]
 })
 export class TourServiceApiComponent {
 

@@ -1,12 +1,33 @@
-import {TourService, IStepOption} from 'ngx-ui-tour-ngx-bootstrap';
-import {Component, Inject, OnInit} from '@angular/core';
+import {
+    IStepOption,
+    TourAnchorNgxBootstrapDirective,
+    TourNgxBootstrapModule,
+    TourService
+} from 'ngx-ui-tour-ngx-bootstrap';
+import {Component, inject, OnInit} from '@angular/core';
 import {default as defaultTemplate} from '!!raw-loader!./examples/default-template.txt';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiDocCodeModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-ngx-bootstrap',
     templateUrl: './ngx-bootstrap.component.html',
-    styleUrls: ['./ngx-bootstrap.component.scss']
+    styleUrls: ['./ngx-bootstrap.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourNgxBootstrapModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        TuiDocCodeModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorNgxBootstrapDirective)
+    ]
 })
 export class NgxBootstrapComponent implements OnInit {
 
@@ -104,11 +125,8 @@ export class NgxBootstrapComponent implements OnInit {
     readonly bootstrapScssImport = '@import "bootstrap/scss/bootstrap";';
     readonly defaultTemplate = defaultTemplate;
 
-    constructor(
-        public readonly tourService: TourService,
-        @Inject(DELAY_AFTER_NAVIGATION)
-        private readonly delayAfterNavigation: number
-    ) {}
+    public readonly tourService = inject(TourService);
+    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
         this.tourService.initialize(

@@ -1,11 +1,26 @@
-import {TourService, IStepOption} from 'ngx-ui-tour-console';
-import {Component, Inject, OnInit} from '@angular/core';
+import {IStepOption, TourAnchorConsoleDirective, TourConsoleModule, TourService} from 'ngx-ui-tour-console';
+import {Component, inject, OnInit} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-console',
     templateUrl: './console.component.html',
-    styleUrls: ['./console.component.scss']
+    styleUrls: ['./console.component.scss'],
+    standalone: true,
+    imports: [
+        TuiDocPageModule,
+        TuiLinkModule,
+        TourConsoleModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        SHARED_COMPONENTS
+    ],
+    providers: [
+        provideTourDirective(TourAnchorConsoleDirective)
+    ]
 })
 export class ConsoleComponent implements OnInit {
 
@@ -88,12 +103,9 @@ export class ConsoleComponent implements OnInit {
         title: 'Hotkeys',
         route: 'console/Misc'
     }];
-    
-    constructor(
-        public readonly tourService: TourService,
-        @Inject(DELAY_AFTER_NAVIGATION)
-        private readonly delayAfterNavigation: number
-    ) {}
+
+    public readonly tourService = inject(TourService);
+    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
         this.tourService.initialize(this.tourSteps, {
