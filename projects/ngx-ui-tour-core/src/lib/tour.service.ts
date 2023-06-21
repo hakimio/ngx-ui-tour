@@ -513,8 +513,6 @@ export class TourService<T extends IStepOption = IStepOption> {
             return Promise.resolve();
         }
 
-        this.scrollBlockingService.disable();
-
         const anchor = this.anchors[step?.anchorId],
             htmlElement = anchor.element.nativeElement;
 
