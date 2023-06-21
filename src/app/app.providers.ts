@@ -6,7 +6,13 @@ import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
 import {InjectionToken, provideZoneChangeDetection} from '@angular/core';
-import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
+import {
+    PreloadAllModules,
+    provideRouter,
+    withEnabledBlockingInitialNavigation,
+    withInMemoryScrolling,
+    withPreloading
+} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';
 
@@ -71,6 +77,7 @@ export const APP_PROVIDERS = [
     }),
     provideAnimations(),
     provideRouter(ROUTES,
+        withEnabledBlockingInitialNavigation(),
         withPreloading(PreloadAllModules),
         withInMemoryScrolling({
             scrollPositionRestoration: 'top'
