@@ -5,7 +5,7 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import {InjectionToken, provideZoneChangeDetection} from '@angular/core';
+import {EnvironmentProviders, InjectionToken, Provider, provideZoneChangeDetection} from '@angular/core';
 import {
     PreloadAllModules,
     provideRouter,
@@ -38,7 +38,7 @@ export const DELAY_AFTER_NAVIGATION = new InjectionToken<number>('DelayAfterNavi
     factory: () => 0
 });
 
-export const APP_PROVIDERS = [
+export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     Title,
     {
         provide: HIGHLIGHT_OPTIONS,
