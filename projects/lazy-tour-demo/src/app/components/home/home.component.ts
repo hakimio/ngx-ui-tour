@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
-import {TourService, TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
+import {TourAnchorMatMenuDirective, TourService} from 'ngx-ui-tour-md-menu';
+import {TourState} from 'ngx-ui-tour-core';
 
 @Component({
     selector: 'app-home',
@@ -15,26 +16,29 @@ export class HomeComponent implements OnInit {
     private readonly tourService = inject(TourService);
 
     ngOnInit() {
-        this.tourService.initialize([{
-            anchorId: 'app-home',
-            content: 'This is a step from the eager loaded home component',
-            title: 'Home Component',
-            route: ''
-        }, {
-            anchorId: 'module-a',
-            content: 'This is a step from the lazy loaded module-a component',
-            title: 'Module-a Component',
-            route: 'module-a'
-        }, {
-            anchorId: 'module-b',
-            content: 'This is a step from the lazy loaded module-b component',
-            title: 'Module-b Component',
-            route: 'module-b'
-        }], {
-            delayAfterNavigation: 100
-        });
+        if (this.tourService.getStatus() !== TourState.ON)
+        {
+            this.tourService.initialize([{
+                anchorId: 'app-home',
+                content: 'This is a step from the eager loaded home component',
+                title: 'Home Component',
+                route: ''
+            }, {
+                anchorId: 'module-a',
+                content: 'This is a step from the lazy loaded module-a component',
+                title: 'Module-a Component',
+                route: 'module-a'
+            }, {
+                anchorId: 'module-b',
+                content: 'This is a step from the lazy loaded module-b component',
+                title: 'Module-b Component',
+                route: 'module-b'
+            }], {
+                delayAfterNavigation: 100
+            });
 
-        this.tourService.start();
+            this.tourService.start();
+        }
     }
 
 }
