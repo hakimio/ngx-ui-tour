@@ -268,10 +268,16 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.hasNext(this.currentStep)) {
             this.goToStep(
                 this.loadStep(
-                    this.currentStep.nextStep ?? this.steps.indexOf(this.currentStep) + 1
+                    this.currentStep.nextStep ?? this.getStepIndex(this.currentStep) + 1
                 )
             );
         }
+    }
+
+    private getStepIndex(step: T): number {
+        const index = this.steps.indexOf(step);
+
+        return index < 0 ? 0 : index;
     }
 
     public hasNext(step: T): boolean {
@@ -281,12 +287,12 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
         return (
             step.nextStep !== undefined ||
-            (this.steps.indexOf(step) < this.steps.length - 1 && !this.isNextOptionalAnchorMissing(step))
+            (this.getStepIndex(step) < this.steps.length - 1 && !this.isNextOptionalAnchorMissing(step))
         );
     }
 
     private isNextOptionalAnchorMissing(step: T): boolean {
-        const stepIndex = this.steps.indexOf(step);
+        const stepIndex = this.getStepIndex(step);
 
         for (let i = stepIndex + 1; i < this.steps.length; i++) {
             const nextStep = this.steps[i];
@@ -307,7 +313,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.hasPrev(this.currentStep)) {
             this.goToStep(
                 this.loadStep(
-                    this.currentStep.prevStep ?? this.steps.indexOf(this.currentStep) - 1
+                    this.currentStep.prevStep ?? this.getStepIndex(this.currentStep) - 1
                 )
             );
         }
@@ -319,11 +325,11 @@ export class TourService<T extends IStepOption = IStepOption> {
             return false;
         }
         return step.prevStep !== undefined ||
-            (this.steps.indexOf(step) > 0 && !this.isPrevOptionalAnchorMising(step));
+            (this.getStepIndex(step) > 0 && !this.isPrevOptionalAnchorMising(step));
     }
 
     private isPrevOptionalAnchorMising(step: T): boolean {
-        const stepIndex = this.steps.indexOf(step);
+        const stepIndex = this.getStepIndex(step);
 
         for (let i = stepIndex - 1; i > -1; i--) {
             const prevStep = this.steps[i];
