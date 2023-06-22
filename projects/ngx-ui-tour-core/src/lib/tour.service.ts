@@ -73,7 +73,7 @@ const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
     enableBackdrop: false,
     isAsync: false,
     isOptional: false,
-    delayAfterNavigation: 0,
+    delayAfterNavigation: 100,
     delayBeforeStepShow: 0,
     nextOnAnchorClick: false,
     duplicateAnchorHandling: 'error',
