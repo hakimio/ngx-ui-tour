@@ -1,10 +1,17 @@
+<a name="13.0.1"></a>
+
+# [13.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-06-22)
+
+### Fixes
+- Fix TypeScript build errors when `strict` mode is enabled.
+
 <a name="13.0.0"></a>
 
 # [13.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-06-21)
 
 ### Features
 - Support for Angular 16
-- "Disabling page scrolling" feature now uses `scrollContainer` config to determine affected container. Before
+- "Disable page scrolling" feature now uses `scrollContainer` config to determine affected container. Before
   `scrollContainer` was only used by "smooth scrolling" feature.
 - `tour-step` CSS class is now applied to tour popovers
 - New tour step template
@@ -14,6 +21,8 @@
 - Angular 15 is no longer supported
 - `overflow: hidden` is now used instead of `position: fixed` to disable page scrolling.
 - `centerAnchorOnScroll`, `disablePageScrolling` and `smoothScroll` options are now enabled by default.
+- Tour UI no longer uses default popover title. If you want to use the old popover title style, you can enable 
+`useLegacyTitle` config.
 
 <a name="12.6.0"></a>
 

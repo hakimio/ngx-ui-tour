@@ -1,10 +1,17 @@
+<a name="5.0.1"></a>
+
+# [5.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-06-22)
+
+### Fixes
+- Fix TypeScript build errors when `strict` mode is enabled.
+
 <a name="5.0.0"></a>
 
 # [5.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-06-21)
 
 ### Features
 - Support for Angular 16
-- "Disabling page scrolling" feature now uses `scrollContainer` config to determine affected container. Before
+- "Disable page scrolling" feature now uses `scrollContainer` config to determine affected container. Before
   `scrollContainer` was only used by "smooth scrolling" feature.
 - New `backdropConfig.offset` config
 - New `popoverClass` config
