@@ -2,10 +2,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "useDefineForClassFields": false,
+    "strictNullChecks": false,
     "baseUrl": "./",
     "downlevelIteration": true,
     "importHelpers": true,
-    "module": "es2020",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -13,6 +20,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ES2022",
+    "module": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -45,7 +53,6 @@
       "ngx-ui-tour-tui-hint": [
         "dist/ngx-ui-tour-tui-hint"
       ]
-    },
-    "useDefineForClassFields": false
+    }
   }
 }
