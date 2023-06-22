@@ -143,6 +143,11 @@ export class TourService<T extends IStepOption = IStepOption> {
     private readonly scrollingService = inject(ScrollingService);
 
     public initialize(steps: T[], stepDefaults?: T): void {
+        if (this.status === TourState.ON) {
+            console.warn('Can not re-initialize the UI tour while it\'s still active');
+            return;
+        }
+
         if (steps && steps.length > 0) {
             this.status = TourState.OFF;
             this.steps = steps.map(
@@ -203,6 +208,10 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public start(): void {
+        if (this.status === TourState.ON) {
+            console.warn('tourService.start() called while the tour is already running.');
+            return;
+        }
         this.startAt(0);
     }
 
@@ -217,6 +226,9 @@ export class TourService<T extends IStepOption = IStepOption> {
             return;
         }
 
+        if (this.status === TourState.OFF) {
+            return;
+        }
         this.status = TourState.OFF;
         this.disableTour();
         this.currentStep = undefined;
