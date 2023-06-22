@@ -32,7 +32,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
         console.group(step.title);
         console.log(step.content);
-        console.log(`${step.placement || 'above'} ${this.tourAnchor}`);
+        console.log(`Anchor id: ${this.tourAnchor}`);
         console.groupEnd();
     }
 

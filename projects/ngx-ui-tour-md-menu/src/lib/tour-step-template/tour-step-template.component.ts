@@ -38,7 +38,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     constructor(
         private tourStepTemplateService: TourStepTemplateService,
-        public tourService: NgxmTourService
+        public override tourService: NgxmTourService
     ) {
         super(tourService);
     }

@@ -33,7 +33,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     constructor(
         private readonly tourStepTemplateService: TourStepTemplateService,
-        public readonly tourService: IonTourService
+        public override readonly tourService: IonTourService
     ) {
         super(tourService);
     }

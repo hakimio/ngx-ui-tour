@@ -157,7 +157,7 @@ export class TourBackdropService {
 
     private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {
         for (const name of Object.keys(styles)) {
-            this.renderer.setStyle(element, name, styles[name]);
+            this.renderer.setStyle(element, name, styles[name as keyof CSSStyleDeclaration]);
         }
     }
 

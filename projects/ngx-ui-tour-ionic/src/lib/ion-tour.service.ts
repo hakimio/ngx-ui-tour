@@ -12,7 +12,7 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
     private readonly config = inject(Config);
     private readonly document = inject(DOCUMENT);
 
-    public initialize(steps: T[], stepDefaults?: T) {
+    public override initialize(steps: T[], stepDefaults?: T) {
         const isIOS = this.config.get('mode') === 'ios';
 
         stepDefaults ??= {} as T;
@@ -24,7 +24,7 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
     }
 
     // noinspection JSUnusedGlobalSymbols
-    protected showStep(step: T): Promise<void> {
+    protected override showStep(step: T): Promise<void> {
         // In case "scrollContainer" is already set to HTMLElement, we DO want to set it again since the current
         // html element reference might be already removed from DOM
         if (step.smoothScroll && (!step.scrollContainer || typeof step.scrollContainer !== 'string')) {

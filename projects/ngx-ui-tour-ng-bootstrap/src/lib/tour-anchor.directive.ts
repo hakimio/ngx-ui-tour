@@ -78,7 +78,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
             arrowHeight = 10;
 
         if (offsetModifier) {
-            offsetModifier.options.offset = [0, offset + arrowHeight];
+            offsetModifier.options['offset'] = [0, offset + arrowHeight];
         }
 
         return options;

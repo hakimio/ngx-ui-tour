@@ -23,7 +23,6 @@ export interface IStepOption {
     route?: string | UrlSegment[];
     nextStep?: number | string;
     prevStep?: number | string;
-    placement?: unknown;
     disableScrollToAnchor?: boolean;
     centerAnchorOnScroll?: boolean;
     smoothScroll?: boolean;

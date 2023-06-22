@@ -12,6 +12,10 @@ import {TourAnchorIonPopoverDirective} from 'ngx-ui-tour-ionic';
 export const TOUR_ANCHOR_DIRECTIVE = new InjectionToken<TourAnchorDirective>('TourAnchorDirective');
 export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDirective>>('TourAnchorDirectiveType');
 
+interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestroy {
+    tourAnchor: string;
+}
+
 @Directive({
     // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[tourAnchor]',
@@ -53,12 +57,14 @@ export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.tourAnchorDirective['tourAnchor'] = this.tourAnchor;
-        this.tourAnchorDirective['ngOnInit']();
+        const tourAnchorDirective = this.tourAnchorDirective as CustomTourAnchorDirective;
+
+        tourAnchorDirective.tourAnchor = this.tourAnchor;
+        tourAnchorDirective.ngOnInit();
     }
 
     ngOnDestroy() {
-        this.tourAnchorDirective['ngOnDestroy']();
+        (this.tourAnchorDirective as CustomTourAnchorDirective).ngOnDestroy();
     }
 
     private overrideShowHideMethods() {

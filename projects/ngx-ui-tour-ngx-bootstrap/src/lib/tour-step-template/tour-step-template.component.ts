@@ -26,7 +26,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     public stepTemplateContent: TemplateRef<{ step: IStepOption }>;
 
     private readonly tourStepTemplateService = inject(TourStepTemplateService);
-    public readonly tourService = inject(NgxbTourService);
+    public override readonly tourService = inject(NgxbTourService);
 
     public ngAfterContentInit(): void {
         this.tourStepTemplateService.template =
