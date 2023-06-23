@@ -1,3 +1,10 @@
+<a name="2.0.2"></a>
+
+# [2.0.2](https://github.com/hakimio/ngx-ui-tour) (2023-06-23)
+
+### Fixes
+- Re-initializing the tour is no longer allowed while it's active.
+
 <a name="2.0.1"></a>
 
 # [2.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-06-22)

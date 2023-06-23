@@ -14,7 +14,7 @@
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Tomas Rimkus <tomas.r@programmer.net>",
   "license": "MIT",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "peerDependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0",
@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "ngx-ui-tour-core": "11.0.1"
+    "ngx-ui-tour-core": "11.0.2"
   }
 }

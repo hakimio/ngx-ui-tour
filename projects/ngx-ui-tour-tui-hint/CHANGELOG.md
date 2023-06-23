@@ -1,3 +1,12 @@
+<a name="5.0.2"></a>
+
+# [5.0.2](https://github.com/hakimio/ngx-ui-tour) (2023-06-23)
+
+### Fixes
+- Re-initializing the tour is no longer allowed while it's active.
+- Default value for `delayAfterNavigation` was increased to 100ms to make sure tour anchor is registered before
+  showing the tour step.
+
 <a name="5.0.1"></a>
 
 # [5.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-06-22)

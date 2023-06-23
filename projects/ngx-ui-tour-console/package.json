@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-console",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "ngx-ui-tour-core": "11.0.1"
+    "ngx-ui-tour-core": "11.0.2"
   }
 }
