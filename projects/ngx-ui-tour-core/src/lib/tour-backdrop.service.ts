@@ -162,14 +162,19 @@ export class TourBackdropService {
     }
 
     private createBackdropStyles(rectangle: Rectangle) {
-        const config = this.step.backdropConfig;
+        const config = this.step.backdropConfig,
+            normalizedRect = {
+                ...rectangle,
+                width: Math.max(rectangle.width, 0),
+                height: Math.max(rectangle.height, 0)
+            };
 
         return {
             position: 'absolute',
-            width: `${rectangle.width}px`,
-            height: `${rectangle.height}px`,
-            top: `${rectangle.top}px`,
-            left: `${rectangle.left}px`,
+            width: `${normalizedRect.width}px`,
+            height: `${normalizedRect.height}px`,
+            top: `${normalizedRect.top}px`,
+            left: `${normalizedRect.left}px`,
             backgroundColor: config?.backgroundColor ?? 'rgba(0, 0, 0, 0.7)',
             zIndex: config?.zIndex ?? '101'
         } as Partial<CSSStyleDeclaration>;
