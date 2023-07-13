@@ -128,10 +128,12 @@ export class TourBackdropService {
             .subscribe(
                 () => {
                     this.setBackdropPosition();
-                    this.scrollingService.ensureVisible(this.targetHtmlElement, {
-                        center: this.step.centerAnchorOnScroll,
-                        smoothScroll: false
-                    });
+                    if (!this.step.disableScrollToAnchor) {
+                        this.scrollingService.ensureVisible(this.targetHtmlElement, {
+                            center: this.step.centerAnchorOnScroll,
+                            smoothScroll: false
+                        });
+                    }
                 }
             );
     }
