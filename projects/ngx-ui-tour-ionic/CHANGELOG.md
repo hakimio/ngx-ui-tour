@@ -1,3 +1,10 @@
+<a name="2.0.3"></a>
+
+# [2.0.3](https://github.com/hakimio/ngx-ui-tour) (2023-07-13)
+
+### Fixes
+- Fix backdrop position when anchor element is on the edge of the screen and backdrop offset is greater than zero.
+
 <a name="2.0.2"></a>
 
 # [2.0.2](https://github.com/hakimio/ngx-ui-tour) (2023-06-23)
