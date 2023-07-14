@@ -37,6 +37,9 @@
             "type": "attribute"
           }
         ],
+        "@angular-eslint/prefer-standalone-component": [
+          "error"
+        ],
         "semi": ["error", "always"]
       }
     },
