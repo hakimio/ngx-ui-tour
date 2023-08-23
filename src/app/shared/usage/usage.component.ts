@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {default as tourSeviceExample} from '!!raw-loader!./examples/tour-service-initialize.txt';
-import {TuiLinkModule} from '@taiga-ui/core';
+import {TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
@@ -13,10 +13,14 @@ import {HeaderComponent} from '../header/header.component';
         HeaderComponent,
         ProxyTourAnchorDirective,
         TuiDocCodeModule,
-        TuiLinkModule
+        TuiLinkModule,
+        TuiNotificationModule
     ]
 })
 export class UsageComponent {
+
+    @Input({required: true})
+    moduleName: string;
 
     readonly examples = {
         tourSeviceExample
