@@ -1,3 +1,10 @@
+<a name="13.0.4"></a>
+
+# [13.0.4](https://github.com/hakimio/ngx-ui-tour) (2023-09-18)
+
+### Fixes
+- Fix issue with SSR compatibility.
+
 <a name="13.0.3"></a>
 
 # [13.0.3](https://github.com/hakimio/ngx-ui-tour) (2023-07-13)
