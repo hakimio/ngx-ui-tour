@@ -1,4 +1,4 @@
-import {isPlatformBrowser} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {debounceTime, fromEvent, merge, Subject} from 'rxjs';
 
@@ -11,10 +11,12 @@ export class TourResizeObserverService {
     private readonly platformId = inject(PLATFORM_ID);
     private readonly isResizeObserverSupported = isPlatformBrowser(this.platformId) && !!ResizeObserver;
     private resizeObserver?: ResizeObserver;
+    private readonly document = inject(DOCUMENT);
+    private readonly window = this.document.defaultView;
 
     public readonly resize$ = merge(
         this.resizeElSubject,
-        fromEvent(window, 'resize')
+        fromEvent(this.window, 'resize')
     ).pipe(
         debounceTime(10)
     );
