@@ -4,11 +4,16 @@ import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
 import {ScrollUtils} from './scroll-utils';
+import {Dimension, isOverflowing} from './is-overflowing';
 
 export interface ScrollOptions {
     center: boolean;
     smoothScroll: boolean;
     scrollContainer?: string | HTMLElement;
+    preferredScrollTarget?: {
+        x?: ScrollLogicalPosition
+        y?: ScrollLogicalPosition
+    };
 }
 
 @Injectable({
@@ -27,10 +32,22 @@ export class ScrollingService {
 
         const behavior: ScrollBehavior = options.smoothScroll && this.isBrowser ? 'smooth' : 'auto';
 
+        const userScrollContainer = this.scrollOptions.scrollContainer,
+            scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document.documentElement;
+
         if (options.center && !('safari' in this.window)) {
             htmlElement.scrollIntoView({
                 block: 'center',
                 inline: 'center',
+                behavior
+            });
+        } else if (
+            (options.preferredScrollTarget.y && isOverflowing(htmlElement, scrollContainer, Dimension.HEIGHT)) ||
+            (options.preferredScrollTarget.x && isOverflowing(htmlElement, scrollContainer, Dimension.WIDTH))
+        ) {
+            htmlElement.scrollIntoView({
+                block: options.preferredScrollTarget.y ?? 'nearest',
+                inline: options.preferredScrollTarget.x ?? 'nearest',
                 behavior
             });
         } else if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {

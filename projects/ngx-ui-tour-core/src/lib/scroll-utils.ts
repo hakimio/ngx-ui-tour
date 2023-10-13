@@ -2,7 +2,7 @@ export class ScrollUtils {
     
     static getScrollContainer(
         userScrollContainer: string | HTMLElement | undefined
-    ): Element | null {
+    ): HTMLElement | null {
         if (typeof userScrollContainer === 'string') {
             return document.documentElement.querySelector(userScrollContainer);
         }

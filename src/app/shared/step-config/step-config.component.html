@@ -145,6 +145,24 @@
         "disable page scrolling" functions. Defaults to document element if not set.
     </ng-template>
     <ng-template
+        documentationPropertyName="preferredScrollTargetX"
+        documentationPropertyType="string"
+        [documentationPropertyValues]="preferredScrollTarget"
+        [documentationPropertyValue]="'nearest'"
+    >
+        In case of overflowing anchor compared to its scrollContainer,
+        set the preferred side of anchor to scroll to on the X axis.
+    </ng-template>
+    <ng-template
+        documentationPropertyName="preferredScrollTargetY"
+        documentationPropertyType="string"
+        [documentationPropertyValues]="preferredScrollTarget"
+        [documentationPropertyValue]="'nearest'"
+    >
+        In case of overflowing anchor compared to its scrollContainer,
+        set the preferred side of anchor to scroll to on the Y axis.
+    </ng-template>
+    <ng-template
         documentationPropertyName="prevBtnTitle"
         documentationPropertyType="string"
         [documentationPropertyValue]="'Prev'"
