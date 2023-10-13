@@ -4,7 +4,7 @@ import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
 import {ScrollUtils} from './scroll-utils';
-import { isHeightOverflowing } from './overflow-utils';
+import {OverflowUtils} from './overflow-utils';
 
 
 export interface ScrollOptions {
@@ -38,7 +38,7 @@ export class ScrollingService {
                 inline: 'center',
                 behavior
             });
-        } else if (isHeightOverflowing(htmlElement, scrollContainer)) {
+        } else if (OverflowUtils.isHeightOverflowing(htmlElement, scrollContainer)) {
             htmlElement.scrollIntoView({
                 block: 'start',
                 inline: 'start',

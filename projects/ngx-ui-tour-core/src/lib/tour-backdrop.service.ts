@@ -5,7 +5,7 @@ import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
 import {DOCUMENT} from '@angular/common';
 import {ScrollUtils} from "./scroll-utils";
-import {getOverlap, isHeightOverflowing} from "./overflow-utils";
+import {OverflowUtils} from "./overflow-utils";
 
 interface Rectangle {
     width: number;
@@ -87,9 +87,9 @@ export class TourBackdropService {
     private setBackdropPosition(rectangle: DOMRect = null) {
         const docEl = this.document.documentElement,
             scrollContainer = ScrollUtils.getScrollContainer(this.step.scrollContainer) ?? docEl,
-            elementBoundingRect = rectangle ?? isHeightOverflowing(this.targetHtmlElement, scrollContainer) ?
-                getOverlap(this.targetHtmlElement, scrollContainer) :
-                this.targetHtmlElement.getBoundingClientRect(),
+            elementBoundingRect = rectangle ?? this.targetHtmlElement.getBoundingClientRect(),
+            scrollContainerRect = scrollContainer.getBoundingClientRect(),
+            visibleSection = OverflowUtils.getVisibleSection(elementBoundingRect, scrollContainerRect),
             scrollHeight = docEl.scrollHeight,
             scrollWidth = docEl.scrollWidth,
             window = this.document.defaultView,
@@ -97,28 +97,28 @@ export class TourBackdropService {
             scrollY = window.scrollY,
             offset = this.isSpotlightClosed ? 0 : this.step.backdropConfig?.offset ?? 0,
             leftRect: Rectangle = {
-                width: elementBoundingRect.left + scrollX - offset,
+                width: visibleSection.left + scrollX - offset,
                 height: scrollHeight,
                 top: 0,
                 left: 0
             },
             topRect: Rectangle = {
-                width: elementBoundingRect.width + offset * 2,
-                height: elementBoundingRect.top + scrollY - offset,
+                width: visibleSection.width + offset * 2,
+                height: visibleSection.top + scrollY - offset,
                 top: 0,
-                left: elementBoundingRect.left + scrollX - offset
+                left: visibleSection.left + scrollX - offset
             },
             bottomRect: Rectangle = {
-                width: elementBoundingRect.width + offset * 2,
-                height: scrollHeight - (elementBoundingRect.bottom + scrollY) - offset,
-                top: elementBoundingRect.bottom + scrollY + offset,
-                left: elementBoundingRect.left + scrollX - offset
+                width: visibleSection.width + offset * 2,
+                height: scrollHeight - (visibleSection.bottom + scrollY) - offset,
+                top: visibleSection.bottom + scrollY + offset,
+                left: visibleSection.left + scrollX - offset
             },
             rightRect: Rectangle = {
-                width: scrollWidth - (elementBoundingRect.right + scrollX) - offset,
+                width: scrollWidth - (visibleSection.right + scrollX) - offset,
                 height: scrollHeight,
                 top: 0,
-                left: elementBoundingRect.right + scrollX + offset
+                left: visibleSection.right + scrollX + offset
             },
             rectangles: Rectangle[] = [leftRect, topRect, bottomRect, rightRect];
 
@@ -196,7 +196,7 @@ export class TourBackdropService {
 
     private createBackdropElements() {
         return Array
-            .from({ length: 4 })
+            .from({length: 4})
             .map(() => this.createBackdropElement());
     }
 

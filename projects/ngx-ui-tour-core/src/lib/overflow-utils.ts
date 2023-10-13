@@ -1,13 +1,28 @@
-export function isHeightOverflowing(element: HTMLElement, scrollContainer: HTMLElement): boolean {
-    return scrollContainer.getBoundingClientRect().height < element.getBoundingClientRect().height;
+export class OverflowUtils {
+
+    static getVisibleSection(childRect: DOMRect, containerRect: DOMRect): DOMRect {
+        return OverflowUtils._isHeightOverflowing(childRect, containerRect) ?
+            OverflowUtils._getOverlap(childRect, containerRect) :
+            childRect;
+    }
+
+    static isHeightOverflowing(child: HTMLElement | DOMRect, container: HTMLElement | DOMRect): boolean {
+        return OverflowUtils._isHeightOverflowing(
+            child instanceof HTMLElement ? child.getBoundingClientRect() : child,
+            container instanceof HTMLElement ? container.getBoundingClientRect() : container,
+        );
+    }
+
+    private static _isHeightOverflowing(childRect: DOMRect, containerRect: DOMRect): boolean {
+        return containerRect.height < childRect.height;
+    }
+
+    private static _getOverlap(a: DOMRect, b: DOMRect): DOMRect {
+        const top = Math.max(a.top, b.top),
+            left = Math.max(a.left, b.left),
+            right = Math.min(a.right, b.right),
+            bottom = Math.min(a.bottom, b.bottom);
+        return new DOMRect(left, top, right - left, bottom - top);
+    }
 }
 
-export function getOverlap(element: HTMLElement, scrollContainer: HTMLElement): DOMRect {
-    const rectA = element.getBoundingClientRect(),
-        rectB = scrollContainer.getBoundingClientRect(),
-        top = Math.max(rectA.top, rectB.top),
-        left = Math.max(rectA.left, rectB.left),
-        right = Math.min(rectA.right, rectB.right),
-        bottom = Math.min(rectA.bottom, rectB.bottom);
-    return new DOMRect(left, top, right - left, bottom - top);
-}
