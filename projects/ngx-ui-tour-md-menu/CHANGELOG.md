@@ -4,9 +4,7 @@
 
 ### Fixes
 
-- Avoid problems when anchors are overflowing their scrollContainer
-  - Fix scroll behaviours
-  - Fix backdrop
+- Fix backdrop and scroll position when anchor element's height exceeds its scroll container's height
     
 <a name="11.0.4"></a>
 
