@@ -87,7 +87,9 @@ export class TourBackdropService {
     private setBackdropPosition(rectangle: DOMRect = null) {
         const docEl = this.document.documentElement,
             scrollContainer = ScrollUtils.getScrollContainer(this.step.scrollContainer) ?? docEl,
-            elementBoundingRect = rectangle ?? isHeightOverflowing(this.targetHtmlElement, scrollContainer) ? getOverlap(this.targetHtmlElement, scrollContainer) : this.targetHtmlElement.getBoundingClientRect() ,
+            elementBoundingRect = rectangle ?? isHeightOverflowing(this.targetHtmlElement, scrollContainer) ?
+                getOverlap(this.targetHtmlElement, scrollContainer) :
+                this.targetHtmlElement.getBoundingClientRect(),
             scrollHeight = docEl.scrollHeight,
             scrollWidth = docEl.scrollWidth,
             window = this.document.defaultView,
