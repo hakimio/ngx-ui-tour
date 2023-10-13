@@ -1,3 +1,13 @@
+<a name="11.0.5"></a>
+
+# [11.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-13)
+
+### Fixes
+
+- Avoid problems when anchors are overflowing their scrollContainer
+  - Fix scroll behaviours
+  - Fix backdrop
+
 <a name="11.0.4"></a>
 
 # [11.0.4](https://github.com/hakimio/ngx-ui-tour) (2023-09-18)
