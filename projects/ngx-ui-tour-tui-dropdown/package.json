@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "ngx-ui-tour-core": "11.0.4"
+    "ngx-ui-tour-core": "11.0.5"
   }
 }

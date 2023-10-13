@@ -1,3 +1,15 @@
+<a name="11.0.5"></a>
+
+# [11.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-13)
+
+### Features
+
+- Support anchors overflowing their scrollContainer
+  - Update scroll behaviours
+  - Update backdrop
+- Add `preferredScrollTargetX` and `preferredScrollTargetY` options to precise preferred scrolling side of anchor when 
+overflowing their scrollContainer
+
 <a name="11.0.4"></a>
 
 # [11.0.4](https://github.com/hakimio/ngx-ui-tour) (2023-09-18)
