@@ -4,7 +4,8 @@ import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
 import {ScrollUtils} from './scroll-utils';
-import {isHeightOverflowing} from './is-height-overflowing';
+import { isHeightOverflowing } from './overflow-utils';
+
 
 export interface ScrollOptions {
     center: boolean;

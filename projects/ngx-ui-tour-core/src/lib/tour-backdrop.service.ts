@@ -5,7 +5,7 @@ import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
 import {DOCUMENT} from '@angular/common';
 import {ScrollUtils} from "./scroll-utils";
-import {getOverlap, isHeightOverflowing} from "./is-height-overflowing";
+import {getOverlap, isHeightOverflowing} from "./overflow-utils";
 
 interface Rectangle {
     width: number;
