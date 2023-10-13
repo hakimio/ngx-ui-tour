@@ -47,12 +47,6 @@ export interface IStepOption {
     allowUserInitiatedNavigation?: boolean;
     stepDimensions?: StepDimensions;
     popoverClass?: string;
-    /**
-     * In case of overflowing anchor compared to its scrollContainer,
-     * set the preferred side of anchor to scroll to. default to nearest
-     */
-    preferredScrollTargetX?: ScrollLogicalPosition;
-    preferredScrollTargetY?: ScrollLogicalPosition;
 }
 
 export enum TourState {
@@ -542,11 +536,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         return this.scrollingService.ensureVisible(htmlElement, {
             center: step.centerAnchorOnScroll,
             smoothScroll: step.smoothScroll,
-            scrollContainer: step.scrollContainer,
-            preferredScrollTarget: {
-                x: step.preferredScrollTargetX,
-                y: step.preferredScrollTargetY
-            }
+            scrollContainer: step.scrollContainer
         });
     }
 

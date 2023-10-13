@@ -1,16 +1,5 @@
-export const enum Dimension {
-  WIDTH,
-  HEIGHT,
-  ALL
-}
-
-export function isOverflowing(element: HTMLElement, scrollContainer: HTMLElement, dimension = Dimension.ALL): boolean {
-  if (dimension === Dimension.HEIGHT)
+export function isHeightOverflowing(element: HTMLElement, scrollContainer: HTMLElement): boolean {
     return scrollContainer.getBoundingClientRect().height < element.getBoundingClientRect().height;
-  if (dimension === Dimension.WIDTH)
-    return scrollContainer.getBoundingClientRect().width < element.getBoundingClientRect().width;
-
-  return isOverflowing(element, scrollContainer, Dimension.HEIGHT) || isOverflowing(element, scrollContainer, Dimension.WIDTH);
 }
 
 export function getOverlap(element: HTMLElement, scrollContainer: HTMLElement): DOMRect {

@@ -4,16 +4,12 @@ import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
 import {ScrollUtils} from './scroll-utils';
-import {Dimension, isOverflowing} from './is-overflowing';
+import {isHeightOverflowing} from './is-height-overflowing';
 
 export interface ScrollOptions {
     center: boolean;
     smoothScroll: boolean;
     scrollContainer?: string | HTMLElement;
-    preferredScrollTarget?: {
-        x?: ScrollLogicalPosition
-        y?: ScrollLogicalPosition
-    };
 }
 
 @Injectable({
@@ -41,13 +37,10 @@ export class ScrollingService {
                 inline: 'center',
                 behavior
             });
-        } else if (
-            (options.preferredScrollTarget.y && isOverflowing(htmlElement, scrollContainer, Dimension.HEIGHT)) ||
-            (options.preferredScrollTarget.x && isOverflowing(htmlElement, scrollContainer, Dimension.WIDTH))
-        ) {
+        } else if (isHeightOverflowing(htmlElement, scrollContainer)) {
             htmlElement.scrollIntoView({
-                block: options.preferredScrollTarget.y ?? 'nearest',
-                inline: options.preferredScrollTarget.x ?? 'nearest',
+                block: 'start',
+                inline: 'start',
                 behavior
             });
         } else if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {

@@ -5,7 +5,7 @@ import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
 import {DOCUMENT} from '@angular/common';
 import {ScrollUtils} from "./scroll-utils";
-import {getOverlap, isOverflowing} from "./is-overflowing";
+import {getOverlap, isHeightOverflowing} from "./is-height-overflowing";
 
 interface Rectangle {
     width: number;
@@ -87,7 +87,7 @@ export class TourBackdropService {
     private setBackdropPosition(rectangle: DOMRect = null) {
         const docEl = this.document.documentElement,
             scrollContainer = ScrollUtils.getScrollContainer(this.step.scrollContainer) ?? docEl,
-            elementBoundingRect = rectangle ?? isOverflowing(this.targetHtmlElement, scrollContainer) ? getOverlap(this.targetHtmlElement, scrollContainer) : this.targetHtmlElement.getBoundingClientRect() ,
+            elementBoundingRect = rectangle ?? isHeightOverflowing(this.targetHtmlElement, scrollContainer) ? getOverlap(this.targetHtmlElement, scrollContainer) : this.targetHtmlElement.getBoundingClientRect() ,
             scrollHeight = docEl.scrollHeight,
             scrollWidth = docEl.scrollWidth,
             window = this.document.defaultView,
@@ -134,11 +134,7 @@ export class TourBackdropService {
                     if (!this.step.disableScrollToAnchor) {
                         this.scrollingService.ensureVisible(this.targetHtmlElement, {
                             center: this.step.centerAnchorOnScroll,
-                            smoothScroll: false,
-                            preferredScrollTarget: {
-                              x: this.step.preferredScrollTargetX,
-                              y: this.step.preferredScrollTargetY
-                            }
+                            smoothScroll: false
                         });
                     }
                 }
