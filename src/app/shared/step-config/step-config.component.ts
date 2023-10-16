@@ -33,4 +33,5 @@ export class StepConfigComponent {
     placementConfig: PlacementConfigComponent;
 
     readonly duplicateAnchorHandlingValues: IStepOption['duplicateAnchorHandling'][] = ['error', 'registerFirst', 'registerLast'];
+
 }
