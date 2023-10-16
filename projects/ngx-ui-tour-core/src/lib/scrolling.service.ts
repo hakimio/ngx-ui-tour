@@ -32,16 +32,16 @@ export class ScrollingService {
         const userScrollContainer = this.scrollOptions.scrollContainer,
             scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document.documentElement;
 
-        if (options.center && !('safari' in this.window)) {
-            htmlElement.scrollIntoView({
-                block: 'center',
-                inline: 'center',
-                behavior
-            });
-        } else if (OverflowUtils.isHeightOverflowing(htmlElement, scrollContainer)) {
+        if (OverflowUtils.isHeightOverflowing(htmlElement, scrollContainer)) {
             htmlElement.scrollIntoView({
                 block: 'start',
                 inline: 'start',
+                behavior
+            });
+        } else if (options.center && !('safari' in this.window)) {
+            htmlElement.scrollIntoView({
+                block: 'center',
+                inline: 'center',
                 behavior
             });
         } else if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {
