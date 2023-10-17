@@ -1,6 +1,6 @@
 <a name="2.0.5"></a>
 
-# [2.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-13)
+# [2.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-17)
 
 ### Fixes
 
