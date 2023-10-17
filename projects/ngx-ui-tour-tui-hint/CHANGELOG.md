@@ -1,3 +1,11 @@
+<a name="5.0.5"></a>
+
+# [5.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-13)
+
+### Fixes
+
+- Fix backdrop and scroll position when anchor element's height exceeds its scroll container's height
+    
 <a name="5.0.4"></a>
 
 # [5.0.4](https://github.com/hakimio/ngx-ui-tour) (2023-09-18)

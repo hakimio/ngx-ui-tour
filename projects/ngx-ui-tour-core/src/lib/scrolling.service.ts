@@ -4,6 +4,8 @@ import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {isCovered} from './is-covered';
 import {ScrollUtils} from './scroll-utils';
+import {OverflowUtils} from './overflow-utils';
+
 
 export interface ScrollOptions {
     center: boolean;
@@ -27,7 +29,16 @@ export class ScrollingService {
 
         const behavior: ScrollBehavior = options.smoothScroll && this.isBrowser ? 'smooth' : 'auto';
 
-        if (options.center && !('safari' in this.window)) {
+        const userScrollContainer = this.scrollOptions.scrollContainer,
+            scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document.documentElement;
+
+        if (OverflowUtils.isHeightOverflowing(htmlElement, scrollContainer)) {
+            htmlElement.scrollIntoView({
+                block: 'start',
+                inline: 'start',
+                behavior
+            });
+        } else if (options.center && !('safari' in this.window)) {
             htmlElement.scrollIntoView({
                 block: 'center',
                 inline: 'center',

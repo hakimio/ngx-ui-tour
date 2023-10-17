@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ionic",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "UI tour library for Angular 15+",
   "keywords": [
     "angular",
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "ngx-ui-tour-core": "11.0.4"
+    "ngx-ui-tour-core": "11.0.5"
   }
 }
