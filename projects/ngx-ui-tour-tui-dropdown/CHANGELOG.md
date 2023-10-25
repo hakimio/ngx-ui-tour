@@ -1,3 +1,11 @@
+<a name="5.0.6"></a>
+
+# [5.0.6](https://github.com/hakimio/ngx-ui-tour) (2023-10-25)
+
+### Fixes
+
+- Fix merging deeply nested tour options like backdrop config or step dimensions
+
 <a name="5.0.5"></a>
 
 # [5.0.5](https://github.com/hakimio/ngx-ui-tour) (2023-10-17)
