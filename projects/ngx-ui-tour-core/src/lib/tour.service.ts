@@ -8,6 +8,7 @@ import {ScrollingService} from './scrolling.service';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
+import {deepMerge} from './deep-merge';
 
 export interface StepDimensions {
     width?: string;
@@ -65,7 +66,7 @@ export interface StepChangeParams<T extends IStepOption = IStepOption> {
     direction: Direction;
 }
 
-const DEFAULT_STEP_OPTIONS: Partial<IStepOption> = {
+const DEFAULT_STEP_OPTIONS: IStepOption = {
     disableScrollToAnchor: false,
     prevBtnTitle: 'Prev',
     nextBtnTitle: 'Next',
@@ -151,12 +152,12 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (steps && steps.length > 0) {
             this.status = TourState.OFF;
             this.steps = steps.map(
-                step => ({
-                    ...DEFAULT_STEP_OPTIONS,
-                    ...this.userDefaults,
-                    ...stepDefaults,
-                    ...step
-                })
+                step => deepMerge(
+                    DEFAULT_STEP_OPTIONS as T,
+                    this.userDefaults,
+                    stepDefaults,
+                    step
+                )
             );
             this.validateSteps();
             this.initialize$.next(this.steps);
