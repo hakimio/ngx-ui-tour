@@ -1,5 +1,5 @@
 import {HIGHLIGHT_OPTIONS, HighlightOptions} from 'ngx-highlightjs';
-import {REMOVE_STYLES_ON_COMPONENT_DESTROY, Title} from '@angular/platform-browser';
+import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {pages} from './pages';
@@ -71,10 +71,6 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     {
         provide: DELAY_AFTER_NAVIGATION,
         useValue: 150
-    },
-    {
-        provide: REMOVE_STYLES_ON_COMPONENT_DESTROY,
-        useValue: true
     },
     provideZoneChangeDetection({
         eventCoalescing: true
