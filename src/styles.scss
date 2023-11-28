@@ -4,7 +4,7 @@
 @import './bootstrap';
 
 body {
-    font: var(--tui-font-text-m);
+    font: var(--tui-font-text-m) !important;
     overflow-x: hidden;
 
     /* Ionic scroll issue work-around */
