@@ -85,10 +85,10 @@
           "options": {},
           "configurations": {
             "production": {
-              "browserTarget": "ngx-ui-tour:build:production"
+              "buildTarget": "ngx-ui-tour:build:production"
             },
             "development": {
-              "browserTarget": "ngx-ui-tour:build:development"
+              "buildTarget": "ngx-ui-tour:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-ui-tour:build"
+            "buildTarget": "ngx-ui-tour:build"
           }
         },
         "lint": {
@@ -340,10 +340,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lazy-tour-demo:build:production"
+              "buildTarget": "lazy-tour-demo:build:production"
             },
             "development": {
-              "browserTarget": "lazy-tour-demo:build:development"
+              "buildTarget": "lazy-tour-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -351,7 +351,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lazy-tour-demo:build"
+            "buildTarget": "lazy-tour-demo:build"
           }
         },
         "lint": {

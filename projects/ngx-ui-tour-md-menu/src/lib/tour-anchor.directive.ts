@@ -7,12 +7,12 @@ import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
 import {IMdStepOption} from './step-option.interface';
-import {_MatMenuBase, MatMenuPanel} from '@angular/material/menu';
+import {MatMenu, MatMenuPanel} from '@angular/material/menu';
 import {FlexibleConnectedPositionStrategy, HorizontalConnectionPos, VerticalConnectionPos} from '@angular/cdk/overlay';
 
 interface CustomMenuTrigger {
     _element: ElementRef<HTMLElement>;
-    _parentMaterialMenu: _MatMenuBase;
+    _parentMaterialMenu: MatMenu;
     _setPosition: (menu: MatMenuPanel, positionStrategy: FlexibleConnectedPositionStrategy) => void
 }
 
