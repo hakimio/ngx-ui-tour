@@ -15,6 +15,7 @@ import {
 } from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideIonicAngular} from '@ionic/angular/standalone';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -82,5 +83,8 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
         withInMemoryScrolling({
             scrollPositionRestoration: 'top'
         })
-    )
+    ),
+    provideIonicAngular({
+        mode: 'md'
+    })
 ];

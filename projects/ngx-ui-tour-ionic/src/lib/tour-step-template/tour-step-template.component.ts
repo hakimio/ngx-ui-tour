@@ -1,10 +1,24 @@
 import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
-import {createAnimation, IonicModule, IonPopover} from '@ionic/angular';
+import {
+    createAnimation,
+    IonButton,
+    IonCard, IonCardContent,
+    IonCardHeader,
+    IonCardTitle,
+    IonIcon,
+    IonPopover
+} from '@ionic/angular/standalone';
 import {NgIf, NgTemplateOutlet} from '@angular/common';
 import {IonStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {IonTourService} from '../ion-tour.service';
+import {addIcons} from 'ionicons';
+import {
+    closeOutline,
+    chevronBackOutline,
+    chevronForwardOutline
+} from 'ionicons/icons';
 
 @Component({
     selector: 'tour-step-template',
@@ -12,9 +26,15 @@ import {IonTourService} from '../ion-tour.service';
     styleUrls: ['./tour-step-template.component.scss'],
     standalone: true,
     imports: [
-        IonicModule,
         NgTemplateOutlet,
-        NgIf
+        NgIf,
+        IonPopover,
+        IonCard,
+        IonCardHeader,
+        IonCardTitle,
+        IonButton,
+        IonIcon,
+        IonCardContent
     ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
@@ -36,6 +56,15 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
         public override readonly tourService: IonTourService
     ) {
         super(tourService);
+        this.addIonicIcons();
+    }
+
+    private addIonicIcons() {
+        addIcons({
+            closeOutline,
+            chevronBackOutline,
+            chevronForwardOutline
+        });
     }
 
     public ngAfterViewInit() {

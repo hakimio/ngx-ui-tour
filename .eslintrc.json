@@ -40,7 +40,19 @@
         "@angular-eslint/prefer-standalone-component": [
           "error"
         ],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "@typescript-eslint/no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@ionic/angular",
+                "message": "Please import Ionic standalone components instead: `import {IonButton} from '@ionic/angular/standalone'`.",
+                "allowTypeImports": true
+              }
+            ]
+          }
+        ]
       }
     },
     {
