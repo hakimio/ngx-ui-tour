@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {NgFor} from '@angular/common';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
 import {LIST_COMPONENTS} from '../list';
@@ -12,8 +11,7 @@ import {LIST_COMPONENTS} from '../list';
     imports: [
         HeaderComponent,
         ProxyTourAnchorDirective,
-        LIST_COMPONENTS,
-        NgFor
+        LIST_COMPONENTS
     ]
 })
 export class HotkeysComponent {

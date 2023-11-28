@@ -10,9 +10,10 @@
 </p>
 
 <app-list>
-    <app-list-item
-        *ngFor="let hotkey of hotkeys"
-        [name]="hotkey.key"
-        [description]="hotkey.action"
-    ></app-list-item>
+    @for (hotkey of hotkeys; track hotkey.key) {
+        <app-list-item
+            [name]="hotkey.key"
+            [description]="hotkey.action"
+        ></app-list-item>
+    }
 </app-list>

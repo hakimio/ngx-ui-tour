@@ -1,11 +1,11 @@
 import {Attribute, Component, Inject} from '@angular/core';
-import {TuiAlertService, TuiButtonModule, TuiNotification} from '@taiga-ui/core';
+import {TuiAlertService, TuiButtonModule} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {LOCATION} from '@ng-web-apis/common';
 import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
 import {map, Observable} from 'rxjs';
-import {AsyncPipe, NgIf} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +13,6 @@ import {AsyncPipe, NgIf} from '@angular/common';
     styleUrls: ['./header.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
         TuiButtonModule,
         AsyncPipe
     ]
@@ -48,7 +47,7 @@ export class HeaderComponent {
         this.alertService
             .open(this.texts[1], {
                 label: this.texts[2],
-                status: TuiNotification.Success
+                status: 'success'
             })
             .subscribe();
     }

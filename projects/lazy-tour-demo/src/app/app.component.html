@@ -1,15 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav mode="side" opened>
         <mat-nav-list>
-            <a
-                *ngFor="let page of pages"
-                mat-list-item
-                [routerLink]="page.path"
-                routerLinkActive="sidenav-item-selected"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                {{page.name}}
-            </a>
+            @for (page of pages; track page.name) {
+                <a
+                    mat-list-item
+                    [routerLink]="page.path"
+                    routerLinkActive="sidenav-item-selected"
+                    [routerLinkActiveOptions]="{exact: true}"
+                >
+                    {{ page.name }}
+                </a>
+            }
         </mat-nav-list>
     </mat-sidenav>
     <div class="main-content">

@@ -8,7 +8,6 @@ import {default as customTourServiceUsage} from '!!raw-loader!./examples/custom-
 import {default as backdropPadding} from '!!raw-loader!./examples/backdrop-padding-css.txt';
 import {default as backdropParagraphPadding} from '!!raw-loader!./examples/backdrop-paragraph-padding-css.txt';
 import {default as backdropButtonPadding} from '!!raw-loader!./examples/backdrop-button-padding-html.txt';
-import {NgIf} from '@angular/common';
 import {TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {HeaderComponent} from '../header/header.component';
@@ -22,7 +21,6 @@ import {HeaderComponent} from '../header/header.component';
         HeaderComponent,
         TuiDocCodeModule,
         TuiNotificationModule,
-        NgIf,
         TuiLinkModule
     ]
 })

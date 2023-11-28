@@ -1,14 +1,15 @@
 <h3 class="title">
     <ng-content></ng-content>
-    <button
-        *ngIf="id"
-        tuiIconButton
-        type="button"
-        size="xs"
-        class="link-icon"
-        [icon]="'tuiIconLinkLarge'"
-        appearance="icon"
-        [title]="copy$ | async"
-        (click)="copyExampleLink()"
-    ></button>
+    @if (id) {
+        <button
+            tuiIconButton
+            type="button"
+            size="xs"
+            class="link-icon"
+            [icon]="'tuiIconLinkLarge'"
+            appearance="icon"
+            [title]="copy$ | async"
+            (click)="copyExampleLink()"
+        ></button>
+    }
 </h3>

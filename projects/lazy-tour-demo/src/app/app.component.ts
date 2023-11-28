@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
-import {NgForOf} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 
 @Component({
@@ -15,7 +14,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
         TourMatMenuModule,
         MatSidenavModule,
         MatListModule,
-        NgForOf,
         RouterLink,
         RouterLinkActive,
         RouterOutlet

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {default as onInitialize} from '!!raw-loader!./examples/on-initialize.txt';
-import {NgFor} from '@angular/common';
 import {TuiDocCodeModule, TuiDocDocumentationModule} from '@taiga-ui/addon-doc';
 import {HeaderComponent} from '../header/header.component';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
@@ -14,8 +13,7 @@ import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
         ProxyTourAnchorDirective,
         HeaderComponent,
         TuiDocCodeModule,
-        TuiDocDocumentationModule,
-        NgFor
+        TuiDocDocumentationModule
     ]
 })
 export class EventsComponent {

@@ -5,7 +5,7 @@ import {IMdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgxmTourService} from '../ngx-md-menu-tour.service';
 import {MatCardModule} from '@angular/material/card';
-import {NgIf, NgTemplateOutlet} from '@angular/common';
+import {NgTemplateOutlet} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -19,8 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
         MatMenuModule,
         NgTemplateOutlet,
         MatButtonModule,
-        MatIconModule,
-        NgIf
+        MatIconModule
     ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {

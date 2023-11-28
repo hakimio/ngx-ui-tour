@@ -3,7 +3,7 @@ import {ITuiHintStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {TourTuiHintService} from '../tour-tui-hint.service';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
-import {NgIf, NgTemplateOutlet} from '@angular/common';
+import {NgTemplateOutlet} from '@angular/common';
 import {TuiButtonModule} from '@taiga-ui/core';
 
 @Component({
@@ -13,17 +13,16 @@ import {TuiButtonModule} from '@taiga-ui/core';
     standalone: true,
     imports: [
         NgTemplateOutlet,
-        TuiButtonModule,
-        NgIf
+        TuiButtonModule
     ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
     @Input()
-    stepTemplate: TemplateRef<{step: ITuiHintStepOption}>;
+    stepTemplate: TemplateRef<{ step: ITuiHintStepOption }>;
 
     @ContentChild(TemplateRef)
-    stepTemplateContent: TemplateRef<{step: ITuiHintStepOption}>;
+    stepTemplateContent: TemplateRef<{ step: ITuiHintStepOption }>;
 
     @ViewChild('tuiDropdownTemplate')
     template: TemplateRef<never>;

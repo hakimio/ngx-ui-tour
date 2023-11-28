@@ -11,6 +11,10 @@
             GitHub
         </a>
     </ng-container>
-    <tui-theme-android *ngIf="isAndroid"></tui-theme-android>
-    <tui-theme-ios *ngIf="isIos"></tui-theme-ios>
+    @if (isAndroid) {
+        <tui-theme-android></tui-theme-android>
+    }
+    @if (isIos) {
+        <tui-theme-ios></tui-theme-ios>
+    }
 </tui-doc-main>

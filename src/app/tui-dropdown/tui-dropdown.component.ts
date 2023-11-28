@@ -84,7 +84,7 @@ export class TuiDropdownComponent implements OnInit {
         content: 'Enable "smoothScroll" option to smoothly scroll to an active element.',
         title: 'Smooth scroll',
         route: 'tui-dropdown/API'
-    },{
+    }, {
         anchorId: 'config.buttons.custom',
         content: 'You can set custom step button names',
         title: 'Button Titles',

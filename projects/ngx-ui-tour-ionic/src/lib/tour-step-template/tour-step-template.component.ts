@@ -3,22 +3,19 @@ import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {
     createAnimation,
     IonButton,
-    IonCard, IonCardContent,
+    IonCard,
+    IonCardContent,
     IonCardHeader,
     IonCardTitle,
     IonIcon,
     IonPopover
 } from '@ionic/angular/standalone';
-import {NgIf, NgTemplateOutlet} from '@angular/common';
+import {NgTemplateOutlet} from '@angular/common';
 import {IonStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {IonTourService} from '../ion-tour.service';
 import {addIcons} from 'ionicons';
-import {
-    closeOutline,
-    chevronBackOutline,
-    chevronForwardOutline
-} from 'ionicons/icons';
+import {chevronBackOutline, chevronForwardOutline, closeOutline} from 'ionicons/icons';
 
 @Component({
     selector: 'tour-step-template',
@@ -27,7 +24,6 @@ import {
     standalone: true,
     imports: [
         NgTemplateOutlet,
-        NgIf,
         IonPopover,
         IonCard,
         IonCardHeader,

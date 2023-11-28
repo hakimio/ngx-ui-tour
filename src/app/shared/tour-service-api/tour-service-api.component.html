@@ -4,9 +4,10 @@
 </p>
 
 <app-list>
-    <app-list-item
-        *ngFor="let method of methods"
-        [name]="method.name"
-        [description]="method.description"
-    ></app-list-item>
+    @for (method of methods; track method.name) {
+        <app-list-item
+            [name]="method.name"
+            [description]="method.description"
+        ></app-list-item>
+    }
 </app-list>

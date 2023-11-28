@@ -30,7 +30,7 @@
     status="warning"
     class="tui-space_top-3"
 >
-    Starting with <code>v{{disablePageScrollingIntroducedIn}}</code> you can enable
+    Starting with <code>v{{ disablePageScrollingIntroducedIn }}</code> you can enable
     <code>disablePageScrolling</code> option to disable scrolling.
 </tui-notification>
 
@@ -58,18 +58,16 @@
         ></tui-doc-code>
     </li>
 </ol>
-
 <app-header id="backdrop-padding">How to add space around highlighted anchor element</app-header>
-
-<tui-notification
-    status="warning"
-    class="tui-space_top-3"
-    *ngIf="backdropOffsetIntroducedIn"
->
-    Starting with <code>v{{backdropOffsetIntroducedIn}}</code> you can set
-    <code>backdropConfig.offset</code> to add padding around anchor element
-</tui-notification>
-
+@if (backdropOffsetIntroducedIn) {
+    <tui-notification
+        status="warning"
+        class="tui-space_top-3"
+    >
+        Starting with <code>v{{ backdropOffsetIntroducedIn }}</code> you can set
+        <code>backdropConfig.offset</code> to add padding around anchor element
+    </tui-notification>
+}
 <img
     src="https://user-images.githubusercontent.com/768105/215475778-34d275cf-c6a0-436c-b3e5-9159083cfcaa.png"
     alt="backdrop spacing"
@@ -110,7 +108,11 @@
 
 <p>
     You can also check out
-    <a tuiLink target="_blank" href="https://stackblitz.com/edit/angular-wau2z8-ggpcaf?file=src%2Fapp%2Fui-tour-demo.component.scss">
+    <a
+        tuiLink
+        target="_blank"
+        href="https://stackblitz.com/edit/angular-wau2z8-ggpcaf?file=src%2Fapp%2Fui-tour-demo.component.scss"
+    >
         StackBlitz demo project
     </a> to see this approach in action.
 </p>

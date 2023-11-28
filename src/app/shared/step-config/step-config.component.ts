@@ -1,7 +1,6 @@
 import {Component, ContentChild, Input} from '@angular/core';
 import {PlacementConfigComponent} from './placement-config.component';
 import {IStepOption} from 'ngx-ui-tour-md-menu';
-import {NgIf} from '@angular/common';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {TuiDocDocumentationModule} from '@taiga-ui/addon-doc';
 import {HeaderComponent} from '../header/header.component';
@@ -14,8 +13,7 @@ import {HeaderComponent} from '../header/header.component';
     imports: [
         HeaderComponent,
         TuiDocDocumentationModule,
-        ProxyTourAnchorDirective,
-        NgIf
+        ProxyTourAnchorDirective
     ]
 })
 export class StepConfigComponent {

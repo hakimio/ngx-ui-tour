@@ -15,11 +15,12 @@
     [isAPI]="true"
     [showValues]="false"
 >
-    <ng-template
-        *ngFor="let event of events"
-        [documentationPropertyName]="event.name"
-        [documentationPropertyType]="event.payload"
-    >
-        {{event.description}}
-    </ng-template>
+    @for (event of events; track event.name) {
+        <ng-template
+            [documentationPropertyName]="event.name"
+            [documentationPropertyType]="event.payload"
+        >
+            {{ event.description }}
+        </ng-template>
+    }
 </tui-doc-documentation>

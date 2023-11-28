@@ -3,7 +3,6 @@ import {TUI_IS_ANDROID, TUI_IS_IOS} from '@taiga-ui/cdk';
 import {TuiDocMainModule} from '@taiga-ui/addon-doc';
 import {TuiLinkModule, TuiModeModule} from '@taiga-ui/core';
 import {TuiThemeAndroidModule, TuiThemeIosModule} from '@taiga-ui/addon-mobile';
-import {NgIf} from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -15,8 +14,7 @@ import {NgIf} from '@angular/common';
         TuiLinkModule,
         TuiModeModule,
         TuiThemeAndroidModule,
-        TuiThemeIosModule,
-        NgIf
+        TuiThemeIosModule
     ]
 })
 export class AppComponent {
