@@ -185,12 +185,19 @@
         <div tourAnchor="config.isAsync">Mark your step as "async" if anchor element is added to DOM with a delay.</div>
     </ng-template>
     <ng-template
+        documentationPropertyName="asyncStepTimeout"
+        documentationPropertyType="number"
+    >
+        Time to wait for async step in ms. Once the time runs out, if the step is also marked as "optional",
+        the step will be skipped, otherwise will end the tour with a warning.
+    </ng-template>
+    <ng-template
         documentationPropertyName="isOptional"
         documentationPropertyType="boolean"
         [documentationPropertyValue]="false"
     >
-        Mark your step as "optional" if it should be skipped when anchor element is not found. Step can not be marked
-        both "optional" and "async".
+        Mark your step as "optional" if it should be skipped when anchor element is not found. Step can only be marked
+        as both "optional" and "async" if "asyncStepTimeout" setting is set.
     </ng-template>
     <ng-template
         documentationPropertyName="delayAfterNavigation"

@@ -3,7 +3,7 @@ import type {UrlSegment} from '@angular/router';
 import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
 
 import {TourAnchorDirective} from './tour-anchor.directive';
-import {delay, filter, first, map, merge as mergeStatic, Observable, Subject, takeUntil} from 'rxjs';
+import {delay, filter, first, map, merge as mergeStatic, Observable, of, Subject, takeUntil, timeout} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
@@ -39,6 +39,7 @@ export interface IStepOption {
     enableBackdrop?: boolean;
     backdropConfig?: BackdropConfig;
     isAsync?: boolean;
+    asyncStepTimeout?: number;
     isOptional?: boolean;
     delayAfterNavigation?: number;
     delayBeforeStepShow?: number;
@@ -175,8 +176,9 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     private validateSteps() {
         for (const step of this.steps) {
-            if (step.isAsync && step.isOptional) {
-                throw new Error(`Tour step with anchor id "${step.anchorId}" can not be both "async" and "optional"!`);
+            if (step.isAsync && step.isOptional && !step.asyncStepTimeout) {
+                throw new Error(`Tour step with anchor id "${step.anchorId}" can only be both "async" and ` +
+                    `"optional" when "asyncStepTimeout" is specified!`);
             }
         }
     }
@@ -474,19 +476,31 @@ export class TourService<T extends IStepOption = IStepOption> {
         setTimeout(() => this.setCurrentStep(step), delay);
     }
 
-    protected async showStep(step: T): Promise<void> {
+    protected async showStep(step: T, skipAsync = false): Promise<void> {
         const anchor = this.anchors[step && step.anchorId];
 
         if (!anchor) {
-            if (step.isAsync) {
-                this.anchorRegister$
+            if (step.isAsync && !skipAsync) {
+                let anchorRegistered$ = this.anchorRegister$
                     .pipe(
                         filter(anchorId => anchorId === step.anchorId),
                         first(),
                         delay(0)
-                    )
+                    );
+
+                if (step.asyncStepTimeout) {
+                    anchorRegistered$ = anchorRegistered$
+                        .pipe(
+                            timeout({
+                                each: step.asyncStepTimeout,
+                                with: () => of(null)
+                            })
+                        );
+                }
+
+                anchorRegistered$
                     .subscribe(
-                        () => this.showStep(step)
+                        () => this.showStep(step, true)
                     );
                 return;
             }
@@ -495,9 +509,7 @@ export class TourService<T extends IStepOption = IStepOption> {
                 return;
             }
 
-            console.warn(
-                'Can\'t attach to unregistered anchor with id ' + step.anchorId
-            );
+            console.warn(`Can't attach to unregistered anchor with id "${step.anchorId}"`);
             this.end();
             return;
         }
