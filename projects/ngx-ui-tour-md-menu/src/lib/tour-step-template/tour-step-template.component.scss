@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
 
+$border-color: #E3E4E6;
+$background-color: #FFFFFF;
 
 @include mat.icon-button-density(-3);
 
@@ -10,6 +12,140 @@
 ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel.tour-step {
     min-width: unset;
     max-width: unset;
+    overflow: unset;
+    box-shadow: none;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14));
+
+    &.arrow {
+        position: relative;
+
+        &:after, &:before {
+            bottom: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &:after {
+            border-color: rgba(255, 255, 255, 0);
+            border-width: 8px;
+        }
+        &:before {
+            border-color: rgba(227, 228, 230, 0);
+            border-width: 9px;
+        }
+
+        &.mat-menu-before:not(.horizontal) {
+            &:after, &:before {
+                right: 10px;
+            }
+            &:after, &:before {
+                right: 20px;
+            }
+            &:before {
+                margin-right: -1px;
+            }
+        }
+
+        &.mat-menu-after:not(.horizontal) {
+            &:after, &:before {
+                left: 10px;
+            }
+            &:after, &:before {
+                left: 20px;
+            }
+            &:after {
+                margin-left: 1px;
+            }
+        }
+
+        &.mat-menu-below:not(.horizontal) {
+            margin-top: 10px;
+
+            &:after {
+                border-top-color: transparent;
+                border-bottom-color: $background-color;
+            }
+            &:before {
+                border-top-color: transparent;
+                border-bottom-color: $border-color;
+            }
+        }
+
+        &.mat-menu-above:not(.horizontal) {
+            margin-bottom: 10px;
+
+            &:after, &:before {
+                top: 100%;
+            }
+            &:after {
+                border-top-color: $background-color;
+                border-bottom-color: transparent;
+            }
+            &:before {
+                border-top-color: $border-color;
+                border-bottom-color: transparent;
+            }
+        }
+
+        // horizontal
+        &.mat-menu-before.horizontal {
+            margin-right: 15px;
+
+            &:after, &:before {
+                left: 100%;
+            }
+            &:after {
+                border-left-color: $background-color;
+                border-right-color: transparent;
+            }
+            &:before {
+                border-left-color: $border-color;
+                border-right-color: transparent;
+            }
+        }
+
+        &.mat-menu-after.horizontal {
+            margin-left: 15px;
+
+            &:after, &:before {
+                right: 100%;
+            }
+            &:after {
+                border-left-color: transparent;
+                border-right-color: $background-color;
+            }
+            &:before {
+                border-left-color: transparent;
+                border-right-color: $border-color;
+            }
+        }
+
+        &.mat-menu-below.horizontal {
+            &:after, &:before {
+                top: 16px;
+            }
+            &:after {
+                margin-top: 1px;
+            }
+        }
+
+        &.mat-menu-above.horizontal {
+            &:after, &:before {
+                bottom: 16px;
+            }
+            &:after {
+                margin-bottom: 1px;
+            }
+        }
+    }
+}
+
+mat-card {
+    box-shadow: none;
 }
 
 mat-card-content {

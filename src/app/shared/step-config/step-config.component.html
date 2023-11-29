@@ -104,7 +104,7 @@
             </div>
         </ng-template>
     }
-    @if (isShowArrowVisible) {
+    @if (isIonicShowArrowVisible) {
         <ng-template
             documentationPropertyName="showArrow"
             documentationPropertyType="boolean"
@@ -112,6 +112,15 @@
         >
             If enabled, shows an arrow that points to the anchor element when running in <code>ios</code> mode. Does not
             apply in <code>md</code> mode.
+        </ng-template>
+    }
+    @if (isMdMenuShowArrowVisible) {
+        <ng-template
+            documentationPropertyName="showArrow"
+            documentationPropertyType="boolean"
+            [documentationPropertyValue]="true"
+        >
+            If enabled, shows an arrow that points to the anchor element.
         </ng-template>
     }
     <ng-template

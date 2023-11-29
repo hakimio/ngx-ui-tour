@@ -22,7 +22,10 @@ export class StepConfigComponent {
     isCloseOnOutsideClickVisible = false;
 
     @Input()
-    isShowArrowVisible = false;
+    isIonicShowArrowVisible = false;
+
+    @Input()
+    isMdMenuShowArrowVisible = false;
 
     @Input()
     isUseLegacyTitleVisible = false;

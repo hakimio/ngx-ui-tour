@@ -1,9 +1,9 @@
-<mat-menu [overlapTrigger]="false" class="tour-step">
+<mat-menu [overlapTrigger]="false">
     <ng-container
         *ngTemplateOutlet="
-                    stepTemplate || stepTemplateContent || defaultTemplate;
-                    context: { step: step }
-                "
+            stepTemplate || stepTemplateContent || defaultTemplate;
+            context: { step: step }
+        "
     ></ng-container>
 </mat-menu>
 

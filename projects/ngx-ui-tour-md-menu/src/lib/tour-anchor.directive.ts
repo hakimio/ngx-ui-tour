@@ -71,8 +71,12 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         menu.xPosition = step.placement?.xPosition || 'after';
         menu.yPosition = step.placement?.yPosition || 'below';
         menu.hasBackdrop = !!step.closeOnOutsideClick;
-        const popoverClass = step.popoverClass ?? '';
-        menu.panelClass = `tour-step ${popoverClass}`;
+
+        const popoverClass = step.popoverClass ?? '',
+            arrow = step.showArrow ? 'arrow' : '',
+            horizontal = step.placement?.horizontal ? 'horizontal' : '';
+
+        menu.panelClass = `tour-step ${popoverClass} ${arrow} ${horizontal}`;
         this.opener.markForCheck();
         trigger.openMenu();
 

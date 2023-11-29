@@ -4,6 +4,7 @@ import {MenuPositionX, MenuPositionY} from '@angular/material/menu';
 export interface IMdStepOption extends IStepOption {
     placement?: MdMenuPlacement;
     closeOnOutsideClick?: boolean;
+    showArrow?: boolean;
 }
 
 export interface MdMenuPlacement {
