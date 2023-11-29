@@ -77,7 +77,6 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
             horizontal = step.placement?.horizontal ? 'horizontal' : '';
 
         menu.panelClass = `tour-step ${popoverClass} ${arrow} ${horizontal}`;
-        this.opener.markForCheck();
         trigger.openMenu();
 
         if (this.menuCloseSubscription) {
