@@ -93,7 +93,7 @@ $background-color: #FFFFFF;
 
         // horizontal
         &.mat-menu-before.horizontal {
-            margin-right: 15px;
+            margin-right: 10px;
 
             &:after, &:before {
                 left: 100%;
@@ -109,7 +109,7 @@ $background-color: #FFFFFF;
         }
 
         &.mat-menu-after.horizontal {
-            margin-left: 15px;
+            margin-left: 10px;
 
             &:after, &:before {
                 right: 100%;
