@@ -1,3 +1,15 @@
+<a name="14.0.0"></a>
+
+# [14.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-11-30)
+
+### Features
+- Support for Angular 17
+- New `asyncStepTimeout` config. It's now possible to have optional async steps if `asyncStepTimeout` is specified.
+- Default step template now contains tour progress indicator. Can be disabled using `showProgress` config.
+
+### Breaking Changes
+- Angular 16 is no longer supported
+
 <a name="13.0.6"></a>
 
 # [13.0.6](https://github.com/hakimio/ngx-ui-tour) (2023-10-25)

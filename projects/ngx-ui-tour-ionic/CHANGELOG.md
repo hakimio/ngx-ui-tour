@@ -1,3 +1,17 @@
+<a name="3.0.0"></a>
+
+# [3.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-11-30)
+
+### Features
+- Support for Angular 17.
+- New `asyncStepTimeout` config. It's now possible to have optional async steps if `asyncStepTimeout` is specified.
+- Ionic standalone components are now used instead of Ionic module.
+- Default step template now contains tour progress indicator. Can be disabled using `showProgress` config.
+
+### Breaking Changes
+- Angular 16 is no longer supported.
+- Due to migration to Ionic standalone components, `@ionic/angular` version requirement has been set to `^7.5.6`.
+
 <a name="2.0.6"></a>
 
 # [2.0.6](https://github.com/hakimio/ngx-ui-tour) (2023-10-25)
