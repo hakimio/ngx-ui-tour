@@ -8,7 +8,7 @@
             [class]="step.popoverClass"
         >
             <div class="title-container">
-                <h3>{{step?.title}}</h3>
+                <h3>{{ step?.title }}</h3>
                 <button
                     tuiIconButton
                     icon="tuiIconCloseLarge"
@@ -32,30 +32,35 @@
                     (click)="tourService.prev()"
                     class="prev"
                 >
-                    {{step?.prevBtnTitle}}
+                    {{ step?.prevBtnTitle }}
                 </button>
-                <button
-                    tuiButton
-                    type="button"
-                    iconRight="tuiIconChevronRight"
-                    appearance="flat"
-                    size="m"
-                    *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
-                    (click)="tourService.next()"
-                    class="next"
-                >
-                    {{step?.nextBtnTitle}}
-                </button>
-                <button
-                    tuiButton
-                    type="button"
-                    appearance="flat"
-                    size="m"
-                    *ngIf="!tourService.hasNext(step)"
-                    (click)="tourService.end()"
-                >
-                    {{step?.endBtnTitle}}
-                </button>
+                @if (step.showProgress) {
+                    <div class="progress">{{ tourService.steps?.indexOf(step) + 1 }} / {{ tourService.steps?.length }}</div>
+                }
+                @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
+                    <button
+                        tuiButton
+                        type="button"
+                        iconRight="tuiIconChevronRight"
+                        appearance="flat"
+                        size="m"
+                        (click)="tourService.next()"
+                        class="next"
+                    >
+                        {{ step?.nextBtnTitle }}
+                    </button>
+                }
+                @if (!tourService.hasNext(step)) {
+                    <button
+                        tuiButton
+                        type="button"
+                        appearance="flat"
+                        size="m"
+                        (click)="tourService.end()"
+                    >
+                        {{ step?.endBtnTitle }}
+                    </button>
+                }
             </div>
         </div>
     </ng-template>

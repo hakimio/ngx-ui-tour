@@ -24,23 +24,28 @@
                     (click)="tourService.prev()"
                 >
                     <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
-                    {{step.prevBtnTitle}}
+                    {{ step.prevBtnTitle }}
                 </ion-button>
-                <ion-button
-                    fill="clear"
-                    *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
-                    (click)="tourService.next()"
-                >
-                    {{step.nextBtnTitle}}
-                    <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
-                </ion-button>
-                <ion-button
-                    fill="clear"
-                    *ngIf="!tourService.hasNext(step)"
-                    (click)="tourService.end()"
-                >
-                    {{step.endBtnTitle}}
-                </ion-button>
+                @if (step.showProgress) {
+                    <div class="progress">{{ tourService.steps?.indexOf(step) + 1 }} / {{ tourService.steps?.length }}</div>
+                }
+                @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
+                    <ion-button
+                        fill="clear"
+                        (click)="tourService.next()"
+                    >
+                        {{ step.nextBtnTitle }}
+                        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+                    </ion-button>
+                }
+                @if (!tourService.hasNext(step)) {
+                    <ion-button
+                        fill="clear"
+                        (click)="tourService.end()"
+                    >
+                        {{ step.endBtnTitle }}
+                    </ion-button>
+                }
             </div>
         </ion-card>
     </ng-template>

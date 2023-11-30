@@ -5,6 +5,10 @@
         --bs-popover-border-color: #333;
         --bs-popover-body-color: #eee;
 
+        .progress {
+            color: #6c757d !important;
+        }
+
         .btn-close {
             filter: invert(1) grayscale(100%) brightness(200%);
         }

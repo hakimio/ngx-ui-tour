@@ -23,9 +23,25 @@
 }
 
 .buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
+
+    >* {
+        max-width: fit-content;
+
+        &:last-child {
+            justify-self: flex-end;
+        }
+    }
+
+    .progress {
+        font-size: 12px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, .45);
+        white-space: nowrap;
+    }
 
     .btn {
         display: flex;

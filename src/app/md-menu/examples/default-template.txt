@@ -9,7 +9,7 @@
             <mat-card-header>
                 <div class="header-group">
                     <mat-card-title>
-                        {{step.title}}
+                        {{ step.title }}
                     </mat-card-title>
                     <button
                         mat-icon-button
@@ -34,24 +34,29 @@
                     (click)="tourService.prev()"
                 >
                     <mat-icon>chevron_left</mat-icon>
-                    {{step.prevBtnTitle}}
+                    {{ step.prevBtnTitle }}
                 </button>
-                <button
-                    class="next"
-                    *ngIf="tourService.hasNext(step) && !step.nextOnAnchorClick"
-                    (click)="tourService.next()"
-                    mat-button
-                >
-                    {{step.nextBtnTitle}}
-                    <mat-icon iconPositionEnd>chevron_right</mat-icon>
-                </button>
-                <button
-                    mat-button
-                    (click)="tourService.end()"
-                    *ngIf="!tourService.hasNext(step)"
-                >
-                    {{step.endBtnTitle}}
-                </button>
+                @if (step.showProgress) {
+                    <div class="progress">{{ tourService.steps?.indexOf(step) + 1 }} / {{ tourService.steps?.length }}</div>
+                }
+                @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
+                    <button
+                        class="next"
+                        (click)="tourService.next()"
+                        mat-button
+                    >
+                        {{ step.nextBtnTitle }}
+                        <mat-icon iconPositionEnd>chevron_right</mat-icon>
+                    </button>
+                }
+                @if (!tourService.hasNext(step)) {
+                    <button
+                        mat-button
+                        (click)="tourService.end()"
+                    >
+                        {{ step.endBtnTitle }}
+                    </button>
+                }
             </mat-card-actions>
         </mat-card>
     </ng-template>

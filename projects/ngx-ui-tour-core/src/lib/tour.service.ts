@@ -49,6 +49,7 @@ export interface IStepOption {
     allowUserInitiatedNavigation?: boolean;
     stepDimensions?: StepDimensions;
     popoverClass?: string;
+    showProgress?: boolean;
 }
 
 export enum TourState {
@@ -87,7 +88,8 @@ const DEFAULT_STEP_OPTIONS: IStepOption = {
         minWidth: '250px',
         maxWidth: '280px',
         width: 'auto'
-    }
+    },
+    showProgress: true
 };
 
 // noinspection JSUnusedGlobalSymbols

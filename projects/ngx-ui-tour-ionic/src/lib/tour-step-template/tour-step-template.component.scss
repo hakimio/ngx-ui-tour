@@ -30,10 +30,26 @@ ion-button.close {
 }
 
 .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     padding: 0 8px 8px;
+    align-items: center;
+    gap: 8px;
+
+    >* {
+        max-width: fit-content;
+
+        &:last-child {
+            justify-self: flex-end;
+        }
+    }
+
+    .progress {
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .38);
+        white-space: nowrap;
+    }
 
     ion-button {
         text-transform: capitalize;
