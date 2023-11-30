@@ -86,7 +86,10 @@ export class TuiHintComponent implements OnInit {
         prevBtnTitle: 'My Prev',
         nextBtnTitle: 'My Next',
         endBtnTitle: 'My End',
-        route: 'tui-hint/API'
+        route: 'tui-hint/API',
+        stepDimensions: {
+            maxWidth: '340px'
+        }
     }, {
         anchorId: 'config.isAsync',
         content: 'Mark your step as async if anchor element is added to DOM with a delay',

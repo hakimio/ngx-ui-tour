@@ -91,7 +91,10 @@ export class TuiDropdownComponent implements OnInit {
         prevBtnTitle: 'My Prev',
         nextBtnTitle: 'My Next',
         endBtnTitle: 'My End',
-        route: 'tui-dropdown/API'
+        route: 'tui-dropdown/API',
+        stepDimensions: {
+            maxWidth: '340px'
+        }
     }, {
         anchorId: 'config.isAsync',
         content: 'Mark your step as async if anchor element is added to DOM with a delay',
