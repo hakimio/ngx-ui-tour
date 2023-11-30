@@ -1,3 +1,19 @@
+<a name="12.0.0"></a>
+
+# [12.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-11-30)
+
+### Features
+- Support for Angular 17
+- Tour steps now show an arrow pointing at the anchor element. Can be disabled using `showArrow` config.
+- New `asyncStepTimeout` config. It's now possible to have optional async steps if `asyncStepTimeout` is specified.
+- Default step template now contains tour progress indicator. Can be disabled using `showProgress` config.
+
+### Breaking Changes
+- Angular 16 is no longer supported
+- Tour step arrow is now enabled by default and in some cases, for example when a small anchor element is positioned 
+at the edge of the screen, tour step arrow might not align correctly with the tour anchor. In that case `placement` 
+config can be used to adjust tour step position and fix the alignment or the arrow can be hidden using `showArrow` config.
+
 <a name="11.0.6"></a>
 
 # [11.0.6](https://github.com/hakimio/ngx-ui-tour) (2023-10-25)

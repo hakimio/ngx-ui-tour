@@ -1,3 +1,14 @@
+<a name="12.0.0"></a>
+
+# [12.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-11-30)
+
+### Features
+- Support for Angular 17
+- New `asyncStepTimeout` config. It's now possible to have optional async steps if `asyncStepTimeout` is specified.
+
+### Breaking Changes
+- Angular 16 is no longer supported
+
 <a name="11.0.6"></a>
 
 # [11.0.6](https://github.com/hakimio/ngx-ui-tour) (2023-10-25)
