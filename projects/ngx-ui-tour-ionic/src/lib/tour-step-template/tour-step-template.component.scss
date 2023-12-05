@@ -51,6 +51,10 @@ ion-button.close {
         white-space: nowrap;
     }
 
+    &.no-progress {
+        grid-template-columns: 1fr 1fr;
+    }
+
     ion-button {
         text-transform: capitalize;
     }

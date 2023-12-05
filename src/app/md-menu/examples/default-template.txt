@@ -26,7 +26,9 @@
                 [innerHTML]="step.content"
             ></mat-card-content>
 
-            <mat-card-actions align="end">
+            <mat-card-actions
+                [class.no-progress]="!step.showProgress"
+            >
                 <button
                     mat-button
                     class="prev"

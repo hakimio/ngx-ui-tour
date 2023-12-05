@@ -43,6 +43,10 @@
         white-space: nowrap;
     }
 
+    &.no-progress {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .btn {
         display: flex;
         align-items: center;

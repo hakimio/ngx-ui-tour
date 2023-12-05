@@ -165,6 +165,10 @@ mat-card-actions {
         white-space: nowrap;
     }
 
+    &.no-progress {
+        grid-template-columns: 1fr 1fr;
+    }
+
     >* {
         max-width: fit-content;
 

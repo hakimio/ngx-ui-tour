@@ -17,7 +17,10 @@
                 [innerHTML]="step.content"
             ></ion-card-content>
 
-            <div class="footer">
+            <div
+                class="footer"
+                [class.no-progress]="!step.showProgress"
+            >
                 <ion-button
                     fill="clear"
                     [disabled]="!tourService.hasPrev(step)"

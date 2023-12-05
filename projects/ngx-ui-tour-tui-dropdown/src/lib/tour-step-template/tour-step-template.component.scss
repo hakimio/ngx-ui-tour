@@ -55,6 +55,10 @@
         white-space: nowrap;
     }
 
+    &.no-progress {
+        grid-template-columns: 1fr 1fr;
+    }
+
     ::ng-deep button.prev .t-wrapper {
         padding-left: 1rem;
     }

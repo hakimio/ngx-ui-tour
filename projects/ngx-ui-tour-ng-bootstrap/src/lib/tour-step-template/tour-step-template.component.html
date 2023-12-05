@@ -20,7 +20,10 @@
             class="card-text"
             [innerHTML]="step?.content"
         ></p>
-        <div class="buttons">
+        <div
+            class="buttons"
+            [class.no-progress]="!step.showProgress"
+        >
             <button
                 [disabled]="!tourService.hasPrev(step)"
                 class="btn btn-sm btn-outline-secondary prev"
