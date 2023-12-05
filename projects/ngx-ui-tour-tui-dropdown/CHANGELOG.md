@@ -1,3 +1,11 @@
+<a name="6.0.1"></a>
+
+# [6.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-12-05)
+
+### Fixes
+
+- Fix "Next" button position when progress display is disabled.
+
 <a name="6.0.0"></a>
 
 # [6.0.0](https://github.com/hakimio/ngx-ui-tour) (2023-11-30)
