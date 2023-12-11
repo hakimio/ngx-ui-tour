@@ -1,3 +1,11 @@
+<a name="12.0.2"></a>
+
+# [12.0.2](https://github.com/hakimio/ngx-ui-tour) (2023-12-11)
+
+### Fixes
+
+- Fix "IStepOption" interface definition. 
+
 <a name="12.0.1"></a>
 
 # [12.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-12-05)
