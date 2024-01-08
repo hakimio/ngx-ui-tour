@@ -412,6 +412,9 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
         if (this.currentStep) {
             this.backdrop.closeSpotlight();
+            if(!step.enableBackdrop) {
+                 this.backdrop.closeSpotlight();
+            }
             this.hideStep(this.currentStep);
         }
 
