@@ -1,3 +1,10 @@
+<a name="14.0.2"></a>
+
+# [14.0.2](https://github.com/hakimio/ngx-ui-tour) (2024-01-25)
+
+### Fixes
+- Tour is now able to restart even if it was closed right after navigating to the previous step, while the first step is optional and not available
+
 <a name="14.0.1"></a>
 
 # [14.0.1](https://github.com/hakimio/ngx-ui-tour) (2023-12-05)
