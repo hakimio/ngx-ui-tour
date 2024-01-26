@@ -237,6 +237,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.status = TourState.OFF;
         this.disableTour();
         this.currentStep = undefined;
+        this.direction = Direction.Forwards;
         this.end$.next();
     }
 
