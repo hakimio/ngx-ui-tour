@@ -1,3 +1,10 @@
+<a name="14.0.3"></a>
+
+# [14.0.3](https://github.com/hakimio/ngx-ui-tour) (2024-05-02)
+
+### Fixes
+- Fix issue preventing the tour from closing when used in "NgModule" application.
+
 <a name="14.0.2"></a>
 
 # [14.0.2](https://github.com/hakimio/ngx-ui-tour) (2024-01-26)

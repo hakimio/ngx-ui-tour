@@ -1,3 +1,11 @@
+<a name="3.0.3"></a>
+
+# [3.0.3](https://github.com/hakimio/ngx-ui-tour) (2024-05-02)
+
+### Fixes
+- Fix issue preventing the tour from closing when used in "NgModule" application.
+- Allow `@ionic/angular` `^8.1.0` as peer dependency
+
 <a name="3.0.2"></a>
 
 # [3.0.2](https://github.com/hakimio/ngx-ui-tour) (2024-01-26)
