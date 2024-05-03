@@ -7,5 +7,5 @@ app-header {
 }
 
 :host::ng-deep .touranchor--is-active {
-    outline: 2px solid var(--tui-negative);
+    outline: 2px solid var(--tui-negative) !important;
 }
