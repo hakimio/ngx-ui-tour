@@ -63,3 +63,4 @@ dist/
 .ng_build/
 /.idea
 /.yarn
+/.nx
