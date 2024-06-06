@@ -120,7 +120,10 @@
             documentationPropertyType="boolean"
             [documentationPropertyValue]="true"
         >
-            If enabled, shows an arrow that points to the anchor element.
+            If enabled, shows an arrow that points to the anchor element. In some cases, for example, when a small
+            anchor element is positioned at the edge of the screen, tour step arrow might not align correctly with the
+            tour anchor. In that case <code>placement</code> config can be used to adjust tour step position and fix
+            the alignment or the arrow can be hidden using <code>showArrow</code> config.
         </ng-template>
     }
     <ng-template
