@@ -1,6 +1,6 @@
 import {inject, Injectable, PLATFORM_ID, RendererFactory2} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
-import {ScrollUtils} from './scroll-utils';
+import {ScrollUtils} from './utils';
 
 @Injectable({
     providedIn: 'root'
@@ -35,7 +35,8 @@ export class ScrollBlockingService {
     }
 
     private toggleOverflow() {
-        const scrollContainer = ScrollUtils.getScrollContainer(this.userScrollContainer) ?? document.documentElement;
+        // Don't try to automatically detect scroll container here since that breaks smooth scrolling
+        const scrollContainer = ScrollUtils.getScrollContainer(null, this.userScrollContainer) ?? document.documentElement;
 
         if (this.isEnabled) {
             this.renderer.removeStyle(scrollContainer, 'overflow');

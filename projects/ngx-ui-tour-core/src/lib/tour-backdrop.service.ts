@@ -4,8 +4,7 @@ import {ScrollingService} from './scrolling.service';
 import {TourResizeObserverService} from './tour-resize-observer.service';
 import {IStepOption} from './tour.service';
 import {DOCUMENT} from '@angular/common';
-import {ScrollUtils} from "./scroll-utils";
-import {OverflowUtils} from "./overflow-utils";
+import {OverflowUtils, ScrollUtils} from './utils';
 
 interface Rectangle {
     width: number;
@@ -86,7 +85,7 @@ export class TourBackdropService {
 
     private setBackdropPosition(rectangle: DOMRect = null) {
         const docEl = this.document.documentElement,
-            scrollContainer = ScrollUtils.getScrollContainer(this.step.scrollContainer) ?? docEl,
+            scrollContainer = ScrollUtils.getScrollContainer(this.targetHtmlElement, this.step.scrollContainer) ?? docEl,
             elementBoundingRect = rectangle ?? this.targetHtmlElement.getBoundingClientRect(),
             scrollContainerRect = scrollContainer.getBoundingClientRect(),
             visibleSection = OverflowUtils.getVisibleSection(elementBoundingRect, scrollContainerRect),

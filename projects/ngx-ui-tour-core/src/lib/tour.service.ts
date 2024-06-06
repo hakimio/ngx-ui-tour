@@ -8,7 +8,7 @@ import {ScrollingService} from './scrolling.service';
 import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
-import {deepMerge} from './deep-merge';
+import {deepMerge} from './utils';
 
 export interface StepDimensions {
     width?: string;

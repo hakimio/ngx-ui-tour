@@ -1,6 +1,9 @@
+import {getScrollableParent} from './get-scrollable-parent';
+
 export class ScrollUtils {
     
     static getScrollContainer(
+        anchorEl: HTMLElement,
         userScrollContainer: string | HTMLElement | undefined
     ): HTMLElement | null {
         if (typeof userScrollContainer === 'string') {
@@ -10,7 +13,7 @@ export class ScrollUtils {
             return userScrollContainer;
         }
 
-        return null;
+        return getScrollableParent(anchorEl);
     }
     
 }

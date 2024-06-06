@@ -1,11 +1,7 @@
-import {ElementSides, isInViewport} from './is-in-viewport';
+import {ElementSides, isCovered, isInViewport, OverflowUtils, ScrollUtils} from './utils';
 import {debounceTime, firstValueFrom, fromEvent, map, of, timeout} from 'rxjs';
 import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {isCovered} from './is-covered';
-import {ScrollUtils} from './scroll-utils';
-import {OverflowUtils} from './overflow-utils';
-
 
 export interface ScrollOptions {
     center: boolean;
@@ -23,35 +19,37 @@ export class ScrollingService {
     private readonly document = inject(DOCUMENT);
     private readonly window = this.document.defaultView;
     private scrollOptions: ScrollOptions;
+    private anchorEl: HTMLElement;
 
-    ensureVisible(htmlElement: HTMLElement, options: ScrollOptions): Promise<void> {
+    ensureVisible(anchorElement: HTMLElement, options: ScrollOptions): Promise<void> {
         this.scrollOptions = options;
+        this.anchorEl = anchorElement;
 
         const behavior: ScrollBehavior = options.smoothScroll && this.isBrowser ? 'smooth' : 'auto';
 
         const userScrollContainer = this.scrollOptions.scrollContainer,
-            scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document.documentElement;
+            scrollContainer = ScrollUtils.getScrollContainer(anchorElement, userScrollContainer) ?? document.documentElement;
 
-        if (OverflowUtils.isHeightOverflowing(htmlElement, scrollContainer)) {
-            htmlElement.scrollIntoView({
+        if (OverflowUtils.isHeightOverflowing(anchorElement, scrollContainer)) {
+            anchorElement.scrollIntoView({
                 block: 'start',
                 inline: 'start',
                 behavior
             });
         } else if (options.center && !('safari' in this.window)) {
-            htmlElement.scrollIntoView({
+            anchorElement.scrollIntoView({
                 block: 'center',
                 inline: 'center',
                 behavior
             });
-        } else if (!isInViewport(htmlElement, ElementSides.Bottom) || isCovered(htmlElement, ElementSides.Bottom)) {
-            htmlElement.scrollIntoView({
+        } else if (!isInViewport(anchorElement, ElementSides.Bottom) || isCovered(anchorElement, ElementSides.Bottom)) {
+            anchorElement.scrollIntoView({
                 block: 'end',
                 inline: 'nearest',
                 behavior
             });
-        } else if (!isInViewport(htmlElement, ElementSides.Top) || isCovered(htmlElement, ElementSides.Top)) {
-            htmlElement.scrollIntoView({
+        } else if (!isInViewport(anchorElement, ElementSides.Top) || isCovered(anchorElement, ElementSides.Top)) {
+            anchorElement.scrollIntoView({
                 block: 'start',
                 inline: 'nearest',
                 behavior
@@ -65,7 +63,8 @@ export class ScrollingService {
 
     private get waitForScrollFinish$() {
         const userScrollContainer = this.scrollOptions.scrollContainer,
-            scrollContainer = ScrollUtils.getScrollContainer(userScrollContainer) ?? document;
+            // Default here is "document" instead of "document.documentElement" on purpose
+            scrollContainer = ScrollUtils.getScrollContainer(this.anchorEl, userScrollContainer) ?? document;
 
         return fromEvent(scrollContainer, 'scroll')
             .pipe(
