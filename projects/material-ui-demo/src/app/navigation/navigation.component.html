@@ -1,0 +1,35 @@
+<mat-sidenav-container
+    class="sidenav-container"
+>
+    <mat-sidenav
+        class="sidenav"
+        mode="side"
+        fixedInViewport
+        [opened]="true"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            @for (animal of animals; track animal) {
+                <mat-list-item>
+                    @if (animalTourAnchorMap[animal]) {
+                        <div
+                            [tourAnchor]="animalTourAnchorMap[animal]"
+                        >
+                            {{animal}}
+                        </div>
+                    } @else {
+                        {{animal}}
+                    }
+                </mat-list-item>
+            }
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <span>Ngx UI Tour Material UI Demo</span>
+        </mat-toolbar>
+        <div class="content-wrapper">
+            <ng-content/>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
