@@ -1,3 +1,13 @@
+<a name="12.1.0"></a>
+
+# [12.1.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-06)
+
+### Features
+- Auto-detect anchor element's scroll container to fix smooth scroll issues.
+
+### Fixes
+- Fix "showArrow" option not respected when set using "tourService.setDefaults()".
+
 <a name="12.0.3"></a>
 
 # [12.0.3](https://github.com/hakimio/ngx-ui-tour) (2024-05-02)

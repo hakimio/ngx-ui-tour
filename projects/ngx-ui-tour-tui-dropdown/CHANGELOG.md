@@ -1,3 +1,10 @@
+<a name="6.1.0"></a>
+
+# [6.1.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-06)
+
+### Features
+- Auto-detect anchor element's scroll container to fix smooth scroll issues.
+
 <a name="6.0.3"></a>
 
 # [6.0.3](https://github.com/hakimio/ngx-ui-tour) (2024-05-02)
