@@ -13,12 +13,13 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
     private readonly document = inject(DOCUMENT);
 
     public override initialize(steps: T[], stepDefaults?: T) {
-        const isIOS = this.config.get('mode') === 'ios';
+        const userDefaults = this.getDefaults(),
+            isIOS = this.config.get('mode') === 'ios';
 
         stepDefaults ??= {} as T;
-        stepDefaults.backdropConfig ??= {};
-        stepDefaults.backdropConfig.parentContainer ??= 'ion-app';
-        stepDefaults.delayAfterNavigation ??= isIOS ? 700: 500;
+        stepDefaults.backdropConfig ??= userDefaults?.backdropConfig ?? {};
+        stepDefaults.backdropConfig.parentContainer ??= userDefaults?.backdropConfig?.parentContainer ?? 'ion-app';
+        stepDefaults.delayAfterNavigation ??= userDefaults?.delayAfterNavigation ?? (isIOS ? 700: 500);
 
         super.initialize(steps, stepDefaults);
     }

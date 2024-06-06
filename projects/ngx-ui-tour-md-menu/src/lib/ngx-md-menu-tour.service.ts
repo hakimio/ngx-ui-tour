@@ -8,8 +8,10 @@ import {IMdStepOption} from './step-option.interface';
 export class NgxmTourService<T extends IMdStepOption = IMdStepOption> extends TourService<T> {
 
     public override initialize(steps: T[], stepDefaults?: T) {
+        const userDefaults = this.getDefaults();
+
         stepDefaults ??= {} as T;
-        stepDefaults.showArrow ??= true;
+        stepDefaults.showArrow ??= userDefaults?.showArrow ?? true;
 
         super.initialize(steps, stepDefaults);
     }
