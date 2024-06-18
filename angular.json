@@ -529,25 +529,6 @@
             "buildTarget": "material-ui-demo:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/material-ui-demo/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/material-ui-demo/src/favicon.ico",
-              "projects/material-ui-demo/src/assets"
-            ],
-            "styles": [
-              "projects/material-ui-demo/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {

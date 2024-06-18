@@ -5,7 +5,7 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import {EnvironmentProviders, InjectionToken, Provider, provideZoneChangeDetection} from '@angular/core';
+import {EnvironmentProviders, InjectionToken, Provider} from '@angular/core';
 import {
     PreloadAllModules,
     provideRouter,
@@ -73,9 +73,6 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
         provide: DELAY_AFTER_NAVIGATION,
         useValue: 150
     },
-    provideZoneChangeDetection({
-        eventCoalescing: true
-    }),
     provideAnimations(),
     provideRouter(ROUTES,
         withEnabledBlockingInitialNavigation(),
