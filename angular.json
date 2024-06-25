@@ -474,7 +474,8 @@
             "index": "projects/material-ui-demo/src/index.html",
             "browser": "projects/material-ui-demo/src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/material-ui-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
