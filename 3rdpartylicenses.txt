@@ -922,7 +922,7 @@ Apache-2.0
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2020 Tinkoff Bank
+   Copyright 2024 Acpekt
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -935,6 +935,7 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
 
 @taiga-ui/addon-mobile
 Apache-2.0
@@ -1115,7 +1116,7 @@ Apache-2.0
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2020 Tinkoff Bank
+   Copyright 2024 Acpekt
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1128,6 +1129,7 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
 
 @taiga-ui/cdk
 Apache-2.0
@@ -1308,7 +1310,7 @@ Apache-2.0
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2020 Tinkoff Bank
+   Copyright 2024 Acpekt
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1321,6 +1323,7 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
 
 @taiga-ui/core
 Apache-2.0
@@ -1501,7 +1504,7 @@ Apache-2.0
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2020 Tinkoff Bank
+   Copyright 2024 Acpekt
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1514,6 +1517,7 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
 
 @taiga-ui/i18n
 Apache-2.0
@@ -1694,7 +1698,7 @@ Apache-2.0
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2020 Tinkoff Bank
+   Copyright 2024 Acpekt
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1707,6 +1711,7 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
 
 @taiga-ui/kit
 Apache-2.0
