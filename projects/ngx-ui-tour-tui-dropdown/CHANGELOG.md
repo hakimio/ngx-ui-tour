@@ -1,3 +1,14 @@
+<a name="7.0.0"></a>
+
+# [7.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-26)
+
+### Features
+- Support for Angular 18
+- New `tour-proxy-anchor` component. It can be used to target third party html elements.
+
+### Breaking Changes
+- Angular 17 is no longer supported
+
 <a name="6.1.0"></a>
 
 # [6.1.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-06)

@@ -1,3 +1,13 @@
+<a name="13.0.0"></a>
+
+# [13.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-26)
+
+### Features
+- Support for Angular 18
+
+### Breaking Changes
+- Angular 17 is no longer supported
+
 <a name="12.1.0"></a>
 
 # [12.1.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-06)
