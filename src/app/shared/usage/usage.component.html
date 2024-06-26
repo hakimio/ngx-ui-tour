@@ -1,7 +1,7 @@
 <app-header id="simple-project" tourAnchor="usage">Usage</app-header>
 
 <ol>
-    <li>Add <code>{{tourStepTag}}</code> to your root app component
+    <li>Add <code>{{ tourStepTag }}</code> to your root app component
     </li>
     <li>
         Define anchor points for the tour steps by adding the <code>tourAnchor</code> directive throughout your app.
@@ -9,7 +9,7 @@
             class="tui-space_top-3"
             status="warning"
         >
-            You have to import <code>{{moduleName}}</code> in all your modules and standalone components where you use
+            You have to import <code>{{ moduleName }}</code> in all your modules and standalone components where you use
             <code>tourAnchor</code> directive.
         </tui-notification>
         <tui-doc-code
@@ -27,6 +27,12 @@
     <li>Start the tour with <code tourAnchor="tourService.start">tourService.start()</code>
     </li>
     <li>Check out the
-        <a tuiLink target="_blank" href="https://github.com/hakimio/ngx-ui-tour/tree/master/src/app/md-menu">demo
-            source code</a> for an example.</li>
+        <a
+            tuiLink
+            target="_blank"
+            href="https://stackblitz.com/edit/angular-wau2z8?file=src%2Fapp%2Fui-tour-demo.component.ts"
+        >
+            demo source code
+        </a> for an example.
+    </li>
 </ol>
