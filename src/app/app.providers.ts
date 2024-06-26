@@ -6,13 +6,7 @@ import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
 import {EnvironmentProviders, InjectionToken, Provider, provideZoneChangeDetection} from '@angular/core';
-import {
-    PreloadAllModules,
-    provideRouter,
-    withEnabledBlockingInitialNavigation,
-    withInMemoryScrolling,
-    withPreloading
-} from '@angular/router';
+import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideIonicAngular} from '@ionic/angular/standalone';
@@ -78,10 +72,10 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     }),
     provideAnimations(),
     provideRouter(ROUTES,
-        withEnabledBlockingInitialNavigation(),
         withPreloading(PreloadAllModules),
         withInMemoryScrolling({
-            scrollPositionRestoration: 'top'
+            scrollPositionRestoration: 'enabled',
+            anchorScrolling: 'enabled'
         })
     ),
     provideIonicAngular({
