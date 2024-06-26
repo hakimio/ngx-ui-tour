@@ -5,3 +5,4 @@ export {TourNgBootstrapModule} from './lib/ng-bootstrap.module';
 export {INgbStepOption as IStepOption} from './lib/step-option.interface';
 export {StepDimensions} from 'ngx-ui-tour-core';
 export {NgbTourService as TourService} from './lib/ng-bootstrap-tour.service';
+export {TourProxyAnchorComponent} from './lib/tour-proxy-anchor.component';

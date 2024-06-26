@@ -26,6 +26,7 @@ maintained.
 - [Event Observables](#event-observables)
 - [Custom template](#custom-template)
 - [Styling Active Tour Anchor](#styling-active-tour-anchor)
+- [Targeting Third Party Elements](#targeting-third-party-elements)
 - [License](#license)
 
 ## Demo and documentation
@@ -120,6 +121,10 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 ## Styling Active Tour Anchor
 
 [Documentation page](https://hakimio.github.io/ngx-ui-tour/md-menu/Misc#styling-active-anchor)
+
+## Targeting third party elements
+
+[Documentation page](https://hakimio.github.io/ngx-ui-tour/md-menu/Misc#targeting-third-party-elements)
 
 ## License
 

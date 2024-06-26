@@ -68,6 +68,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
         if (offset) {
             this.popoverDirective.popperOptions = options => this.setOffsetModifier(options, offset);
         }
+        this.popoverDirective.positionTarget = this.element.nativeElement;
 
         this.popoverDirective.open({step});
     }

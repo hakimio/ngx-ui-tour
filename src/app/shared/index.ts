@@ -12,6 +12,9 @@ import {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {Provider, Type} from '@angular/core';
 import {TOUR_ANCHOR_DIRECTIVE_TYPE} from './proxy-tour-anchor.directive';
 import {CustomTemplateComponent} from './custom-template/custom-template.component';
+import {
+    TargetingThirdPartyElementsComponent
+} from './targeting-third-party-elements/targeting-third-party-elements.component';
 
 export const SHARED_COMPONENTS = [
     HeaderComponent,
@@ -24,7 +27,8 @@ export const SHARED_COMPONENTS = [
     HotkeysComponent,
     DefaultsComponent,
     CustomTemplateComponent,
-    StylingActiveTourAnchorComponent
+    StylingActiveTourAnchorComponent,
+    TargetingThirdPartyElementsComponent
 ];
 
 export function provideTourDirective<T extends TourAnchorDirective>(anchorDirectiveType: Type<T>): Provider {

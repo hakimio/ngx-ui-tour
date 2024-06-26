@@ -1,0 +1,23 @@
+<app-header id="targeting-third-party-elements">Targeting Third Party Elements</app-header>
+<p>
+    <code>&#x3C;tour-proxy-anchor&#x3E;</code> can be used to target third party html elements. For example, you can use
+    the following code to target the inner html element of a "Taiga UI" button:
+</p>
+<tui-doc-code
+    filename="app.component.html"
+    [code]="examples.tourProxyAnchor"
+/>
+<p>There are a couple <b>IMPORTANT</b> limitations to note when using <code>&#x3C;tour-proxy-anchor&#x3E;</code>:</p>
+<ul>
+    <li>
+        If the targeted element is inside <code>&#x3C;ng-template&#x3E;</code> or in a conditionally toggled
+        container (<code>&#64;if</code>, <code>&#64;switch</code>, <code>&#64;for</code>, etc),
+        <code>&#x3C;tour-proxy-anchor&#x3E;</code> should also be placed in the same container. In general,
+        it's a good idea to always place <code>&#x3C;tour-proxy-anchor&#x3E;</code> as close to the targeted
+        element as possible.
+    </li>
+    <li>
+        <code>touranchor--is-active</code> CSS class will not be applied to the active anchor if the anchor was
+        defined using <code>&#x3C;tour-proxy-anchor&#x3E;</code> component.
+    </li>
+</ul>
