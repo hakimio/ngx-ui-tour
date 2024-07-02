@@ -1,3 +1,10 @@
+<a name="13.0.1"></a>
+
+# [13.0.1](https://github.com/hakimio/ngx-ui-tour) (2024-07-02)
+
+### Fixes
+- Fix ngx-bootstrap peer dependency version
+
 <a name="13.0.0"></a>
 
 # [13.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-26)

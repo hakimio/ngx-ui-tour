@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-ngx-bootstrap",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -19,7 +19,7 @@
   "peerDependencies": {
     "@angular/common": "^18.0.0",
     "@angular/core": "^18.0.0",
-    "ngx-bootstrap": "^13.0.0"
+    "ngx-bootstrap": "^18.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0",
