@@ -17,6 +17,6 @@ export class TargetingThirdPartyElementsComponent {
 
     readonly examples = {
         tourProxyAnchor
-    }
+    };
 
 }

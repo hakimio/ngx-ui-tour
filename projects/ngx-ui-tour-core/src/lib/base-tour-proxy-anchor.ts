@@ -15,7 +15,7 @@ export abstract class BaseTourProxyAnchor {
             () => this.setAnchorElement(), {
                 phase: AfterRenderPhase.Read
             }
-        )
+        );
     }
 
     private setAnchorElement(): void {
