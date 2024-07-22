@@ -109,7 +109,7 @@ export class MdMenuComponent implements OnInit {
         title: 'Hotkeys',
         route: 'md-menu/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = defaultTemplate as string;
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

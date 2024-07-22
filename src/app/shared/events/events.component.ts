@@ -19,7 +19,7 @@ import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 export class EventsComponent {
 
     readonly examples = {
-        onInitialize
+        onInitialize: onInitialize as string
     };
 
     readonly events: Event[] = [{

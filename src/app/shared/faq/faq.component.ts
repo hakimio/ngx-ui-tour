@@ -33,15 +33,15 @@ export class FaqComponent {
     backdropOffsetIntroducedIn: number;
 
     readonly examples = {
-        centeredStepCss,
-        centeredStepHtml,
-        centeredStepTs,
-        customTourService,
-        noScrollCss,
-        customTourServiceUsage,
-        backdropPadding,
-        backdropParagraphPadding,
-        backdropButtonPadding
+        centeredStepCss: centeredStepCss as string,
+        centeredStepHtml: centeredStepHtml as string,
+        centeredStepTs: centeredStepTs as string,
+        customTourService: customTourService as string,
+        noScrollCss: noScrollCss as string,
+        customTourServiceUsage: customTourServiceUsage as string,
+        backdropPadding: backdropPadding as string,
+        backdropParagraphPadding: backdropParagraphPadding as string,
+        backdropButtonPadding: backdropButtonPadding as string
     };
 
 }

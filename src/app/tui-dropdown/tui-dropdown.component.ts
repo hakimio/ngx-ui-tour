@@ -117,7 +117,7 @@ export class TuiDropdownComponent implements OnInit {
         title: 'Hotkeys',
         route: 'tui-dropdown/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = defaultTemplate as string;
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

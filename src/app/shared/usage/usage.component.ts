@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {default as tourSeviceExample} from '!!raw-loader!./examples/tour-service-initialize.txt';
+import {default as tourServiceExample} from '!!raw-loader!./examples/tour-service-initialize.txt';
 import {TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
@@ -23,7 +23,7 @@ export class UsageComponent {
     moduleName: string;
 
     readonly examples = {
-        tourSeviceExample
+        tourServiceExample: tourServiceExample as string
     };
 
     readonly tourStepTag = '<tour-step-template></tour-step-template>';

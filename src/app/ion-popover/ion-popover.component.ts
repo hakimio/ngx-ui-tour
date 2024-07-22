@@ -108,7 +108,7 @@ export class IonPopoverComponent implements OnInit {
         title: 'Hotkeys',
         route: 'ion-popover/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = defaultTemplate as string;
 
     protected readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

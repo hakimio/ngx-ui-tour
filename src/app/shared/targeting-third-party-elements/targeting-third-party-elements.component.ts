@@ -16,7 +16,7 @@ import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 export class TargetingThirdPartyElementsComponent {
 
     readonly examples = {
-        tourProxyAnchor
+        tourProxyAnchor: tourProxyAnchor as string
     };
 
 }

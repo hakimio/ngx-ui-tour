@@ -15,7 +15,7 @@ import {HeaderComponent} from '../header/header.component';
 export class DefaultsComponent {
 
     readonly examples = {
-        setDefaults
+        setDefaults: setDefaults as string
     };
 
 }

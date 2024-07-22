@@ -112,7 +112,7 @@ export class TuiHintComponent implements OnInit {
         title: 'Hotkeys',
         route: 'tui-hint/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = defaultTemplate as string;
     readonly hintPlacements: ReadonlyArray<TuiHintDirection> = [
         'top-left',
         'top',

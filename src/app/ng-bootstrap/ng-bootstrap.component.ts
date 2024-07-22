@@ -123,7 +123,7 @@ export class NgBootstrapComponent implements OnInit {
         route: 'ng-bootstrap/Misc'
     }];
     readonly bootstrapScssImport = '@import "bootstrap/scss/bootstrap";';
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = defaultTemplate as string;
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
