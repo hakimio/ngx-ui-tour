@@ -3,6 +3,7 @@ import {IStepOption} from 'ngx-ui-tour-core';
 export interface IonStepOption extends IStepOption {
     placement?: IonPopoverPlacement;
     showArrow?: boolean;
+    trapFocus?: boolean;
 }
 
 export interface IonPopoverPlacement {

@@ -20,6 +20,7 @@ export class IonTourService<T extends IonStepOption = IonStepOption> extends Tou
         stepDefaults.backdropConfig ??= userDefaults?.backdropConfig ?? {};
         stepDefaults.backdropConfig.parentContainer ??= userDefaults?.backdropConfig?.parentContainer ?? 'ion-app';
         stepDefaults.delayAfterNavigation ??= userDefaults?.delayAfterNavigation ?? (isIOS ? 700: 500);
+        stepDefaults.trapFocus ??= userDefaults?.trapFocus ?? false;
 
         super.initialize(steps, stepDefaults);
     }

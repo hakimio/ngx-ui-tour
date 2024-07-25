@@ -25,6 +25,9 @@ export class StepConfigComponent {
     isIonicShowArrowVisible = false;
 
     @Input()
+    isIonicTrapFocusVisible = false;
+
+    @Input()
     isMdMenuShowArrowVisible = false;
 
     @Input()

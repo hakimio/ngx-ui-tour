@@ -114,6 +114,16 @@
             apply in <code>md</code> mode.
         </ng-template>
     }
+    @if (isIonicTrapFocusVisible) {
+        <ng-template
+                documentationPropertyName="trapFocus"
+                documentationPropertyType="boolean"
+                [documentationPropertyValue]="false"
+        >
+            If enabled, focus will not be allowed to move outside of the tour step popover. Disabled by default to
+            allow focus to move outside of the popover overlay.
+        </ng-template>
+    }
     @if (isMdMenuShowArrowVisible) {
         <ng-template
             documentationPropertyName="showArrow"
