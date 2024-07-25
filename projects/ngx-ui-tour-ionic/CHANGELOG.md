@@ -1,3 +1,13 @@
+<a name="5.0.0"></a>
+
+# [5.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-07-25)
+
+### Features
+- New `trapFocus` option. Disabled by default to allow focusing input elements.
+
+### Breaking Changes
+- Ionic 7 is no longer supported. v8.2.6 is the minimum supported Ionic version.
+
 <a name="4.0.0"></a>
 
 # [4.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-26)
