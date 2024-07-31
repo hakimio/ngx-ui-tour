@@ -50,6 +50,12 @@ export interface IStepOption {
     stepDimensions?: StepDimensions;
     popoverClass?: string;
     showProgress?: boolean;
+
+    beforeShow?(): void;
+    afterShow?(): void;
+
+    beforeHide?(): void;
+    afterHide?(): void;
 }
 
 export enum TourState {
@@ -527,10 +533,19 @@ export class TourService<T extends IStepOption = IStepOption> {
         anchor.showTourStep(step);
         this.toggleBackdrop(step);
         this.togglePageScrolling(step);
+
+        if(step?.beforeShow){
+            step?.beforeShow();
+        } 
+
         this.stepShow$.next({
             step,
             direction: this.direction
         });
+
+        if(step?.afterShow){
+            step?.afterShow();
+        } 
     }
 
     private hideStep(step: T): void {
@@ -538,11 +553,20 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (!anchor) {
             return;
         }
+        
+        if(step?.beforeHide){
+            step?.beforeHide();
+        }
         anchor.hideTourStep();
+        
         this.stepHide$.next({
             step,
             direction: this.direction
         });
+
+        if(step?.afterHide){
+            step?.afterHide();
+        } 
     }
 
     private scrollToAnchor(step: T): Promise<void> {

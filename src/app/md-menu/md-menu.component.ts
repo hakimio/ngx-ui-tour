@@ -28,16 +28,52 @@ export class MdMenuComponent implements OnInit {
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
         content: 'Welcome to the Ngx-UI-Tour tour!',
-        title: 'Welcome'
+        title: 'Welcome',   
+        beforeShow: () => {
+            console.log("Step is about to show, so we can set certain values before we highlight something?");            
+        }     ,
+        afterShow: () => {
+            console.log("And put the values back if needed?");
+        },
+        beforeHide: () => {
+            console.log("I think we go to next step");
+        },
+        afterHide: () => {
+            console.log("I am hidden now");
+        }
     }, {
         anchorId: 'angular-ui-tour',
         content: 'Thanks to angular-ui-tour for the inspiration for the library',
-        title: 'angular-ui-tour'
+        title: 'angular-ui-tour',
+        beforeShow: () => {
+            console.log("Step is about to show   2");
+        }     ,
+        afterShow: () => {
+            console.log("step was shown   2");
+        },
+        beforeHide: () => {
+            console.log("I think we go to next step   2");
+        },
+        afterHide: () => {
+            console.log("I am hidden now   2");
+        }
     }, {
         anchorId: 'installation',
         content: 'First, install the library...',
         title: 'Installation',
-        route: 'md-menu/Setup'
+        route: 'md-menu/Setup',
+        beforeShow: () => {
+            console.log("Step is about to show  3");
+        }     ,
+        afterShow: () => {
+            console.log("step was shown   3");
+        },
+        beforeHide: () => {
+            console.log("I think we go to next step   3");
+        },
+        afterHide: () => {
+            console.log("I am hidden now   3");
+        }
     }, {
         anchorId: 'usage',
         content: '...then use it.',
