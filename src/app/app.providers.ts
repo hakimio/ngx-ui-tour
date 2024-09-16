@@ -1,11 +1,17 @@
 import {HIGHLIGHT_OPTIONS, HighlightOptions} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {LocationStrategy, PathLocationStrategy, ViewportScroller} from '@angular/common';
 import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import {EnvironmentProviders, InjectionToken, Provider, provideZoneChangeDetection} from '@angular/core';
+import {
+    ENVIRONMENT_INITIALIZER,
+    EnvironmentProviders, inject,
+    InjectionToken,
+    Provider,
+    provideZoneChangeDetection
+} from '@angular/core';
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';
@@ -78,6 +84,15 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
             anchorScrolling: 'enabled'
         })
     ),
+    {
+        provide: ENVIRONMENT_INITIALIZER,
+        multi: true,
+        useValue: () => {
+            const viewportScroller = inject(ViewportScroller);
+
+            viewportScroller.setOffset([0, 80]);
+        }
+    },
     provideIonicAngular({
         mode: 'md'
     })
