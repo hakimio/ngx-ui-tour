@@ -17,9 +17,9 @@
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "ngx-bootstrap": "^18.0.0"
+    "@angular/common": "^>=17.0.0 < 20.0.0",
+    "@angular/core": "^>=17.0.0 < 20.0.0",
+    "ngx-bootstrap": "^>=17.0.0 < 20.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0",
