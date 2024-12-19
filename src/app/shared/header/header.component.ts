@@ -11,7 +11,6 @@ import {AsyncPipe} from '@angular/common';
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
-    standalone: true,
     imports: [
         TuiButtonModule,
         AsyncPipe

@@ -14,7 +14,6 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
         <!--suppress HtmlUnknownAttribute -->
         <span matMenuTriggerFor [matMenuTriggerRestoreFocus]="false"></span>
     `,
-    standalone: true,
     imports: [
         MatMenuModule
     ]

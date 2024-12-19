@@ -1,15 +1,12 @@
 import {BaseTourProxyAnchor} from 'ngx-ui-tour-core';
-import {ChangeDetectionStrategy, Component, Input, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input} from '@angular/core';
 import {TourAnchorTuiHintDirective} from './tour-anchor.directive';
 
 @Component({
     selector: 'tour-proxy-anchor',
     template: ``,
-    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        TourAnchorTuiHintDirective
-    ],
+    imports: [],
     hostDirectives: [{
         directive: TourAnchorTuiHintDirective,
         inputs: ['tourAnchor: anchorId']

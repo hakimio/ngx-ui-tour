@@ -8,7 +8,6 @@ import {TuiThemeAndroidModule, TuiThemeIosModule} from '@taiga-ui/addon-mobile';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: true,
     imports: [
         TuiDocMainModule,
         TuiLinkModule,

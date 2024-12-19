@@ -9,7 +9,6 @@ import {HeaderComponent} from '../header/header.component';
     selector: 'app-step-config',
     templateUrl: './step-config.component.html',
     styleUrls: ['./step-config.component.scss'],
-    standalone: true,
     imports: [
         HeaderComponent,
         TuiDocDocumentationModule,

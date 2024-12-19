@@ -9,7 +9,6 @@ import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
     selector: 'app-navigation',
     templateUrl: './navigation.component.html',
     styleUrl: './navigation.component.scss',
-    standalone: true,
     imports: [
         MatToolbarModule,
         MatButtonModule,

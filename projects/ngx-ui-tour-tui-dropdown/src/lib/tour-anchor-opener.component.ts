@@ -39,7 +39,6 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
             [tuiDropdownOffset]="offset"
         ></span>
     `,
-    standalone: true,
     imports: [TuiDropdownModule]
 })
 export class TourAnchorOpenerComponent {

@@ -7,14 +7,23 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/app",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "polyfills": ["zone.js"],
             "assets": [
               "src/assets",
@@ -32,16 +41,14 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": [
-              "angular2-text-mask",
-              "text-mask-core"
-            ],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src"
+              ],
+              "sass": {
+                "silenceDeprecations": ["import"]
+              }
+            }
           },
           "configurations": {
             "production": {
@@ -61,22 +68,22 @@
                 "fonts": true,
                 "styles": {
                   "inlineCritical": false,
-                  "minify": true
+                  "minify": true,
+                  "removeSpecialComments": true
                 }
               },
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "outputHashing": "all"
             },
-            "development": {}
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "options": {},
           "configurations": {
             "production": {
@@ -87,12 +94,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "ngx-ui-tour:build"
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

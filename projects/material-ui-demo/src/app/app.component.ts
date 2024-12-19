@@ -5,7 +5,6 @@ import {UiTourDemoComponent} from './ui-tour-demo/ui-tour-demo.component';
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [NavigationComponent, UiTourDemoComponent],
     templateUrl: './app.component.html'
 })
