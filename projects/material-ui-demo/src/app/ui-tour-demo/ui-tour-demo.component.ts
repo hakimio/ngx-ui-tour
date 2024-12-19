@@ -4,7 +4,6 @@ import {TourMatMenuModule, TourService} from 'ngx-ui-tour-md-menu';
 
 @Component({
     selector: 'app-ui-tour-demo',
-    standalone: true,
     imports: [
         MatButton,
         TourMatMenuModule

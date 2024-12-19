@@ -1,11 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
-import {default as tourProxyAnchor} from '!!raw-loader!./examples/tour-proxy-anchor.txt';
+import tourProxyAnchor from './examples/tour-proxy-anchor.txt?raw';
 import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 
 @Component({
     selector: 'app-targeting-third-party-elements',
-    standalone: true,
     imports: [
         HeaderComponent,
         TuiDocCodeModule
@@ -16,7 +15,7 @@ import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 export class TargetingThirdPartyElementsComponent {
 
     readonly examples = {
-        tourProxyAnchor: tourProxyAnchor as string
+        tourProxyAnchor: tourProxyAnchor
     };
 
 }

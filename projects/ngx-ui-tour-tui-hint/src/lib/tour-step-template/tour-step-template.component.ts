@@ -10,7 +10,6 @@ import {TuiButtonModule} from '@taiga-ui/core';
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
-    standalone: true,
     imports: [
         NgTemplateOutlet,
         TuiButtonModule

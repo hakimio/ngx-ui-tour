@@ -5,7 +5,6 @@ import {TourState} from 'ngx-ui-tour-core';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         TourAnchorMatMenuDirective

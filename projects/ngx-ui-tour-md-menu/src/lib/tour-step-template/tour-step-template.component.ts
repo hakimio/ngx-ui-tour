@@ -13,7 +13,6 @@ import {MatIconModule} from '@angular/material/icon';
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
-    standalone: true,
     imports: [
         MatCardModule,
         MatMenuModule,

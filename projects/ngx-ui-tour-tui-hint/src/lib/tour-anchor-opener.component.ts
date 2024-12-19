@@ -36,7 +36,6 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
             [tuiHintManual]="isShown"
         ></span>
     `,
-    standalone: true,
     imports: [
         TuiHintModule
     ]

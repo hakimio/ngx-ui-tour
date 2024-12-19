@@ -9,7 +9,6 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     selector: 'app-console',
     templateUrl: './console.component.html',
     styleUrls: ['./console.component.scss'],
-    standalone: true,
     imports: [
         TuiDocPageModule,
         TuiLinkModule,

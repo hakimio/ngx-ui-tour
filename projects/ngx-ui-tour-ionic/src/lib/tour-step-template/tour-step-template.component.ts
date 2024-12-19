@@ -21,7 +21,6 @@ import {chevronBackOutline, chevronForwardOutline, closeOutline} from 'ionicons/
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
-    standalone: true,
     imports: [
         NgTemplateOutlet,
         IonPopover,

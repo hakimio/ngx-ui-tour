@@ -7,7 +7,6 @@ import {LIST_COMPONENTS} from '../list';
     selector: 'app-hotkeys',
     templateUrl: './hotkeys.component.html',
     styleUrls: ['./hotkeys.component.scss'],
-    standalone: true,
     imports: [
         HeaderComponent,
         ProxyTourAnchorDirective,

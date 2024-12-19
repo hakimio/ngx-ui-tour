@@ -6,9 +6,10 @@ import {pages} from './pages';
 import {TUI_ANIMATIONS_DURATION} from '@taiga-ui/core';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
 import {
-    ENVIRONMENT_INITIALIZER,
-    EnvironmentProviders, inject,
+    EnvironmentProviders,
+    inject,
     InjectionToken,
+    provideEnvironmentInitializer,
     Provider,
     provideZoneChangeDetection
 } from '@angular/core';
@@ -84,15 +85,11 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
             anchorScrolling: 'enabled'
         })
     ),
-    {
-        provide: ENVIRONMENT_INITIALIZER,
-        multi: true,
-        useValue: () => {
-            const viewportScroller = inject(ViewportScroller);
+    provideEnvironmentInitializer(() => {
+        const viewportScroller = inject(ViewportScroller);
 
-            viewportScroller.setOffset([0, 80]);
-        }
-    },
+        viewportScroller.setOffset([0, 80]);
+    }),
     provideIonicAngular({
         mode: 'md'
     })

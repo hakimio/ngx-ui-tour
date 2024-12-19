@@ -5,7 +5,6 @@ import {LIST_COMPONENTS} from '../list';
 @Component({
     selector: 'app-tour-service-api',
     templateUrl: './tour-service-api.component.html',
-    standalone: true,
     imports: [
         HeaderComponent,
         LIST_COMPONENTS
