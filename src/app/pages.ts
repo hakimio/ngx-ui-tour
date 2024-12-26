@@ -1,6 +1,6 @@
-import { TuiDocPages } from "@taiga-ui/addon-doc";
+import {TuiDocRoutePages} from '@taiga-ui/addon-doc';
 
-export const pages: TuiDocPages = [{
+export const pages: TuiDocRoutePages = [{
     section: 'Tour UI Libraries',
     title: 'Material Design',
     route: 'md-menu'

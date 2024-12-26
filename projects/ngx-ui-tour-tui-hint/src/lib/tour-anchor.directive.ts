@@ -23,7 +23,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         private readonly tourService: TourTuiHintService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly viewContainer: ViewContainerRef,
-        public readonly element: ElementRef
+        public readonly element: ElementRef<HTMLElement>
     ) {}
 
     ngOnInit(): void {
@@ -51,7 +51,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
 
         const tuiHint = this.opener.hint;
 
-        (tuiHint as unknown as {el: ElementRef<HTMLElement>}).el = this.element;
+        (tuiHint as unknown as {el: HTMLElement}).el = this.element.nativeElement;
 
         this.opener.isShown = true;
     }

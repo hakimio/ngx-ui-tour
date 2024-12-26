@@ -21,7 +21,7 @@
             <h3>{{ step?.title }}</h3>
             <button
                 tuiIconButton
-                icon="tuiIconCloseLarge"
+                iconStart="@tui.x"
                 appearance="flat"
                 size="m"
                 (click)="tourService.end()"
@@ -38,7 +38,7 @@
             <button
                 tuiButton
                 type="button"
-                icon="tuiIconChevronLeft"
+                iconStart="@tui.chevron-left"
                 appearance="flat"
                 size="m"
                 [disabled]="!tourService.hasPrev(step)"
@@ -54,7 +54,7 @@
                 <button
                     tuiButton
                     type="button"
-                    iconRight="tuiIconChevronRight"
+                    iconEnd="@tui.chevron-right"
                     appearance="flat"
                     size="m"
                     (click)="tourService.next()"

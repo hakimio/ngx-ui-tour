@@ -1,10 +1,10 @@
+import {TuiButton} from '@taiga-ui/core';
 import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
 import {ITuiDdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {TourTuiDropdownService} from '../tour-tui-dropdown.service';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {NgTemplateOutlet} from '@angular/common';
-import {TuiButtonModule} from '@taiga-ui/core';
 
 @Component({
     selector: 'tour-step-template',
@@ -12,7 +12,7 @@ import {TuiButtonModule} from '@taiga-ui/core';
     styleUrls: ['./tour-step-template.component.scss'],
     imports: [
         NgTemplateOutlet,
-        TuiButtonModule
+        TuiButton
     ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {

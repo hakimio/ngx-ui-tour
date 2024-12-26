@@ -1,13 +1,12 @@
+import {TuiDocCode} from '@taiga-ui/addon-doc';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
-import tourProxyAnchor from './examples/tour-proxy-anchor.txt?raw';
-import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 
 @Component({
     selector: 'app-targeting-third-party-elements',
     imports: [
         HeaderComponent,
-        TuiDocCodeModule
+        TuiDocCode
     ],
     templateUrl: './targeting-third-party-elements.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -15,7 +14,7 @@ import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 export class TargetingThirdPartyElementsComponent {
 
     readonly examples = {
-        tourProxyAnchor: tourProxyAnchor
+        tourProxyAnchor: import('./examples/tour-proxy-anchor.md?raw')
     };
 
 }

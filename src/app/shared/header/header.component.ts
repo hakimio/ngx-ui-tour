@@ -1,27 +1,21 @@
+import {WA_LOCATION} from '@ng-web-apis/common';
 import {Attribute, Component, Inject} from '@angular/core';
-import {TuiAlertService, TuiButtonModule} from '@taiga-ui/core';
+import {TuiAlertService, TuiLink} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
-import {LOCATION} from '@ng-web-apis/common';
-import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
-import {map, Observable} from 'rxjs';
-import {AsyncPipe} from '@angular/common';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
     imports: [
-        TuiButtonModule,
-        AsyncPipe
+        TuiLink,
+        RouterLink,
+        RouterLinkActive
     ]
 })
 export class HeaderComponent {
-
-    readonly copy$ = this.copyTexts$
-        .pipe(
-            map(([copy]) => copy)
-        );
 
     constructor(
         @Attribute('id')
@@ -29,8 +23,7 @@ export class HeaderComponent {
         @Inject(Clipboard) private readonly clipboard: Clipboard,
         @Inject(TuiAlertService)
         private readonly alertService: TuiAlertService,
-        @Inject(LOCATION) private readonly location: Location,
-        @Inject(TUI_COPY_TEXTS) private readonly copyTexts$: Observable<[string, string]>,
+        @Inject(WA_LOCATION) private readonly location: Location,
         @Inject(TUI_DOC_EXAMPLE_TEXTS) readonly texts: [string, string, string]
     ) {}
 
@@ -46,9 +39,13 @@ export class HeaderComponent {
         this.alertService
             .open(this.texts[1], {
                 label: this.texts[2],
-                status: 'success'
+                appearance: 'success'
             })
             .subscribe();
+    }
+
+    get urlPath() {
+        return this.location.pathname;
     }
 
 }

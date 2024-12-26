@@ -39,6 +39,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 19      | 7    | 14          |
 | 18      | 7    | 13          |
 | 17      | 7    | 12          |
 | 16      | 7    | 11          |
@@ -51,6 +52,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 19      | 7    | 16          |
 | 18      | 7    | 15          |
 | 17      | 7    | 14          |
 | 16      | 7    | 13          |
@@ -63,6 +65,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
+| 19      | 7    | 8     | 6           |
 | 18      | 7    | 8     | 5           |
 | 18      | 7    | 7, 8  | 4           |
 | 17      | 7    | 7, 8  | 3           |
@@ -73,6 +76,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Taiga UI | ngx-ui-tour |
 |---------|------|----------|-------------|
+| 19      | 7    | 4        | 8           |
 | 18      | 7    | 3        | 7           |
 | 17      | 7    | 3        | 6           |
 | 16      | 7    | 3        | 5           |

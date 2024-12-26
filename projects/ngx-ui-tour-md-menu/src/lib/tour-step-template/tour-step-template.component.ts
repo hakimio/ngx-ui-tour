@@ -1,13 +1,13 @@
 import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
-import {MatMenu, MatMenuModule} from '@angular/material/menu';
+import {MatMenu} from '@angular/material/menu';
 import {IMdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgxmTourService} from '../ngx-md-menu-tour.service';
 import {MatCardModule} from '@angular/material/card';
 import {NgTemplateOutlet} from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
     selector: 'tour-step-template',
@@ -15,10 +15,11 @@ import {MatIconModule} from '@angular/material/icon';
     styleUrls: ['./tour-step-template.component.scss'],
     imports: [
         MatCardModule,
-        MatMenuModule,
+        MatMenu,
         NgTemplateOutlet,
-        MatButtonModule,
-        MatIconModule
+        MatButton,
+        MatIconButton,
+        MatIcon
     ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {

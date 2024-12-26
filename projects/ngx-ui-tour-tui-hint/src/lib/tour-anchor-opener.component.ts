@@ -1,5 +1,5 @@
 import {Component, Input, SkipSelf, TemplateRef, ViewChild} from '@angular/core';
-import {TUI_HINT_OPTIONS, TuiHintDirective, TuiHintModule, TuiHintOptions} from '@taiga-ui/core';
+import {TUI_HINT_OPTIONS, TuiHintDirective, TuiHint, TuiHintOptions} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiHintService} from './tour-tui-hint.service';
 
@@ -9,7 +9,7 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
     return {
         ...defaults,
         direction: step.placement ?? defaults.direction,
-        appearance: 'onDark'
+        appearance: 'ngx-ui-tour'
     };
 }
 
@@ -37,7 +37,7 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
         ></span>
     `,
     imports: [
-        TuiHintModule
+        TuiHint
     ]
 })
 export class TourAnchorOpenerComponent {

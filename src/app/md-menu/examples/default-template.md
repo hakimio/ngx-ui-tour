@@ -1,3 +1,4 @@
+```html
 <tour-step-template>
     <ng-template let-step="step">
         <mat-card
@@ -63,3 +64,4 @@
         </mat-card>
     </ng-template>
 </tour-step-template>
+```

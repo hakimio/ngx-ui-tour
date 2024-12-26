@@ -1,9 +1,5 @@
-::ng-deep tui-dropdown-host {
-    z-index: auto !important;
-
-    tui-dropdown {
-        z-index: 150 !important;
-    }
+::ng-deep tui-dropdown[data-appearance="ngx-ui-tour"] {
+    z-index: 150 !important;
 }
 
 .main-container {
@@ -30,6 +26,7 @@
 }
 
 .content {
+    font: var(--tui-font-text-m);
     margin: 1rem 0;
 }
 
@@ -51,7 +48,7 @@
     .progress {
         font: var(--tui-font-text-s);
         font-weight: 800;
-        color: var(--tui-text-03);
+        color: var(--tui-text-tertiary);
         white-space: nowrap;
     }
 

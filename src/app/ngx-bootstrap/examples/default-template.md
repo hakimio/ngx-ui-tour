@@ -1,3 +1,4 @@
+```html
 <tour-step-template>
     <ng-template let-step="step">
         <div
@@ -61,3 +62,4 @@
         </div>
     </ng-template>
 </tour-step-template>
+```

@@ -1,6 +1,8 @@
+```html
 <tour-step-template>
     <ng-template let-step="step">
         <div
+            class="main-container"
             [style.width]="step.stepDimensions?.width"
             [style.min-width]="step.stepDimensions?.minWidth"
             [style.max-width]="step.stepDimensions?.maxWidth"
@@ -10,7 +12,7 @@
                 <h3>{{ step?.title }}</h3>
                 <button
                     tuiIconButton
-                    icon="tuiIconCloseLarge"
+                    iconStart="@tui.x"
                     appearance="flat"
                     size="m"
                     (click)="tourService.end()"
@@ -27,7 +29,7 @@
                 <button
                     tuiButton
                     type="button"
-                    icon="tuiIconChevronLeft"
+                    iconStart="@tui.chevron-left"
                     appearance="flat"
                     size="m"
                     [disabled]="!tourService.hasPrev(step)"
@@ -43,7 +45,7 @@
                     <button
                         tuiButton
                         type="button"
-                        iconRight="tuiIconChevronRight"
+                        iconEnd="@tui.chevron-right"
                         appearance="flat"
                         size="m"
                         (click)="tourService.next()"
@@ -67,3 +69,4 @@
         </div>
     </ng-template>
 </tour-step-template>
+```

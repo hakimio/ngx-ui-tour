@@ -1,3 +1,4 @@
+```ts
 this.tourService.initialize([{
   anchorId: 'some.anchor.id',
   content: 'Some content',
@@ -7,3 +8,4 @@ this.tourService.initialize([{
   content: 'Other content',
   title: 'Second',
 }]);
+```

@@ -1,9 +1,8 @@
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import {Component, inject, OnInit} from '@angular/core';
 import {IStepOption, TourAnchorTuiHintDirective, TourService, TourTuiHintModule} from 'ngx-ui-tour-tui-hint';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import defaultTemplate from './examples/default-template.txt?raw';
-import {TuiButtonModule, TuiHintDirection, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiHintDirection, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
@@ -11,18 +10,18 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     templateUrl: './tui-hint.component.html',
     styleUrls: ['./tui-hint.component.scss'],
     imports: [
-        TuiDocPageModule,
-        TuiLinkModule,
+        TuiAddonDoc,
+        TuiLink,
         TourTuiHintModule,
-        TuiButtonModule,
-        TuiNotificationModule,
+        TuiButton,
+        TuiNotification,
         SHARED_COMPONENTS
     ],
     providers: [
         provideTourDirective(TourAnchorTuiHintDirective)
     ]
 })
-export class TuiHintComponent implements OnInit {
+export default class TuiHintComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -111,7 +110,7 @@ export class TuiHintComponent implements OnInit {
         title: 'Hotkeys',
         route: 'tui-hint/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = import('./examples/default-template.md?raw');
     readonly hintPlacements: TuiHintDirection[] = [
         'top-left',
         'top',

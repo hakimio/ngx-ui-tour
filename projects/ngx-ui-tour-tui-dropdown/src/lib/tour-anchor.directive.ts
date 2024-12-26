@@ -23,7 +23,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         private readonly tourService: TourTuiDropdownService,
         private readonly tourStepTemplateService: TourStepTemplateService,
         private readonly viewContainer: ViewContainerRef,
-        public readonly element: ElementRef
+        public readonly element: ElementRef<HTMLElement>
     ) {}
 
     ngOnInit(): void {
@@ -51,7 +51,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
         const tuiDropdown = this.opener.dropdown;
 
-        (tuiDropdown as unknown as {el: ElementRef<HTMLElement>}).el = this.element;
+        (tuiDropdown as unknown as {el: HTMLElement}).el = this.element.nativeElement;
 
         this.opener.isShown = true;
 

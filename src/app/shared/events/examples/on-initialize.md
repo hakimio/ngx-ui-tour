@@ -1,3 +1,4 @@
+```ts
 this.tourService
     .initialize$
     .subscribe(
@@ -5,3 +6,4 @@ this.tourService
             console.log('tour configured with these steps:', steps);
         }
     );
+```

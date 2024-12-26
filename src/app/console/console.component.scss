@@ -7,5 +7,11 @@ app-header {
 }
 
 :host::ng-deep .touranchor--is-active {
-    outline: 2px solid var(--tui-negative) !important;
+    outline: 2px solid var(--tui-text-negative) !important;
+}
+
+:host::ng-deep {
+    app-step-config table tr td.t-cell.t-no-overflow {
+        overflow: unset !important;
+    }
 }

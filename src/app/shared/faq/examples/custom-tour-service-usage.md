@@ -1,3 +1,4 @@
+```ts
 import {MyTourService} from '@app-utils/my-tour.service';
 
 @Component({
@@ -18,3 +19,4 @@ export class AppComponent {
     }
 
 }
+```

@@ -5,12 +5,7 @@
     "types": [
       "jasmine",
       "node"
-    ],
-    "paths": {
-      "ngx-ui-tour-core": [
-        "dist/ngx-ui-tour-core"
-      ]
-    }
+    ]
   },
   "include": [
     "**/*.spec.ts",

@@ -3,8 +3,15 @@
 @import '@ionic/angular/css/core.css';
 @import './bootstrap';
 
+/* Workaround for white gap at the bottom when tour is started and dark theme is used */
+@media (prefers-color-scheme: dark) {
+    html {
+        /* Can't just use "var(--tui-background-base)" since "tuiTheme" attribute is applied to "tui-root" instead of "html" */
+        background: #222 !important;
+    }
+}
+
 body {
-    font: var(--tui-font-text-m) !important;
     overflow-x: hidden;
 
     /* Ionic scroll issue work-around */
@@ -19,6 +26,10 @@ body {
     tui-root._mobile tui-doc-page > .t-content {
         padding-bottom: 2rem !important;
     }
+}
+
+tui-root {
+    font: var(--tui-font-text-m) !important;
 }
 
 ol {
@@ -41,22 +52,13 @@ a {
     transition-property: color;
     transition-duration: var(--tui-duration, 300ms);
     transition-timing-function: ease-in-out;
-    color: var(--tui-link);
+    color: var(--tui-text-action);
     text-decoration: none;
     text-align: left;
     text-transform: inherit;
     font-weight: inherit;
     cursor: pointer;
     outline: 0;
-}
-
-tui-doc-code pre code {
-    .hljs-attribute,
-    .hljs-number,
-    .hljs-regexp,
-    .hljs-link {
-        color: var(--tui-primary);
-    }
 }
 
 .tui-space_top-3 {
