@@ -14,16 +14,15 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": {
-              "base": "dist",
-              "browser": ""
+            "customWebpackConfig": {
+              "path": "./webpack.config.ts"
             },
+            "outputPath": "dist/app",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "polyfills": ["zone.js"],
             "assets": [
               "src/assets",
@@ -41,14 +40,15 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "./src"
-              ],
-              "sass": {
-                "silenceDeprecations": ["import"]
-              }
-            }
+            "allowedCommonJsDependencies": [
+              "markdown-it"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -68,22 +68,22 @@
                 "fonts": true,
                 "styles": {
                   "inlineCritical": false,
-                  "minify": true,
-                  "removeSpecialComments": true
+                  "minify": true
                 }
               },
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
+            "development": {}
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {},
           "configurations": {
             "production": {
@@ -524,12 +524,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "material-ui-demo:build"
-          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

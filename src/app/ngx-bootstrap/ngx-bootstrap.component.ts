@@ -5,10 +5,9 @@ import {
     TourService
 } from 'ngx-ui-tour-ngx-bootstrap';
 import {Component, inject, OnInit} from '@angular/core';
-import defaultTemplate from './examples/default-template.txt?raw';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiDocCodeModule, TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiAddonDoc, TuiDocCode} from '@taiga-ui/addon-doc';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
@@ -16,19 +15,19 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     templateUrl: './ngx-bootstrap.component.html',
     styleUrls: ['./ngx-bootstrap.component.scss'],
     imports: [
-        TuiDocPageModule,
-        TuiLinkModule,
+        TuiDocCode,
+        TuiLink,
         TourNgxBootstrapModule,
-        TuiButtonModule,
-        TuiNotificationModule,
-        TuiDocCodeModule,
-        SHARED_COMPONENTS
+        TuiButton,
+        TuiNotification,
+        SHARED_COMPONENTS,
+        TuiAddonDoc
     ],
     providers: [
         provideTourDirective(TourAnchorNgxBootstrapDirective)
     ]
 })
-export class NgxBootstrapComponent implements OnInit {
+export default class NgxBootstrapComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -122,7 +121,7 @@ export class NgxBootstrapComponent implements OnInit {
         route: 'ngx-bootstrap/Misc'
     }];
     readonly bootstrapScssImport = '@import "bootstrap/scss/bootstrap";';
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = import('./examples/default-template.md?raw');
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

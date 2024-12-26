@@ -1,9 +1,8 @@
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import {IStepOption, TourAnchorMatMenuDirective, TourMatMenuModule, TourService} from 'ngx-ui-tour-md-menu';
 import {Component, inject, OnInit} from '@angular/core';
-import defaultTemplate from './examples/default-template.txt?raw';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
@@ -11,18 +10,18 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     templateUrl: './md-menu.component.html',
     styleUrls: ['./md-menu.component.scss'],
     imports: [
-        TuiDocPageModule,
-        TuiLinkModule,
+        TuiAddonDoc,
+        TuiLink,
         TourMatMenuModule,
-        TuiButtonModule,
-        TuiNotificationModule,
+        TuiButton,
+        TuiNotification,
         SHARED_COMPONENTS
     ],
     providers: [
         provideTourDirective(TourAnchorMatMenuDirective)
     ]
 })
-export class MdMenuComponent implements OnInit {
+export default class MdMenuComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -108,7 +107,7 @@ export class MdMenuComponent implements OnInit {
         title: 'Hotkeys',
         route: 'md-menu/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = import('./examples/default-template.md?raw');
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

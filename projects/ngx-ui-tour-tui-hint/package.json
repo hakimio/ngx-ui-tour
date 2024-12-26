@@ -1,6 +1,7 @@
 {
   "name": "ngx-ui-tour-tui-hint",
   "description": "UI tour library for Angular 12+",
+  "main": "./src/public_api.ts",
   "keywords": [
     "angular",
     "ngx",
@@ -16,13 +17,13 @@
   "license": "MIT",
   "version": "7.0.0",
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "@taiga-ui/core": "^3.24.0",
-    "@taiga-ui/icons": "^3.24.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@taiga-ui/core": "^4.0.0",
+    "@taiga-ui/icons": "^4.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
-    "ngx-ui-tour-core": "13.0.0"
+    "ngx-ui-tour-core": "workspace:*",
+    "tslib": "^2.3.0"
   }
 }

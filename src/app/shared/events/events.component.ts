@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
-import onInitialize from './examples/on-initialize.txt?raw';
-import {TuiDocCodeModule, TuiDocDocumentationModule} from '@taiga-ui/addon-doc';
 import {HeaderComponent} from '../header/header.component';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 
 @Component({
     selector: 'app-events',
@@ -11,14 +10,13 @@ import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
     imports: [
         ProxyTourAnchorDirective,
         HeaderComponent,
-        TuiDocCodeModule,
-        TuiDocDocumentationModule
+        TuiAddonDoc
     ]
 })
 export class EventsComponent {
 
     readonly examples = {
-        onInitialize: onInitialize
+        onInitialize: import('./examples/on-initialize.md?raw')
     };
 
     readonly events: Event[] = [{

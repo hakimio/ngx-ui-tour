@@ -1,9 +1,8 @@
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import {IStepOption, TourAnchorIonPopoverDirective, TourIonPopoverModule, TourService} from 'ngx-ui-tour-ionic';
 import {Component, inject, OnInit} from '@angular/core';
-import defaultTemplate from './examples/default-template.txt?raw';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {TuiButtonModule, TuiLinkModule} from '@taiga-ui/core';
-import {TuiDocPageModule} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
@@ -11,17 +10,17 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     templateUrl: './ion-popover.component.html',
     styleUrls: ['./ion-popover.component.scss'],
     imports: [
-        TuiDocPageModule,
-        TuiLinkModule,
+        TuiAddonDoc,
+        TuiLink,
         TourIonPopoverModule,
-        TuiButtonModule,
+        TuiButton,
         SHARED_COMPONENTS
     ],
     providers: [
         provideTourDirective(TourAnchorIonPopoverDirective)
     ]
 })
-export class IonPopoverComponent implements OnInit {
+export default class IonPopoverComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -107,7 +106,7 @@ export class IonPopoverComponent implements OnInit {
         title: 'Hotkeys',
         route: 'ion-popover/Misc'
     }];
-    readonly defaultTemplate = defaultTemplate;
+    readonly defaultTemplate = import('./examples/default-template.md?raw');
 
     protected readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

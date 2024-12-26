@@ -1,6 +1,5 @@
+import {TuiDocCode} from '@taiga-ui/addon-doc';
 import {Component} from '@angular/core';
-import setDefaults from './examples/set-defaults.txt?raw';
-import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {HeaderComponent} from '../header/header.component';
 
 @Component({
@@ -8,13 +7,13 @@ import {HeaderComponent} from '../header/header.component';
     templateUrl: './defaults.component.html',
     imports: [
         HeaderComponent,
-        TuiDocCodeModule
+        TuiDocCode
     ]
 })
 export class DefaultsComponent {
 
     readonly examples = {
-        setDefaults: setDefaults
+        setDefaults: import('./examples/set-defaults.md?raw')
     };
 
 }

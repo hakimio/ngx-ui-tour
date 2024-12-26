@@ -1,3 +1,4 @@
+```ts
 this.tourService.setDefaults({
     route: '',
     disablePageScrolling: true,
@@ -7,3 +8,4 @@ this.tourService.initialize(steps, {
     route: '',
     disablePageScrolling: true
 });
+```

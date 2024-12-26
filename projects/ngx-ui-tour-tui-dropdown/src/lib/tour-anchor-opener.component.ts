@@ -1,5 +1,5 @@
 import {Component, Input, SkipSelf, TemplateRef, ViewChild} from '@angular/core';
-import {TUI_DROPDOWN_OPTIONS, TuiDropdownDirective, TuiDropdownModule, TuiDropdownOptions} from '@taiga-ui/core';
+import {TUI_DROPDOWN_OPTIONS, TuiDropdownDirective, TuiDropdown, TuiDropdownOptions} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 
@@ -11,7 +11,8 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
         align: step.placement?.horizontalDirection ?? defaults.align,
         direction: step.placement?.verticalDirection ?? defaults.direction,
         limitWidth: 'auto',
-        minHeight: 170
+        minHeight: 170,
+        appearance: 'ngx-ui-tour'
     };
 }
 
@@ -39,7 +40,7 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
             [tuiDropdownOffset]="offset"
         ></span>
     `,
-    imports: [TuiDropdownModule]
+    imports: [TuiDropdown]
 })
 export class TourAnchorOpenerComponent {
 

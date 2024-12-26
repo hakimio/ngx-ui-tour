@@ -1,5 +1,5 @@
+import {TuiDocCode, TuiRawLoaderContent} from '@taiga-ui/addon-doc';
 import {Component, Input} from '@angular/core';
-import {TuiDocCodeModule} from '@taiga-ui/addon-doc';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
 
@@ -9,13 +9,13 @@ import {HeaderComponent} from '../header/header.component';
     imports: [
         HeaderComponent,
         ProxyTourAnchorDirective,
-        TuiDocCodeModule
+        TuiDocCode
     ]
 })
 export class CustomTemplateComponent {
 
     @Input()
-    defaultTemplate: string;
+    defaultTemplate: TuiRawLoaderContent;
 
     readonly ngTemplateTag = '<ng-template let-step="step">';
     readonly tourStepTemplateTag = '<tour-step-template>';

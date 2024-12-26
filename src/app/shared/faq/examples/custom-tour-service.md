@@ -1,3 +1,4 @@
+```ts
 @Injectable()
 export class MyTourService {
 
@@ -33,3 +34,4 @@ export class MyTourService {
     }
 
 }
+```

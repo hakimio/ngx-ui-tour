@@ -1,15 +1,20 @@
-<h3 class="title">
-    <ng-content></ng-content>
+<div class="title-container">
+    <h3 class="title">
+        <ng-content></ng-content>
+    </h3>
     @if (id) {
-        <button
-            tuiIconButton
+        <a
+            [routerLink]="urlPath"
+            routerLinkActive="link-active"
+            tuiLink
             type="button"
-            size="xs"
-            class="link-icon"
-            [icon]="'tuiIconLinkLarge'"
-            appearance="icon"
-            [title]="copy$ | async"
+            class="link"
+            title="Copy"
+            [fragment]="id"
+            [routerLinkActiveOptions]="{matrixParams: 'exact', queryParams: 'exact', paths: 'exact', fragment: 'exact'}"
             (click)="copyExampleLink()"
-        ></button>
+        >
+            #
+        </a>
     }
-</h3>
+</div>

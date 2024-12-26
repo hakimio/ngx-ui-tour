@@ -2,12 +2,12 @@
     display: block;
 
     &:not(:last-of-type) {
-        border-bottom: 1px solid var(--tui-base-03);
+        border-bottom: 1px solid var(--tui-background-neutral-1-hover);
     }
     font: var(--tui-font-text-s);
     padding: 1rem 0;
     word-wrap: break-word;
-    color: var(--tui-text-01);
+    color: var(--tui-text-primary);
 
     .name {
         font: var(--tui-font-text-m);

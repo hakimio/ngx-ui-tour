@@ -1,3 +1,4 @@
+```html
 <tour-step-template>
     <ng-template let-step="step">
         <ion-card>
@@ -53,3 +54,4 @@
         </ion-card>
     </ng-template>
 </tour-step-template>
+```

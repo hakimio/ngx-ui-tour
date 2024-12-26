@@ -1,24 +1,24 @@
+```html
 <tour-step-template>
     <ng-template let-step="step">
         <div
             [style.width]="step.stepDimensions?.width"
             [style.min-width]="step.stepDimensions?.minWidth"
             [style.max-width]="step.stepDimensions?.maxWidth"
-            class="main-container"
+            [class]="step.popoverClass"
         >
-            @if (!step?.useLegacyTitle && step?.title) {
-                <div class="title-container">
-                    <h5>{{ step?.title }}</h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        aria-label="Close"
-                        (click)="tourService.end()"
-                    ></button>
-                </div>
-            }
+            <div class="title-container">
+                <h3>{{ step?.title }}</h3>
+                <button
+                    tuiIconButton
+                    iconStart="@tui.x"
+                    appearance="flat"
+                    size="m"
+                    (click)="tourService.end()"
+                ></button>
+            </div>
             <p
-                class="card-text"
+                class="content"
                 [innerHTML]="step?.content"
             ></p>
             <div
@@ -26,13 +26,15 @@
                 [class.no-progress]="!step.showProgress"
             >
                 <button
+                    tuiButton
+                    type="button"
+                    iconStart="@tui.chevron-left"
+                    appearance="flat"
+                    size="m"
                     [disabled]="!tourService.hasPrev(step)"
-                    class="btn btn-sm btn-outline-secondary prev"
                     (click)="tourService.prev()"
+                    class="prev"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                    </svg>
                     {{ step?.prevBtnTitle }}
                 </button>
                 @if (step.showProgress) {
@@ -40,18 +42,23 @@
                 }
                 @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
                     <button
-                        class="btn btn-sm btn-outline-primary next"
+                        tuiButton
+                        type="button"
+                        iconEnd="@tui.chevron-right"
+                        appearance="flat"
+                        size="m"
                         (click)="tourService.next()"
+                        class="next"
                     >
                         {{ step?.nextBtnTitle }}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
                     </button>
                 }
                 @if (!tourService.hasNext(step)) {
                     <button
-                        class="btn btn-sm btn-outline-primary"
+                        tuiButton
+                        type="button"
+                        appearance="flat"
+                        size="m"
                         (click)="tourService.end()"
                     >
                         {{ step?.endBtnTitle }}
@@ -61,3 +68,4 @@
         </div>
     </ng-template>
 </tour-step-template>
+```
