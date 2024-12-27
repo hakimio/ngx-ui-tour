@@ -1,0 +1,65 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-ui-tour-tui-hint",
+  "projectType": "library",
+  "sourceRoot": "libs/ngx-ui-tour-tui-hint/src",
+  "prefix": "lib",
+  "targets": {
+    "prebuild": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "libs/ngx-ui-tour-tui-hint/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngx-ui-tour-tui-hint/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngx-ui-tour-tui-hint/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/ngx-ui-tour-tui-hint"
+      ]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-tui-hint"],
+      "options": {
+        "parallel": false,
+        "commands": ["nx prebuild {projectName}", "nx postbuild {projectName}"]
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "shx cp README.md libs/ngx-ui-tour-tui-hint/CHANGELOG.md  dist/ngx-ui-tour-tui-hint/"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-ui-tour-tui-hint/**/*.ts",
+          "libs/ngx-ui-tour-tui-hint/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-ui-tour-ionic",
+  "projectType": "library",
+  "sourceRoot": "libs/ngx-ui-tour-ionic/src",
+  "prefix": "lib",
+  "targets": {
+    "prebuild": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "libs/ngx-ui-tour-ionic/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngx-ui-tour-ionic/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngx-ui-tour-ionic/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/ngx-ui-tour-ionic"
+      ]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-ionic"],
+      "options": {
+        "parallel": false,
+        "commands": ["nx prebuild {projectName}", "nx postbuild {projectName}"]
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "shx cp README.md libs/ngx-ui-tour-ionic/CHANGELOG.md  dist/ngx-ui-tour-ionic/"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-ui-tour-ionic/**/*.ts",
+          "libs/ngx-ui-tour-ionic/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
+    }
+  }
+}

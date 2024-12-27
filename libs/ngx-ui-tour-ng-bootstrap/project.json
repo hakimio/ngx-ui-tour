@@ -1,0 +1,65 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-ui-tour-ng-bootstrap",
+  "sourceRoot": "libs/ngx-ui-tour-ng-bootstrap/src",
+  "projectType": "library",
+  "prefix": "lib",
+  "targets": {
+    "prebuild": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "tsConfig": "libs/ngx-ui-tour-ng-bootstrap/tsconfig.lib.json",
+        "project": "libs/ngx-ui-tour-ng-bootstrap/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "project": "libs/ngx-ui-tour-ng-bootstrap/ng-package.prod.json",
+          "tsConfig": "libs/ngx-ui-tour-ng-bootstrap/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/ngx-ui-tour-ng-bootstrap"
+      ]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-ng-bootstrap"],
+      "options": {
+        "parallel": false,
+        "commands": ["nx prebuild {projectName}", "nx postbuild {projectName}"]
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "shx cp README.md libs/ngx-ui-tour-ng-bootstrap/CHANGELOG.md  dist/ngx-ui-tour-ng-bootstrap/"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-ui-tour-ng-bootstrap/**/*.ts",
+          "libs/ngx-ui-tour-ng-bootstrap/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
+    }
+  }
+}
