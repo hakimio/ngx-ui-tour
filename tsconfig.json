@@ -28,11 +28,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-ui-tour-core": [
-        "dist/ngx-ui-tour-core"
-      ],
       "ngx-ui-tour-console": [
         "dist/ngx-ui-tour-console"
+      ],
+      "ngx-ui-tour-core": [
+        "dist/ngx-ui-tour-core"
       ],
       "ngx-ui-tour-ionic": [
         "dist/ngx-ui-tour-ionic"
