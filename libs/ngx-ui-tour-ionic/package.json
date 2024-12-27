@@ -1,0 +1,29 @@
+{
+  "name": "ngx-ui-tour-ionic",
+  "version": "5.0.0",
+  "description": "UI tour library for Angular 15+",
+  "keywords": [
+    "angular",
+    "ngx",
+    "angular-ionic",
+    "ionic",
+    "ionic-framework",
+    "tour",
+    "product-tour",
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
+  ],
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Tomas Rimkus <tomas.r@programmer.net>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@ionic/angular": "^8.2.6"
+  },
+  "dependencies": {
+    "ngx-ui-tour-core": "workspace:*",
+    "tslib": "^2.3.0"
+  }
+}

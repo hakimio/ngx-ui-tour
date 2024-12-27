@@ -1,0 +1,28 @@
+{
+  "name": "ngx-ui-tour-ngx-bootstrap",
+  "version": "13.0.1",
+  "description": "UI tour library for Angular 12+",
+  "keywords": [
+    "angular",
+    "ngx",
+    "ngx-bootstrap",
+    "bootstrap",
+    "tour",
+    "product-tour",
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
+  ],
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Isaac Mann <isaacplmann@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "ngx-bootstrap": "^19.0.0"
+  },
+  "dependencies": {
+    "ngx-ui-tour-core": "workspace:*",
+    "tslib": "^2.0.0"
+  }
+}

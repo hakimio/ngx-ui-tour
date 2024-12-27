@@ -1,0 +1,125 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-ui-tour-demo",
+  "sourceRoot": "apps/ngx-ui-tour-demo/src",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@angular-builders/custom-webpack:browser",
+      "options": {
+        "customWebpackConfig": {
+          "path": "./apps/ngx-ui-tour-demo/webpack.config.ts"
+        },
+        "outputPath": "dist/ngx-ui-tour-demo",
+        "index": "apps/ngx-ui-tour-demo/src/index.html",
+        "main": "apps/ngx-ui-tour-demo/src/main.ts",
+        "tsConfig": "apps/ngx-ui-tour-demo/src/tsconfig.app.json",
+        "polyfills": [
+          "zone.js"
+        ],
+        "assets": [
+          "apps/ngx-ui-tour-demo/src/assets",
+          "apps/ngx-ui-tour-demo/src/404.html",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
+        ],
+        "styles": [
+          "apps/ngx-ui-tour-demo/src/normalize.scss",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+          "apps/ngx-ui-tour-demo/src/styles.scss"
+        ],
+        "scripts": [],
+        "allowedCommonJsDependencies": [
+          "markdown-it"
+        ],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb"
+            }
+          ],
+          "optimization": {
+            "scripts": true,
+            "fonts": true,
+            "styles": {
+              "inlineCritical": false,
+              "minify": true
+            }
+          },
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "baseHref": "/ngx-ui-tour/"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve": {
+      "executor": "@angular-builders/custom-webpack:dev-server",
+      "options": {},
+      "configurations": {
+        "production": {
+          "buildTarget": "ngx-ui-tour-demo:build:production"
+        },
+        "development": {
+          "buildTarget": "ngx-ui-tour-demo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ngx-ui-tour-demo/src/**/*.ts",
+          "apps/ngx-ui-tour-demo/src/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "gh-pages -d dist/ngx-ui-tour-demo"
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-ui-tour-console",
+  "sourceRoot": "libs/ngx-ui-tour-console/src",
+  "projectType": "library",
+  "prefix": "lib",
+  "targets": {
+    "prebuild": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "tsConfig": "libs/ngx-ui-tour-console/tsconfig.lib.json",
+        "project": "libs/ngx-ui-tour-console/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "project": "libs/ngx-ui-tour-console/ng-package.prod.json",
+          "tsConfig": "libs/ngx-ui-tour-console/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/ngx-ui-tour-console"
+      ]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-console"],
+      "options": {
+        "parallel": false,
+        "commands": ["nx prebuild {projectName}", "nx postbuild {projectName}"]
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "shx cp README.md libs/ngx-ui-tour-console/CHANGELOG.md  dist/ngx-ui-tour-console/"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-ui-tour-console/**/*.ts",
+          "libs/ngx-ui-tour-console/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
+    }
+  }
+}
