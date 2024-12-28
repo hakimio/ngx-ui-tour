@@ -2,6 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "ngx-ui-tour-ionic",
   "projectType": "library",
+  "tags": ["libs"],
   "sourceRoot": "libs/ngx-ui-tour-ionic/src",
   "prefix": "lib",
   "targets": {

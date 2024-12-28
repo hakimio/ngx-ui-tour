@@ -3,6 +3,7 @@
   "name": "ngx-ui-tour-console",
   "sourceRoot": "libs/ngx-ui-tour-console/src",
   "projectType": "library",
+  "tags": ["libs"],
   "prefix": "lib",
   "targets": {
     "prebuild": {

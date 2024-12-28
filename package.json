@@ -24,13 +24,13 @@
     "build:lazy-tour": "nx build lazy-tour-demo",
     "start:material-ui-demo": "nx serve material-ui-demo --no-hmr",
     "build:material-ui-demo": "nx build material-ui-demo",
-    "build:lib:all": "nx run-many --target=build --exclude=ngx-ui-tour,lazy-tour-demo,material-ui-demo",
+    "build:lib:all": "nx run-many --target=build --projects=tag:libs",
     "test": "nx test ngx-ui-tour-core",
     "lint": "nx lint",
     "release": "nx release",
     "pub:all": "npm run pub:lib:all && npm run pub:demo",
     "pub:demo": "nx publish ngx-ui-tour-demo",
-    "pub:lib:all": "nx run-many --target=publish --exclude=ngx-ui-tour,lazy-tour-demo,material-ui-demo"
+    "pub:lib:all": "nx run-many --target=publish --projects=tag:libs"
   },
   "dependencies": {
     "@angular/animations": "^19.0.5",

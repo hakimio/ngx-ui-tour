@@ -2,6 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "ngx-ui-tour-tui-hint",
   "projectType": "library",
+  "tags": ["libs"],
   "sourceRoot": "libs/ngx-ui-tour-tui-hint/src",
   "prefix": "lib",
   "targets": {

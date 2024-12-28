@@ -3,6 +3,7 @@
   "name": "ngx-ui-tour-ngx-bootstrap",
   "sourceRoot": "libs/ngx-ui-tour-ngx-bootstrap/src",
   "projectType": "library",
+  "tags": ["libs"],
   "prefix": "lib",
   "targets": {
     "prebuild": {

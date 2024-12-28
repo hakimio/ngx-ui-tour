@@ -3,6 +3,7 @@
   "name": "ngx-ui-tour-demo",
   "sourceRoot": "apps/ngx-ui-tour-demo/src",
   "projectType": "application",
+  "tags": ["apps"],
   "generators": {
     "@schematics/angular:component": {
       "style": "scss"
@@ -10,18 +11,19 @@
   },
   "targets": {
     "build": {
-      "executor": "@angular-builders/custom-webpack:browser",
+      "executor": "@angular/build:application",
       "options": {
-        "customWebpackConfig": {
-          "path": "./apps/ngx-ui-tour-demo/webpack.config.ts"
+        "outputPath": {
+          "base": "dist/ngx-ui-tour-demo",
+          "browser": ""
         },
-        "outputPath": "dist/ngx-ui-tour-demo",
         "index": "apps/ngx-ui-tour-demo/src/index.html",
-        "main": "apps/ngx-ui-tour-demo/src/main.ts",
+        "browser": "apps/ngx-ui-tour-demo/src/main.ts",
         "tsConfig": "apps/ngx-ui-tour-demo/src/tsconfig.app.json",
         "polyfills": [
           "zone.js"
         ],
+        "inlineStyleLanguage": "scss",
         "assets": [
           "apps/ngx-ui-tour-demo/src/assets",
           "apps/ngx-ui-tour-demo/src/404.html",
@@ -38,15 +40,14 @@
           "apps/ngx-ui-tour-demo/src/styles.scss"
         ],
         "scripts": [],
-        "allowedCommonJsDependencies": [
-          "markdown-it"
-        ],
-        "vendorChunk": true,
-        "extractLicenses": false,
-        "buildOptimizer": false,
-        "sourceMap": true,
-        "optimization": false,
-        "namedChunks": true
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "./src"
+          ],
+          "sass": {
+            "silenceDeprecations": ["import"]
+          }
+        }
       },
       "configurations": {
         "production": {
@@ -66,18 +67,18 @@
             "fonts": true,
             "styles": {
               "inlineCritical": false,
-              "minify": true
+              "minify": true,
+              "removeSpecialComments": true
             }
           },
           "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false,
-          "buildOptimizer": true,
           "baseHref": "/ngx-ui-tour/"
         },
-        "development": {}
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
       },
       "defaultConfiguration": "production",
       "outputs": [
@@ -85,7 +86,7 @@
       ]
     },
     "serve": {
-      "executor": "@angular-builders/custom-webpack:dev-server",
+      "executor": "@angular/build:dev-server",
       "options": {},
       "configurations": {
         "production": {

@@ -2,6 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "material-ui-demo",
   "projectType": "application",
+  "tags": ["apps"],
   "generators": {
     "@schematics/angular:component": {
       "style": "scss"
