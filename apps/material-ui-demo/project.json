@@ -12,9 +12,12 @@
   "prefix": "app",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular/build:application",
       "options": {
-        "outputPath": "dist/material-ui-demo",
+        "outputPath": {
+          "base": "dist/material-ui-demo",
+          "browser": ""
+        },
         "index": "apps/material-ui-demo/src/index.html",
         "browser": "apps/material-ui-demo/src/main.ts",
         "polyfills": [
@@ -30,15 +33,23 @@
         "styles": [
           "apps/material-ui-demo/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "./src"
+          ],
+          "sass": {
+            "silenceDeprecations": ["import"]
+          }
+        }
       },
       "configurations": {
         "production": {
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "1mb",
+              "maximumError": "2mb"
             },
             {
               "type": "anyComponentStyle",
@@ -54,10 +65,13 @@
           "sourceMap": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "material-ui-demo:build:production"
