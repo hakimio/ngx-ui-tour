@@ -3,6 +3,7 @@
   "name": "ngx-ui-tour-md-menu",
   "sourceRoot": "libs/ngx-ui-tour-md-menu/src",
   "projectType": "library",
+  "tags": ["libs"],
   "prefix": "lib",
   "targets": {
     "prebuild": {
