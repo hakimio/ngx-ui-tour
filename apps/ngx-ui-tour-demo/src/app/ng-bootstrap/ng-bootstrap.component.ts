@@ -9,6 +9,7 @@ import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {TuiAddonDoc, TuiDocCode} from '@taiga-ui/addon-doc';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-ng-bootstrap',
@@ -121,7 +122,7 @@ export default class NgBootstrapComponent implements OnInit {
         route: 'ng-bootstrap/Misc'
     }];
     readonly bootstrapScssImport = '@import "bootstrap/scss/bootstrap";';
-    readonly defaultTemplate = import('./examples/default-template.md?raw');
+    readonly defaultTemplate = defaultTemplate;
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

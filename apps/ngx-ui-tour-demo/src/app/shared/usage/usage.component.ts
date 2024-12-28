@@ -3,6 +3,7 @@ import {Component, Input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
+import tourServiceExample from './examples/tour-service-initialize.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-usage',
@@ -22,7 +23,7 @@ export class UsageComponent {
     moduleName: string;
 
     readonly examples = {
-        tourServiceExample: import('./examples/tour-service-initialize.md?raw')
+        tourServiceExample
     };
 
     readonly tourStepTag = '<tour-step-template></tour-step-template>';

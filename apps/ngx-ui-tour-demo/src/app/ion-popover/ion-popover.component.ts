@@ -4,6 +4,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-ion-popover',
@@ -106,7 +107,7 @@ export default class IonPopoverComponent implements OnInit {
         title: 'Hotkeys',
         route: 'ion-popover/Misc'
     }];
-    readonly defaultTemplate = import('./examples/default-template.md?raw');
+    readonly defaultTemplate = defaultTemplate;
 
     protected readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
