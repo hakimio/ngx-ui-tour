@@ -9,6 +9,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-tui-dropdown',
@@ -115,7 +116,7 @@ export default class TuiDropdownComponent implements OnInit {
         title: 'Hotkeys',
         route: 'tui-dropdown/Misc'
     }];
-    readonly defaultTemplate = import('./examples/default-template.md?raw');
+    readonly defaultTemplate = defaultTemplate;
 
     public readonly tourService = inject(TourService);
     private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);

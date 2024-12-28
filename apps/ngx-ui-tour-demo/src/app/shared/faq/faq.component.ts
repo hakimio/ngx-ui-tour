@@ -2,6 +2,15 @@ import {TuiDocCode} from '@taiga-ui/addon-doc';
 import {Component, Input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {HeaderComponent} from '../header/header.component';
+import centeredStepCss from './examples/centered-step-css.md' with {loader: 'text'};
+import centeredStepHtml from './examples/centered-step-html.md' with {loader: 'text'};
+import centeredStepTs from './examples/centered-step-ts.md' with {loader: 'text'};
+import customTourService from './examples/custom-tour-service.md' with {loader: 'text'};
+import noScrollCss from './examples/no-scroll-css.md' with {loader: 'text'};
+import customTourServiceUsage from './examples/custom-tour-service-usage.md' with {loader: 'text'};
+import backdropPadding from './examples/backdrop-padding-css.md' with {loader: 'text'};
+import backdropParagraphPadding from './examples/backdrop-paragraph-padding-css.md' with {loader: 'text'};
+import backdropButtonPadding from './examples/backdrop-button-padding-html.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-faq',
@@ -23,15 +32,15 @@ export class FaqComponent {
     backdropOffsetIntroducedIn: string;
 
     readonly examples = {
-        centeredStepCss: import('./examples/centered-step-css.md?raw'),
-        centeredStepHtml: import('./examples/centered-step-html.md?raw'),
-        centeredStepTs: import('./examples/centered-step-ts.md?raw'),
-        customTourService: import('./examples/custom-tour-service.md?raw'),
-        noScrollCss: import('./examples/no-scroll-css.md?raw'),
-        customTourServiceUsage: import('./examples/custom-tour-service-usage.md?raw'),
-        backdropPadding: import('./examples/backdrop-padding-css.md?raw'),
-        backdropParagraphPadding: import('./examples/backdrop-paragraph-padding-css.md?raw'),
-        backdropButtonPadding: import('./examples/backdrop-button-padding-html.md?raw')
+        centeredStepCss,
+        centeredStepHtml,
+        centeredStepTs,
+        customTourService,
+        noScrollCss,
+        customTourServiceUsage,
+        backdropPadding,
+        backdropParagraphPadding,
+        backdropButtonPadding
     };
 
 }

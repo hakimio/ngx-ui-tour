@@ -1,4 +1,4 @@
-declare module "*?raw" {
+declare module "*.md" {
   const result: string;
 
   export = result;

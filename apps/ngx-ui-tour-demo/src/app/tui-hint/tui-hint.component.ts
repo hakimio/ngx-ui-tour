@@ -4,6 +4,7 @@ import {IStepOption, TourAnchorTuiHintDirective, TourService, TourTuiHintModule}
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiHintDirection, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
 @Component({
     selector: 'app-tui-hint',
@@ -110,7 +111,7 @@ export default class TuiHintComponent implements OnInit {
         title: 'Hotkeys',
         route: 'tui-hint/Misc'
     }];
-    readonly defaultTemplate = import('./examples/default-template.md?raw');
+    readonly defaultTemplate = defaultTemplate;
     readonly hintPlacements: TuiHintDirection[] = [
         'top-left',
         'top',
