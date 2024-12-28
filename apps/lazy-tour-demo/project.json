@@ -15,15 +15,18 @@
   "prefix": "app",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular/build:application",
       "options": {
-        "outputPath": "dist/lazy-tour-demo",
+        "outputPath": {
+          "base": "dist/lazy-tour-demo",
+          "browser": ""
+        },
         "index": "apps/lazy-tour-demo/src/index.html",
-        "main": "apps/lazy-tour-demo/src/main.ts",
+        "browser": "apps/lazy-tour-demo/src/main.ts",
+        "tsConfig": "apps/lazy-tour-demo/tsconfig.app.json",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "apps/lazy-tour-demo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/lazy-tour-demo/src/favicon.ico",
@@ -32,7 +35,15 @@
         "styles": [
           "apps/lazy-tour-demo/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "./src"
+          ],
+          "sass": {
+            "silenceDeprecations": ["import"]
+          }
+        }
       },
       "configurations": {
         "production": {
@@ -51,12 +62,9 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production",
@@ -65,7 +73,7 @@
       ]
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "lazy-tour-demo:build:production"
@@ -75,12 +83,6 @@
         }
       },
       "defaultConfiguration": "development"
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "lazy-tour-demo:build"
-      }
     },
     "lint": {
       "executor": "@angular-eslint/builder:lint",
