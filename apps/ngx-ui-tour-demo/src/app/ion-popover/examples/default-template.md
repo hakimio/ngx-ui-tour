@@ -31,7 +31,7 @@
                     {{ step.prevBtnTitle }}
                 </ion-button>
                 @if (step.showProgress) {
-                    <div class="progress">{{ tourService.steps?.indexOf(step) + 1 }} / {{ tourService.steps?.length }}</div>
+                    <div class="progress">{{ tourService.steps.indexOf(step) + 1 }} / {{ tourService.steps.length }}</div>
                 }
                 @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
                     <ion-button
