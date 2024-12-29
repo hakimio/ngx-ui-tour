@@ -1,5 +1,5 @@
 import {TuiDocCode} from '@taiga-ui/addon-doc';
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
@@ -15,7 +15,8 @@ import tourServiceExample from './examples/tour-service-initialize.md' with {loa
         TuiLink,
         TuiNotification,
         TuiDocCode
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsageComponent {
 

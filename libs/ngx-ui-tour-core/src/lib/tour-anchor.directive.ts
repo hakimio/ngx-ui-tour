@@ -1,5 +1,5 @@
-import { ElementRef } from '@angular/core';
-import { IStepOption } from './tour.service';
+import type {ElementRef} from '@angular/core';
+import type {IStepOption} from './tour.service';
 
 export interface TourAnchorDirective {
   showTourStep(step: IStepOption): void;

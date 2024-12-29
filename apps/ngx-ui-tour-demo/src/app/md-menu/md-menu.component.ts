@@ -1,6 +1,8 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {IStepOption, TourAnchorMatMenuDirective, TourMatMenuModule, TourService} from 'ngx-ui-tour-md-menu';
-import {Component, inject, OnInit} from '@angular/core';
+import type {IStepOption} from 'ngx-ui-tour-md-menu';
+import {TourAnchorMatMenuDirective, TourMatMenuModule, TourService} from 'ngx-ui-tour-md-menu';
+import type {OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
@@ -20,7 +22,8 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     providers: [
         provideTourDirective(TourAnchorMatMenuDirective)
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class MdMenuComponent implements OnInit {
 

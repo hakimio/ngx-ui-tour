@@ -1,5 +1,5 @@
 import {afterNextRender, AfterRenderPhase, Directive, ElementRef, inject} from '@angular/core';
-import {TourAnchorDirective} from './tour-anchor.directive';
+import type {TourAnchorDirective} from './tour-anchor.directive';
 import {DOCUMENT} from '@angular/common';
 
 @Directive()

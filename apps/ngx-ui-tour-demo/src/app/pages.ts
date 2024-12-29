@@ -1,4 +1,4 @@
-import {TuiDocRoutePages} from '@taiga-ui/addon-doc';
+import type {TuiDocRoutePages} from '@taiga-ui/addon-doc';
 
 export const pages: TuiDocRoutePages = [{
     section: 'Tour UI Libraries',

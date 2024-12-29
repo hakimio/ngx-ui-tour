@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-placement-config',
     template: '',
-    standalone: true
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlacementConfigComponent {
 

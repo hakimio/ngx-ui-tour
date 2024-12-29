@@ -1,30 +1,37 @@
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
-import {ITuiDdStepOption} from './step-option.interface';
+import {
+    Directive,
+    ElementRef,
+    inject,
+    Input,
+    type OnDestroy,
+    type OnInit,
+    signal,
+    ViewContainerRef
+} from '@angular/core';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
+import type {ITuiDdStepOption} from './step-option.interface';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
     @Input()
     tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    isActive: boolean;
+    isActive = signal(false);
 
     private opener: TourAnchorOpenerComponent;
-
-    constructor(
-        private readonly tourService: TourTuiDropdownService,
-        private readonly tourStepTemplateService: TourStepTemplateService,
-        private readonly viewContainer: ViewContainerRef,
-        public readonly element: ElementRef<HTMLElement>
-    ) {}
+    public readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
+    private readonly tourService = inject(TourTuiDropdownService);
+    private readonly tourStepTemplateService = inject(TourStepTemplateService);
+    private readonly viewContainer = inject(ViewContainerRef);
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -43,7 +50,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
         const templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
-        this.isActive = true;
+        this.isActive.set(true);
 
         if (!this.opener) {
             this.createOpener();
@@ -53,19 +60,19 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
         (tuiDropdown as unknown as {el: HTMLElement}).el = this.element.nativeElement;
 
-        this.opener.isShown = true;
+        this.opener.isShown.set(true);
 
         const offset = step.backdropConfig?.offset;
 
         if (offset) {
-            this.opener.offset = offset + 4;
+            this.opener.offset.set(offset + 4);
         }
     }
 
     // noinspection JSUnusedGlobalSymbols
     hideTourStep() {
-        this.isActive = false;
-        this.opener.isShown = false;
+        this.isActive.set(false);
+        this.opener.isShown.set(false);
     }
 
 }

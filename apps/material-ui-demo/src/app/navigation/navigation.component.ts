@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -15,7 +15,8 @@ import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
         MatSidenavModule,
         MatListModule,
         TourMatMenuModule
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent {
 

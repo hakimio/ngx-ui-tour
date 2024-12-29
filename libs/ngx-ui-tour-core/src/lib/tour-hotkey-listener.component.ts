@@ -1,17 +1,15 @@
-import {Component, HostListener} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostListener, inject} from '@angular/core';
 import {TourService, TourState} from './tour.service';
 
 
 @Component({
     selector: 'tour-hotkey-listener',
     template: `<ng-content></ng-content>`,
-    standalone: true
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourHotkeyListenerComponent {
 
-    constructor(
-        public readonly tourService: TourService
-    ) {}
+    protected readonly tourService = inject(TourService);
 
     /**
      * Configures hot keys for controlling the tour with the keyboard

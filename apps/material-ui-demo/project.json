@@ -83,16 +83,15 @@
       "defaultConfiguration": "development"
     },
     "lint": {
-      "executor": "@angular-eslint/builder:lint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/material-ui-demo/**/*.ts",
-          "apps/material-ui-demo/**/*.html"
-        ]
+          "apps/material-ui-demo/src/**/*.ts",
+          "apps/material-ui-demo/src/**/*.html"
+        ],
+        "eslintConfig": "apps/material-ui-demo/eslint.config.cjs"
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     }
   }
 }

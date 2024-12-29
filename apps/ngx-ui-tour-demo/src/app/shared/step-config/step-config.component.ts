@@ -1,7 +1,7 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {Component, ContentChild, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ContentChild, Input} from '@angular/core';
 import {PlacementConfigComponent} from './placement-config.component';
-import {IStepOption} from 'ngx-ui-tour-md-menu';
+import type {IStepOption} from 'ngx-ui-tour-md-menu';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
 
@@ -13,7 +13,8 @@ import {HeaderComponent} from '../header/header.component';
         HeaderComponent,
         TuiAddonDoc,
         ProxyTourAnchorDirective
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StepConfigComponent {
 

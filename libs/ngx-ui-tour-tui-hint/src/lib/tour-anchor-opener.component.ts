@@ -1,5 +1,6 @@
-import {Component, Input, SkipSelf, TemplateRef, ViewChild} from '@angular/core';
-import {TUI_HINT_OPTIONS, TuiHintDirective, TuiHint, TuiHintOptions} from '@taiga-ui/core';
+import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, ViewChild} from '@angular/core';
+import type {TuiHintOptions} from '@taiga-ui/core';
+import {TUI_HINT_OPTIONS, TuiHint, TuiHintDirective} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiHintService} from './tour-tui-hint.service';
 
@@ -33,12 +34,13 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
     template: `
         <span
             [tuiHint]="template"
-            [tuiHintManual]="isShown"
+            [tuiHintManual]="isShown()"
         ></span>
     `,
     imports: [
         TuiHint
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourAnchorOpenerComponent {
 
@@ -47,13 +49,12 @@ export class TourAnchorOpenerComponent {
     @ViewChild(TuiHintDirective, {static: true})
     hint: TuiHintDirective<void>;
 
-    @Input()
-    isShown = false;
+    isShown = signal(false);
 
-    constructor(
-        private readonly tourStepTemplateService: TourStepTemplateService
-    ) {
-        this.template = tourStepTemplateService.templateComponent.template;
+    private readonly tourStepTemplateService = inject(TourStepTemplateService);
+
+    constructor() {
+        this.template = this.tourStepTemplateService.templateComponent.template;
     }
 
 }

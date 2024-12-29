@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import type {Routes} from '@angular/router';
 import {ModuleBComponent} from './module-b.component';
 
 const ROUTES: Routes = [{

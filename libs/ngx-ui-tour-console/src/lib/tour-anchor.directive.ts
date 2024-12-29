@@ -1,22 +1,20 @@
-import {IStepOption, TourAnchorDirective, TourService} from 'ngx-ui-tour-core';
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
+import type {IStepOption, TourAnchorDirective} from 'ngx-ui-tour-core';
+import {TourService} from 'ngx-ui-tour-core';
+import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
     @Input() public tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    public isActive = false;
-
-    constructor(
-        private readonly tourService: TourService,
-        public readonly element: ElementRef
-    ) {
-    }
+    public isActive = signal(false);
+    public readonly element = inject(ElementRef);
+    private readonly tourService = inject(TourService);
 
     public ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -28,7 +26,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
     // noinspection JSUnusedGlobalSymbols
     public showTourStep(step: IStepOption): void {
-        this.isActive = true;
+        this.isActive.set(true);
 
         console.group(step.title);
         console.log(step.content);
@@ -38,6 +36,6 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
     // noinspection JSUnusedGlobalSymbols
     public hideTourStep(): void {
-        this.isActive = false;
+        this.isActive.set(false);
     }
 }

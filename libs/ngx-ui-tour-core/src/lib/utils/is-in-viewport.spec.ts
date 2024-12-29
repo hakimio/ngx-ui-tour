@@ -5,19 +5,19 @@ describe('IsInViewport', () => {
 
     let htmlElement: HTMLElement;
     let sidesToTest: ElementSides;
-    const initialClientRect = <DOMRect>{
+    const initialClientRect = {
         top: 137,
         bottom: 255,
         left: 40,
         right: 631
-    };
+    } as DOMRect;
 
     beforeEach(() => {
-        htmlElement = <HTMLElement><unknown>{
+        htmlElement = ({
             getBoundingClientRect: jest.fn().mockReturnValue({
                 ...initialClientRect
             })
-        };
+        } as unknown) as HTMLElement;
         Object.defineProperties(window, {
             innerWidth: {
                 value: 800
@@ -29,10 +29,10 @@ describe('IsInViewport', () => {
     });
 
     const testWithRectangle = (rectangle: Partial<DOMRect>, expectedResult: boolean) => {
-        (<Mock>htmlElement.getBoundingClientRect).mockReturnValue(<DOMRect>{
+        (htmlElement.getBoundingClientRect as Mock).mockReturnValue(({
             ...initialClientRect,
             ...rectangle
-        });
+        } as DOMRect));
 
         const actualResult = isInViewport(htmlElement, sidesToTest);
 

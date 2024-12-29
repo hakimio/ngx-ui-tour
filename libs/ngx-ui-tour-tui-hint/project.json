@@ -39,12 +39,13 @@
       }
     },
     "lint": {
-      "executor": "@angular-eslint/builder:lint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "libs/ngx-ui-tour-tui-hint/**/*.ts",
-          "libs/ngx-ui-tour-tui-hint/**/*.html"
-        ]
+          "libs/ngx-ui-tour-tui-hint/src/**/*.ts",
+          "libs/ngx-ui-tour-tui-hint/src/**/*.html"
+        ],
+        "eslintConfig": "libs/ngx-ui-tour-tui-hint/eslint.config.cjs"
       },
       "outputs": [
         "{options.outputFile}"

@@ -1,5 +1,5 @@
 import {TuiDocCode} from '@taiga-ui/addon-doc';
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {HeaderComponent} from '../header/header.component';
 import centeredStepCss from './examples/centered-step-css.md' with {loader: 'text'};
@@ -21,7 +21,8 @@ import backdropButtonPadding from './examples/backdrop-button-padding-html.md' w
         TuiDocCode,
         TuiNotification,
         TuiLink
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FaqComponent {
 

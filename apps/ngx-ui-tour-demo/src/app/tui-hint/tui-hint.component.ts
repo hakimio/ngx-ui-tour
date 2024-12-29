@@ -1,8 +1,11 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {Component, inject, OnInit} from '@angular/core';
-import {IStepOption, TourAnchorTuiHintDirective, TourService, TourTuiHintModule} from 'ngx-ui-tour-tui-hint';
+import type {OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import type {IStepOption} from 'ngx-ui-tour-tui-hint';
+import {TourAnchorTuiHintDirective, TourService, TourTuiHintModule} from 'ngx-ui-tour-tui-hint';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {TuiButton, TuiHintDirection, TuiLink, TuiNotification} from '@taiga-ui/core';
+import type {TuiHintDirection} from '@taiga-ui/core';
+import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
@@ -20,7 +23,8 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     providers: [
         provideTourDirective(TourAnchorTuiHintDirective)
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TuiHintComponent implements OnInit {
 

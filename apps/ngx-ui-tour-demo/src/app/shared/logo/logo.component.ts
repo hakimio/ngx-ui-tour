@@ -5,8 +5,7 @@ import {PolymorpheusComponent} from '@taiga-ui/polymorpheus';
     selector: 'app-logo',
     templateUrl: './logo.component.html',
     styleUrls: ['./logo.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoComponent {}
 

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TourService} from 'ngx-ui-tour-core';
 
-import {INgxbStepOption} from './step-option.interface';
+import type {INgxbStepOption} from './step-option.interface';
 
 @Injectable({
     providedIn: 'root'
