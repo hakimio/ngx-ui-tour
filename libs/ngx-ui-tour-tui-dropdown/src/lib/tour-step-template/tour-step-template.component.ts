@@ -1,6 +1,15 @@
 import {TuiButton} from '@taiga-ui/core';
-import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
-import {ITuiDdStepOption} from '../step-option.interface';
+import {
+    type AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ContentChild,
+    inject,
+    Input,
+    TemplateRef,
+    ViewChild
+} from '@angular/core';
+import type {ITuiDdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {TourTuiDropdownService} from '../tour-tui-dropdown.service';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
@@ -13,7 +22,8 @@ import {NgTemplateOutlet} from '@angular/common';
     imports: [
         NgTemplateOutlet,
         TuiButton
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
@@ -28,12 +38,8 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     step: ITuiDdStepOption = {};
 
-    constructor(
-        private readonly tourStepTemplateService: TourStepTemplateService,
-        tourService: TourTuiDropdownService
-    ) {
-        super(tourService);
-    }
+    protected override readonly tourService = inject(TourTuiDropdownService);
+    private readonly tourStepTemplateService = inject(TourStepTemplateService);
 
     ngAfterViewInit() {
         this.tourStepTemplateService.templateComponent = this;

@@ -1,30 +1,37 @@
-import {Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
+import {
+    Directive,
+    ElementRef,
+    inject,
+    Input,
+    type OnDestroy,
+    type OnInit,
+    signal,
+    ViewContainerRef
+} from '@angular/core';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourTuiHintService} from './tour-tui-hint.service';
-import {ITuiHintStepOption} from './step-option.interface';
+import type {ITuiHintStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
     @Input()
     tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    isActive: boolean;
+    isActive = signal(false);
 
     private opener: TourAnchorOpenerComponent;
-
-    constructor(
-        private readonly tourService: TourTuiHintService,
-        private readonly tourStepTemplateService: TourStepTemplateService,
-        private readonly viewContainer: ViewContainerRef,
-        public readonly element: ElementRef<HTMLElement>
-    ) {}
+    public readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
+    private readonly tourService = inject(TourTuiHintService);
+    private readonly tourStepTemplateService = inject(TourStepTemplateService);
+    private readonly viewContainer = inject(ViewContainerRef);
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -43,7 +50,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
         const templateComponent = this.tourStepTemplateService.templateComponent;
 
         templateComponent.step = step;
-        this.isActive = true;
+        this.isActive.set(true);
 
         if (!this.opener) {
             this.createOpener();
@@ -53,13 +60,13 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
 
         (tuiHint as unknown as {el: HTMLElement}).el = this.element.nativeElement;
 
-        this.opener.isShown = true;
+        this.opener.isShown.set(true);
     }
 
     // noinspection JSUnusedGlobalSymbols
     hideTourStep() {
-        this.isActive = false;
-        this.opener.isShown = false;
+        this.isActive.set(false);
+        this.opener.isShown.set(false);
     }
 
 }

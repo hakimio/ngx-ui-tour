@@ -1,10 +1,7 @@
-import {
-    IStepOption,
-    TourAnchorNgBootstrapDirective,
-    TourNgBootstrapModule,
-    TourService
-} from 'ngx-ui-tour-ng-bootstrap';
-import {Component, inject, OnInit} from '@angular/core';
+import type {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
+import {TourAnchorNgBootstrapDirective, TourNgBootstrapModule, TourService} from 'ngx-ui-tour-ng-bootstrap';
+import type {OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {TuiAddonDoc, TuiDocCode} from '@taiga-ui/addon-doc';
@@ -26,7 +23,8 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     providers: [
         provideTourDirective(TourAnchorNgBootstrapDirective)
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class NgBootstrapComponent implements OnInit {
 

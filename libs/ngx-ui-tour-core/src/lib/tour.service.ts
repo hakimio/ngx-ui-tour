@@ -1,11 +1,13 @@
 import {inject, Injectable} from '@angular/core';
-import type {UrlSegment} from '@angular/router';
-import {IsActiveMatchOptions, NavigationStart, Router} from '@angular/router';
+import type {IsActiveMatchOptions, UrlSegment} from '@angular/router';
+import {NavigationStart, Router} from '@angular/router';
 
-import {TourAnchorDirective} from './tour-anchor.directive';
-import {delay, filter, first, map, merge as mergeStatic, Observable, of, Subject, takeUntil, timeout} from 'rxjs';
+import type {TourAnchorDirective} from './tour-anchor.directive';
+import type {Observable} from 'rxjs';
+import {delay, filter, first, map, merge as mergeStatic, of, Subject, takeUntil, timeout} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
-import {BackdropConfig, TourBackdropService} from './tour-backdrop.service';
+import type {BackdropConfig} from './tour-backdrop.service';
+import {TourBackdropService} from './tour-backdrop.service';
 import {AnchorClickService} from './anchor-click.service';
 import {ScrollBlockingService} from './scroll-blocking.service';
 import {deepMerge} from './utils';
@@ -98,15 +100,15 @@ const DEFAULT_STEP_OPTIONS: IStepOption = {
 })
 export class TourService<T extends IStepOption = IStepOption> {
 
-    public stepShow$: Subject<StepChangeParams<T>> = new Subject();
-    public stepHide$: Subject<StepChangeParams<T>> = new Subject();
-    public initialize$: Subject<T[]> = new Subject();
-    public start$: Subject<void> = new Subject();
-    public end$: Subject<void> = new Subject();
-    public pause$: Subject<void> = new Subject();
-    public resume$: Subject<void> = new Subject();
-    public anchorRegister$: Subject<string> = new Subject();
-    public anchorUnregister$: Subject<string> = new Subject();
+    public stepShow$ = new Subject<StepChangeParams<T>>();
+    public stepHide$ = new Subject<StepChangeParams<T>>();
+    public initialize$ = new Subject<T[]>();
+    public start$ = new Subject<void>();
+    public end$ = new Subject<void>();
+    public pause$ = new Subject<void>();
+    public resume$ = new Subject<void>();
+    public anchorRegister$ = new Subject<string>();
+    public anchorUnregister$ = new Subject<string>();
     public events$: Observable<{ name: string; value: unknown }> = mergeStatic(
         this.stepShow$.pipe(map(value => ({name: 'stepShow', value}))),
         this.stepHide$.pipe(map(value => ({name: 'stepHide', value}))),
@@ -132,7 +134,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     public steps: T[] = [];
     public currentStep: T;
 
-    public anchors: { [anchorId: string]: TourAnchorDirective } = {};
+    public anchors: Record<string, TourAnchorDirective> = {};
     private status: TourState = TourState.OFF;
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
@@ -512,7 +514,7 @@ export class TourService<T extends IStepOption = IStepOption> {
                 return;
             }
             if (step.isOptional) {
-                this.direction === Direction.Forwards ? this.next() : this.prev();
+                this[this.direction === Direction.Forwards ? 'next' : 'prev']();
                 return;
             }
 

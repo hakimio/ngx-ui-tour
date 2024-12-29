@@ -1,5 +1,5 @@
-import {IStepOption} from 'ngx-ui-tour-core';
-import {AvailableBSPositions} from 'ngx-bootstrap/positioning';
+import type {IStepOption} from 'ngx-ui-tour-core';
+import type {AvailableBSPositions} from 'ngx-bootstrap/positioning';
 
 export interface INgxbStepOption extends IStepOption {
     placement?: AvailableBSPositions;

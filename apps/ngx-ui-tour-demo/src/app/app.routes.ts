@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import type {Routes} from '@angular/router';
 import {tuiProvideRoutePageTab as route} from '@taiga-ui/addon-doc';
 
 export const ROUTES: Routes = [

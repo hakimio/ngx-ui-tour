@@ -1,12 +1,14 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {IStepOption, TourService} from 'ngx-ui-tour-md-menu';
+import {ChangeDetectionStrategy, Component, inject, type OnInit} from '@angular/core';
+import type {IStepOption} from 'ngx-ui-tour-md-menu';
+import {TourService} from 'ngx-ui-tour-md-menu';
 import {NavigationComponent} from './navigation/navigation.component';
 import {UiTourDemoComponent} from './ui-tour-demo/ui-tour-demo.component';
 
 @Component({
     selector: 'app-root',
     imports: [NavigationComponent, UiTourDemoComponent],
-    templateUrl: './app.component.html'
+    templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 

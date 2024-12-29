@@ -1,4 +1,5 @@
-import {EnvironmentProviders, Provider, provideZoneChangeDetection} from '@angular/core';
+import type {EnvironmentProviders, Provider} from '@angular/core';
+import {provideZoneChangeDetection} from '@angular/core';
 import {ROUTES} from './app.routes';
 import {PreloadAllModules, provideRouter, withPreloading} from '@angular/router';
 import {provideAnimations} from '@angular/platform-browser/animations';

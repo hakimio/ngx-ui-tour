@@ -99,16 +99,15 @@
       "defaultConfiguration": "development"
     },
     "lint": {
-      "executor": "@angular-eslint/builder:lint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "apps/ngx-ui-tour-demo/src/**/*.ts",
           "apps/ngx-ui-tour-demo/src/**/*.html"
-        ]
+        ],
+        "eslintConfig": "apps/ngx-ui-tour-demo/eslint.config.cjs"
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     },
     "publish": {
       "executor": "nx:run-commands",

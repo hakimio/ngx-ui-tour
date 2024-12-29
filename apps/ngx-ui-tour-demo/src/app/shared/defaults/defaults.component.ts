@@ -1,5 +1,5 @@
 import {TuiDocCode} from '@taiga-ui/addon-doc';
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 import setDefaults from './examples/set-defaults.md' with {loader: 'text'};
 
@@ -9,7 +9,8 @@ import setDefaults from './examples/set-defaults.md' with {loader: 'text'};
     imports: [
         HeaderComponent,
         TuiDocCode
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DefaultsComponent {
 

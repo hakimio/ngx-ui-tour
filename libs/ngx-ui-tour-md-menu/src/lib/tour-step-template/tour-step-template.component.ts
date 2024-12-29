@@ -1,7 +1,16 @@
-import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
+import {
+    type AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ContentChild,
+    inject,
+    Input,
+    TemplateRef,
+    ViewChild
+} from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {MatMenu} from '@angular/material/menu';
-import {IMdStepOption} from '../step-option.interface';
+import type {IMdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgxmTourService} from '../ngx-md-menu-tour.service';
 import {MatCardModule} from '@angular/material/card';
@@ -20,7 +29,8 @@ import {MatIcon} from '@angular/material/icon';
         MatButton,
         MatIconButton,
         MatIcon
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
@@ -35,12 +45,8 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     public step: IMdStepOption = {};
 
-    constructor(
-        private tourStepTemplateService: TourStepTemplateService,
-        public override tourService: NgxmTourService
-    ) {
-        super(tourService);
-    }
+    protected override tourService = inject(NgxmTourService);
+    private tourStepTemplateService = inject(TourStepTemplateService);
 
     public ngAfterViewInit(): void {
         this.tourStepTemplateService.templateComponent = this;

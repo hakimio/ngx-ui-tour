@@ -1,5 +1,5 @@
 import {TuiDocMain} from '@taiga-ui/addon-doc';
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TuiLink} from '@taiga-ui/core';
 
 @Component({
@@ -9,6 +9,7 @@ import {TuiLink} from '@taiga-ui/core';
     imports: [
         TuiDocMain,
         TuiLink
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {}

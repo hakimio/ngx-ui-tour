@@ -1,35 +1,34 @@
-import type {OnDestroy, OnInit} from '@angular/core';
-import {Directive, ElementRef, Host, HostBinding, Input} from '@angular/core';
-import {NgbPopover, Placement} from '@ng-bootstrap/ng-bootstrap';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
+import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
+import type {Placement} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 
 import {NgbTourService} from './ng-bootstrap-tour.service';
-import {INgbStepOption} from './step-option.interface';
+import type {INgbStepOption} from './step-option.interface';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {firstValueFrom} from 'rxjs';
-import {Options} from '@popperjs/core';
+import type {Options} from '@popperjs/core';
 
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true,
-    hostDirectives: [NgbPopover]
+    hostDirectives: [NgbPopover],
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
     @Input()
     public tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    public isActive: boolean;
+    public isActive = signal(false);
+    public readonly element = inject(ElementRef);
+    private readonly tourService = inject(NgbTourService);
+    private readonly tourStepTemplate = inject(TourStepTemplateService);
+    private popoverDirective = inject(NgbPopover, {host: true});
 
-    constructor(
-        private tourService: NgbTourService,
-        private tourStepTemplate: TourStepTemplateService,
-        public element: ElementRef,
-        @Host()
-        private popoverDirective: NgbPopover
-    ) {
+    constructor() {
         this.popoverDirective.autoClose = false;
         this.popoverDirective.triggers = '';
         // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -50,7 +49,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
             await firstValueFrom(this.popoverDirective.hidden);
         }
 
-        this.isActive = true;
+        this.isActive.set(true);
         this.popoverDirective.ngbPopover = this.tourStepTemplate.template;
         if (step.useLegacyTitle) {
             this.popoverDirective.popoverTitle = step.title;
@@ -59,9 +58,9 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
 
         const popoverClass = step.popoverClass ?? '';
         this.popoverDirective.popoverClass = `tour-step ${popoverClass}`;
-        this.popoverDirective.placement = <Placement>(step.placement || 'auto')
+        this.popoverDirective.placement = (step.placement || 'auto')
             .replace('before', 'left').replace('after', 'right')
-            .replace('below', 'bottom').replace('above', 'top');
+            .replace('below', 'bottom').replace('above', 'top') as Placement;
 
         const offset = step.backdropConfig?.offset;
 
@@ -87,7 +86,7 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
 
     // noinspection JSUnusedGlobalSymbols
     public hideTourStep(): void {
-        this.isActive = false;
+        this.isActive.set(false);
         this.popoverDirective.close();
     }
 

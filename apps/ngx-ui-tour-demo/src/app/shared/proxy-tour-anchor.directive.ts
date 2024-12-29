@@ -1,5 +1,15 @@
-import {Directive, HostBinding, inject, Inject, InjectionToken, Input, OnDestroy, OnInit, Type} from '@angular/core';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
+import {
+    Directive,
+    inject,
+    Inject,
+    InjectionToken,
+    Input,
+    type OnDestroy,
+    type OnInit,
+    signal,
+    type Type
+} from '@angular/core';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
 import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
@@ -39,15 +49,16 @@ interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestr
             }
         }
     ],
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
 
     @Input()
     public tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    public isActive = false;
+    public isActive = signal(false);
 
     constructor(
         @Inject(TOUR_ANCHOR_DIRECTIVE)
@@ -72,11 +83,11 @@ export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
             origHideFn = this.tourAnchorDirective.hideTourStep.bind(this.tourAnchorDirective);
 
         this.tourAnchorDirective.showTourStep = step => {
-            this.isActive = true;
+            this.isActive.set(true);
             origShowFn(step);
         };
         this.tourAnchorDirective.hideTourStep = () => {
-            this.isActive = false;
+            this.isActive.set(false);
             origHideFn();
         };
     }

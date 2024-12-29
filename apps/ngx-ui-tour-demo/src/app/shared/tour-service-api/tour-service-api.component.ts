@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 import {LIST_COMPONENTS} from '../list';
 
@@ -8,7 +8,8 @@ import {LIST_COMPONENTS} from '../list';
     imports: [
         HeaderComponent,
         LIST_COMPONENTS
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourServiceApiComponent {
 

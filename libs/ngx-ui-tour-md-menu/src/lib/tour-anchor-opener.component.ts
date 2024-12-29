@@ -1,4 +1,4 @@
-import {Component, ViewChild,} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
@@ -11,12 +11,12 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
         `
     ],
     template: `
-        <!--suppress HtmlUnknownAttribute -->
-        <span matMenuTriggerFor [matMenuTriggerRestoreFocus]="false"></span>
+        <span [matMenuTriggerFor]="" [matMenuTriggerRestoreFocus]="false"></span>
     `,
     imports: [
         MatMenuModule
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourAnchorOpenerComponent {
 

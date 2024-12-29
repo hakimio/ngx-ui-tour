@@ -85,16 +85,15 @@
       "defaultConfiguration": "development"
     },
     "lint": {
-      "executor": "@angular-eslint/builder:lint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/lazy-tour-demo/**/*.ts",
-          "apps/lazy-tour-demo/**/*.html"
-        ]
+          "apps/lazy-tour-demo/src/**/*.ts",
+          "apps/lazy-tour-demo/src/**/*.html"
+        ],
+        "eslintConfig": "apps/lazy-tour-demo/eslint.config.cjs"
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     }
   }
 }

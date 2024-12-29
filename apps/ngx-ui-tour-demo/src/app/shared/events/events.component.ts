@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
@@ -12,7 +12,8 @@ import onInitialize from './examples/on-initialize.md' with {loader: 'text'};
         ProxyTourAnchorDirective,
         HeaderComponent,
         TuiAddonDoc
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventsComponent {
 

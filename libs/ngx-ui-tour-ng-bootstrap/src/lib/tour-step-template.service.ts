@@ -1,5 +1,6 @@
-import {Injectable, TemplateRef} from '@angular/core';
-import {IStepOption} from 'ngx-ui-tour-core';
+import type {TemplateRef} from '@angular/core';
+import {Injectable} from '@angular/core';
+import type {IStepOption} from 'ngx-ui-tour-core';
 
 @Injectable({
   providedIn: 'root'

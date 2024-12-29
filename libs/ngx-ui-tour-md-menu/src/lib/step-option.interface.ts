@@ -1,5 +1,5 @@
-import {IStepOption} from 'ngx-ui-tour-core';
-import {MenuPositionX, MenuPositionY} from '@angular/material/menu';
+import type {IStepOption} from 'ngx-ui-tour-core';
+import type {MenuPositionX, MenuPositionY} from '@angular/material/menu';
 
 export interface IMdStepOption extends IStepOption {
     placement?: MdMenuPlacement;

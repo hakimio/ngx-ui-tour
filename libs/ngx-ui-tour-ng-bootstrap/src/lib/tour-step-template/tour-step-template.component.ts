@@ -1,14 +1,23 @@
-import {AfterContentInit, Component, ContentChild, inject, Input, TemplateRef, ViewChild} from '@angular/core';
+import {
+    type AfterContentInit,
+    ChangeDetectionStrategy,
+    Component,
+    ContentChild,
+    inject,
+    Input,
+    TemplateRef,
+    ViewChild
+} from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgbTourService} from '../ng-bootstrap-tour.service';
-import {IStepOption} from '../../public_api';
+import type {IStepOption} from '../../public_api';
 
 @Component({
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
-    standalone: true
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterContentInit {
 

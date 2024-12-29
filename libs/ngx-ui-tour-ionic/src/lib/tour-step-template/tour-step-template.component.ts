@@ -1,4 +1,13 @@
-import {AfterViewInit, Component, ContentChild, Input, TemplateRef, ViewChild} from '@angular/core';
+import {
+    type AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ContentChild,
+    inject,
+    Input,
+    TemplateRef,
+    ViewChild
+} from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {
     createAnimation,
@@ -11,7 +20,7 @@ import {
     IonPopover
 } from '@ionic/angular/standalone';
 import {NgTemplateOutlet} from '@angular/common';
-import {IonStepOption} from '../step-option.interface';
+import type {IonStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {IonTourService} from '../ion-tour.service';
 import {addIcons} from 'ionicons';
@@ -30,7 +39,8 @@ import {chevronBackOutline, chevronForwardOutline, closeOutline} from 'ionicons/
         IonButton,
         IonIcon,
         IonCardContent
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
@@ -46,11 +56,11 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     public step: IonStepOption = {};
     noopLeaveAnimation = () => createAnimation();
 
-    constructor(
-        private readonly tourStepTemplateService: TourStepTemplateService,
-        public override readonly tourService: IonTourService
-    ) {
-        super(tourService);
+    protected override readonly tourService = inject(IonTourService);
+    private readonly tourStepTemplateService = inject(TourStepTemplateService);
+
+    constructor() {
+        super();
         this.addIonicIcons();
     }
 

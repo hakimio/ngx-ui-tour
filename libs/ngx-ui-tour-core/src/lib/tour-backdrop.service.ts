@@ -1,8 +1,9 @@
-import {ElementRef, inject, Injectable, RendererFactory2} from '@angular/core';
-import {Subscription} from 'rxjs';
+import type {ElementRef} from '@angular/core';
+import {inject, Injectable, RendererFactory2} from '@angular/core';
+import type {Subscription} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
 import {TourResizeObserverService} from './tour-resize-observer.service';
-import {IStepOption} from './tour.service';
+import type {IStepOption} from './tour.service';
 import {DOCUMENT} from '@angular/common';
 import {OverflowUtils, ScrollUtils} from './utils';
 

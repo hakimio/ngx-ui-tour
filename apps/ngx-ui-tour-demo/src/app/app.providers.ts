@@ -1,17 +1,12 @@
-import {HIGHLIGHT_OPTIONS, HighlightOptions} from 'ngx-highlightjs';
+import type {HighlightOptions} from 'ngx-highlightjs';
+import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
 import {LocationStrategy, PathLocationStrategy, ViewportScroller} from '@angular/common';
 import {pages} from './pages';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import {
-    EnvironmentProviders,
-    inject,
-    InjectionToken,
-    provideEnvironmentInitializer,
-    Provider,
-    provideZoneChangeDetection
-} from '@angular/core';
+import type {EnvironmentProviders, Provider} from '@angular/core';
+import {inject, InjectionToken, provideEnvironmentInitializer, provideZoneChangeDetection} from '@angular/core';
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';

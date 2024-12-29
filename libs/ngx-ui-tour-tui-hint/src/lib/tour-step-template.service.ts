@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TourStepTemplateComponent} from './tour-step-template/tour-step-template.component';
+import type {TourStepTemplateComponent} from './tour-step-template/tour-step-template.component';
 
 @Injectable({
     providedIn: 'root'

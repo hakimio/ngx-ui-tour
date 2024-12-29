@@ -1,5 +1,6 @@
-import {TuiDocCode, TuiRawLoaderContent} from '@taiga-ui/addon-doc';
-import {Component, Input} from '@angular/core';
+import type {TuiRawLoaderContent} from '@taiga-ui/addon-doc';
+import {TuiDocCode} from '@taiga-ui/addon-doc';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
 
@@ -10,7 +11,8 @@ import {HeaderComponent} from '../header/header.component';
         HeaderComponent,
         ProxyTourAnchorDirective,
         TuiDocCode
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomTemplateComponent {
 

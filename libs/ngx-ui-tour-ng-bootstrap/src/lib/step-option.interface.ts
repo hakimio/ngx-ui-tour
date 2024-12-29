@@ -1,5 +1,5 @@
-import {IStepOption} from 'ngx-ui-tour-core';
-import {Placement} from '@ng-bootstrap/ng-bootstrap';
+import type {IStepOption} from 'ngx-ui-tour-core';
+import type {Placement} from '@ng-bootstrap/ng-bootstrap';
 
 export interface INgbStepOption extends IStepOption {
     placement?: Placement | 'after' | 'after-top' | 'after-bottom' |

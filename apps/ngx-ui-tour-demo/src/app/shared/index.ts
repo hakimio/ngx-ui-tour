@@ -8,8 +8,8 @@ import {HotkeysComponent} from './hotkeys/hotkeys.component';
 import {DefaultsComponent} from './defaults/defaults.component';
 import {StylingActiveTourAnchorComponent} from './styling-active-tour-anchor/styling-active-tour-anchor.component';
 import {HeaderComponent} from './header/header.component';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
-import {Provider, Type} from '@angular/core';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
+import type {Provider, Type} from '@angular/core';
 import {TOUR_ANCHOR_DIRECTIVE_TYPE} from './proxy-tour-anchor.directive';
 import {CustomTemplateComponent} from './custom-template/custom-template.component';
 import {

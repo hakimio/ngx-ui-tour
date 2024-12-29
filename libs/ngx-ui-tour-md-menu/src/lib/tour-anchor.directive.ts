@@ -1,24 +1,40 @@
-import type {OnDestroy, OnInit} from '@angular/core';
-import {Directive, ElementRef, HostBinding, Input, ViewContainerRef} from '@angular/core';
-import {TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
-import {first, Subscription} from 'rxjs';
+import {
+    Directive,
+    ElementRef,
+    inject,
+    Input,
+    type OnDestroy,
+    type OnInit,
+    signal,
+    ViewContainerRef
+} from '@angular/core';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
+import {TourState} from 'ngx-ui-tour-core';
+import type {Subscription} from 'rxjs';
+import {first} from 'rxjs';
 
 import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {NgxmTourService} from './ngx-md-menu-tour.service';
-import {IMdStepOption} from './step-option.interface';
-import {MatMenu, MatMenuPanel} from '@angular/material/menu';
-import {FlexibleConnectedPositionStrategy, HorizontalConnectionPos, VerticalConnectionPos} from '@angular/cdk/overlay';
+import type {IMdStepOption} from './step-option.interface';
+import type {MatMenu, MatMenuPanel} from '@angular/material/menu';
+import type {
+    FlexibleConnectedPositionStrategy,
+    HorizontalConnectionPos,
+    VerticalConnectionPos
+} from '@angular/cdk/overlay';
 
 interface CustomMenuTrigger {
     _element: ElementRef<HTMLElement>;
     _parentMaterialMenu: MatMenu;
-    _setPosition: (menu: MatMenuPanel, positionStrategy: FlexibleConnectedPositionStrategy) => void
+    _setPosition: (menu: MatMenuPanel, positionStrategy: FlexibleConnectedPositionStrategy) => void;
 }
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
@@ -28,14 +44,11 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
     public opener: TourAnchorOpenerComponent;
     public menuCloseSubscription: Subscription;
 
-    @HostBinding('class.touranchor--is-active') public isActive: boolean;
-
-    constructor(
-        private viewContainer: ViewContainerRef,
-        public element: ElementRef,
-        private tourService: NgxmTourService,
-        private tourStepTemplate: TourStepTemplateService
-    ) {}
+    public isActive = signal(false);
+    public readonly element = inject(ElementRef);
+    private readonly viewContainer = inject(ViewContainerRef);
+    private readonly tourService = inject(NgxmTourService);
+    private readonly tourStepTemplate = inject(TourStepTemplateService);
 
     ngOnInit(): void {
         this.tourService.register(this.tourAnchor, this);
@@ -51,7 +64,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
 
     // noinspection JSUnusedGlobalSymbols
     showTourStep(step: IMdStepOption): void {
-        this.isActive = true;
+        this.isActive.set(true);
         this.tourStepTemplate.templateComponent.step = step;
 
         if (!this.opener) {
@@ -132,7 +145,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
 
     // noinspection JSUnusedGlobalSymbols
     public hideTourStep(): void {
-        this.isActive = false;
+        this.isActive.set(false);
         if (this.menuCloseSubscription) {
             this.menuCloseSubscription.unsubscribe();
         }

@@ -1,36 +1,33 @@
-import {Directive, ElementRef, Host, HostBinding, Input} from '@angular/core';
-import type {OnDestroy, OnInit} from '@angular/core';
+import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
 import {PopoverDirective} from 'ngx-bootstrap/popover';
-import {TourAnchorDirective} from 'ngx-ui-tour-core';
-import {INgxbStepOption as IStepOption} from './step-option.interface';
+import type {TourAnchorDirective} from 'ngx-ui-tour-core';
+import type {INgxbStepOption as IStepOption} from './step-option.interface';
 
 import {NgxbTourService} from './ngx-bootstrap-tour.service';
 import {TourStepTemplateService} from './tour-step-template.service';
 
 @Directive({
-    selector: '[tourAnchor]',
-    standalone: true
+    selector: '[tourAnchor]'
 })
 export class TourAnchorNgxBootstrapPopoverDirective extends PopoverDirective {}
 
 @Directive({
     selector: '[tourAnchor]',
-    standalone: true
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorNgxBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
     @Input() public tourAnchor: string;
 
-    @HostBinding('class.touranchor--is-active')
-    public isActive: boolean;
+    public isActive = signal(false);
+    public readonly element = inject(ElementRef);
+    private readonly tourService = inject(NgxbTourService);
+    private readonly tourStepTemplate = inject(TourStepTemplateService);
+    private readonly popoverDirective = inject(TourAnchorNgxBootstrapPopoverDirective, {host: true});
 
-    constructor(
-        private tourService: NgxbTourService,
-        private tourStepTemplate: TourStepTemplateService,
-        public element: ElementRef,
-        @Host()
-        private popoverDirective: TourAnchorNgxBootstrapPopoverDirective
-    ) {
+    constructor() {
         this.popoverDirective.triggers = '';
     }
 
@@ -44,7 +41,7 @@ export class TourAnchorNgxBootstrapDirective implements OnInit, OnDestroy, TourA
 
     // noinspection JSUnusedGlobalSymbols
     public showTourStep(step: IStepOption): void {
-        this.isActive = true;
+        this.isActive.set(true);
         this.popoverDirective.popover = this.tourStepTemplate.template;
         this.popoverDirective.popoverContext = {step};
         if (step.useLegacyTitle) {
@@ -59,7 +56,8 @@ export class TourAnchorNgxBootstrapDirective implements OnInit, OnDestroy, TourA
 
     // noinspection JSUnusedGlobalSymbols
     public hideTourStep(): void {
-        this.isActive = false;
+        this.isActive.set(false);
         this.popoverDirective.hide();
     }
+
 }
