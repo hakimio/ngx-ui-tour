@@ -1,4 +1,3 @@
-import {TuiButton} from '@taiga-ui/core';
 import {
     type AfterViewInit,
     ChangeDetectionStrategy,
@@ -14,6 +13,7 @@ import {TourStepTemplateService} from '../tour-step-template.service';
 import {TourTuiHintService} from '../tour-tui-hint.service';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {NgTemplateOutlet} from '@angular/common';
+import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tour-default-step-template.component';
 
 @Component({
     selector: 'tour-step-template',
@@ -21,7 +21,7 @@ import {NgTemplateOutlet} from '@angular/common';
     styleUrls: ['./tour-step-template.component.scss'],
     imports: [
         NgTemplateOutlet,
-        TuiButton
+        TourDefaultStepTemplateComponent
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

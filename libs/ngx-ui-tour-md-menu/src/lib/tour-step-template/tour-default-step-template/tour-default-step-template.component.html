@@ -1,0 +1,63 @@
+@let step = this.step();
+
+<mat-card
+    (click)="$event.stopPropagation()"
+    [style.width]="step.stepDimensions?.width"
+    [style.min-width]="step.stepDimensions?.minWidth"
+    [style.max-width]="step.stepDimensions?.maxWidth"
+>
+    <mat-card-header>
+        <div class="header-group">
+            <mat-card-title>
+                {{ step.title }}
+            </mat-card-title>
+            <button
+                mat-icon-button
+                (click)="tourService.end()"
+                class="close"
+            >
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </mat-card-header>
+
+    <mat-card-content
+        class="mat-body"
+        [innerHTML]="step.content"
+    ></mat-card-content>
+
+    <mat-card-actions
+        [class.no-progress]="!step.showProgress"
+    >
+        <button
+            mat-button
+            class="prev"
+            [disabled]="!tourService.hasPrev(step)"
+            (click)="tourService.prev()"
+        >
+            <mat-icon>chevron_left</mat-icon>
+            {{ step.prevBtnTitle }}
+        </button>
+        @if (step.showProgress) {
+            <div class="progress">{{ tourService.steps.indexOf(step) + 1 }} / {{ tourService.steps.length }}</div>
+        }
+        @if (tourService.hasNext(step) && !step.nextOnAnchorClick) {
+            <button
+                class="next"
+                (click)="tourService.next()"
+                mat-button
+            >
+                {{ step.nextBtnTitle }}
+                <mat-icon iconPositionEnd>chevron_right</mat-icon>
+            </button>
+        }
+        @if (!tourService.hasNext(step)) {
+            <button
+                mat-button
+                (click)="tourService.end()"
+            >
+                {{ step.endBtnTitle }}
+            </button>
+        }
+    </mat-card-actions>
+</mat-card>
