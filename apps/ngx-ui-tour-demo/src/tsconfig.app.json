@@ -2,17 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": [],
-    "paths": {
-      "ngx-ui-tour-core": ["libs/ngx-ui-tour-core/src/public_api"],
-      "ngx-ui-tour-console": ["libs/ngx-ui-tour-console/src/public_api"],
-      "ngx-ui-tour-md-menu": ["libs/ngx-ui-tour-md-menu/src/public_api"],
-      "ngx-ui-tour-ng-bootstrap": ["libs/ngx-ui-tour-ng-bootstrap/src/public_api"],
-      "ngx-ui-tour-ngx-bootstrap": ["libs/ngx-ui-tour-ngx-bootstrap/src/public_api"],
-      "ngx-ui-tour-tui-dropdown": ["libs/ngx-ui-tour-tui-dropdown/src/public_api"],
-      "ngx-ui-tour-tui-hint": ["libs/ngx-ui-tour-tui-hint/src/public_api"],
-      "ngx-ui-tour-ionic": ["libs/ngx-ui-tour-ionic/src/public_api"]
-    }
+    "types": []
   },
   "files": [
     "main.ts"
