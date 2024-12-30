@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-console",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "@angular/core": "^19.0.0"
   },
   "dependencies": {
-    "ngx-ui-tour-core": "workspace:*",
+    "ngx-ui-tour-core": "14.0.0",
     "tslib": "^2.0.0"
   }
 }

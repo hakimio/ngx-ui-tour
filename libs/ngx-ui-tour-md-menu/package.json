@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-md-menu",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "description": "UI tour library for Angular 12+",
   "keywords": [
     "angular",
@@ -18,7 +18,7 @@
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "ngx-ui-tour-core": "workspace:*",
+    "ngx-ui-tour-core": "14.0.0",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {

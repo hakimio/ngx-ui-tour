@@ -1,3 +1,15 @@
+<a name="8.0.0"></a>
+
+# [8.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-12-30)
+
+### Features
+- Support for Angular 19
+- Support for Taiga UI 4
+
+### Breaking Changes
+- Angular 18 is no longer supported
+- Taiga UI 3 is no longer supported
+
 <a name="7.0.0"></a>
 
 # [7.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-06-26)

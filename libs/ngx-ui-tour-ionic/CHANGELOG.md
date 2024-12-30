@@ -1,3 +1,13 @@
+<a name="6.0.0"></a>
+
+# [6.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-12-30)
+
+### Features
+- Support for Angular 19
+
+### Breaking Changes
+- Angular 18 is no longer supported
+
 <a name="5.0.0"></a>
 
 # [5.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-07-25)
