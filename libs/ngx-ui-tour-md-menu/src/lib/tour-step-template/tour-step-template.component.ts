@@ -13,22 +13,17 @@ import {MatMenu} from '@angular/material/menu';
 import type {IMdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgxmTourService} from '../ngx-md-menu-tour.service';
-import {MatCardModule} from '@angular/material/card';
 import {NgTemplateOutlet} from '@angular/common';
-import {MatButton, MatIconButton} from '@angular/material/button';
-import {MatIcon} from '@angular/material/icon';
+import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tour-default-step-template.component';
 
 @Component({
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
     imports: [
-        MatCardModule,
         MatMenu,
         NgTemplateOutlet,
-        MatButton,
-        MatIconButton,
-        MatIcon
+        TourDefaultStepTemplateComponent
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

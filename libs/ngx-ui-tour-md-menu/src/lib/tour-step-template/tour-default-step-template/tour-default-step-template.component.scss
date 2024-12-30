@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+
+@include mat.icon-button-density(-3);
+
+mat-card {
+    box-shadow: none;
+}
+
+mat-card-content {
+    margin: 8px 0;
+}
+
+mat-card-actions {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+
+    .progress {
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .38);
+        white-space: nowrap;
+    }
+
+    &.no-progress {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    >* {
+        max-width: fit-content;
+
+        &:last-child {
+            justify-self: flex-end;
+        }
+    }
+
+    button.prev {
+        padding-left: 4px;
+    }
+
+    button.next {
+        padding-right: 4px;
+    }
+}
+
+mat-card-header {
+    .header-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: -8px;
+        width: 100%;
+
+        mat-card-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        button {
+            margin-right: -8px;
+        }
+    }
+}

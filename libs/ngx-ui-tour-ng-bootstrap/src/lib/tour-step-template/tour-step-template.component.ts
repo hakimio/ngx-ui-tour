@@ -12,11 +12,15 @@ import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgbTourService} from '../ng-bootstrap-tour.service';
 import type {IStepOption} from '../../public_api';
+import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tour-default-step-template.component';
 
 @Component({
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
     styleUrls: ['./tour-step-template.component.scss'],
+    imports: [
+        TourDefaultStepTemplateComponent
+    ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterContentInit {
