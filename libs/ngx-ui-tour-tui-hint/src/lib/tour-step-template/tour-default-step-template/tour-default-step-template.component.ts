@@ -4,7 +4,7 @@ import type {ITuiHintStepOption} from '../../step-option.interface';
 import {TourTuiHintService} from '../../tour-tui-hint.service';
 
 @Component({
-    selector: 'tour-default-step-template',
+    selector: 'tour-hint-default-step-template',
     imports: [
         TuiButton
     ],

@@ -1,3 +1,7 @@
+::ng-deep tui-dropdown[data-appearance="ngx-ui-tour"] {
+    z-index: 150 !important;
+}
+
 .main-container {
     padding: 1rem;
     box-sizing: border-box;

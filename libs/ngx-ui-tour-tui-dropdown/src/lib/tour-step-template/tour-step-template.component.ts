@@ -18,7 +18,6 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
 @Component({
     selector: 'tour-step-template',
     templateUrl: './tour-step-template.component.html',
-    styleUrls: ['./tour-step-template.component.scss'],
     imports: [
         NgTemplateOutlet,
         TourDefaultStepTemplateComponent

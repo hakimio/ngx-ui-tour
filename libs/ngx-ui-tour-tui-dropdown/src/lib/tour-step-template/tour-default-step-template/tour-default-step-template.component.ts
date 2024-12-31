@@ -4,7 +4,7 @@ import type {ITuiDdStepOption} from '../../step-option.interface';
 import {TourTuiDropdownService} from '../../tour-tui-dropdown.service';
 
 @Component({
-    selector: 'tour-default-step-template',
+    selector: 'tour-dd-default-step-template',
     imports: [
         TuiButton
     ],
