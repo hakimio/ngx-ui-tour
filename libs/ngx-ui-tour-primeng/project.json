@@ -1,0 +1,43 @@
+{
+  "name": "ngx-ui-tour-primeng",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ngx-ui-tour-primeng/src",
+  "prefix": "tour",
+  "projectType": "library",
+  "tags": ["libs"],
+  "targets": {
+    "prebuild": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/ngx-ui-tour-primeng/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngx-ui-tour-primeng/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngx-ui-tour-primeng/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-primeng"],
+      "options": {
+        "parallel": false,
+        "commands": ["nx prebuild {projectName}", "nx postbuild {projectName}"]
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "shx cp README.md libs/ngx-ui-tour-primeng/CHANGELOG.md  dist/ngx-ui-tour-primeng/"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

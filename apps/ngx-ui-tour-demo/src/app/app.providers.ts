@@ -13,6 +13,8 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideIonicAngular} from '@ionic/angular/standalone';
 import {NG_EVENT_PLUGINS} from '@taiga-ui/event-plugins';
 import {TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
+import {providePrimeNG} from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -89,6 +91,11 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     }),
     provideIonicAngular({
         mode: 'md'
+    }),
+    providePrimeNG({
+        theme: {
+            preset: Aura
+        }
     }),
     NG_EVENT_PLUGINS
 ];

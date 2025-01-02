@@ -10,6 +10,10 @@ export const pages: TuiDocRoutePages = [{
     route: 'ion-popover'
 }, {
     section: 'Tour UI Libraries',
+    title: 'PrimeNG',
+    route: 'prime-ng'
+}, {
+    section: 'Tour UI Libraries',
     title: 'NG Bootstrap',
     route: 'ng-bootstrap'
 }, {

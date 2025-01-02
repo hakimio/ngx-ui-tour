@@ -18,6 +18,7 @@ import {TourAnchorConsoleDirective} from 'ngx-ui-tour-console';
 import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
 import {TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
 import {TourAnchorIonPopoverDirective} from 'ngx-ui-tour-ionic';
+import {TourAnchorPrimeNgDirective} from 'ngx-ui-tour-primeng';
 
 export const TOUR_ANCHOR_DIRECTIVE = new InjectionToken<TourAnchorDirective>('TourAnchorDirective');
 export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDirective>>('TourAnchorDirectiveType');
@@ -40,6 +41,7 @@ interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestr
         TourAnchorTuiDropdownDirective,
         TourAnchorTuiHintDirective,
         TourAnchorIonPopoverDirective,
+        TourAnchorPrimeNgDirective,
         {
             provide: TOUR_ANCHOR_DIRECTIVE,
             useFactory: () => {

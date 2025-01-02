@@ -3,6 +3,13 @@
 @import '@ionic/angular/css/core.css';
 @import './bootstrap';
 
+.p-popover {
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    line-height: normal;
+}
+@import 'primeicons/primeicons.css';
+
 /* Workaround for white gap at the bottom when tour is started and dark theme is used */
 @media (prefers-color-scheme: dark) {
     html {

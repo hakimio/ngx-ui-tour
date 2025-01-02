@@ -1,0 +1,29 @@
+{
+  "name": "ngx-ui-tour-primeng",
+  "description": "UI tour library for Angular",
+  "keywords": [
+    "angular",
+    "ngx",
+    "primeng",
+    "tour",
+    "product-tour",
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
+  ],
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Tomas Rimkus <tomas.r@programmer.net>",
+  "license": "MIT",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "primeng": "^19.0.0",
+    "primeicons": ">=7.0.0"
+  },
+  "dependencies": {
+    "ngx-ui-tour-core": "14.0.0",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,69 @@
+<tui-doc-page
+    header="PrimeNG"
+    package="ngx-ui-tour-primeng"
+>
+    <ng-template pageTab>
+        <p>
+            <code>ngx-ui-tour</code> is a UI tour library built for Angular. It's inspired by
+            <a tuiLink target="_blank" tourAnchor="angular-ui-tour" href="https://benmarch.github.io/angular-ui-tour">angular-ui-tour</a>.
+        </p>
+        <p>
+            <code>TourPrimeNgModule</code> is an implementation of the tour UI that uses
+            <a tuiLink href="https://primeng.org" target="_blank">PrimeNG</a> Popover to display tour steps.
+        </p>
+        <p>
+            <button
+                tuiButton
+                type="button"
+                (click)="tourService.start()"
+                tourAnchor="start.tour"
+            >
+                Start Demo Tour
+            </button>
+        </p>
+    </ng-template>
+    <ng-template pageTab>
+        <app-header tourAnchor="installation" id="installation">Installation</app-header>
+
+        <ol>
+            <li>
+                <code>npm install ngx-ui-tour-primeng primeng &#64;primeng/themes primeicons</code>
+            </li>
+            <li>
+                Import <code>TourPrimeNgModule</code> into your app module
+            </li>
+            <li>
+                Make sure <code>RouterModule</code> is imported in your app module
+            </li>
+            <li>
+                Make sure PrimeNG is
+                <a tuiLink href="https://primeng.org/installation" target="_blank">installed correctly</a>
+            </li>
+        </ol>
+        <app-usage
+            moduleName="TourPrimeNgModule"
+        ></app-usage>
+    </ng-template>
+    <ng-template pageTab>
+        <app-step-config
+            [isCloseOnOutsideClickVisible]="true"
+        />
+        <app-tour-service-api/>
+        <app-events/>
+    </ng-template>
+    <ng-template pageTab>
+        <app-faq
+            disablePageScrollingIntroducedIn="1.0"
+        />
+    </ng-template>
+    <ng-template pageTab>
+        <app-hotkeys/>
+        <app-defaults/>
+        <app-custom-template
+            [defaultTemplate]="defaultTemplate"
+        />
+        <app-styling-active-tour-anchor/>
+    </ng-template>
+</tui-doc-page>
+
+<tour-step-template/>

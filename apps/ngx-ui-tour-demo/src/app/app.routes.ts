@@ -37,6 +37,11 @@ export const ROUTES: Routes = [
         title: 'Ionic',
         loadComponent: async () => import('./ion-popover/ion-popover.component')
     }),
+    route({
+        path: 'prime-ng',
+        title: 'PrimeNG',
+        loadComponent: async () => import('./prime-ng-popover/prime-ng-popover.component')
+    }),
     {
         redirectTo: 'md-menu',
         path: '**'

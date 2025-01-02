@@ -2,7 +2,7 @@
 
 > UI tour library for Angular
 
-Angular Material, Ionic, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
+Angular Material, Ionic, PrimeNG, Taiga UI, Ng Bootstrap and Ngx Bootstrap UIs are supported.
 
 `ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tour`. The project had to be forked since the original is no longer 
 maintained.
@@ -71,6 +71,12 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 | 17      | 7    | 7, 8  | 3           |
 | 16      | 7    | 6, 7  | 2           |
 | 15      | 7    | 6, 7  | 1           |
+
+### PrimeNG tour UI
+
+| Angular | RxJS | PrimeNG | ngx-ui-tour |
+|---------|------|---------|-------------|
+| 19      | 7    | 19      | 1           |
 
 ### Taiga UI tour UI
 

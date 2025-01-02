@@ -15,6 +15,7 @@
         "@ng-bootstrap/ng-bootstrap": "^18.0.0",
         "@ng-web-apis/common": "^4.11.1",
         "@popperjs/core": "^2.11.8",
+        "@primeng/themes": "^19.0.2",
         "@taiga-ui/addon-doc": "^4.18.0",
         "@taiga-ui/cdk": "^4.18.0",
         "@taiga-ui/core": "^4.18.0",
@@ -26,6 +27,8 @@
         "bootstrap": "^5.3.3",
         "ngx-bootstrap": "^19.0.1",
         "ngx-highlightjs": "^10.0.0",
+        "primeicons": "^7.0.0",
+        "primeng": "^19.0.2",
         "rxjs": "^7.8.1",
         "tslib": "^2.8.1",
         "zone.js": "~0.15.0",
@@ -62,7 +65,7 @@
     },
     "libs/ngx-ui-tour-console": {
       "name": "ngx-ui-tour-console",
-      "version": "13.0.0",
+      "version": "14.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.0.0",
@@ -74,7 +77,7 @@
     },
     "libs/ngx-ui-tour-core": {
       "name": "ngx-ui-tour-core",
-      "version": "13.0.0",
+      "version": "14.0.0",
       "dependencies": {
         "tslib": "^2.0.0",
       },
@@ -87,7 +90,7 @@
     },
     "libs/ngx-ui-tour-ionic": {
       "name": "ngx-ui-tour-ionic",
-      "version": "5.0.0",
+      "version": "6.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.3.0",
@@ -100,7 +103,7 @@
     },
     "libs/ngx-ui-tour-md-menu": {
       "name": "ngx-ui-tour-md-menu",
-      "version": "13.0.0",
+      "version": "14.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.0.0",
@@ -114,7 +117,7 @@
     },
     "libs/ngx-ui-tour-ng-bootstrap": {
       "name": "ngx-ui-tour-ng-bootstrap",
-      "version": "15.0.0",
+      "version": "16.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.0.0",
@@ -127,7 +130,7 @@
     },
     "libs/ngx-ui-tour-ngx-bootstrap": {
       "name": "ngx-ui-tour-ngx-bootstrap",
-      "version": "13.0.1",
+      "version": "14.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.0.0",
@@ -138,9 +141,23 @@
         "ngx-bootstrap": "^19.0.0",
       },
     },
+    "libs/ngx-ui-tour-primeng": {
+      "name": "ngx-ui-tour-primeng",
+      "version": "1.0.0",
+      "dependencies": {
+        "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
+        "tslib": "^2.3.0",
+      },
+      "peerDependencies": {
+        "@angular/common": "^19.0.0",
+        "@angular/core": "^19.0.0",
+        "primeicons": ">=7.0.0",
+        "primeng": "^19.0.0",
+      },
+    },
     "libs/ngx-ui-tour-tui-dropdown": {
       "name": "ngx-ui-tour-tui-dropdown",
-      "version": "7.0.0",
+      "version": "8.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.3.0",
@@ -154,7 +171,7 @@
     },
     "libs/ngx-ui-tour-tui-hint": {
       "name": "ngx-ui-tour-tui-hint",
-      "version": "7.0.0",
+      "version": "8.0.0",
       "dependencies": {
         "ngx-ui-tour-core": "libs/ngx-ui-tour-core",
         "tslib": "^2.3.0",
@@ -833,6 +850,12 @@
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
+
+    "@primeng/themes": ["@primeng/themes@19.0.2", "", { "dependencies": { "@primeuix/styled": "^0.3.2" } }, "sha512-rPLSUkoW6M36Jjd27XD0biiT6C0VdRx024he6ZRgGpFH5WrnKDJPbbzCdLNFF7JCvEgmBHWEDwnmpHgywjrn2g=="],
+
+    "@primeuix/styled": ["@primeuix/styled@0.3.2", "", { "dependencies": { "@primeuix/utils": "^0.3.2" } }, "sha512-ColZes0+/WKqH4ob2x8DyNYf1NENpe5ZguOvx5yCLxaP8EIMVhLjWLO/3umJiDnQU4XXMLkn2mMHHw+fhTX/mw=="],
+
+    "@primeuix/utils": ["@primeuix/utils@0.3.2", "", {}, "sha512-B+nphqTQeq+i6JuICLdVWnDMjONome2sNz0xI65qIOyeB4EF12CoKRiCsxuZ5uKAkHi/0d1LqlQ9mIWRSdkavw=="],
 
     "@rollup/plugin-json": ["@rollup/plugin-json@6.1.0", "", { "dependencies": { "@rollup/pluginutils": "^5.1.0" }, "peerDependencies": { "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0" }, "optionalPeers": ["rollup"] }, "sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA=="],
 
@@ -2078,6 +2101,8 @@
 
     "ngx-ui-tour-ngx-bootstrap": ["ngx-ui-tour-ngx-bootstrap@workspace:libs/ngx-ui-tour-ngx-bootstrap", { "dependencies": { "ngx-ui-tour-core": "libs/ngx-ui-tour-core", "tslib": "^2.0.0" }, "peerDependencies": { "@angular/common": "^19.0.0", "@angular/core": "^19.0.0", "ngx-bootstrap": "^19.0.0" } }],
 
+    "ngx-ui-tour-primeng": ["ngx-ui-tour-primeng@workspace:libs/ngx-ui-tour-primeng", { "dependencies": { "ngx-ui-tour-core": "libs/ngx-ui-tour-core", "tslib": "^2.3.0" }, "peerDependencies": { "@angular/common": "^19.0.0", "@angular/core": "^19.0.0", "primeicons": ">=7.0.0", "primeng": "^19.0.0" } }],
+
     "ngx-ui-tour-tui-dropdown": ["ngx-ui-tour-tui-dropdown@workspace:libs/ngx-ui-tour-tui-dropdown", { "dependencies": { "ngx-ui-tour-core": "libs/ngx-ui-tour-core", "tslib": "^2.3.0" }, "peerDependencies": { "@angular/common": "^19.0.0", "@angular/core": "^19.0.0", "@taiga-ui/core": "^4.0.0", "@taiga-ui/icons": "^4.0.0" } }],
 
     "ngx-ui-tour-tui-hint": ["ngx-ui-tour-tui-hint@workspace:libs/ngx-ui-tour-tui-hint", { "dependencies": { "ngx-ui-tour-core": "libs/ngx-ui-tour-core", "tslib": "^2.3.0" }, "peerDependencies": { "@angular/common": "^19.0.0", "@angular/core": "^19.0.0", "@taiga-ui/core": "^4.0.0", "@taiga-ui/icons": "^4.0.0" } }],
@@ -2295,6 +2320,10 @@
     "prelude-ls": ["prelude-ls@1.2.1", "", {}, "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="],
 
     "pretty-format": ["pretty-format@29.7.0", "", { "dependencies": { "@jest/schemas": "^29.6.3", "ansi-styles": "^5.0.0", "react-is": "^18.0.0" } }, "sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ=="],
+
+    "primeicons": ["primeicons@7.0.0", "", {}, "sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw=="],
+
+    "primeng": ["primeng@19.0.2", "", { "dependencies": { "@primeuix/styled": "^0.3.2", "@primeuix/utils": "^0.3.2", "tslib": "^2.3.0" }, "peerDependencies": { "@angular/animations": "^19.0.0", "@angular/cdk": "^19.0.0", "@angular/common": "^19.0.0", "@angular/core": "^19.0.0", "@angular/forms": "^19.0.0", "@angular/platform-browser": "^19.0.0", "@angular/router": "^19.0.0", "rxjs": "^6.0.0 || ^7.8.1" } }, "sha512-7vizB1ynvvADjZBE9/Ks/YFwbY/d2tKYo+8Uq3OsBq9+rf9pIwKQIhd9GKkpe1gXx5Ig2SOFVeTp1Ru4H/vlVA=="],
 
     "proc-log": ["proc-log@5.0.0", "", {}, "sha512-Azwzvl90HaF0aCz1JrDdXQykFakSSNPaPoiZ9fm5qJIMHioDZEi7OAdRwSm6rSoPtY3Qutnm3L7ogmg3dc+wbQ=="],
 
