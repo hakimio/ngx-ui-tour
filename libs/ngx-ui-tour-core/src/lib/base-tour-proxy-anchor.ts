@@ -1,4 +1,4 @@
-import {afterNextRender, AfterRenderPhase, Directive, ElementRef, inject} from '@angular/core';
+import {afterNextRender, Directive, ElementRef, inject} from '@angular/core';
 import type {TourAnchorDirective} from './tour-anchor.directive';
 import {DOCUMENT} from '@angular/common';
 
@@ -11,11 +11,9 @@ export abstract class BaseTourProxyAnchor {
     public abstract anchorEl: string | HTMLElement;
 
     constructor() {
-        afterNextRender(
-            () => this.setAnchorElement(), {
-                phase: AfterRenderPhase.Read
-            }
-        );
+        afterNextRender({
+            read: () => this.setAnchorElement()
+        });
     }
 
     private setAnchorElement(): void {
