@@ -1,3 +1,10 @@
+<a name="6.0.1"></a>
+
+# [6.0.1](https://github.com/hakimio/ngx-ui-tour) (2025-01-02)
+
+### Fixes
+- Fix some of the step options not getting applied correctly after switching to "OnPush" change detection strategy
+
 <a name="6.0.0"></a>
 
 # [6.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-12-30)
