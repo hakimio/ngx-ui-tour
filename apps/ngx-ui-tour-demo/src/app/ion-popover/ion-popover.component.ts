@@ -87,7 +87,10 @@ export default class IonPopoverComponent implements OnInit {
         prevBtnTitle: 'My Prev',
         nextBtnTitle: 'My Next',
         endBtnTitle: 'My End',
-        route: 'ion-popover/API'
+        route: 'ion-popover/API',
+        stepDimensions: {
+            maxWidth: '350px'
+        }
     }, {
         anchorId: 'config.isAsync',
         content: 'Mark your step as async if anchor element is added to DOM with a delay',

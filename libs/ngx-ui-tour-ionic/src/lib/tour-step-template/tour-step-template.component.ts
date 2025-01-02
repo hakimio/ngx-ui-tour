@@ -5,6 +5,7 @@ import {
     ContentChild,
     inject,
     Input,
+    signal,
     TemplateRef,
     ViewChild
 } from '@angular/core';
@@ -38,7 +39,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     @ContentChild(TemplateRef)
     public stepTemplateContent: TemplateRef<{ step: IonStepOption }>;
 
-    public step: IonStepOption = {};
+    public step = signal<IonStepOption>({});
     noopLeaveAnimation = () => createAnimation();
 
     protected override readonly tourService = inject(IonTourService);
