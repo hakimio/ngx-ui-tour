@@ -23,6 +23,7 @@ import type {
     HorizontalConnectionPos,
     VerticalConnectionPos
 } from '@angular/cdk/overlay';
+import type {FocusKeyManager} from '@angular/cdk/a11y';
 
 interface CustomMenuTrigger {
     _element: ElementRef<HTMLElement>;
@@ -84,6 +85,9 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         menu.xPosition = step.placement?.xPosition || 'after';
         menu.yPosition = step.placement?.yPosition || 'below';
         menu.hasBackdrop = !!step.closeOnOutsideClick;
+
+        // Prevent tab key closing the menu. Issue #189
+        (menu as unknown as {_keyManager: FocusKeyManager<unknown>})._keyManager.tabOut.complete();
 
         const popoverClass = step.popoverClass ?? '',
             arrow = step.showArrow ? 'arrow' : '',
