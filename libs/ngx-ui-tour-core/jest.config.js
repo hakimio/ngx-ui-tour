@@ -4,5 +4,6 @@ module.exports = {
             diagnostics: false
         }]
     },
+    roots: ['libs/ngx-ui-tour-core/src'],
     verbose: true
 };
