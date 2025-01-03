@@ -7,7 +7,8 @@
   "prefix": "lib",
   "targets": {
     "prebuild": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-tui-hint"],
       "options": {
         "project": "libs/ngx-ui-tour-tui-hint/ng-package.json"
       },
@@ -19,10 +20,7 @@
           "tsConfig": "libs/ngx-ui-tour-tui-hint/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": [
-        "{workspaceRoot}/dist/ngx-ui-tour-tui-hint"
-      ]
+      "defaultConfiguration": "production"
     },
     "build": {
       "executor": "nx:run-commands",

@@ -1,19 +1,17 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.build.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/lib",
+    "outDir": "../../dist/out-tsc",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "emitDecoratorMetadata": false,
-    "types": [],
-    "lib": [
-      "dom",
-      "ES2022"
-    ]
+    "types": []
   },
   "exclude": [
-    "**/*.spec.ts"
-  ]
+    "src/**/*.spec.ts",
+    "src/test-setup.ts",
+    "jest.config.ts",
+    "src/**/*.test.ts"
+  ],
+  "include": ["src/**/*.ts"]
 }

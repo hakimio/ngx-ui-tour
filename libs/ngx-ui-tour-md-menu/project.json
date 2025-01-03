@@ -7,22 +7,20 @@
   "prefix": "lib",
   "targets": {
     "prebuild": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-md-menu"],
       "options": {
-        "tsConfig": "libs/ngx-ui-tour-md-menu/tsconfig.lib.json",
         "project": "libs/ngx-ui-tour-md-menu/ng-package.json"
       },
       "configurations": {
         "production": {
-          "project": "libs/ngx-ui-tour-md-menu/ng-package.prod.json",
           "tsConfig": "libs/ngx-ui-tour-md-menu/tsconfig.lib.prod.json"
         },
-        "development": {}
+        "development": {
+          "tsConfig": "libs/ngx-ui-tour-md-menu/tsconfig.lib.json"
+        }
       },
-      "defaultConfiguration": "production",
-      "outputs": [
-        "{workspaceRoot}/dist/ngx-ui-tour-md-menu"
-      ]
+      "defaultConfiguration": "production"
     },
     "build": {
       "executor": "nx:run-commands",

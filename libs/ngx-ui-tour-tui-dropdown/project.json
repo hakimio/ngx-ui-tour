@@ -7,7 +7,8 @@
   "prefix": "tour",
   "targets": {
     "prebuild": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/ngx-ui-tour-tui-dropdown"],
       "options": {
         "project": "libs/ngx-ui-tour-tui-dropdown/ng-package.json"
       },
@@ -19,10 +20,7 @@
           "tsConfig": "libs/ngx-ui-tour-tui-dropdown/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": [
-        "{workspaceRoot}/dist/ngx-ui-tour-tui-dropdown"
-      ]
+      "defaultConfiguration": "production"
     },
     "build": {
       "executor": "nx:run-commands",
