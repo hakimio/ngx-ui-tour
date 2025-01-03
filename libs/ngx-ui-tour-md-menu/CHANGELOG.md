@@ -1,3 +1,10 @@
+<a name="14.0.1"></a>
+
+# [14.0.1](https://github.com/hakimio/ngx-ui-tour) (2024-01-03)
+
+### Fixes
+- Fix tour step closing on step button focus
+
 <a name="14.0.0"></a>
 
 # [14.0.0](https://github.com/hakimio/ngx-ui-tour) (2024-12-30)
