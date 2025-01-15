@@ -32,8 +32,10 @@ html, body {
     }
 
     /* Firefox only */
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #cacaca #fafafa;
+    @supports (-moz-appearance:none) {
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #cacaca #fafafa;
+        }
     }
 }
