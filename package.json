@@ -30,7 +30,9 @@
     "release": "nx release",
     "pub:all": "npm run pub:lib:all && npm run pub:demo",
     "pub:demo": "nx publish ngx-ui-tour-demo",
-    "pub:lib:all": "nx run-many --target=publish --projects=tag:libs"
+    "pub:lib:all": "nx run-many --target=publish --projects=tag:libs",
+    "upgrade:interactive": "taze --interactive --recursive --install --timediff false",
+    "upgrade:latest": "taze major --interactive --recursive --install --timediff false"
   },
   "dependencies": {
     "@angular/animations": "^20.0.4",
