@@ -1,8 +1,8 @@
 import type {IonStepOption} from './step-option.interface';
 import {TourService} from 'ngx-ui-tour-core';
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, DOCUMENT} from '@angular/core';
 import {Config} from '@ionic/angular/standalone';
-import {DOCUMENT} from '@angular/common';
+
 
 @Injectable({
     providedIn: 'root'

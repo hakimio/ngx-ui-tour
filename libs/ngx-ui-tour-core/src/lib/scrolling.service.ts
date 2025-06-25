@@ -1,7 +1,7 @@
 import {ElementSides, isCovered, isInViewport, OverflowUtils, ScrollUtils} from './utils';
 import {debounceTime, firstValueFrom, fromEvent, map, of, timeout} from 'rxjs';
-import {inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {DOCUMENT, isPlatformBrowser} from '@angular/common';
+import {inject, Injectable, PLATFORM_ID, DOCUMENT} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 export interface ScrollOptions {
     center: boolean;
@@ -73,7 +73,7 @@ export class ScrollingService {
                     with: () => of(undefined)
                 }),
                 debounceTime(50),
-                map(() => undefined)
+                map((): undefined => undefined)
             );
     }
 

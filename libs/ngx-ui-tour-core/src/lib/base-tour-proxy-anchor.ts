@@ -1,6 +1,6 @@
-import {afterNextRender, Directive, ElementRef, inject} from '@angular/core';
+import {afterNextRender, Directive, ElementRef, inject, DOCUMENT} from '@angular/core';
 import type {TourAnchorDirective} from './tour-anchor.directive';
-import {DOCUMENT} from '@angular/common';
+
 
 @Directive()
 export abstract class BaseTourProxyAnchor {

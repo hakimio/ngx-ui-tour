@@ -64,3 +64,5 @@ dist/
 /.idea
 /.yarn
 /.nx
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
