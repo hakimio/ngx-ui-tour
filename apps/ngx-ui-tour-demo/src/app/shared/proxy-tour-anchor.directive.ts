@@ -1,14 +1,4 @@
-import {
-    Directive,
-    inject,
-    Inject,
-    InjectionToken,
-    Input,
-    type OnDestroy,
-    type OnInit,
-    signal,
-    type Type
-} from '@angular/core';
+import {Directive, inject, InjectionToken, Input, type OnDestroy, type OnInit, signal, type Type} from '@angular/core';
 import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
@@ -62,10 +52,9 @@ export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
 
     public isActive = signal(false);
 
-    constructor(
-        @Inject(TOUR_ANCHOR_DIRECTIVE)
-        private readonly tourAnchorDirective: TourAnchorDirective
-    ) {
+    private readonly tourAnchorDirective = inject(TOUR_ANCHOR_DIRECTIVE);
+
+    constructor() {
         this.overrideShowHideMethods();
     }
 

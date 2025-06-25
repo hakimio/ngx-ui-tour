@@ -1,5 +1,5 @@
 import {WA_LOCATION} from '@ng-web-apis/common';
-import {Attribute, ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostAttributeToken, inject} from '@angular/core';
 import {TuiAlertService, TuiLink} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
@@ -18,15 +18,11 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class HeaderComponent {
 
-    constructor(
-        @Attribute('id')
-        readonly id: string | null,
-        @Inject(Clipboard) private readonly clipboard: Clipboard,
-        @Inject(TuiAlertService)
-        private readonly alertService: TuiAlertService,
-        @Inject(WA_LOCATION) private readonly location: Location,
-        @Inject(TUI_DOC_EXAMPLE_TEXTS) readonly texts: [string, string, string]
-    ) {}
+    protected readonly id = inject(new HostAttributeToken('id'), {optional: true});
+    private readonly clipboard = inject(Clipboard);
+    private readonly alertService = inject(TuiAlertService);
+    private readonly location = inject(WA_LOCATION);
+    private readonly texts = inject(TUI_DOC_EXAMPLE_TEXTS);
 
     copyExampleLink() {
         const hashPosition = this.location.href.indexOf('#');
