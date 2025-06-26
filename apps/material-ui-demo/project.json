@@ -88,7 +88,7 @@
           "apps/material-ui-demo/src/**/*.ts",
           "apps/material-ui-demo/src/**/*.html"
         ],
-        "eslintConfig": "apps/material-ui-demo/eslint.config.cjs"
+        "eslintConfig": "apps/material-ui-demo/eslint.config.mjs"
       },
       "outputs": ["{options.outputFile}"]
     }

@@ -50,7 +50,7 @@
           "libs/ngx-ui-tour-core/src/**/*.ts",
           "libs/ngx-ui-tour-core/src/**/*.html"
         ],
-        "eslintConfig": "libs/ngx-ui-tour-core/eslint.config.cjs"
+        "eslintConfig": "libs/ngx-ui-tour-core/eslint.config.mjs"
       },
       "outputs": [
         "{options.outputFile}"

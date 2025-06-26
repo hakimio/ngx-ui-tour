@@ -90,7 +90,7 @@
           "apps/lazy-tour-demo/src/**/*.ts",
           "apps/lazy-tour-demo/src/**/*.html"
         ],
-        "eslintConfig": "apps/lazy-tour-demo/eslint.config.cjs"
+        "eslintConfig": "apps/lazy-tour-demo/eslint.config.mjs"
       },
       "outputs": ["{options.outputFile}"]
     }

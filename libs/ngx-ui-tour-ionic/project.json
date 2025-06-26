@@ -43,7 +43,7 @@
           "libs/ngx-ui-tour-ionic/src/**/*.ts",
           "libs/ngx-ui-tour-ionic/src/**/*.html"
         ],
-        "eslintConfig": "libs/ngx-ui-tour-ionic/eslint.config.cjs"
+        "eslintConfig": "libs/ngx-ui-tour-ionic/eslint.config.mjs"
       },
       "outputs": [
         "{options.outputFile}"
