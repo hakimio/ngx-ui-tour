@@ -1,3 +1,13 @@
+<a name="15.0.0"></a>
+
+# [15.0.0](https://github.com/hakimio/ngx-ui-tour) (2025-06-26)
+
+### Features
+- Support for Angular 20
+
+### Breaking Changes
+- Angular 19 is no longer supported
+
 <a name="14.0.1"></a>
 
 # [14.0.1](https://github.com/hakimio/ngx-ui-tour) (2024-01-03)
