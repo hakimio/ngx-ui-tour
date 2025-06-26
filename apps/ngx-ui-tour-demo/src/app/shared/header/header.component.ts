@@ -1,5 +1,5 @@
 import {WA_LOCATION} from '@ng-web-apis/common';
-import {ChangeDetectionStrategy, Component, HostAttributeToken, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, DOCUMENT, HostAttributeToken, inject} from '@angular/core';
 import {TuiAlertService, TuiLink} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {TUI_DOC_EXAMPLE_TEXTS} from '@taiga-ui/addon-doc';
@@ -23,6 +23,7 @@ export class HeaderComponent {
     private readonly alertService = inject(TuiAlertService);
     private readonly location = inject(WA_LOCATION);
     private readonly texts = inject(TUI_DOC_EXAMPLE_TEXTS);
+    private readonly document = inject(DOCUMENT);
 
     copyExampleLink() {
         const hashPosition = this.location.href.indexOf('#');
@@ -42,7 +43,10 @@ export class HeaderComponent {
     }
 
     get urlPath() {
-        return this.location.pathname;
+        const baseUrl = new URL(this.document.baseURI),
+            basePath = baseUrl.pathname;
+
+        return this.location.pathname.replace(basePath, '/');
     }
 
 }
