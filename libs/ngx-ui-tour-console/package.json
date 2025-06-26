@@ -15,8 +15,8 @@
     "onboarding-tour"
   ],
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0"
   },
   "dependencies": {
     "ngx-ui-tour-core": "14.0.0",

@@ -17,9 +17,9 @@
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^18.0.0"
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^19.0.0"
   },
   "dependencies": {
     "ngx-ui-tour-core": "14.0.0",
