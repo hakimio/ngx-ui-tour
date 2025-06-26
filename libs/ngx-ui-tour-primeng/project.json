@@ -38,6 +38,18 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "params": "ignore"
+        }
+      ]
     }
   }
 }
