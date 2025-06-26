@@ -105,7 +105,7 @@
           "apps/ngx-ui-tour-demo/src/**/*.ts",
           "apps/ngx-ui-tour-demo/src/**/*.html"
         ],
-        "eslintConfig": "apps/ngx-ui-tour-demo/eslint.config.cjs"
+        "eslintConfig": "apps/ngx-ui-tour-demo/eslint.config.mjs"
       },
       "outputs": ["{options.outputFile}"]
     },

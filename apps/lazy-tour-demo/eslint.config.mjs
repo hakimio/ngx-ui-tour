@@ -1,9 +1,9 @@
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const stylisticTs = require('@stylistic/eslint-plugin-ts');
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import angular from 'angular-eslint';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
 
-module.exports = tseslint.config({
+export default tseslint.config({
     files: ['**/*.ts'],
     extends: [
         eslint.configs.recommended,
@@ -18,12 +18,12 @@ module.exports = tseslint.config({
     rules: {
         '@angular-eslint/directive-selector': ['error', {
             type: 'attribute',
-            prefix: 'tour',
+            prefix: 'app',
             style: 'camelCase',
         }],
         '@angular-eslint/component-selector': ['error', {
             type: 'element',
-            prefix: 'tour',
+            prefix: 'app',
             style: 'kebab-case',
         }],
         '@typescript-eslint/naming-convention': ['error', {
@@ -76,13 +76,6 @@ module.exports = tseslint.config({
         }],
         '@angular-eslint/prefer-standalone': ['error'],
         '@angular-eslint/prefer-on-push-component-change-detection': ['error'],
-        '@typescript-eslint/no-restricted-imports': ['error', {
-            paths: [{
-                "name": "@ionic/angular",
-                "message": "Please import Ionic standalone components instead: `import {IonButton} from '@ionic/angular/standalone'`.",
-                "allowTypeImports": true
-            }]
-        }],
         '@typescript-eslint/consistent-type-imports': ['warn', {
             prefer: 'type-imports',
         }],

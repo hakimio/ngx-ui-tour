@@ -43,7 +43,7 @@
           "libs/ngx-ui-tour-ng-bootstrap/src/**/*.ts",
           "libs/ngx-ui-tour-ng-bootstrap/src/**/*.html"
         ],
-        "eslintConfig": "libs/ngx-ui-tour-ng-bootstrap/eslint.config.cjs"
+        "eslintConfig": "libs/ngx-ui-tour-ng-bootstrap/eslint.config.mjs"
       },
       "outputs": [
         "{options.outputFile}"

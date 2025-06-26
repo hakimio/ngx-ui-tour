@@ -43,7 +43,7 @@
           "libs/ngx-ui-tour-tui-hint/src/**/*.ts",
           "libs/ngx-ui-tour-tui-hint/src/**/*.html"
         ],
-        "eslintConfig": "libs/ngx-ui-tour-tui-hint/eslint.config.cjs"
+        "eslintConfig": "libs/ngx-ui-tour-tui-hint/eslint.config.mjs"
       },
       "outputs": [
         "{options.outputFile}"
