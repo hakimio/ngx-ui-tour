@@ -4,7 +4,7 @@ import {TourAnchorIonPopoverDirective, TourIonPopoverModule, TourService} from '
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
-import {TuiButton, TuiLink} from '@taiga-ui/core';
+import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
@@ -17,7 +17,8 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiLink,
         TourIonPopoverModule,
         TuiButton,
-        SHARED_COMPONENTS
+        SHARED_COMPONENTS,
+        TuiNotification
     ],
     providers: [
         provideTourDirective(TourAnchorIonPopoverDirective)

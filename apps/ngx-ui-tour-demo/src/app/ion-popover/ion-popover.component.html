@@ -66,7 +66,15 @@
         <app-defaults></app-defaults>
         <app-custom-template
             [defaultTemplate]="defaultTemplate"
-        ></app-custom-template>
+        >
+            <tui-notification
+                appearance="warning"
+                size="m"
+            >
+                It might be necessary to set <code>pointer-events: auto</code> to the <code>&#60;ion-card&#62;</code>
+                element to make tour step interactable.
+            </tui-notification>
+        </app-custom-template>
         <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
     </ng-template>
 </tui-doc-page>
