@@ -116,5 +116,8 @@
     "@schematics/angular": "^20.0.3",
     "@types/node": "^22.15.32",
     "tslib": "^2.8.1"
+  },
+  "patchedDependencies": {
+    "gh-pages@6.3.0": "patches/gh-pages@6.3.0.patch"
   }
 }
