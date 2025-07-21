@@ -5,5 +5,5 @@ export * from './lib/tour-anchor.directive';
 export * from './lib/tour-proxy-anchor.component';
 
 export {IonStepOption as IStepOption, IonPopoverPlacement} from './lib/step-option.interface';
-export {StepDimensions} from 'ngx-ui-tour-core';
+export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';
 export {IonTourService as TourService} from './lib/ion-tour.service';

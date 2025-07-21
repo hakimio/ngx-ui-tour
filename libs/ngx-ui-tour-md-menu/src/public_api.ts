@@ -3,6 +3,6 @@ export {TourStepTemplateComponent} from './lib/tour-step-template/tour-step-temp
 export {TourMatMenuModule} from './lib/md-menu.module';
 
 export {IMdStepOption as IStepOption, MdMenuPlacement} from './lib/step-option.interface';
-export {StepDimensions} from 'ngx-ui-tour-core';
+export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';
 export {NgxmTourService as TourService} from './lib/ngx-md-menu-tour.service';
 export {TourProxyAnchorComponent} from './lib/tour-proxy-anchor.component';
