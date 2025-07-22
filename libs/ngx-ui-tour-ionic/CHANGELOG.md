@@ -1,3 +1,10 @@
+<a name="7.0.1"></a>
+
+# [7.0.1](https://github.com/hakimio/ngx-ui-tour) (2025-07-22)
+
+### Fixes
+- Re-export Direction, TourState and StepChangeParams from the core library
+
 <a name="7.0.0"></a>
 
 # [7.0.0](https://github.com/hakimio/ngx-ui-tour) (2025-06-26)
