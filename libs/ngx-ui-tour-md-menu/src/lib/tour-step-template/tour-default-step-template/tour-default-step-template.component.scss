@@ -19,7 +19,7 @@ mat-card-actions {
     .progress {
         font-size: 12px;
         font-weight: 600;
-        color: rgba(0, 0, 0, 0.38);
+        color: rgba(0, 0, 0, .38);
         white-space: nowrap;
     }
 
@@ -27,7 +27,7 @@ mat-card-actions {
         grid-template-columns: 1fr 1fr;
     }
 
-    > * {
+    >* {
         max-width: fit-content;
 
         &:last-child {
@@ -49,6 +49,7 @@ mat-card-actions {
         transform: scaleX(-1);
     }
 }
+
 
 mat-card-header {
     .header-group {
