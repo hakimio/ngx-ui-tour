@@ -42,10 +42,8 @@ mat-card-actions {
     button.next {
         padding-right: 4px;
     }
-}
 
-[dir='rtl'] {
-    .icon {
+    .chevron-icon:dir(rtl)  {
         transform: scaleX(-1);
     }
 }
