@@ -35,7 +35,7 @@
             [disabled]="!tourService.hasPrev(step)"
             (click)="tourService.prev()"
         >
-            <mat-icon>chevron_left</mat-icon>
+            <mat-icon class="icon">chevron_left</mat-icon>
             {{ step.prevBtnTitle }}
         </button>
         @if (step.showProgress) {
@@ -48,7 +48,7 @@
                 mat-button
             >
                 {{ step.nextBtnTitle }}
-                <mat-icon iconPositionEnd>chevron_right</mat-icon>
+                <mat-icon class="icon" iconPositionEnd>chevron_right</mat-icon>
             </button>
         }
         @if (!tourService.hasNext(step)) {
