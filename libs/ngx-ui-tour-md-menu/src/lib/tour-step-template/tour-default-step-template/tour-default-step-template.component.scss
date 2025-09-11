@@ -19,6 +19,7 @@ mat-card-actions {
     .progress {
         font-size: 12px;
         font-weight: 600;
+        color: color-mix(in srgb, var(--mat-sys-on-surface, #1a1b1f) 45%, transparent);
         white-space: nowrap;
     }
 
