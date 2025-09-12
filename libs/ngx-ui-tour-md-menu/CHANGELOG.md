@@ -1,3 +1,10 @@
+<a name="15.0.3"></a>
+
+# [15.0.3](https://github.com/hakimio/ngx-ui-tour) (2025-09-12)
+
+### Fixes
+- Fix progress text color in dark mode
+
 <a name="15.0.2"></a>
 
 # [15.0.2](https://github.com/hakimio/ngx-ui-tour) (2025-09-09)
