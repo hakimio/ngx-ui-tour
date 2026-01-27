@@ -8,11 +8,6 @@ export const ROUTES: Routes = [
         loadComponent: async () => import('./ng-bootstrap/ng-bootstrap.component')
     }),
     route({
-        path: 'ngx-bootstrap',
-        title: 'Ngx Bootstrap',
-        loadComponent: async () => import('./ngx-bootstrap/ngx-bootstrap.component')
-    }),
-    route({
         path: 'console',
         title: 'Console',
         loadComponent: async () => import('./console/console.component')

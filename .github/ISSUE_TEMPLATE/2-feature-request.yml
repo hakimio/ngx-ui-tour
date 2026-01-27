@@ -12,7 +12,6 @@ body:
         - md-menu
         - ionic
         - ng-bootstrap
-        - ngx-bootstrap
         - tui-dropdown
         - tui-hint
         - console

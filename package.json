@@ -57,7 +57,6 @@
     "@taiga-ui/legacy": "^5.0.0-rc.1",
     "@taiga-ui/polymorpheus": "^5.0.0",
     "bootstrap": "^5.3.8",
-    "ngx-bootstrap": "^20.0.2",
     "ngx-highlightjs": "^10.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^21.0.4",

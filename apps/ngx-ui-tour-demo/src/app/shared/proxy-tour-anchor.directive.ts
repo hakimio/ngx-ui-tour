@@ -3,7 +3,6 @@ import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
 import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
-import {TourAnchorNgxBootstrapDirective, TourAnchorNgxBootstrapPopoverDirective} from 'ngx-ui-tour-ngx-bootstrap';
 import {TourAnchorConsoleDirective} from 'ngx-ui-tour-console';
 import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
 import {TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
@@ -23,8 +22,6 @@ interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestr
     // All directive providers should be declared here because their instances should not be shared
     providers: [
         TourAnchorMatMenuDirective,
-        TourAnchorNgxBootstrapDirective,
-        TourAnchorNgxBootstrapPopoverDirective,
         TourAnchorNgBootstrapDirective,
         NgbPopover,
         TourAnchorConsoleDirective,

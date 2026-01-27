@@ -18,10 +18,6 @@ export const pages: TuiDocRoutePages = [{
     route: 'ng-bootstrap'
 }, {
     section: 'Tour UI Libraries',
-    title: 'Ngx Bootstrap',
-    route: 'ngx-bootstrap'
-}, {
-    section: 'Tour UI Libraries',
     title: 'Taiga UI',
     subPages: [{
         section: 'Tour UI Libraries',
