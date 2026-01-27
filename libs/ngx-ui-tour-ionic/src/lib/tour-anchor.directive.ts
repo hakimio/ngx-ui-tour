@@ -31,7 +31,7 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
 
     async showTourStep(step: IonStepOption) {
         const templateComponent = this.stepTemplateService.templateComponent,
-            popover = templateComponent.ionPopover;
+            popover = templateComponent.ionPopover();
 
         if (popover.isCmpOpen) {
             await firstValueFrom(popover.didDismiss);
@@ -52,7 +52,7 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
 
     hideTourStep() {
         this.isActive.set(false);
-        const popover = this.stepTemplateService.templateComponent.ionPopover;
+        const popover = this.stepTemplateService.templateComponent.ionPopover();
 
         popover.dismiss();
     }

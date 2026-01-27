@@ -71,7 +71,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
             this.createOpener();
         }
 
-        const trigger = this.opener.trigger,
+        const trigger = this.opener.trigger(),
             customTrigger = trigger as unknown as CustomMenuTrigger;
         customTrigger._element = this.element;
         // Fixes tour step closing when hovering over mat-menu item, issue #123
@@ -79,7 +79,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         // Overrides position setting to support opening to the sides
         customTrigger._setPosition = (menu, positionStrategy) => this.setPosition(menu, positionStrategy, step);
 
-        const menu = this.tourStepTemplate.templateComponent.tourStep;
+        const menu = this.tourStepTemplate.templateComponent.tourStep();
         trigger.menu = menu;
         menu.xPosition = step.placement?.xPosition || 'after';
         menu.yPosition = step.placement?.yPosition || 'below';
@@ -152,7 +152,7 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
         if (this.menuCloseSubscription) {
             this.menuCloseSubscription.unsubscribe();
         }
-        this.opener.trigger.closeMenu();
+        this.opener.trigger().closeMenu();
     }
 
 }

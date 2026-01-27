@@ -106,7 +106,7 @@
     >
         The step index or stepId of the previous step (optional)
     </tr>
-    @if (placementConfig) {
+    @if (placementConfig(); as placementConfig) {
         <tr
             tuiDocAPIItem
             name="placement"

@@ -54,7 +54,7 @@ export class TourAnchorOpenerComponent {
     private readonly tourStepTemplateService = inject(TourStepTemplateService);
 
     constructor() {
-        this.template = this.tourStepTemplateService.templateComponent.template;
+        this.template = this.tourStepTemplateService.templateComponent.template();
     }
 
 }

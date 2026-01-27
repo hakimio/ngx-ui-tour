@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
@@ -20,7 +20,6 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 })
 export class TourAnchorOpenerComponent {
 
-    @ViewChild(MatMenuTrigger, {static: true})
-    public trigger: MatMenuTrigger;
+    public readonly trigger = viewChild.required(MatMenuTrigger);
 
 }

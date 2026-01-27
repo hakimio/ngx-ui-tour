@@ -2,12 +2,12 @@ import {
     type AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    ContentChild,
+    contentChild,
     inject,
     input,
     signal,
     TemplateRef,
-    ViewChild
+    viewChild
 } from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {createAnimation, IonPopover} from '@ionic/angular/standalone';
@@ -30,13 +30,9 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
-    @ViewChild(IonPopover, {static: true})
-    public ionPopover: IonPopover;
-
+    public readonly ionPopover = viewChild(IonPopover);
     public readonly stepTemplate = input<TemplateRef<{ step: IonStepOption }>>();
-
-    @ContentChild(TemplateRef)
-    public stepTemplateContent: TemplateRef<{ step: IonStepOption }>;
+    public readonly stepTemplateContent = contentChild(TemplateRef);
 
     public step = signal<IonStepOption>({});
     noopLeaveAnimation = () => createAnimation();

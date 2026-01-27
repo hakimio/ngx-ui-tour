@@ -2,11 +2,11 @@ import {
     type AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    ContentChild,
+    contentChild,
     inject,
     input,
     TemplateRef,
-    ViewChild
+    viewChild
 } from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {MatMenu} from '@angular/material/menu';
@@ -29,13 +29,9 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
-    @ViewChild(MatMenu)
-    public tourStep: MatMenu;
-
+    public readonly tourStep = viewChild(MatMenu);
     public readonly stepTemplate = input<TemplateRef<{ step: IMdStepOption }>>();
-
-    @ContentChild(TemplateRef)
-    public stepTemplateContent: TemplateRef<{ step: IMdStepOption }>;
+    public readonly stepTemplateContent = contentChild(TemplateRef);
 
     public step: IMdStepOption = {};
 

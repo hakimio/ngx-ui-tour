@@ -2,11 +2,11 @@ import {
     type AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    ContentChild,
+    contentChild,
     inject,
     input,
     TemplateRef,
-    ViewChild
+    viewChild
 } from '@angular/core';
 import type {ITuiDdStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';
@@ -28,11 +28,8 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     readonly stepTemplate = input<TemplateRef<{ step: ITuiDdStepOption }>>();
 
-    @ContentChild(TemplateRef)
-    stepTemplateContent: TemplateRef<{ step: ITuiDdStepOption }>;
-
-    @ViewChild('tuiDropdownTemplate')
-    template: TemplateRef<never>;
+    readonly stepTemplateContent = contentChild(TemplateRef);
+    readonly template = viewChild<TemplateRef<never>>('tuiDropdownTemplate');
 
     step: ITuiDdStepOption = {};
 

@@ -2,11 +2,11 @@ import {
     type AfterContentInit,
     ChangeDetectionStrategy,
     Component,
-    ContentChild,
+    contentChild,
     inject,
     input,
     TemplateRef,
-    ViewChild
+    viewChild
 } from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from '../tour-step-template.service';
@@ -25,13 +25,9 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterContentInit {
 
-    @ViewChild('tourStep', {read: TemplateRef, static: true})
-    public defaultTourStepTemplate: TemplateRef<{ step: IStepOption }>;
-
+    public readonly defaultTourStepTemplate = viewChild('tourStep', {read: TemplateRef});
     public readonly stepTemplate = input<TemplateRef<{ step: IStepOption }>>();
-
-    @ContentChild(TemplateRef)
-    public stepTemplateContent: TemplateRef<{ step: IStepOption }>;
+    public readonly stepTemplateContent = contentChild(TemplateRef);
 
     private readonly tourStepTemplateService = inject(TourStepTemplateService);
     public override readonly tourService = inject(NgbTourService);
@@ -39,8 +35,8 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     public ngAfterContentInit(): void {
         this.tourStepTemplateService.template =
             this.stepTemplate() ||
-            this.stepTemplateContent ||
-            this.defaultTourStepTemplate;
+            this.stepTemplateContent() ||
+            this.defaultTourStepTemplate();
     }
 
 }

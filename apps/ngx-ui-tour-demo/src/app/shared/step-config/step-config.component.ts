@@ -1,5 +1,5 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {ChangeDetectionStrategy, Component, ContentChild, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input, contentChild} from '@angular/core';
 import {PlacementConfigComponent} from './placement-config.component';
 import type {IStepOption} from 'ngx-ui-tour-md-menu';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
@@ -24,8 +24,7 @@ export class StepConfigComponent {
     readonly isMdMenuShowArrowVisible = input(false);
     readonly isUseLegacyTitleVisible = input(false);
 
-    @ContentChild(PlacementConfigComponent)
-    placementConfig: PlacementConfigComponent;
+    readonly placementConfig = contentChild(PlacementConfigComponent);
 
     readonly duplicateAnchorHandlingValues: IStepOption['duplicateAnchorHandling'][] = ['error', 'registerFirst', 'registerLast'];
 
