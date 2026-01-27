@@ -9,7 +9,6 @@ import type {EnvironmentProviders, Provider} from '@angular/core';
 import {inject, InjectionToken, provideEnvironmentInitializer, provideZoneChangeDetection} from '@angular/core';
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
-import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideIonicAngular} from '@ionic/angular/standalone';
 import {provideEventPlugins} from '@taiga-ui/event-plugins';
 import {TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
@@ -76,7 +75,6 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     provideZoneChangeDetection({
         eventCoalescing: true
     }),
-    provideAnimations(),
     provideRouter(ROUTES,
         withPreloading(PreloadAllModules),
         withInMemoryScrolling({
