@@ -1,5 +1,5 @@
 export * from './lib/tour-step-template/tour-step-template.component';
-export * from './lib/tour-prime-ng.module';
+export * from './lib/tour-prime-ng';
 export * from './lib/tour-anchor.directive';
 export * from './lib/tour-proxy-anchor.component';
 

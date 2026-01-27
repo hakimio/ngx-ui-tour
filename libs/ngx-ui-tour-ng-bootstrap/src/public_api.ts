@@ -1,6 +1,6 @@
 export {TourAnchorNgBootstrapDirective} from './lib/tour-anchor.directive';
 export {TourStepTemplateComponent} from './lib/tour-step-template/tour-step-template.component';
-export {TourNgBootstrapModule} from './lib/ng-bootstrap.module';
+export {TourNgBootstrap} from './lib/tour-ng-bootstrap';
 
 export {INgbStepOption as IStepOption} from './lib/step-option.interface';
 export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';

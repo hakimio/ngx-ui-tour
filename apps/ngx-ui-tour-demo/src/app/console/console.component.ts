@@ -1,6 +1,6 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import type {IStepOption} from 'ngx-ui-tour-console';
-import {TourAnchorConsoleDirective, TourConsoleModule, TourService} from 'ngx-ui-tour-console';
+import {TourAnchorConsoleDirective, TourConsole, TourService} from 'ngx-ui-tour-console';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
@@ -14,7 +14,7 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     imports: [
         TuiAddonDoc,
         TuiLink,
-        TourConsoleModule,
+        TourConsole,
         TuiButton,
         TuiNotification,
         SHARED_COMPONENTS

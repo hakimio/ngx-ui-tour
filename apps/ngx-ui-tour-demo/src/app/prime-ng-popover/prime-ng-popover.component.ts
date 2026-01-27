@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, type OnInit} from '@angular/core';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {type IStepOption, TourAnchorPrimeNgDirective, TourPrimeNgModule, TourService} from 'ngx-ui-tour-primeng';
+import {type IStepOption, TourAnchorPrimeNgDirective, TourPrimeNg, TourService} from 'ngx-ui-tour-primeng';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
@@ -11,7 +11,7 @@ import {DELAY_AFTER_NAVIGATION} from '../app.providers';
     imports: [
         TuiAddonDoc,
         TuiLink,
-        TourPrimeNgModule,
+        TourPrimeNg,
         TuiButton,
         SHARED_COMPONENTS
     ],

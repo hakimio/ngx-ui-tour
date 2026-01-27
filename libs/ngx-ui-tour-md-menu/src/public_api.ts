@@ -1,6 +1,6 @@
 export {TourAnchorMatMenuDirective} from './lib/tour-anchor.directive';
 export {TourStepTemplateComponent} from './lib/tour-step-template/tour-step-template.component';
-export {TourMatMenuModule} from './lib/md-menu.module';
+export {TourMatMenu} from './lib/tour-mat-menu';
 
 export {IMdStepOption as IStepOption, MdMenuPlacement} from './lib/step-option.interface';
 export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';

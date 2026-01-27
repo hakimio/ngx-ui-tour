@@ -1,5 +1,5 @@
 import type {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
-import {TourAnchorNgBootstrapDirective, TourNgBootstrapModule, TourService} from 'ngx-ui-tour-ng-bootstrap';
+import {TourAnchorNgBootstrapDirective, TourNgBootstrap, TourService} from 'ngx-ui-tour-ng-bootstrap';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
@@ -14,7 +14,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     styleUrls: ['./ng-bootstrap.component.scss'],
     imports: [
         TuiLink,
-        TourNgBootstrapModule,
+        TourNgBootstrap,
         TuiButton,
         TuiNotification,
         SHARED_COMPONENTS,

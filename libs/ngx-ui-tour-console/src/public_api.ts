@@ -1,3 +1,3 @@
 export * from 'ngx-ui-tour-core';
-export {TourConsoleModule} from './lib/console.module';
+export {TourConsole} from './lib/console';
 export {TourAnchorConsoleDirective} from './lib/tour-anchor.directive';

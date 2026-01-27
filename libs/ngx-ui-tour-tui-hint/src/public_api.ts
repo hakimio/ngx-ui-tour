@@ -1,6 +1,6 @@
 export {TourStepTemplateComponent} from './lib/tour-step-template/tour-step-template.component';
 export {TourAnchorTuiHintDirective} from './lib/tour-anchor.directive';
-export {TourTuiHintModule} from './lib/tour-tui-hint.module';
+export {TourTuiHint} from './lib/tour-tui-hint';
 
 export {ITuiHintStepOption as IStepOption} from './lib/step-option.interface';
 export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';

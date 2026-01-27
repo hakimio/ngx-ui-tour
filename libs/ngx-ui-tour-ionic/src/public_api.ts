@@ -1,6 +1,6 @@
 
 export * from './lib/tour-step-template/tour-step-template.component';
-export * from './lib/tour-ion-popover.module';
+export * from './lib/tour-ion-popover';
 export * from './lib/tour-anchor.directive';
 export * from './lib/tour-proxy-anchor.component';
 

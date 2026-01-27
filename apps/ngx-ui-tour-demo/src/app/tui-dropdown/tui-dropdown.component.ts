@@ -1,6 +1,6 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import type {IStepOption} from 'ngx-ui-tour-tui-dropdown';
-import {TourAnchorTuiDropdownDirective, TourService, TourTuiDropdownModule} from 'ngx-ui-tour-tui-dropdown';
+import {TourAnchorTuiDropdownDirective, TourService, TourTuiDropdown} from 'ngx-ui-tour-tui-dropdown';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DELAY_AFTER_NAVIGATION} from '../app.providers';
@@ -15,7 +15,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     imports: [
         TuiAddonDoc,
         TuiLink,
-        TourTuiDropdownModule,
+        TourTuiDropdown,
         TuiButton,
         TuiNotification,
         SHARED_COMPONENTS

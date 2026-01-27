@@ -39,7 +39,7 @@ export default tseslint.config({
             leadingUnderscore: 'allow',
         }, {
             selector: 'variable',
-            format: ['camelCase', 'UPPER_CASE'],
+            format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
         }, {
             selector: 'typeLike',
             format: ['PascalCase'],
