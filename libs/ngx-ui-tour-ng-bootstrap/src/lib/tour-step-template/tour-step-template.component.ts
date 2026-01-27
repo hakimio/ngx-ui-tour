@@ -4,7 +4,7 @@ import {
     Component,
     ContentChild,
     inject,
-    Input,
+    input,
     TemplateRef,
     ViewChild
 } from '@angular/core';
@@ -28,8 +28,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     @ViewChild('tourStep', {read: TemplateRef, static: true})
     public defaultTourStepTemplate: TemplateRef<{ step: IStepOption }>;
 
-    @Input()
-    public stepTemplate: TemplateRef<{ step: IStepOption }>;
+    public readonly stepTemplate = input<TemplateRef<{ step: IStepOption }>>();
 
     @ContentChild(TemplateRef)
     public stepTemplateContent: TemplateRef<{ step: IStepOption }>;
@@ -39,7 +38,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     public ngAfterContentInit(): void {
         this.tourStepTemplateService.template =
-            this.stepTemplate ||
+            this.stepTemplate() ||
             this.stepTemplateContent ||
             this.defaultTourStepTemplate;
     }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 
 @Component({
     selector: 'app-placement-config',
@@ -7,16 +7,9 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 })
 export class PlacementConfigComponent {
 
-    @Input()
-    value?: string;
-
-    @Input()
-    values?: string[] = [];
-
-    @Input()
-    type = 'string';
-
-    @Input()
-    extraInfo?: string;
+    readonly value = input<string>();
+    readonly values = input<string[]>([]);
+    readonly type = input('string');
+    readonly extraInfo = input<string>();
 
 }

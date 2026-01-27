@@ -1,4 +1,14 @@
-import {Directive, inject, InjectionToken, Input, type OnDestroy, type OnInit, signal, type Type} from '@angular/core';
+import {
+    Directive,
+    inject,
+    InjectionToken,
+    input,
+    type InputSignal,
+    type OnDestroy,
+    type OnInit,
+    signal,
+    type Type
+} from '@angular/core';
 import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
 import {TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
@@ -8,12 +18,13 @@ import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
 import {TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
 import {TourAnchorIonPopoverDirective} from 'ngx-ui-tour-ionic';
 import {TourAnchorPrimeNgDirective} from 'ngx-ui-tour-primeng';
+import {tuiSetSignal} from '@taiga-ui/cdk';
 
 export const TOUR_ANCHOR_DIRECTIVE = new InjectionToken<TourAnchorDirective>('TourAnchorDirective');
 export const TOUR_ANCHOR_DIRECTIVE_TYPE = new InjectionToken<Type<TourAnchorDirective>>('TourAnchorDirectiveType');
 
 interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestroy {
-    tourAnchor: string;
+    tourAnchor: InputSignal<string>;
 }
 
 @Directive({
@@ -44,8 +55,7 @@ interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestr
 })
 export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
 
-    @Input()
-    public tourAnchor: string;
+    public readonly tourAnchor = input<string>();
 
     public isActive = signal(false);
 
@@ -58,7 +68,7 @@ export class ProxyTourAnchorDirective implements OnInit, OnDestroy {
     ngOnInit() {
         const tourAnchorDirective = this.tourAnchorDirective as CustomTourAnchorDirective;
 
-        tourAnchorDirective.tourAnchor = this.tourAnchor;
+        tuiSetSignal(tourAnchorDirective.tourAnchor, this.tourAnchor());
         tourAnchorDirective.ngOnInit();
     }
 

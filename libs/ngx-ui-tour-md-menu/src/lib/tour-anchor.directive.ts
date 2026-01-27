@@ -2,7 +2,7 @@ import {
     Directive,
     ElementRef,
     inject,
-    Input,
+    input,
     type OnDestroy,
     type OnInit,
     signal,
@@ -39,8 +39,7 @@ interface CustomMenuTrigger {
 })
 export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input()
-    public tourAnchor: string;
+    public readonly tourAnchor = input<string>();
 
     public opener: TourAnchorOpenerComponent;
     public menuCloseSubscription: Subscription;
@@ -52,11 +51,11 @@ export class TourAnchorMatMenuDirective implements OnInit, OnDestroy, TourAnchor
     private readonly tourStepTemplate = inject(TourStepTemplateService);
 
     ngOnInit(): void {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     ngOnDestroy(): void {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     private createOpener() {

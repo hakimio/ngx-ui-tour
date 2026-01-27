@@ -1,4 +1,4 @@
-import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
+import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
 import {type TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {PrimeNgTourService} from './prime-ng-tour.service';
@@ -11,8 +11,7 @@ import type {Popover} from 'primeng/popover';
 })
 export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input({required: true})
-    public tourAnchor!: string;
+    public readonly tourAnchor = input.required<string>();
 
     public isActive = signal(false);
 
@@ -22,11 +21,11 @@ export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchor
     private popoverCloseSubscription?: Subscription;
 
     ngOnInit() {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     ngOnDestroy() {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     async showTourStep(step: PrimeNgStepOption) {

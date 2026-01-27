@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 
 @Component({
     selector: 'app-list-item',
@@ -8,10 +8,7 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 })
 export class ListItemComponent {
 
-    @Input()
-    name: string;
-
-    @Input()
-    description: string;
+    readonly name = input<string>();
+    readonly description = input<string>();
 
 }

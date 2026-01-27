@@ -4,7 +4,7 @@ import {
     Component,
     ContentChild,
     inject,
-    Input,
+    input,
     TemplateRef,
     ViewChild
 } from '@angular/core';
@@ -32,8 +32,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     @ViewChild(MatMenu)
     public tourStep: MatMenu;
 
-    @Input()
-    public stepTemplate: TemplateRef<{ step: IMdStepOption }>;
+    public readonly stepTemplate = input<TemplateRef<{ step: IMdStepOption }>>();
 
     @ContentChild(TemplateRef)
     public stepTemplateContent: TemplateRef<{ step: IMdStepOption }>;

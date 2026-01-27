@@ -1,6 +1,6 @@
 import type {IStepOption, TourAnchorDirective} from 'ngx-ui-tour-core';
 import {TourService} from 'ngx-ui-tour-core';
-import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
+import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -10,18 +10,18 @@ import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signa
 })
 export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input() public tourAnchor: string;
+    public readonly tourAnchor = input<string>();
 
     public isActive = signal(false);
     public readonly element = inject(ElementRef);
     private readonly tourService = inject(TourService);
 
     public ngOnInit(): void {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     public ngOnDestroy(): void {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     // noinspection JSUnusedGlobalSymbols
@@ -30,7 +30,7 @@ export class TourAnchorConsoleDirective implements OnInit, OnDestroy, TourAnchor
 
         console.group(step.title);
         console.log(step.content);
-        console.log(`Anchor id: ${this.tourAnchor}`);
+        console.log(`Anchor id: ${this.tourAnchor()}`);
         console.groupEnd();
     }
 

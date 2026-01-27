@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
 import {TourAnchorPrimeNgDirective} from './tour-anchor.directive';
 import {BaseTourProxyAnchor} from 'ngx-ui-tour-core';
 
@@ -17,7 +17,6 @@ export class TourProxyAnchorComponent extends BaseTourProxyAnchor {
         host: true
     });
 
-    @Input({required: true})
-    public override anchorEl!: string | HTMLElement;
+    public override readonly anchorEl = input.required<string | HTMLElement>();
 
 }

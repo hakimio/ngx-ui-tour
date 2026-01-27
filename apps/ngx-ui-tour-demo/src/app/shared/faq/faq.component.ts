@@ -1,5 +1,5 @@
 import {TuiDocCode} from '@taiga-ui/addon-doc';
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {HeaderComponent} from '../header/header.component';
 import centeredStepCss from './examples/centered-step-css.md' with {loader: 'text'};
@@ -26,11 +26,8 @@ import backdropButtonPadding from './examples/backdrop-button-padding-html.md' w
 })
 export class FaqComponent {
 
-    @Input()
-    disablePageScrollingIntroducedIn = '10.1';
-
-    @Input()
-    backdropOffsetIntroducedIn: string;
+    readonly disablePageScrollingIntroducedIn = input('10.1');
+    readonly backdropOffsetIntroducedIn = input<string>();
 
     readonly examples = {
         centeredStepCss,

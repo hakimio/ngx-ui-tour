@@ -4,7 +4,7 @@ import {
     Component,
     ContentChild,
     inject,
-    Input,
+    input,
     signal,
     TemplateRef,
     ViewChild
@@ -33,8 +33,7 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
     @ViewChild(IonPopover, {static: true})
     public ionPopover: IonPopover;
 
-    @Input()
-    public stepTemplate: TemplateRef<{ step: IonStepOption }>;
+    public readonly stepTemplate = input<TemplateRef<{ step: IonStepOption }>>();
 
     @ContentChild(TemplateRef)
     public stepTemplateContent: TemplateRef<{ step: IonStepOption }>;

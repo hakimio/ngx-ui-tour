@@ -1,4 +1,4 @@
-import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
+import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
 import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {IonTourService} from './ion-tour.service';
 import {TourStepTemplateService} from './tour-step-template.service';
@@ -13,8 +13,7 @@ import {firstValueFrom} from 'rxjs';
 })
 export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input()
-    public tourAnchor: string;
+    public readonly tourAnchor = input<string>();
 
     public isActive = signal(false);
 
@@ -23,11 +22,11 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
     private readonly stepTemplateService = inject(TourStepTemplateService);
 
     ngOnInit() {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     ngOnDestroy() {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     async showTourStep(step: IonStepOption) {

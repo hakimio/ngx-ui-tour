@@ -73,7 +73,7 @@
     >
         <div tourAnchor="config.popoverClass">Custom popover CSS class (optional)</div>
     </tr>
-    @if (isCloseOnOutsideClickVisible) {
+    @if (isCloseOnOutsideClickVisible()) {
         <tr
             tuiDocAPIItem
             name="closeOnOutsideClick"
@@ -110,17 +110,17 @@
         <tr
             tuiDocAPIItem
             name="placement"
-            [type]="placementConfig.type"
-            [value]="placementConfig.value"
-            [items]="placementConfig.values"
+            [type]="placementConfig.type()"
+            [value]="placementConfig.value()"
+            [items]="placementConfig.values()"
         >
             <div tourAnchor="config.placement">
                 Tour step position with respect to the anchor (optional).
-                <span [innerHTML]="placementConfig.extraInfo"></span>
+                <span [innerHTML]="placementConfig.extraInfo()"></span>
             </div>
         </tr>
     }
-    @if (isIonicShowArrowVisible) {
+    @if (isIonicShowArrowVisible()) {
         <tr
             tuiDocAPIItem
             name="showArrow"
@@ -131,7 +131,7 @@
             apply in <code>md</code> mode.
         </tr>
     }
-    @if (isIonicTrapFocusVisible) {
+    @if (isIonicTrapFocusVisible()) {
         <tr
             tuiDocAPIItem
             name="trapFocus"
@@ -142,7 +142,7 @@
             allow focus to move outside of the popover overlay.
         </tr>
     }
-    @if (isMdMenuShowArrowVisible) {
+    @if (isMdMenuShowArrowVisible()) {
         <tr
             tuiDocAPIItem
             name="showArrow"
@@ -296,7 +296,7 @@
         Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
         The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
     </tr>
-    @if (isUseLegacyTitleVisible) {
+    @if (isUseLegacyTitleVisible()) {
         <tr
             tuiDocAPIItem
             name="useLegacyTitle"

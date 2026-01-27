@@ -2,7 +2,7 @@ import {
     Directive,
     ElementRef,
     inject,
-    Input,
+    input,
     type OnDestroy,
     type OnInit,
     signal,
@@ -22,8 +22,7 @@ import {TourAnchorOpenerComponent} from './tour-anchor-opener.component';
 })
 export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input()
-    tourAnchor: string;
+    readonly tourAnchor = input<string>();
 
     isActive = signal(false);
 
@@ -34,11 +33,11 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
     private readonly viewContainer = inject(ViewContainerRef);
 
     ngOnInit(): void {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     public ngOnDestroy(): void {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     private createOpener() {

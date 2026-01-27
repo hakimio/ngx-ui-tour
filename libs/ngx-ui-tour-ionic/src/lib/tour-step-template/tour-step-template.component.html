@@ -15,7 +15,7 @@
     <ng-template>
         <ng-container
             *ngTemplateOutlet="
-                stepTemplate || stepTemplateContent || defaultTemplate;
+                stepTemplate() || stepTemplateContent || defaultTemplate;
                 context: {step: step}
             "
         ></ng-container>

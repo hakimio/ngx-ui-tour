@@ -1,4 +1,4 @@
-import {Directive, ElementRef, inject, Input, type OnDestroy, type OnInit, signal} from '@angular/core';
+import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
 import type {Placement} from '@ng-bootstrap/ng-bootstrap';
 import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 import type {TourAnchorDirective} from 'ngx-ui-tour-core';
@@ -19,8 +19,7 @@ import type {Options} from '@popperjs/core';
 })
 export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
-    @Input()
-    public tourAnchor: string;
+    public readonly tourAnchor = input<string>();
 
     public isActive = signal(false);
     public readonly element = inject(ElementRef);
@@ -36,11 +35,11 @@ export class TourAnchorNgBootstrapDirective implements OnInit, OnDestroy, TourAn
     }
 
     public ngOnInit(): void {
-        this.tourService.register(this.tourAnchor, this);
+        this.tourService.register(this.tourAnchor(), this);
     }
 
     public ngOnDestroy(): void {
-        this.tourService.unregister(this.tourAnchor);
+        this.tourService.unregister(this.tourAnchor());
     }
 
     // noinspection JSUnusedGlobalSymbols

@@ -32,7 +32,7 @@
     size="m"
     class="tui-space_top-3"
 >
-    Starting with <code>v{{ disablePageScrollingIntroducedIn }}</code> you can enable
+    Starting with <code>v{{ disablePageScrollingIntroducedIn() }}</code> you can enable
     <code>disablePageScrolling</code> option to disable scrolling.
 </div>
 
@@ -61,14 +61,14 @@
     </li>
 </ol>
 <app-header id="backdrop-padding">How to add space around highlighted anchor element</app-header>
-@if (backdropOffsetIntroducedIn) {
+@if (backdropOffsetIntroducedIn()) {
     <div
         tuiNotification
         size="m"
         appearance="warning"
         class="tui-space_top-3"
     >
-        Starting with <code>v{{ backdropOffsetIntroducedIn }}</code> you can set
+        Starting with <code>v{{ backdropOffsetIntroducedIn() }}</code> you can set
         <code>backdropConfig.offset</code> to add padding around anchor element
     </div>
 }

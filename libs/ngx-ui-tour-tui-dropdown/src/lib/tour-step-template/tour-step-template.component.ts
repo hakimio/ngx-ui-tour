@@ -4,7 +4,7 @@ import {
     Component,
     ContentChild,
     inject,
-    Input,
+    input,
     TemplateRef,
     ViewChild
 } from '@angular/core';
@@ -26,8 +26,7 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 
-    @Input()
-    stepTemplate: TemplateRef<{ step: ITuiDdStepOption }>;
+    readonly stepTemplate = input<TemplateRef<{ step: ITuiDdStepOption }>>();
 
     @ContentChild(TemplateRef)
     stepTemplateContent: TemplateRef<{ step: ITuiDdStepOption }>;
