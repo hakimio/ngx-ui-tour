@@ -4,13 +4,13 @@
     &:not(:last-of-type) {
         border-bottom: 1px solid var(--tui-background-neutral-1-hover);
     }
-    font: var(--tui-font-text-s);
+    font: var(--tui-font-body-s);
     padding: 1rem 0;
     word-wrap: break-word;
     color: var(--tui-text-primary);
 
     .name {
-        font: var(--tui-font-text-m);
+        font: var(--tui-font-body-m);
         margin-bottom: .25rem;
         font-family: monospace;
         color: #8f75d1;

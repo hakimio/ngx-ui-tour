@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
-import {TuiAddonDoc} from '@taiga-ui/addon-doc';
+import {TUI_DOC_DOCUMENTATION_TEXTS, TuiAddonDoc} from '@taiga-ui/addon-doc';
 import onInitialize from './examples/on-initialize.md' with {loader: 'text'};
 
 @Component({
@@ -13,6 +13,15 @@ import onInitialize from './examples/on-initialize.md' with {loader: 'text'};
         HeaderComponent,
         TuiAddonDoc
     ],
+    providers: [{
+        provide: TUI_DOC_DOCUMENTATION_TEXTS,
+        useValue: [
+            'Argument',
+            'Argument',
+            'Name and description',
+            'Value'
+        ]
+    }],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventsComponent {

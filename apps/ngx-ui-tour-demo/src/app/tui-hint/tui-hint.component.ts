@@ -117,18 +117,18 @@ export default class TuiHintComponent implements OnInit {
     }];
     readonly defaultTemplate = defaultTemplate;
     readonly hintPlacements: TuiHintDirection[] = [
-        'top-left',
-        'top',
-        'top-right',
-        'bottom-left',
+        'bottom-end',
+        'bottom-start',
         'bottom',
-        'bottom-right',
-        'left-top',
-        'left',
-        'left-bottom',
-        'right-top',
-        'right',
-        'right-bottom'
+        'end-bottom',
+        'end-top',
+        'end',
+        'start-bottom',
+        'start-top',
+        'start',
+        'top-end',
+        'top-start',
+        'top'
     ];
 
     public readonly tourService = inject(TourService);

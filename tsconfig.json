@@ -21,7 +21,8 @@
     "target": "ES2022",
     "module": "ESNext",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "node_modules/@taiga-ui/tsconfig"
     ],
     "lib": [
       "ES2022",
@@ -55,6 +56,10 @@
       "ngx-ui-tour-tui-hint": [
         "libs/ngx-ui-tour-tui-hint/src/public_api.ts"
       ]
-    }
+    },
+    "types": [
+      "node",
+      "ng-dev-mode"
+    ]
   }
 }

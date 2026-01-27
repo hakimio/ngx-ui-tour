@@ -56,9 +56,12 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
             this.createOpener();
         }
 
-        const tuiHint = this.opener.hint;
+        const tuiHint = this.opener.hint() as {el: HTMLElement},
+            tuiHintPosition = this.opener.hintPosition() as unknown as {el: HTMLElement},
+            nativeElement = this.element.nativeElement;
 
-        (tuiHint as unknown as {el: HTMLElement}).el = this.element.nativeElement;
+        tuiHint.el = nativeElement;
+        tuiHintPosition.el = nativeElement;
 
         this.opener.isShown.set(true);
     }

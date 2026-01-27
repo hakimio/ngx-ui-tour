@@ -1,5 +1,5 @@
-::ng-deep tui-dropdown[data-appearance="ngx-ui-tour"] {
-    z-index: 150 !important;
+::ng-deep tui-popups:has(tui-dropdown[data-appearance="ngx-ui-tour"]) {
+    z-index: 150;
 }
 
 .main-container {
@@ -16,7 +16,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font: var(--tui-font-heading-6);
+        font: var(--tui-font-heading-h6);
         margin: 0;
     }
 
@@ -26,7 +26,7 @@
 }
 
 .content {
-    font: var(--tui-font-text-m);
+    font: var(--tui-font-body-m);
     margin: 1rem 0;
 }
 
@@ -46,7 +46,7 @@
     }
 
     .progress {
-        font: var(--tui-font-text-s);
+        font: var(--tui-font-body-s);
         font-weight: 800;
         color: var(--tui-text-tertiary);
         white-space: nowrap;

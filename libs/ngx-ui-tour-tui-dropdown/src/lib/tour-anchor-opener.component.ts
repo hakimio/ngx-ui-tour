@@ -1,6 +1,11 @@
-import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, ViewChild} from '@angular/core';
-import type {TuiDropdownOptions} from '@taiga-ui/core';
-import {TUI_DROPDOWN_OPTIONS, TuiDropdown, TuiDropdownDirective} from '@taiga-ui/core';
+import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
+import {
+    TUI_DROPDOWN_OPTIONS,
+    TuiDropdown,
+    TuiDropdownDirective,
+    type TuiDropdownOptions,
+    TuiDropdownPosition
+} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 
@@ -48,8 +53,8 @@ export class TourAnchorOpenerComponent {
 
     template: TemplateRef<never>;
 
-    @ViewChild(TuiDropdownDirective, {static: true})
-    dropdown: TuiDropdownDirective;
+    dropdown = viewChild.required(TuiDropdownDirective);
+    dropdownPosition = viewChild.required(TuiDropdownDirective, {read: TuiDropdownPosition});
 
     isShown = signal(false);
     offset = signal(4);

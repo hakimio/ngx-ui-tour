@@ -11,16 +11,16 @@
     ></tui-doc-code>
 </div>
 
-<tui-doc-documentation
-    [isAPI]="true"
-    [showValues]="false"
+<table
+    tuiDocAPI
 >
     @for (event of events; track event.name) {
-        <ng-template
-            [documentationPropertyName]="event.name"
-            [documentationPropertyType]="event.payload"
+        <tr
+            tuiDocAPIItem
+            [name]="event.name"
+            [type]="event.payload"
         >
             {{ event.description }}
-        </ng-template>
+        </tr>
     }
-</tui-doc-documentation>
+</table>

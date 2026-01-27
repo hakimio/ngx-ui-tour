@@ -13,7 +13,7 @@
 }
 
 .title {
-    font: var(--tui-font-heading-5);
+    font: var(--tui-font-heading-h5);
     margin: 0 auto 0.5rem 0;
 
     &:first-letter {
@@ -21,7 +21,7 @@
     }
 
     @media #{$tui-mobile} {
-        font: var(--tui-font-heading-6);
+        font: var(--tui-font-heading-h6);
     }
 
     &:hover + .link {
@@ -30,11 +30,11 @@
 }
 
 .link {
-    font: var(--tui-font-heading-6);
+    font: var(--tui-font-heading-h6);
     padding-right: 0.1rem;
 
     @media not #{$tui-mobile} {
-        font: var(--tui-font-heading-5);
+        font: var(--tui-font-heading-h5);
         margin-left: -1.6rem;
 
         &:not(:hover):not(.link-active) {

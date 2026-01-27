@@ -3,272 +3,308 @@
 
 <p>Each step can have the following properties.</p>
 
-<tui-doc-documentation>
-    <ng-template
-        documentationPropertyName="stepId"
-        documentationPropertyType="string"
+<table
+    tuiDocAPI
+>
+    <tr
+        tuiDocAPIItem
+        name="stepId"
+        type="string"
     >
         A unique identifier for the step (optional)
-    </ng-template>
-    <ng-template
-        documentationPropertyName="anchorId"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'some.anchor.id'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="anchorId"
+        type="string"
+        value="some.anchor.id"
     >
         <div tourAnchor="config.anchorId">The anchor to which the step will be attached</div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="title"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'My Title'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="title"
+        type="string"
+        value="My Title"
     >
         The title of the tour step
-    </ng-template>
-    <ng-template
-        documentationPropertyName="content"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'<b>Lorem</b> ipsum dolores'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="content"
+        type="string"
+        value="<b>Lorem</b> ipsum dolores"
     >
         The content text of the tour step
-    </ng-template>
-    <ng-template
-        documentationPropertyName="enableBackdrop"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="enableBackdrop"
+        type="boolean"
+        [value]="false"
     >
         <div tourAnchor="config.enableBackdrop">Enable active element highlighting</div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="backdropConfig"
-        documentationPropertyType="BackdropConfig"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="backdropConfig"
+        type="BackdropConfig"
     >
         Backdrop configuration
-    </ng-template>
-    <ng-template
-        documentationPropertyName="stepDimensions"
-        documentationPropertyType="StepDimensions"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="stepDimensions"
+        type="StepDimensions"
     >
         Step width, min-width and max-width configuration. Accepts CSS property "width" values, ie "250px" or "auto".
-    </ng-template>
-    <ng-template
-        documentationPropertyName="route"
-        documentationPropertyType="string | UrlSegment[]"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="route"
+        type="string | UrlSegment[]"
     >
         <div tourAnchor="config.route">The route to navigate to before showing the tour step (optional)</div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="popoverClass"
-        documentationPropertyType="string"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="popoverClass"
+        type="string"
     >
         <div tourAnchor="config.popoverClass">Custom popover CSS class (optional)</div>
-    </ng-template>
+    </tr>
     @if (isCloseOnOutsideClickVisible) {
-        <ng-template
-            documentationPropertyName="closeOnOutsideClick"
-            documentationPropertyType="boolean"
-            [documentationPropertyValue]="false"
+        <tr
+            tuiDocAPIItem
+            name="closeOnOutsideClick"
+            type="boolean"
+            [value]="false"
         >
             Enable to close the tour on outside click
-        </ng-template>
+        </tr>
     }
-    <ng-template
-        documentationPropertyName="disablePageScrolling"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="true"
+    <tr
+        tuiDocAPIItem
+        name="disablePageScrolling"
+        type="boolean"
+        [value]="true"
     >
         Disables scrolling when the UI tour is active. <code>scrollContainer</code> option can be used to specify
         affected scroll container. If <code>scrollContainer</code> is not set, disables scrolling on document element.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="nextStep"
-        documentationPropertyType="number | string"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="nextStep"
+        type="number | string"
     >
         The step index or stepId of the next step (optional)
-    </ng-template>
-    <ng-template
-        documentationPropertyName="prevStep"
-        documentationPropertyType="number | string"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="prevStep"
+        type="number | string"
     >
         The step index or stepId of the previous step (optional)
-    </ng-template>
+    </tr>
     @if (placementConfig) {
-        <ng-template
-            documentationPropertyName="placement"
-            [documentationPropertyType]="placementConfig.type"
-            [documentationPropertyValue]="placementConfig.value"
-            [documentationPropertyValues]="placementConfig.values"
+        <tr
+            tuiDocAPIItem
+            name="placement"
+            [type]="placementConfig.type"
+            [value]="placementConfig.value"
+            [items]="placementConfig.values"
         >
             <div tourAnchor="config.placement">
                 Tour step position with respect to the anchor (optional).
                 <span [innerHTML]="placementConfig.extraInfo"></span>
             </div>
-        </ng-template>
+        </tr>
     }
     @if (isIonicShowArrowVisible) {
-        <ng-template
-            documentationPropertyName="showArrow"
-            documentationPropertyType="boolean"
-            [documentationPropertyValue]="true"
+        <tr
+            tuiDocAPIItem
+            name="showArrow"
+            type="boolean"
+            [value]="true"
         >
             If enabled, shows an arrow that points to the anchor element when running in <code>ios</code> mode. Does not
             apply in <code>md</code> mode.
-        </ng-template>
+        </tr>
     }
     @if (isIonicTrapFocusVisible) {
-        <ng-template
-                documentationPropertyName="trapFocus"
-                documentationPropertyType="boolean"
-                [documentationPropertyValue]="false"
+        <tr
+            tuiDocAPIItem
+            name="trapFocus"
+            type="boolean"
+            [value]="false"
         >
             If enabled, focus will not be allowed to move outside of the tour step popover. Disabled by default to
             allow focus to move outside of the popover overlay.
-        </ng-template>
+        </tr>
     }
     @if (isMdMenuShowArrowVisible) {
-        <ng-template
-            documentationPropertyName="showArrow"
-            documentationPropertyType="boolean"
-            [documentationPropertyValue]="true"
+        <tr
+            tuiDocAPIItem
+            name="showArrow"
+            type="boolean"
+            [value]="true"
         >
             If enabled, shows an arrow that points to the anchor element. In some cases, for example, when a small
             anchor element is positioned at the edge of the screen, tour step arrow might not align correctly with the
             tour anchor. In that case <code>placement</code> config can be used to adjust tour step position and fix
             the alignment or the arrow can be hidden using <code>showArrow</code> config.
-        </ng-template>
+        </tr>
     }
-    <ng-template
-        documentationPropertyName="showProgress"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="true"
+    <tr
+        tuiDocAPIItem
+        name="showProgress"
+        type="boolean"
+        [value]="true"
     >
         If enabled, shows current step number and total steps.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="disableScrollToAnchor"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="disableScrollToAnchor"
+        type="boolean"
+        [value]="false"
     >
         If active, stops automatic page scroll to tour anchor element
-    </ng-template>
-    <ng-template
-        documentationPropertyName="centerAnchorOnScroll"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="true"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="centerAnchorOnScroll"
+        type="boolean"
+        [value]="true"
     >
         <div tourAnchor="config.centerAnchorOnScroll">
             Enable to center active anchor element. "Safari" browser does not support this option.
         </div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="smoothScroll"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="true"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="smoothScroll"
+        type="boolean"
+        [value]="true"
     >
         <div tourAnchor="config.smoothScroll">
             Use smooth scroll when animations are enabled on OS level. Controlled by "Animate controls and elements
             inside windows" setting on Windows OS.
         </div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="scrollContainer"
-        documentationPropertyType="string | HTMLElement"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="scrollContainer"
+        type="string | HTMLElement"
     >
         CSS selector or html element reference. Used to determine scroll container for "smooth scroll" and
         "disable page scrolling" functions. Defaults to document element if not set.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="prevBtnTitle"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'Prev'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="prevBtnTitle"
+        type="string"
+        [value]="'Prev'"
     >
         <div tourAnchor="config.buttons.custom">"Previous" button title</div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="nextBtnTitle"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'Next'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="nextBtnTitle"
+        type="string"
+        [value]="'Next'"
     >
         "Next" button title
-    </ng-template>
-    <ng-template
-        documentationPropertyName="endBtnTitle"
-        documentationPropertyType="string"
-        [documentationPropertyValue]="'End'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="endBtnTitle"
+        type="string"
+        [value]="'End'"
     >
         "End" button title
-    </ng-template>
-    <ng-template
-        documentationPropertyName="isAsync"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="isAsync"
+        type="boolean"
+        [value]="false"
     >
         <div tourAnchor="config.isAsync">Mark your step as "async" if anchor element is added to DOM with a delay.</div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="asyncStepTimeout"
-        documentationPropertyType="number"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="asyncStepTimeout"
+        type="number"
     >
         Time to wait for async step in ms. Once the time runs out, if the step is also marked as "optional",
         the step will be skipped, otherwise will end the tour with a warning.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="isOptional"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="isOptional"
+        type="boolean"
+        [value]="false"
     >
         Mark your step as "optional" if it should be skipped when anchor element is not found. Step can only be marked
         as both "optional" and "async" if "asyncStepTimeout" setting is set.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="delayAfterNavigation"
-        documentationPropertyType="number"
-        [documentationPropertyValue]="100"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="delayAfterNavigation"
+        type="number"
+        [value]="100"
     >
         Delay between navigation to a different route and showing the tour step in ms. Should be set if the tour tries
         to show tour step before anchor element is registered or the page is scrolled all the way.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="delayBeforeStepShow"
-        documentationPropertyType="number"
-        [documentationPropertyValue]="0"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="delayBeforeStepShow"
+        type="number"
+        [value]="0"
     >
         Delay before showing tour step in ms.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="nextOnAnchorClick"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="nextOnAnchorClick"
+        type="boolean"
+        [value]="false"
     >
         <div tourAnchor="config.nextOnAnchorClick" style="cursor: pointer;">
             Go to next step on anchor element click instead of "Next" button.
         </div>
-    </ng-template>
-    <ng-template
-        documentationPropertyName="duplicateAnchorHandling"
-        documentationPropertyType="string"
-        [documentationPropertyValues]="duplicateAnchorHandlingValues"
-        [documentationPropertyValue]="'error'"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="duplicateAnchorHandling"
+        type="string"
+        [items]="duplicateAnchorHandlingValues"
+        [value]="'error'"
     >
         If your tour anchor is duplicated on purpose, you can choose to either register first or last anchor occurrence
         instead of throwing an error.
-    </ng-template>
-    <ng-template
-        documentationPropertyName="allowUserInitiatedNavigation"
-        documentationPropertyType="boolean"
-        [documentationPropertyValue]="false"
+    </tr>
+    <tr
+        tuiDocAPIItem
+        name="allowUserInitiatedNavigation"
+        type="boolean"
+        [value]="false"
     >
         Enable to keep the tour open while the user navigates to a different page.
         Can cause the tour to get "stuck" if active anchor element is removed from the DOM after the navigation.
         The option is not related to navigation initiated by the UI tour and should not be enabled in most cases.
-    </ng-template>
+    </tr>
     @if (isUseLegacyTitleVisible) {
-        <ng-template
-            documentationPropertyName="useLegacyTitle"
-            documentationPropertyType="boolean"
-            [documentationPropertyValue]="false"
+        <tr
+            tuiDocAPIItem
+            name="useLegacyTitle"
+            type="boolean"
+            [value]="false"
         >
             Enable to use popover title for showing step title like in previous versions of the library. Title style
             can not be customized using step template when the option is enabled.
-        </ng-template>
+        </tr>
     }
-</tui-doc-documentation>
+</table>

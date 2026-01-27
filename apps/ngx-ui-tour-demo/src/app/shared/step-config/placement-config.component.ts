@@ -11,7 +11,7 @@ export class PlacementConfigComponent {
     value?: string;
 
     @Input()
-    values?: string[];
+    values?: string[] = [];
 
     @Input()
     type = 'string';

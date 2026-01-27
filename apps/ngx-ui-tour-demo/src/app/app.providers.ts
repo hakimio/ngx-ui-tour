@@ -10,8 +10,7 @@ import {inject, InjectionToken, provideEnvironmentInitializer, provideZoneChange
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideIonicAngular} from '@ionic/angular/standalone';
-import {provideEventPlugins} from '@taiga-ui/event-plugins';
-import {TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
+import {provideTaiga, TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
@@ -95,5 +94,5 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
             preset: Aura
         }
     }),
-    provideEventPlugins()
+    provideTaiga()
 ];

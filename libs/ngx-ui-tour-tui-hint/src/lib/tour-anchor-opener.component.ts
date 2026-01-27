@@ -1,6 +1,5 @@
-import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, ViewChild} from '@angular/core';
-import type {TuiHintOptions} from '@taiga-ui/core';
-import {TUI_HINT_OPTIONS, TuiHint, TuiHintDirective} from '@taiga-ui/core';
+import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
+import {TUI_HINT_OPTIONS, TuiHint, TuiHintDirective, type TuiHintOptions, TuiHintPosition} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiHintService} from './tour-tui-hint.service';
 
@@ -46,8 +45,9 @@ export class TourAnchorOpenerComponent {
 
     template: TemplateRef<never>;
 
-    @ViewChild(TuiHintDirective, {static: true})
-    hint: TuiHintDirective<void>;
+
+    hint = viewChild.required(TuiHintDirective);
+    hintPosition = viewChild.required(TuiHintDirective, {read: TuiHintPosition});
 
     isShown = signal(false);
 

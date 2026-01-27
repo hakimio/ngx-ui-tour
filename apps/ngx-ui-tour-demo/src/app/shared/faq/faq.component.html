@@ -26,14 +26,15 @@
 
 <app-header id="disable-scrolling">How to disable main content scrolling when UI tour is active?</app-header>
 
-<tui-notification
+<div
+    tuiNotification
     appearance="warning"
     size="m"
     class="tui-space_top-3"
 >
     Starting with <code>v{{ disablePageScrollingIntroducedIn }}</code> you can enable
     <code>disablePageScrolling</code> option to disable scrolling.
-</tui-notification>
+</div>
 
 <p>You can toggle CSS class which disables main content element scrolling when tour starts/ends.</p>
 <ol>
@@ -61,14 +62,15 @@
 </ol>
 <app-header id="backdrop-padding">How to add space around highlighted anchor element</app-header>
 @if (backdropOffsetIntroducedIn) {
-    <tui-notification
+    <div
+        tuiNotification
         size="m"
         appearance="warning"
         class="tui-space_top-3"
     >
         Starting with <code>v{{ backdropOffsetIntroducedIn }}</code> you can set
         <code>backdropConfig.offset</code> to add padding around anchor element
-    </tui-notification>
+    </div>
 }
 <img
     src="https://user-images.githubusercontent.com/768105/215475778-34d275cf-c6a0-436c-b3e5-9159083cfcaa.png"

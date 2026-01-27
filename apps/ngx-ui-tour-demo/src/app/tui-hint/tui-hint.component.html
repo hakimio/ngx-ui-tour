@@ -31,12 +31,13 @@
             </li>
             <li>
                 Import <code>TourTuiHintModule</code> into your app module
-                <tui-notification
+                <div
+                    tuiNotification
                     class="tui-space_top-3"
                     size="m"
                 >
                     If you are using <code>v3</code> or older, you have to import <code>TourTuiHintModule.forRoot()</code>
-                </tui-notification>
+                </div>
             </li>
             <li>
                 Make sure <code>RouterModule</code> is imported in your app module
@@ -54,7 +55,7 @@
     <ng-template pageTab>
         <app-step-config>
             <app-placement-config
-                value="bottom-right"
+                value="bottom-end"
                 extraInfo="Accepts <a href='https://taiga-ui.dev/directives/hint-manual/API'>HintManual</a> direction options."
                 [values]="hintPlacements"
             ></app-placement-config>

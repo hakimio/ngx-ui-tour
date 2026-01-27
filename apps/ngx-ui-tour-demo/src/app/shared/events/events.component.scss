@@ -1,3 +1,10 @@
-tui-doc-documentation {
+table[tuiDocAPI] {
     margin-top: 1rem;
+
+    ::ng-deep {
+        th:last-child,
+        td:last-child {
+            display: none;
+        }
+    }
 }
