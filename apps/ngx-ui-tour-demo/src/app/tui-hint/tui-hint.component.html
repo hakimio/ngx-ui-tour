@@ -49,7 +49,7 @@
         </ol>
         <app-usage
             moduleName="TourTuiHint"
-        ></app-usage>
+        />
     </ng-template>
 
     <ng-template pageTab>
@@ -58,27 +58,27 @@
                 value="bottom-end"
                 extraInfo="Accepts <a href='https://taiga-ui.dev/directives/hint-manual/API'>HintManual</a> direction options."
                 [values]="hintPlacements"
-            ></app-placement-config>
+            />
         </app-step-config>
-        <app-tour-service-api></app-tour-service-api>
-        <app-events></app-events>
+        <app-tour-service-api/>
+        <app-events/>
     </ng-template>
 
     <ng-template pageTab>
         <app-faq
             disablePageScrollingIntroducedIn="4.1"
-        ></app-faq>
+        />
     </ng-template>
 
     <ng-template pageTab>
-        <app-hotkeys></app-hotkeys>
-        <app-defaults></app-defaults>
+        <app-hotkeys/>
+        <app-defaults/>
         <app-custom-template
             [defaultTemplate]="defaultTemplate"
-        ></app-custom-template>
-        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+        />
+        <app-styling-active-tour-anchor/>
         <app-targeting-third-party-elements/>
     </ng-template>
 </tui-doc-page>
 
-<tour-step-template></tour-step-template>
+<tour-step-template/>

@@ -47,7 +47,7 @@
                 <tui-doc-code
                     filename="styles.scss"
                     [code]="bootstrapScssImport"
-                ></tui-doc-code>
+                />
             </li>
             <li>
                 Make sure NG Bootstrap is
@@ -56,7 +56,7 @@
         </ol>
         <app-usage
             moduleName="TourNgBootstrap"
-        ></app-usage>
+        />
     </ng-template>
     <ng-template pageTab>
         <app-step-config
@@ -68,26 +68,26 @@
                 [values]="['auto', 'top', 'bottom', 'start', 'left', 'end', 'right', 'top-start', 'top-left', 'top-end',
                  'top-right', 'bottom-start', 'bottom-left', 'bottom-end', 'bottom-right', 'start-top', 'left-top',
                  'start-bottom', 'left-bottom', 'end-top', 'right-top', 'end-bottom', 'right-bottom']"
-            ></app-placement-config>
+            />
         </app-step-config>
-        <app-tour-service-api></app-tour-service-api>
-        <app-events></app-events>
+        <app-tour-service-api/>
+        <app-events/>
     </ng-template>
     <ng-template pageTab>
         <app-faq
             disablePageScrollingIntroducedIn="12.1"
             backdropOffsetIntroducedIn="13"
-        ></app-faq>
+        />
     </ng-template>
     <ng-template pageTab>
-        <app-hotkeys></app-hotkeys>
-        <app-defaults></app-defaults>
+        <app-hotkeys/>
+        <app-defaults/>
         <app-custom-template
             [defaultTemplate]="defaultTemplate"
-        ></app-custom-template>
-        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+        />
+        <app-styling-active-tour-anchor/>
         <app-targeting-third-party-elements/>
     </ng-template>
 </tui-doc-page>
 
-<tour-step-template></tour-step-template>
+<tour-step-template/>

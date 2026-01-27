@@ -2,20 +2,20 @@
 
 <ion-card>
     <ion-card-header>
-        <ion-card-title>{{step.title}}</ion-card-title>
+        <ion-card-title>{{ step.title }}</ion-card-title>
         <ion-button
             class="close"
             fill="clear"
             shape="round"
             (click)="tourService.end()"
         >
-            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            <ion-icon slot="icon-only" name="close-outline"/>
         </ion-button>
     </ion-card-header>
 
     <ion-card-content
         [innerHTML]="step.content"
-    ></ion-card-content>
+    />
 
     <div
         class="footer"
@@ -26,7 +26,7 @@
             [disabled]="!tourService.hasPrev(step)"
             (click)="tourService.prev()"
         >
-            <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+            <ion-icon slot="start" name="chevron-back-outline"/>
             {{ step.prevBtnTitle }}
         </ion-button>
         @if (step.showProgress) {
@@ -38,7 +38,7 @@
                 (click)="tourService.next()"
             >
                 {{ step.nextBtnTitle }}
-                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+                <ion-icon slot="end" name="chevron-forward-outline"/>
             </ion-button>
         }
         @if (!tourService.hasNext(step)) {

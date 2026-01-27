@@ -4,7 +4,7 @@ import {TourService, TourState} from './tour.service';
 
 @Component({
     selector: 'tour-hotkey-listener',
-    template: `<ng-content></ng-content>`,
+    template: `<ng-content/>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TourHotkeyListenerComponent {

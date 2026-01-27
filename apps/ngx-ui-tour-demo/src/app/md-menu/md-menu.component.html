@@ -49,7 +49,7 @@
         </ol>
         <app-usage
             moduleName="TourMatMenu"
-        ></app-usage>
+        />
     </ng-template>
     <ng-template pageTab>
         <app-step-config
@@ -58,26 +58,25 @@
         >
             <app-placement-config
                 type="MdMenuPlacement"
-            ></app-placement-config>
+            />
         </app-step-config>
-        <app-tour-service-api></app-tour-service-api>
-        <app-events></app-events>
+        <app-tour-service-api/>
+        <app-events/>
     </ng-template>
     <ng-template pageTab>
         <app-faq
             disablePageScrollingIntroducedIn="7"
             backdropOffsetIntroducedIn="11"
-        ></app-faq>
+        />
     </ng-template>
     <ng-template pageTab>
-        <app-hotkeys></app-hotkeys>
-        <app-defaults></app-defaults>
-        <app-custom-template
-            [defaultTemplate]="defaultTemplate"
-        ></app-custom-template>
-        <app-styling-active-tour-anchor></app-styling-active-tour-anchor>
+        <app-hotkeys/>
+        <app-defaults/>
+        <app-custom-template [defaultTemplate]="defaultTemplate"
+        />
+        <app-styling-active-tour-anchor/>
         <app-targeting-third-party-elements/>
     </ng-template>
 </tui-doc-page>
 
-<tour-step-template></tour-step-template>
+<tour-step-template/>
