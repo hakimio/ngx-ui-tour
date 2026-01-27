@@ -3,7 +3,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
+import {TourMatMenu} from 'ngx-ui-tour-md-menu';
 
 @Component({
     selector: 'app-navigation',
@@ -14,7 +14,7 @@ import {TourMatMenuModule} from 'ngx-ui-tour-md-menu';
         MatButtonModule,
         MatSidenavModule,
         MatListModule,
-        TourMatMenuModule
+        TourMatMenu
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
