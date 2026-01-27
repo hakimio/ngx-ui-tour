@@ -5,8 +5,14 @@ import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '
 import {LocationStrategy, PathLocationStrategy, ViewportScroller} from '@angular/common';
 import {pages} from './pages';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
-import type {EnvironmentProviders, Provider} from '@angular/core';
-import {inject, InjectionToken, provideEnvironmentInitializer, provideZoneChangeDetection} from '@angular/core';
+import {
+    type EnvironmentProviders,
+    inject,
+    InjectionToken,
+    provideEnvironmentInitializer,
+    type Provider,
+    provideZonelessChangeDetection
+} from '@angular/core';
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
 import {provideIonicAngular} from '@ionic/angular/standalone';
@@ -71,9 +77,7 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
         provide: DELAY_AFTER_NAVIGATION,
         useValue: 150
     },
-    provideZoneChangeDetection({
-        eventCoalescing: true
-    }),
+    provideZonelessChangeDetection(),
     provideRouter(ROUTES,
         withPreloading(PreloadAllModules),
         withInMemoryScrolling({

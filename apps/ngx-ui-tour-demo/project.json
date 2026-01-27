@@ -20,9 +20,7 @@
         "index": "apps/ngx-ui-tour-demo/src/index.html",
         "browser": "apps/ngx-ui-tour-demo/src/main.ts",
         "tsConfig": "apps/ngx-ui-tour-demo/src/tsconfig.app.json",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": [],
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/ngx-ui-tour-demo/src/assets",

@@ -21,7 +21,6 @@
         "index": "apps/material-ui-demo/src/index.html",
         "browser": "apps/material-ui-demo/src/main.ts",
         "polyfills": [
-          "zone.js",
           "@angular/localize/init"
         ],
         "tsConfig": "apps/material-ui-demo/tsconfig.app.json",

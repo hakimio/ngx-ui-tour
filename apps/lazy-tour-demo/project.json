@@ -24,9 +24,6 @@
         "index": "apps/lazy-tour-demo/src/index.html",
         "browser": "apps/lazy-tour-demo/src/main.ts",
         "tsConfig": "apps/lazy-tour-demo/tsconfig.app.json",
-        "polyfills": [
-          "zone.js"
-        ],
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/lazy-tour-demo/src/favicon.ico",
