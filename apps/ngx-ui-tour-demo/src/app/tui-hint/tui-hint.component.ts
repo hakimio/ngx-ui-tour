@@ -4,7 +4,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import type {IStepOption} from 'ngx-ui-tour-tui-hint';
 import {TourAnchorTuiHintDirective, TourService, TourTuiHint} from 'ngx-ui-tour-tui-hint';
 import type {TuiHintDirection} from '@taiga-ui/core';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
@@ -17,7 +17,6 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiLink,
         TourTuiHint,
         TuiButton,
-        TuiNotification,
         SHARED_COMPONENTS
     ],
     providers: [

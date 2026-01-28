@@ -2,8 +2,8 @@ import type {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
 import {TourAnchorNgBootstrapDirective, TourNgBootstrap, TourService} from 'ngx-ui-tour-ng-bootstrap';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
-import {TuiAddonDoc, TuiDocCode} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
@@ -15,9 +15,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiLink,
         TourNgBootstrap,
         TuiButton,
-        TuiNotification,
         SHARED_COMPONENTS,
-        TuiDocCode,
         TuiAddonDoc
     ],
     providers: [

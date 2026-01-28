@@ -23,25 +23,11 @@
         </p>
     </ng-template>
     <ng-template pageTab>
-        <app-header tourAnchor="installation" id="installation">Installation</app-header>
-
-        <ol>
-            <li>
-                <code>npm install ngx-ui-tour-primeng primeng &#64;primeng/themes primeicons</code>
-            </li>
-            <li>
-                Import <code>TourPrimeNgModule</code> into your app module
-            </li>
-            <li>
-                Make sure <code>RouterModule</code> is imported in your app module
-            </li>
-            <li>
-                Make sure PrimeNG is
-                <a tuiLink href="https://primeng.org/installation" target="_blank">installed correctly</a>
-            </li>
-        </ol>
+        <app-installation
+            packageName="ngx-ui-tour-primeng"
+        />
         <app-usage
-            moduleName="TourPrimeNg"
+            componentName="TourPrimeNg"
         />
     </ng-template>
     <ng-template pageTab>

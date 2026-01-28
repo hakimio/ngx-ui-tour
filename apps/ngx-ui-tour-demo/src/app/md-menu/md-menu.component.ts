@@ -3,7 +3,7 @@ import type {IStepOption} from 'ngx-ui-tour-md-menu';
 import {TourAnchorMatMenuDirective, TourMatMenu, TourService} from 'ngx-ui-tour-md-menu';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
@@ -16,7 +16,6 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiLink,
         TourMatMenu,
         TuiButton,
-        TuiNotification,
         SHARED_COMPONENTS
     ],
     providers: [

@@ -23,25 +23,11 @@
         </p>
     </ng-template>
     <ng-template pageTab>
-        <app-header tourAnchor="installation" id="installation">Installation</app-header>
-
-        <ol>
-            <li>
-                <code>npm install ngx-ui-tour-ionic &#64;ionic/angular</code>
-            </li>
-            <li>
-                Import <code>TourIonPopoverModule</code> into your app module
-            </li>
-            <li>
-                Make sure <code>RouterModule</code> is imported in your app module
-            </li>
-            <li>
-                Make sure Ionic is
-                <a tuiLink href="https://ionicframework.com/docs/intro/cli" target="_blank">installed correctly</a>
-            </li>
-        </ol>
+        <app-installation
+            packageName="ngx-ui-tour-ionic"
+        />
         <app-usage
-            moduleName="TourIonPopover"
+            componentName="TourIonPopover"
         />
     </ng-template>
     <ng-template pageTab>

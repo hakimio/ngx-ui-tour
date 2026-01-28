@@ -1,0 +1,20 @@
+<app-header tourAnchor="installation" id="installation">Installation</app-header>
+
+<ol>
+    <li>
+        <code>npm install {{ packageName() }}</code>
+    </li>
+    <li>
+        Add <code>provideUiTour()</code> to the list of providers in your <code>app.config.ts</code>.
+        <tui-doc-code
+            filename="app.config.ts"
+            [code]="appConfigTs()"
+        />
+    </li>
+    <li>
+        Make sure Angular <code>Router</code> is enabled using
+        <a tuiLink href="https://angular.dev/api/router/provideRouter" target="_blank">
+            <code>provideRouter(appRoutes)</code>
+        </a>
+    </li>
+</ol>

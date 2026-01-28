@@ -3,7 +3,7 @@ import type {IStepOption} from 'ngx-ui-tour-console';
 import {TourAnchorConsoleDirective, TourConsole, TourService} from 'ngx-ui-tour-console';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
 @Component({
@@ -15,7 +15,6 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
         TuiLink,
         TourConsole,
         TuiButton,
-        TuiNotification,
         SHARED_COMPONENTS
     ],
     providers: [

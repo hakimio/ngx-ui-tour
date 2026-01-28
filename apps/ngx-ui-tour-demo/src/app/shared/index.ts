@@ -15,6 +15,7 @@ import {CustomTemplateComponent} from './custom-template/custom-template.compone
 import {
     TargetingThirdPartyElementsComponent
 } from './targeting-third-party-elements/targeting-third-party-elements.component';
+import {InstallationComponent} from './installation/installation.component';
 
 export const SHARED_COMPONENTS = [
     HeaderComponent,
@@ -28,7 +29,8 @@ export const SHARED_COMPONENTS = [
     DefaultsComponent,
     CustomTemplateComponent,
     StylingActiveTourAnchorComponent,
-    TargetingThirdPartyElementsComponent
+    TargetingThirdPartyElementsComponent,
+    InstallationComponent
 ];
 
 export function provideTourDirective<T extends TourAnchorDirective>(anchorDirectiveType: Type<T>): Provider {

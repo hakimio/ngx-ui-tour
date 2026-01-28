@@ -1,7 +1,19 @@
 <app-header id="simple-project" tourAnchor="usage">Usage</app-header>
 
 <ol>
-    <li>Add <code>{{ tourStepTag }}</code> to your root app component
+    <li>
+        Import <code>{{ componentName() }}</code> in your standalone component
+        <tui-doc-code
+            filename="app.component.ts"
+            [code]="importComponentTs()"
+        />
+    </li>
+    <li>
+        Add <code>{{ tourStepTag }}</code> to your root app component's template (once in the whole app)
+        <tui-doc-code
+            filename="app.component.html"
+            [code]="examples.appComponentHtml"
+        />
     </li>
     <li>
         Define anchor points for the tour steps by adding the <code>tourAnchor</code> directive throughout your app.
@@ -11,7 +23,7 @@
             appearance="warning"
             size="m"
         >
-            You have to import <code>{{ moduleName() }}</code> in all your modules and standalone components where you use
+            You have to import <code>{{ componentName() }}</code> in all your standalone components where you use
             <code>tourAnchor</code> directive.
         </div>
         <tui-doc-code

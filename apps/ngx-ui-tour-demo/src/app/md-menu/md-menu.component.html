@@ -23,32 +23,11 @@
         </p>
     </ng-template>
     <ng-template pageTab>
-        <app-header tourAnchor="installation" id="installation">Installation</app-header>
-
-        <ol>
-            <li>
-                <code>npm install ngx-ui-tour-md-menu &#64;angular/material &#64;angular/cdk</code>
-            </li>
-            <li>
-                Import <code>TourMatMenuModule</code> into your app module
-                <div
-                    tuiNotification
-                    class="tui-space_top-3"
-                    size="m"
-                >
-                    If you are using <code>v9</code> or older, you have to import <code>TourMatMenuModule.forRoot()</code>
-                </div>
-            </li>
-            <li>
-                Make sure <code>RouterModule</code> is imported in your app module
-            </li>
-            <li>
-                Make sure Angular Material is
-                <a tuiLink href="https://material.angular.io/guide/getting-started" target="_blank">installed correctly</a>
-            </li>
-        </ol>
+        <app-installation
+            packageName="ngx-ui-tour-md-menu"
+        />
         <app-usage
-            moduleName="TourMatMenu"
+            componentName="TourMatMenu"
         />
     </ng-template>
     <ng-template pageTab>
@@ -72,7 +51,8 @@
     <ng-template pageTab>
         <app-hotkeys/>
         <app-defaults/>
-        <app-custom-template [defaultTemplate]="defaultTemplate"
+        <app-custom-template
+            [defaultTemplate]="defaultTemplate"
         />
         <app-styling-active-tour-anchor/>
         <app-targeting-third-party-elements/>

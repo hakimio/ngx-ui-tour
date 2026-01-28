@@ -23,39 +23,11 @@
         </p>
     </ng-template>
     <ng-template pageTab>
-        <app-header tourAnchor="installation" id="installation">Installation</app-header>
-
-        <ol>
-            <li>
-                <code>npm install ngx-ui-tour-ng-bootstrap bootstrap &#64;popperjs/core &#64;ng-bootstrap/ng-bootstrap</code>
-            </li>
-            <li>
-                Import <code>TourNgBootstrapModule</code> into your app module
-                <div
-                    tuiNotification
-                    class="tui-space_top-3"
-                    size="m"
-                >
-                    If you are using <code>v11</code> or older, you have to import <code>TourNgBootstrapModule.forRoot()</code>
-                </div>
-            </li>
-            <li>
-                Make sure <code>RouterModule</code> is imported in your app module
-            </li>
-            <li>
-                Add bootstrap SCSS to your <code>styles.scss</code>:
-                <tui-doc-code
-                    filename="styles.scss"
-                    [code]="bootstrapScssImport"
-                />
-            </li>
-            <li>
-                Make sure NG Bootstrap is
-                <a tuiLink href="https://ng-bootstrap.github.io/#/getting-started#installation" target="_blank">installed correctly</a>
-            </li>
-        </ol>
+        <app-installation
+            packageName="ngx-ui-tour-ng-bootstrap"
+        />
         <app-usage
-            moduleName="TourNgBootstrap"
+            componentName="TourNgBootstrap"
         />
     </ng-template>
     <ng-template pageTab>
