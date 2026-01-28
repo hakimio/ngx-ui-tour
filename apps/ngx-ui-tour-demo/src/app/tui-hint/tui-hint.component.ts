@@ -3,7 +3,6 @@ import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import type {IStepOption} from 'ngx-ui-tour-tui-hint';
 import {TourAnchorTuiHintDirective, TourService, TourTuiHint} from 'ngx-ui-tour-tui-hint';
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import type {TuiHintDirection} from '@taiga-ui/core';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
@@ -26,7 +25,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class TuiHintComponent implements OnInit {
+export class TuiHintComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -132,13 +131,9 @@ export default class TuiHintComponent implements OnInit {
     ];
 
     public readonly tourService = inject(TourService);
-    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
-        this.tourService.initialize(this.tourSteps, {
-            route: 'tui-hint',
-            delayAfterNavigation: this.delayAfterNavigation
-        });
+        this.tourService.initialize(this.tourSteps);
     }
 
     start() {

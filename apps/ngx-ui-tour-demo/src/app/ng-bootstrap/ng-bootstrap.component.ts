@@ -2,7 +2,6 @@ import type {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
 import {TourAnchorNgBootstrapDirective, TourNgBootstrap, TourService} from 'ngx-ui-tour-ng-bootstrap';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {TuiAddonDoc, TuiDocCode} from '@taiga-ui/addon-doc';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
@@ -26,7 +25,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class NgBootstrapComponent implements OnInit {
+export class NgBootstrapComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -123,13 +122,9 @@ export default class NgBootstrapComponent implements OnInit {
     readonly defaultTemplate = defaultTemplate;
 
     public readonly tourService = inject(TourService);
-    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
-        this.tourService.initialize(this.tourSteps, {
-            route: 'ng-bootstrap',
-            delayAfterNavigation: this.delayAfterNavigation
-        });
+        this.tourService.initialize(this.tourSteps);
     }
 
 }

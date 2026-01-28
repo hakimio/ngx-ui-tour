@@ -3,7 +3,6 @@ import type {IStepOption} from 'ngx-ui-tour-ionic';
 import {TourAnchorIonPopoverDirective, TourIonPopover, TourService} from 'ngx-ui-tour-ionic';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
@@ -25,7 +24,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class IonPopoverComponent implements OnInit {
+export class IonPopoverComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -117,13 +116,9 @@ export default class IonPopoverComponent implements OnInit {
     readonly defaultTemplate = defaultTemplate;
 
     protected readonly tourService = inject(TourService);
-    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
-        this.tourService.initialize(this.tourSteps, {
-            route: 'ion-popover',
-            delayAfterNavigation: this.delayAfterNavigation
-        });
+        this.tourService.initialize(this.tourSteps);
     }
 
 }

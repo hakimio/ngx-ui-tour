@@ -5,37 +5,37 @@ export const ROUTES: Routes = [
     route({
         path: 'ng-bootstrap',
         title: 'NG Bootstrap',
-        loadComponent: async () => import('./ng-bootstrap/ng-bootstrap.component')
+        loadChildren: () => import('./ng-bootstrap/ng-bootstrap.routes')
     }),
     route({
         path: 'console',
         title: 'Console',
-        loadComponent: async () => import('./console/console.component')
+        loadChildren: () => import('./console/console.routes')
     }),
     route({
         path: 'md-menu',
         title: 'Material Design',
-        loadComponent: async () => import('./md-menu/md-menu.component')
+        loadChildren: () => import('./md-menu/md-menu.routes')
     }),
     route({
         path: 'tui-dropdown',
         title: 'Taiga UI Dropdown',
-        loadComponent: async () => import('./tui-dropdown/tui-dropdown.component')
+        loadChildren: () => import('./tui-dropdown/tui-dropdown.routes')
     }),
     route({
         path: 'tui-hint',
         title: 'Taiga UI Hint',
-        loadComponent: async () => import('./tui-hint/tui-hint.component')
+        loadChildren: () => import('./tui-hint/tui-hint.routes')
     }),
     route({
         path: 'ion-popover',
         title: 'Ionic',
-        loadComponent: async () => import('./ion-popover/ion-popover.component')
+        loadChildren: () => import('./ion-popover/ion-popover.routes')
     }),
     route({
         path: 'prime-ng',
         title: 'PrimeNG',
-        loadComponent: async () => import('./prime-ng-popover/prime-ng-popover.component')
+        loadChildren: () => import('./prime-ng-popover/prime-ng-popover.routes')
     }),
     {
         redirectTo: 'md-menu',

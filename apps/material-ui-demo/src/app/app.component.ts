@@ -41,12 +41,7 @@ export class AppComponent implements OnInit {
     }];
 
     ngOnInit() {
-        this.tourService.initialize(this.steps, {
-            enableBackdrop: true,
-            backdropConfig: {
-                offset: 10,
-            }
-        });
+        this.tourService.initialize(this.steps);
     }
 
 }

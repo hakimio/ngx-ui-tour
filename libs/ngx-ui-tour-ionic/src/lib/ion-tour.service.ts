@@ -1,29 +1,12 @@
 import type {IonStepOption} from './step-option.interface';
 import {TourService} from 'ngx-ui-tour-core';
-import {inject, Injectable, DOCUMENT} from '@angular/core';
-import {Config} from '@ionic/angular/standalone';
+import {DOCUMENT, inject, Injectable} from '@angular/core';
 
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class IonTourService<T extends IonStepOption = IonStepOption> extends TourService<T> {
 
-    private readonly config = inject(Config);
     private readonly document = inject(DOCUMENT);
-
-    public override initialize(steps: T[], stepDefaults?: T) {
-        const userDefaults = this.getDefaults(),
-            isIOS = this.config.get('mode') === 'ios';
-
-        stepDefaults ??= {} as T;
-        stepDefaults.backdropConfig ??= userDefaults?.backdropConfig ?? {};
-        stepDefaults.backdropConfig.parentContainer ??= userDefaults?.backdropConfig?.parentContainer ?? 'ion-app';
-        stepDefaults.delayAfterNavigation ??= userDefaults?.delayAfterNavigation ?? (isIOS ? 700: 500);
-        stepDefaults.trapFocus ??= userDefaults?.trapFocus ?? false;
-
-        super.initialize(steps, stepDefaults);
-    }
 
     // noinspection JSUnusedGlobalSymbols
     protected override showStep(step: T): Promise<void> {

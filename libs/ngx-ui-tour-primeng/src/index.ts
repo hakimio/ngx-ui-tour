@@ -4,5 +4,6 @@ export * from './lib/tour-anchor.directive';
 export * from './lib/tour-proxy-anchor.component';
 
 export {PrimeNgStepOption as IStepOption} from './lib/step-option.interface';
-export {StepDimensions, Direction, TourState, StepChangeParams} from 'ngx-ui-tour-core';
+export {StepDimensions, Direction, TourState, StepChangeParams, UI_TOUR_OPTIONS} from 'ngx-ui-tour-core';
 export {PrimeNgTourService as TourService} from './lib/prime-ng-tour.service';
+export {provideUiTour} from './lib/provide-ui-tour';

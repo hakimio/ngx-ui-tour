@@ -8,7 +8,6 @@ import {LOGO_CONTENT} from './shared/logo/logo.component';
 import {
     type EnvironmentProviders,
     inject,
-    InjectionToken,
     provideEnvironmentInitializer,
     type Provider,
     provideZonelessChangeDetection
@@ -39,10 +38,6 @@ export const HIGHLIGHT_OPTIONS_VALUE: HighlightOptions = {
     }
 };
 
-export const DELAY_AFTER_NAVIGATION = new InjectionToken<number>('DelayAfterNavigation', {
-    factory: () => 0
-});
-
 export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     Title,
     {
@@ -72,10 +67,6 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     {
         provide: TUI_ANIMATIONS_SPEED,
         useValue: 1
-    },
-    {
-        provide: DELAY_AFTER_NAVIGATION,
-        useValue: 150
     },
     provideZonelessChangeDetection(),
     provideRouter(ROUTES,

@@ -3,7 +3,6 @@ import type {IStepOption} from 'ngx-ui-tour-console';
 import {TourAnchorConsoleDirective, TourConsole, TourService} from 'ngx-ui-tour-console';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 
@@ -24,7 +23,7 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class ConsoleComponent implements OnInit {
+export class ConsoleComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -107,13 +106,9 @@ export default class ConsoleComponent implements OnInit {
     }];
 
     public readonly tourService = inject(TourService);
-    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
-        this.tourService.initialize(this.tourSteps, {
-            route: 'console',
-            delayAfterNavigation: this.delayAfterNavigation
-        });
+        this.tourService.initialize(this.tourSteps);
     }
 
 }

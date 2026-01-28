@@ -4,7 +4,6 @@ import {type IStepOption, TourAnchorPrimeNgDirective, TourPrimeNg, TourService} 
 import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
-import {DELAY_AFTER_NAVIGATION} from '../app.providers';
 
 @Component({
     selector: 'app-prime-ng-popover',
@@ -22,7 +21,7 @@ import {DELAY_AFTER_NAVIGATION} from '../app.providers';
         provideTourDirective(TourAnchorPrimeNgDirective)
     ]
 })
-export default class PrimeNgPopoverComponent implements OnInit {
+export class PrimeNgPopoverComponent implements OnInit {
 
     readonly tourSteps: IStepOption[] = [{
         anchorId: 'start.tour',
@@ -109,13 +108,9 @@ export default class PrimeNgPopoverComponent implements OnInit {
     readonly defaultTemplate = defaultTemplate;
 
     protected readonly tourService = inject(TourService);
-    private readonly delayAfterNavigation = inject(DELAY_AFTER_NAVIGATION);
 
     ngOnInit() {
-        this.tourService.initialize(this.tourSteps, {
-            route: 'prime-ng',
-            delayAfterNavigation: this.delayAfterNavigation
-        });
+        this.tourService.initialize(this.tourSteps);
     }
 
 }

@@ -1,7 +1,6 @@
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {TourAnchorMatMenuDirective, TourService} from 'ngx-ui-tour-md-menu';
-import {TourState} from 'ngx-ui-tour-core';
+import {TourAnchorMatMenuDirective, TourService, TourState} from 'ngx-ui-tour-md-menu';
 
 @Component({
     selector: 'app-home',
@@ -33,9 +32,7 @@ export class HomeComponent implements OnInit {
                 content: 'This is a step from the lazy loaded module-b component',
                 title: 'Module-b Component',
                 route: 'module-b'
-            }], {
-                delayAfterNavigation: 100
-            });
+            }]);
 
             this.tourService.start();
         }

@@ -1,6 +1,11 @@
-import {inject, Injectable} from '@angular/core';
-import type {IsActiveMatchOptions, UrlSegment} from '@angular/router';
-import {NavigationStart, Router} from '@angular/router';
+import {inject, Injectable, InjectionToken} from '@angular/core';
+import {
+    isActive as isRouteActive,
+    type IsActiveMatchOptions,
+    NavigationStart,
+    Router,
+    type UrlSegment
+} from '@angular/router';
 
 import type {TourAnchorDirective} from './tour-anchor.directive';
 import type {Observable} from 'rxjs';
@@ -94,10 +99,10 @@ const DEFAULT_STEP_OPTIONS: IStepOption = {
     showProgress: true
 };
 
+export const UI_TOUR_OPTIONS = new InjectionToken<IStepOption>(ngDevMode ? 'UI_TOUR_OPTIONS' : '');
+
 // noinspection JSUnusedGlobalSymbols
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class TourService<T extends IStepOption = IStepOption> {
 
     public stepShow$ = new Subject<StepChangeParams<T>>();
@@ -141,6 +146,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private waitingForScroll = false;
     private navigationStarted = false;
     private userDefaults: T;
+    private readonly globalDefaults = inject<T>(UI_TOUR_OPTIONS);
 
     private readonly router = inject(Router);
     private readonly backdrop = inject(TourBackdropService);
@@ -159,6 +165,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.steps = steps.map(
                 step => deepMerge(
                     DEFAULT_STEP_OPTIONS as T,
+                    this.globalDefaults,
                     this.userDefaults,
                     stepDefaults,
                     step
@@ -377,7 +384,8 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.anchors[anchorId]) {
             const step = this.findStepByAnchorId(anchorId),
                 duplicateAnchorHandling = step?.duplicateAnchorHandling ??
-                    this.userDefaults?.duplicateAnchorHandling ?? 'error';
+                    this.userDefaults?.duplicateAnchorHandling ??
+                    this.globalDefaults.duplicateAnchorHandling ?? 'error';
 
             switch (duplicateAnchorHandling) {
                 case 'error':
@@ -447,7 +455,7 @@ export class TourService<T extends IStepOption = IStepOption> {
                 fragment: 'exact'
             };
 
-        const isActive = this.router.isActive(url, matchOptions);
+        const isActive = isRouteActive(url, this.router, matchOptions)();
 
         if (isActive) {
             this.setCurrentStepAsync(step);

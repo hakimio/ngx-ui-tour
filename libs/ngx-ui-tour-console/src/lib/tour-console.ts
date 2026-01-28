@@ -1,8 +1,7 @@
-import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
-
 import {TourAnchorConsoleDirective} from './tour-anchor.directive';
+import {TourStepTemplateComponent} from './tour-step-template.component';
 
 export const TourConsole = [
     TourAnchorConsoleDirective,
-    TourHotkeyListenerComponent
+    TourStepTemplateComponent
 ] as const;
