@@ -14,6 +14,10 @@ export const pages: TuiDocRoutePages = [{
     route: 'prime-ng'
 }, {
     section: 'Tour UI Libraries',
+    title: 'NG ZORRO',
+    route: 'ng-zorro'
+}, {
+    section: 'Tour UI Libraries',
     title: 'NG Bootstrap',
     route: 'ng-bootstrap'
 }, {

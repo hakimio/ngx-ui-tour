@@ -1,0 +1,14 @@
+{
+    "name": "ngx-ui-tour-ng-zorro",
+    "version": "1.0.0",
+    "peerDependencies": {
+        "@angular/common": "^21.1.0",
+        "@angular/core": "^21.1.0",
+        "ng-zorro-antd": "^21.0.0"
+    },
+    "dependencies": {
+        "ngx-ui-tour-core": "15.0.0",
+        "tslib": "^2.3.0"
+    },
+    "sideEffects": false
+}

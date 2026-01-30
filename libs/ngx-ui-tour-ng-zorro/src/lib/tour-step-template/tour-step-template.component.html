@@ -1,0 +1,14 @@
+<ng-template #content>
+    <ng-container
+        *ngTemplateOutlet="
+                stepTemplate() || stepTemplateContent() || defaultTemplate;
+                context: {step}
+            "
+    />
+</ng-template>
+
+<ng-template #defaultTemplate let-step="step">
+    <tour-default-step-template
+        [step]="step"
+    />
+</ng-template>

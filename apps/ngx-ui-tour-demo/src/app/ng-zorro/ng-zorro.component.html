@@ -1,0 +1,62 @@
+<tui-doc-page
+    header="NG ZORRO"
+    package="ngx-ui-tour-ng-zorro"
+>
+    <ng-template pageTab>
+        <p>
+            <code>ngx-ui-tour</code> is a UI tour library built for Angular. It's inspired by
+            <a tuiLink target="_blank" tourAnchor="angular-ui-tour" href="https://benmarch.github.io/angular-ui-tour">angular-ui-tour</a>.
+        </p>
+        <p>
+            <code>TourNgZorro</code> is an implementation of the tour UI that uses
+            <a tuiLink href="https://ng.ant.design" target="_blank">NG ZORRO</a> popover to display tour steps.
+        </p>
+
+        <button
+            tuiButton
+            type="button"
+            tourAnchor="start.tour"
+            (click)="tourService.start()"
+        >
+            Start Demo Tour
+        </button>
+    </ng-template>
+    <ng-template pageTab>
+        <app-installation
+            packageName="ngx-ui-tour-ng-zorro"
+        />
+        <app-usage
+            componentName="TourNgZorro"
+        />
+    </ng-template>
+    <ng-template pageTab>
+        <app-step-config
+            [isCloseOnOutsideClickVisible]="true"
+        >
+            <app-placement-config
+                value="bottomLeft"
+                [values]="placementValues"
+                extraInfo="Accepts NG ZORRO <a href='https://ng.ant.design/components/popover/en#nz-popover' target='_blank'>popover</a> placement options."
+            />
+        </app-step-config>
+        <app-tour-service-api/>
+        <app-events/>
+    </ng-template>
+    <ng-template pageTab>
+        <app-faq
+            disablePageScrollingIntroducedIn="1.0"
+            backdropOffsetIntroducedIn="1.0"
+        />
+    </ng-template>
+    <ng-template pageTab>
+        <app-hotkeys/>
+        <app-defaults/>
+        <app-custom-template
+            [defaultTemplate]="defaultTemplate"
+        />
+        <app-styling-active-tour-anchor/>
+        <app-targeting-third-party-elements/>
+    </ng-template>
+</tui-doc-page>
+
+<tour-step-template/>

@@ -37,6 +37,11 @@ export const ROUTES: Routes = [
         title: 'PrimeNG',
         loadChildren: () => import('./prime-ng-popover/prime-ng-popover.routes')
     }),
+    route({
+        path: 'ng-zorro',
+        title: 'NG ZORRO',
+        loadChildren: () => import('./ng-zorro/ng-zorro.routes')
+    }),
     {
         redirectTo: 'md-menu',
         path: '**'

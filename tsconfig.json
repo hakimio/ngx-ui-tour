@@ -52,6 +52,9 @@
       ],
       "ngx-ui-tour-tui-hint": [
         "libs/ngx-ui-tour-tui-hint/src/public_api.ts"
+      ],
+      "ngx-ui-tour-ng-zorro": [
+        "libs/ngx-ui-tour-ng-zorro/src/index.ts"
       ]
     },
     "types": [

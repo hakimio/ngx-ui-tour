@@ -1,0 +1,37 @@
+@root-entry-name: default;
+
+@import "ng-zorro-antd/style/themes/index";
+@import "ng-zorro-antd/style/mixins/index";
+@import "ng-zorro-antd/style/core/base";
+@import "ng-zorro-antd/style/core/iconfont";
+@import "ng-zorro-antd/style/core/motion";
+
+@import "ng-zorro-antd/button/style/entry";
+@import "ng-zorro-antd/popover/style/entry";
+@import "ng-zorro-antd/icon/style/entry";
+
+[popover="manual"].cdk-overlay-popover {
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
+  -ms-overflow-style: scrollbar; // 5
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 6
+  margin: 0; // 1
+  color: @text-color;
+  font-size: @font-size-base;
+  font-family: @font-family;
+  font-variant: @font-variant-base;
+  line-height: @line-height-base;
+  font-feature-settings: @font-feature-settings-base;
+
+  h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: @heading-color;
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+}

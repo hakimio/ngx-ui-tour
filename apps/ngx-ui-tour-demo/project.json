@@ -35,7 +35,8 @@
           "apps/ngx-ui-tour-demo/src/normalize.scss",
           "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
           "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-          "apps/ngx-ui-tour-demo/src/styles.scss"
+          "apps/ngx-ui-tour-demo/src/styles.scss",
+          "apps/ngx-ui-tour-demo/src/ng-zorro.less"
         ],
         "scripts": [],
         "stylePreprocessorOptions": {
