@@ -1,8 +1,12 @@
 ```ts
-this.tourService.setDefaults({
+provideUiTour({
     route: '',
     disablePageScrolling: true,
-    duplicateAnchorHandling: 'registerFirst'
+    duplicateAnchorHandling: 'registerFirst',
+    enableBackdrop: true,
+    backdropConfig: {
+        offset: 10
+    }
 });
 this.tourService.initialize(steps, {
     route: '',

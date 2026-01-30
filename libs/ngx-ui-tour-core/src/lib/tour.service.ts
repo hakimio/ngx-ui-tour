@@ -177,6 +177,9 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
     }
 
+    /**
+     * @deprecated Use `provideUiTour()` instead.
+     */
     public setDefaults(defaultOptions: T): void {
         this.userDefaults = defaultOptions;
     }
