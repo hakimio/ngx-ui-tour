@@ -7,7 +7,10 @@ import {first, firstValueFrom, type Subscription} from 'rxjs';
 import type {Popover} from 'primeng/popover';
 
 @Directive({
-    selector: '[tourAnchor]'
+    selector: '[tourAnchor]',
+    host: {
+        '[class.touranchor--is-active]': 'isActive()'
+    }
 })
 export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchorDirective {
 
