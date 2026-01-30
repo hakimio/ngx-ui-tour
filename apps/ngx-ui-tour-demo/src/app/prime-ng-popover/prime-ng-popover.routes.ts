@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {PrimeNgPopoverComponent} from './prime-ng-popover.component';
-import {provideUiTour} from 'ngx-ui-tour-primeng';
+import {provideUiTour, TourAnchorPrimeNgDirective} from 'ngx-ui-tour-primeng';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'prime-ng',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorPrimeNgDirective)
     ]
 }] satisfies Routes;

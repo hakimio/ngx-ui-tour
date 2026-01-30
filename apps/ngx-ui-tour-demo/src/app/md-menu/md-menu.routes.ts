@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {MdMenuComponent} from './md-menu.component';
-import {provideUiTour} from 'ngx-ui-tour-md-menu';
+import {provideUiTour, TourAnchorMatMenuDirective} from 'ngx-ui-tour-md-menu';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'md-menu',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorMatMenuDirective)
     ]
 }] satisfies Routes;

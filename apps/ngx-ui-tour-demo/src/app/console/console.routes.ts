@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {ConsoleComponent} from './console.component';
-import {provideUiTour} from 'ngx-ui-tour-console';
+import {provideUiTour, TourAnchorConsoleDirective} from 'ngx-ui-tour-console';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'console',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorConsoleDirective)
     ]
 }] satisfies Routes;

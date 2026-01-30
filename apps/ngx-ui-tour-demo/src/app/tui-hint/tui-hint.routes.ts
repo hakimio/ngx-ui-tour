@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {TuiHintComponent} from './tui-hint.component';
-import {provideUiTour} from 'ngx-ui-tour-tui-hint';
+import {provideUiTour, TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'tui-hint',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorTuiHintDirective)
     ]
 }] satisfies Routes;

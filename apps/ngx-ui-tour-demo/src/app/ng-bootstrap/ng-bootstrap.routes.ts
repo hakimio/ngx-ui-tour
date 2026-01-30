@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {NgBootstrapComponent} from './ng-bootstrap.component';
-import {provideUiTour} from 'ngx-ui-tour-ng-bootstrap';
+import {provideUiTour, TourAnchorNgBootstrapDirective} from 'ngx-ui-tour-ng-bootstrap';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'ng-bootstrap',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorNgBootstrapDirective)
     ]
 }] satisfies Routes;

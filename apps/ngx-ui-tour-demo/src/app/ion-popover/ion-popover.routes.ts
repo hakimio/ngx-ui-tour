@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {IonPopoverComponent} from './ion-popover.component';
-import {provideUiTour} from 'ngx-ui-tour-ionic';
+import {provideUiTour, TourAnchorIonPopoverDirective} from 'ngx-ui-tour-ionic';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -22,6 +23,7 @@ export default [{
         provideUiTour({
             route: 'ion-popover',
             delayAfterNavigation: 150
-        })
+        }),
+        provideTourDirective(TourAnchorIonPopoverDirective)
     ]
 }] satisfies Routes;

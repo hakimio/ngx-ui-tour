@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, inject, type OnInit} from '@angular/core';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {type IStepOption, TourAnchorPrimeNgDirective, TourPrimeNg, TourService} from 'ngx-ui-tour-primeng';
+import {type IStepOption, TourPrimeNg, TourService} from 'ngx-ui-tour-primeng';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
-import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import {SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
 
 @Component({
@@ -16,10 +16,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
     ],
     templateUrl: './prime-ng-popover.component.html',
     styleUrl: './prime-ng-popover.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        provideTourDirective(TourAnchorPrimeNgDirective)
-    ]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrimeNgPopoverComponent implements OnInit {
 

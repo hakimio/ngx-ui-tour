@@ -1,10 +1,10 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import type {IStepOption} from 'ngx-ui-tour-console';
-import {TourAnchorConsoleDirective, TourConsole, TourService} from 'ngx-ui-tour-console';
+import {TourConsole, TourService} from 'ngx-ui-tour-console';
 import type {OnInit} from '@angular/core';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
-import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
+import {SHARED_COMPONENTS} from '../shared';
 
 @Component({
     selector: 'app-console',
@@ -16,9 +16,6 @@ import {provideTourDirective, SHARED_COMPONENTS} from '../shared';
         TourConsole,
         TuiButton,
         SHARED_COMPONENTS
-    ],
-    providers: [
-        provideTourDirective(TourAnchorConsoleDirective)
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

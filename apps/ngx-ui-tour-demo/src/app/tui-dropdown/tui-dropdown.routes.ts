@@ -1,6 +1,7 @@
 import type {Routes} from '@angular/router';
 import {TuiDropdownComponent} from './tui-dropdown.component';
-import {provideUiTour} from 'ngx-ui-tour-tui-dropdown';
+import {provideUiTour, TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
+import {provideTourDirective} from '../shared';
 
 export default [{
     path: '',
@@ -23,6 +24,7 @@ export default [{
             route: 'tui-dropdown',
             delayAfterNavigation: 150,
             disablePageScrolling: false
-        })
+        }),
+        provideTourDirective(TourAnchorTuiDropdownDirective)
     ]
 }] satisfies Routes;
