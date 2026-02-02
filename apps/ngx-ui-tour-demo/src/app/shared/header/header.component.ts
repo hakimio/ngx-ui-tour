@@ -37,7 +37,7 @@ export class HeaderComponent {
         this.notificationService
             .open(this.texts[1], {
                 label: this.texts[2],
-                appearance: 'success'
+                appearance: 'positive'
             })
             .subscribe();
     }
