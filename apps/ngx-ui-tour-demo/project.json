@@ -41,7 +41,8 @@
         "scripts": [],
         "stylePreprocessorOptions": {
           "includePaths": [
-            "./src"
+            "./src",
+            "node_modules"
           ],
           "sass": {
             "silenceDeprecations": ["import"]
