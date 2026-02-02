@@ -60,6 +60,7 @@
     "@taiga-ui/legacy": "5.0.0-rc.1",
     "@taiga-ui/polymorpheus": "^5.0.0",
     "bootstrap": "^5.3.8",
+    "highlight.js": "^11.8.0",
     "ionicons": "^8.0.13",
     "ng-zorro-antd": "^21.0.2",
     "ngx-highlightjs": "^10.0.0",

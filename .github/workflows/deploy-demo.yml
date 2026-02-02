@@ -24,7 +24,7 @@ jobs:
           node-version: 22
 
       - name: Install Dependencies
-        run: bun install
+        run: bun install --linker hoisted
 
       - name: Build Master
         run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/
@@ -52,7 +52,7 @@ jobs:
           node-version: 22
 
       - name: Install Dependencies
-        run: bun install
+        run: bun install --linker hoisted
 
       - name: Build v15
         run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/
