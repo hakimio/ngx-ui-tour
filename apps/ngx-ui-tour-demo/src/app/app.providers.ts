@@ -18,6 +18,7 @@ import {provideIonicAngular} from '@ionic/angular/standalone';
 import {provideTaiga, TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import {APP_VERSION} from './shared/version-manager';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -67,6 +68,10 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     {
         provide: TUI_ANIMATIONS_SPEED,
         useValue: 1
+    },
+    {
+        provide: APP_VERSION,
+        useValue: 16
     },
     provideZonelessChangeDetection(),
     provideRouter(ROUTES,
