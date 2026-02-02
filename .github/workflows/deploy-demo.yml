@@ -1,0 +1,117 @@
+name: Deploy Demo App
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build Master
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/
+
+      - name: Upload Master Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: master-build
+          path: dist/ngx-ui-tour-demo
+
+  build-v15:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout v15
+        uses: actions/checkout@v4
+        with:
+          ref: v15
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build v15
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/
+
+      - name: Upload v15 Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v15-build
+          path: dist/ngx-ui-tour-demo
+
+  deploy:
+    needs: [build-master, build-v15]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Master Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: master-build
+          path: public
+
+      - name: Download v15 Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: v15-build
+          path: public/v15
+
+      - name: Generate 404.html for Root
+        run: |
+          cat > public/404.html <<EOF
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <script type="text/javascript">
+                var l = window.location;
+                l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/ngx-ui-tour/?p=' + l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') + (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+              </script>
+            </head>
+          </html>
+          EOF
+
+      - name: Generate 404.html for v15
+        run: |
+          cat > public/v15/404.html <<EOF
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <script type="text/javascript">
+                var l = window.location;
+                l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/ngx-ui-tour/v15/?p=' + l.pathname.slice(1).split('/').slice(2).join('/').replace(/&/g, '~and~') + (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+              </script>
+            </head>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
