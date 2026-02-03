@@ -1,13 +1,27 @@
 {
     "name": "ngx-ui-tour-ng-zorro",
+    "description": "UI tour library for Angular",
     "version": "1.0.0",
+    "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+    "author": "Tomas Rimkus <tomas.r@programmer.net>",
+    "license": "MIT",
+    "keywords": [
+        "angular",
+        "ngx",
+        "ng-zorro",
+        "tour",
+        "product-tour",
+        "ui-tour",
+        "onboarding",
+        "onboarding-tour"
+    ],
     "peerDependencies": {
         "@angular/common": "^21.1.0",
         "@angular/core": "^21.1.0",
         "ng-zorro-antd": "^21.0.0"
     },
     "dependencies": {
-        "ngx-ui-tour-core": "15.0.0",
+        "ngx-ui-tour-core": "16.0.0",
         "tslib": "^2.3.0"
     },
     "sideEffects": false

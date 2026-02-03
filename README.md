@@ -2,7 +2,7 @@
 
 > UI tour library for Angular
 
-Angular Material, Ionic, PrimeNG, Taiga UI and Ng Bootstrap UIs are supported.
+Angular Material, Ionic, PrimeNG, Taiga UI, NG ZORRO and Ng Bootstrap UIs are supported.
 
 `ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tour`. The project had to be forked since the original is no longer 
 maintained.
@@ -39,6 +39,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 21      | 7    | 16          |
 | 20      | 7    | 15          |
 | 19      | 7    | 14          |
 | 18      | 7    | 13          |
@@ -53,6 +54,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 21      | 7    | 18          |
 | 20      | 7    | 17          |
 | 19      | 7    | 16          |
 | 18      | 7    | 15          |
@@ -67,6 +69,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
+| 21      | 7    | 8     | 8           |
 | 20      | 7    | 8     | 7           |
 | 19      | 7    | 8     | 6           |
 | 18      | 7    | 8     | 5           |
@@ -79,13 +82,21 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | PrimeNG | ngx-ui-tour |
 |---------|------|---------|-------------|
+| 21      | 7    | 21      | 3           |
 | 20      | 7    | 20      | 2           |
 | 19      | 7    | 19      | 1           |
+
+### NG ZORRO tour UI
+
+| Angular | NG ZORRO | ngx-ui-tour |
+|---------|----------|-------------|
+| 21      | 21       | 1           |
 
 ### Taiga UI tour UI
 
 | Angular | RxJS | Taiga UI | ngx-ui-tour |
 |---------|------|----------|-------------|
+| 21      | 7    | 5        | 10          |
 | 20      | 7    | 4        | 9           |
 | 19      | 7    | 4        | 8           |
 | 18      | 7    | 3        | 7           |
@@ -100,6 +111,8 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 - [Material Design UI](https://hakimio.github.io/ngx-ui-tour/md-menu/Setup)
 - [Ionic UI](https://hakimio.github.io/ngx-ui-tour/ion-popover/Setup)
+- [PrimeNG UI](https://hakimio.github.io/ngx-ui-tour/prime-ng/Setup)
+- [NG ZORRO UI](https://hakimio.github.io/ngx-ui-tour/ng-zorro/Setup)
 - [NG Bootstrap UI](https://hakimio.github.io/ngx-ui-tour/ng-bootstrap/Setup)
 - [Taiga UI Dropdown UI](https://hakimio.github.io/ngx-ui-tour/tui-dropdown/Setup)
 - [Taiga UI Hint UI](https://hakimio.github.io/ngx-ui-tour/tui-hint/Setup)

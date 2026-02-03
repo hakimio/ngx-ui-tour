@@ -1,6 +1,6 @@
 {
   "name": "ngx-ui-tour-console",
-  "version": "15.0.0",
+  "version": "16.0.0",
   "repository": "https://github.com/hakimio/ngx-ui-tour.git",
   "author": "Isaac Mann <isaacplmann@gmail.com>",
   "license": "MIT",
@@ -15,11 +15,11 @@
     "onboarding-tour"
   ],
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0"
+    "@angular/common": "^21.1.0",
+    "@angular/core": "^21.1.0"
   },
   "dependencies": {
-    "ngx-ui-tour-core": "15.0.0",
+    "ngx-ui-tour-core": "16.0.0",
     "tslib": "^2.0.0"
   }
 }

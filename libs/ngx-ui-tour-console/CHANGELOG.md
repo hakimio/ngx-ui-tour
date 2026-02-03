@@ -1,3 +1,22 @@
+<a name="16.0.0"></a>
+
+# [16.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-02-03)
+
+### Features
+- Support for Angular 21.
+- `TourService` is no longer provided in `root` making it tree-shakable.
+
+### Breaking Changes
+- `provideUiTour()` function has to be added to app or route providers to provide required services. The function accepts
+  optional global tour config.
+- `TourConsoleModule` module has been removed. Use `TourConsole` standalone component bundle instead.
+- `NgModule` based applications are no longer officially supported and `TourConsole` standalone component bundle can
+    not be used with `NgModule` imports. Instead, `NgModule` users have to import each component individually
+    (`TourAnchorConsoleDirective`, `TourStepTemplateComponent`).
+- `TourService.setDefaults()` method has been deprecated and might be removed in the next major release.
+  Use `provideUiTour()` instead.
+- Angular 20 is no longer supported.
+
 <a name="15.0.0"></a>
 
 # [15.0.0](https://github.com/hakimio/ngx-ui-tour) (2025-06-26)
