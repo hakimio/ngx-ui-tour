@@ -24,7 +24,7 @@ body:
     id: reproduction-url
     attributes:
       label: Please provide a link to a minimal reproduction of the bug
-      value: https://stackblitz.com/edit/angular-wau2z8?file=src%2Fapp%2Fui-tour-demo.component.ts
+      value: https://stackblitz.com/edit/stackblitz-starters-as9dawdk?file=src%2Fapp%2Fapp.component.ts
 
   - type: textarea
     id: description
