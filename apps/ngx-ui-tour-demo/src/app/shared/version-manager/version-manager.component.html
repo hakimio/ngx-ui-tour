@@ -1,0 +1,27 @@
+<button
+    appearance="outline-grayscale"
+    size="s"
+    tuiButton
+    tuiChevron
+    type="button"
+    [tuiDropdown]="content"
+    [(tuiDropdownOpen)]="open"
+>
+    v{{ currentVersionId }}
+</button>
+
+<ng-template #content>
+    <tui-data-list size="s">
+        @for (version of versions; track version.id) {
+            <a
+                tuiOption
+                new
+                [href]="version.path"
+                [value]="version.id"
+                [iconEnd]="version.id === currentVersionId ? '@tui.check' : ''"
+            >
+                v{{ version.id }}
+            </a>
+        }
+    </tui-data-list>
+</ng-template>

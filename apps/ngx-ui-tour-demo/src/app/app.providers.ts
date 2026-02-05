@@ -15,6 +15,7 @@ import {provideEventPlugins} from '@taiga-ui/event-plugins';
 import {TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import {APP_VERSION} from './shared/version-manager';
 
 export const DEFAULT_TABS = [
     `Description`,
@@ -72,6 +73,10 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     {
         provide: DELAY_AFTER_NAVIGATION,
         useValue: 150
+    },
+    {
+        provide: APP_VERSION,
+        useValue: 15
     },
     provideZoneChangeDetection({
         eventCoalescing: true

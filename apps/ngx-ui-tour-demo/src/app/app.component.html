@@ -1,14 +1,17 @@
 <tui-doc-main>
     <ng-container ngProjectAs="tuiDocHeader">
-        <a
-            tuiLink
-            appearance="icon"
-            class="link"
-            href="https://github.com/hakimio/ngx-ui-tour"
-            target="_blank"
-        >
-            <img class="github" src="assets/github.svg" alt=""/>
-            GitHub
-        </a>
+        <div class="header-container">
+            <app-version-manager/>
+            <a
+                tuiLink
+                appearance="icon"
+                class="github-link"
+                href="https://github.com/hakimio/ngx-ui-tour"
+                target="_blank"
+            >
+                <img class="github-icon" src="assets/github.svg" alt=""/>
+                GitHub
+            </a>
+        </div>
     </ng-container>
 </tui-doc-main>
