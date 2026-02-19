@@ -2,11 +2,29 @@
 
 <ol>
     <li>
-        Import <code>{{ componentName() }}</code> in your standalone component
-        <tui-doc-code
-            filename="app.component.ts"
-            [code]="importComponentTs()"
-        />
+        <app-tabs>
+            <app-tab
+                icon="@tui.puzzle"
+                title="Standalone"
+            >
+                Import <code>{{ componentName() }}</code> in your standalone component
+                <tui-doc-code
+                    filename="app.component.ts"
+                    [code]="importComponentTs()"
+                />
+            </app-tab>
+            <app-tab
+                icon="@tui.package"
+                title="NgModule"
+            >
+                Import <code>{{ componentName() }}</code> in your <code>AppModule</code> module
+                <tui-doc-code
+                    filename="app.module.ts"
+                    [code]="importModuleTs()"
+                />
+            </app-tab>
+        </app-tabs>
+
     </li>
     <li>
         Add <code>{{ tourStepTag }}</code> to your root app component's template (once in the whole app)
@@ -23,8 +41,8 @@
             appearance="warning"
             size="m"
         >
-            You have to import <code>{{ componentName() }}</code> in all your standalone components where you use
-            <code>tourAnchor</code> directive.
+            You have to import <code>{{ componentName() }}</code> in all your standalone components or modules where
+            you use <code>tourAnchor</code> directive.
         </div>
         <tui-doc-code
             [code]="anchorPoints"

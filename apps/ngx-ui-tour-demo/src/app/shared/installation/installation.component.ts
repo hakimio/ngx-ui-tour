@@ -1,10 +1,12 @@
 import {ChangeDetectionStrategy, Component, computed, inject, input} from '@angular/core';
 import appConfigTs from './examples/app-config-ts.md' with {loader: 'text'};
+import appModuleTs from './examples/app-module-ts.md' with {loader: 'text'};
 import {HeaderComponent} from '../header/header.component';
 import {TuiDocCode} from '@taiga-ui/addon-doc';
 import {TuiLink, TuiNotificationDirective} from '@taiga-ui/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {APP_VERSION} from '../version-manager';
+import {TAB_COMPONENTS} from '../tabs';
 
 @Component({
     selector: 'app-installation',
@@ -19,7 +21,8 @@ import {APP_VERSION} from '../version-manager';
         ProxyTourAnchorDirective,
         TuiDocCode,
         TuiLink,
-        TuiNotificationDirective
+        TuiNotificationDirective,
+        TAB_COMPONENTS
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,6 +31,7 @@ export class InstallationComponent {
     readonly packageName = input.required<string>();
 
     readonly appConfigTs = computed(() => appConfigTs.replaceAll('ngx-ui-tour-md-menu', this.packageName()));
+    readonly appModuleTs = computed(() => appModuleTs.replaceAll('ngx-ui-tour-md-menu', this.packageName()));
 
     readonly version = inject(APP_VERSION);
 
