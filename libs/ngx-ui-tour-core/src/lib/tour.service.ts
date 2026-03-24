@@ -41,7 +41,9 @@ export interface IStepOption {
      */
     scrollContainer?: string | HTMLElement;
     prevBtnTitle?: string;
+    prevBtnEnabled?: boolean
     nextBtnTitle?: string;
+    nextBtnEnabled?: boolean;
     endBtnTitle?: string;
     enableBackdrop?: boolean;
     backdropConfig?: BackdropConfig;
