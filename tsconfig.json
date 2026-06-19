@@ -10,6 +10,7 @@
     "noFallthroughCasesInSwitch": true,
     "useDefineForClassFields": false,
     "strictNullChecks": false,
+    "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "importHelpers": true,
     "outDir": "./dist/out-tsc",

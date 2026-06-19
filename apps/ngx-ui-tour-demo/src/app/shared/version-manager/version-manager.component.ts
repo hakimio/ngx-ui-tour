@@ -25,6 +25,10 @@ export class VersionManagerComponent {
             path: '/ngx-ui-tour/'
         },
         {
+            id: 16,
+            path: '/ngx-ui-tour/v16/'
+        },
+        {
             id: 15,
             path: '/ngx-ui-tour/v15/'
         }

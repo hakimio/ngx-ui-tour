@@ -71,7 +71,7 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     },
     {
         provide: APP_VERSION,
-        useValue: 16
+        useValue: 17
     },
     provideZonelessChangeDetection(),
     provideRouter(ROUTES,
