@@ -1,4 +1,4 @@
-import {inject, Injectable, InjectionToken} from '@angular/core';
+import {DOCUMENT, inject, Injectable, InjectionToken} from '@angular/core';
 import {
     isActive as isRouteActive,
     type IsActiveMatchOptions,
@@ -9,7 +9,7 @@ import {
 
 import type {TourAnchorDirective} from './tour-anchor.directive';
 import type {Observable} from 'rxjs';
-import {delay, filter, first, map, merge as mergeStatic, of, Subject, takeUntil, timeout} from 'rxjs';
+import {delay, filter, first, fromEvent, map, merge as mergeStatic, of, Subject, takeUntil, timeout} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
 import type {BackdropConfig} from './tour-backdrop.service';
 import {TourBackdropService} from './tour-backdrop.service';
@@ -153,6 +153,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private readonly anchorClickService = inject(AnchorClickService);
     private readonly scrollBlockingService = inject(ScrollBlockingService);
     private readonly scrollingService = inject(ScrollingService);
+    private readonly window = inject(DOCUMENT).defaultView;
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (this.status === TourState.ON) {
@@ -199,9 +200,16 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     private subscribeToNavigationStartEvent()
     {
-        this.router.events
+        const navigationStart$ = this.router.events.pipe(
+                filter((event): event is NavigationStart => event instanceof NavigationStart)
+            ),
+            browserBackPressed$ = fromEvent<PopStateEvent>(this.window, 'popstate');
+
+        mergeStatic(
+            navigationStart$,
+            browserBackPressed$
+        )
             .pipe(
-                filter((event): event is NavigationStart => event instanceof NavigationStart),
                 takeUntil(this.end$)
             )
             .subscribe(
@@ -210,8 +218,8 @@ export class TourService<T extends IStepOption = IStepOption> {
                         return;
                     }
 
-                    const browserBackBtnPressed = event.navigationTrigger === 'popstate',
-                      userNavigationAllowed = this.currentStep.allowUserInitiatedNavigation;
+                    const browserBackBtnPressed = event instanceof PopStateEvent || event.navigationTrigger === 'popstate',
+                        userNavigationAllowed = this.currentStep.allowUserInitiatedNavigation;
 
                     if (!this.navigationStarted && (browserBackBtnPressed || !userNavigationAllowed)) {
                         this.end();
