@@ -145,7 +145,6 @@ export class TourService<T extends IStepOption = IStepOption> {
     private direction = Direction.Forwards;
     private waitingForScroll = false;
     private navigationStarted = false;
-    private userDefaults: T;
     private readonly globalDefaults = inject<T>(UI_TOUR_OPTIONS);
 
     private readonly router = inject(Router);
@@ -167,7 +166,6 @@ export class TourService<T extends IStepOption = IStepOption> {
                 step => deepMerge(
                     DEFAULT_STEP_OPTIONS as T,
                     this.globalDefaults,
-                    this.userDefaults,
                     stepDefaults,
                     step
                 )
@@ -176,17 +174,6 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.initialize$.next(this.steps);
             this.subscribeToNavigationStartEvent();
         }
-    }
-
-    /**
-     * @deprecated Use `provideUiTour()` instead.
-     */
-    public setDefaults(defaultOptions: T): void {
-        this.userDefaults = defaultOptions;
-    }
-
-    public getDefaults(): T {
-        return this.userDefaults;
     }
 
     private validateSteps() {
@@ -395,7 +382,6 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.anchors[anchorId]) {
             const step = this.findStepByAnchorId(anchorId),
                 duplicateAnchorHandling = step?.duplicateAnchorHandling ??
-                    this.userDefaults?.duplicateAnchorHandling ??
                     this.globalDefaults.duplicateAnchorHandling ?? 'error';
 
             switch (duplicateAnchorHandling) {

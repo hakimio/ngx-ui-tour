@@ -51,7 +51,7 @@ Each flavor package has independent versioning (see the per-Angular-version comp
 `libs/ngx-ui-tour-core/src/lib/tour.service.ts` is the heart of the library. Key points when modifying tour behavior:
 
 - **Generic over the step option type**: `TourService<T extends IStepOption>`. Each flavor extends both the service and the option interface — e.g. `NgxmTourService extends TourService<IMdStepOption>`, and `IMdStepOption extends IStepOption`. When adding a core step option, add it to `IStepOption` and `DEFAULT_STEP_OPTIONS`; flavor-specific options go in the flavor's `step-option.interface.ts`.
-- **Defaults layering**: `initialize()` builds each step via `deepMerge(DEFAULT_STEP_OPTIONS, globalDefaults, userDefaults, stepDefaults, step)` (later wins). `globalDefaults` come from the `UI_TOUR_OPTIONS` injection token; `userDefaults` from the deprecated `setDefaults()`.
+- **Defaults layering**: `initialize()` builds each step via `deepMerge(DEFAULT_STEP_OPTIONS, globalDefaults, stepDefaults, step)` (later wins). `globalDefaults` come from the `UI_TOUR_OPTIONS` injection token (set via `provideUiTour()`); `stepDefaults` is the optional second argument to `initialize()`.
 - **Anchors register themselves**: `TourAnchorDirective` instances call `tourService.register(anchorId, anchor)` / `unregister()`. The service keeps an `anchors: Record<string, TourAnchorDirective>` map and matches steps to anchors by `anchorId`. `register()` honors `duplicateAnchorHandling` (`'error' | 'registerFirst' | 'registerLast'`).
 - **Event streams**: every lifecycle action emits on a `Subject` (`stepShow$`, `stepHide$`, `start$`, `end$`, `pause$`, `resume$`, `anchorRegister$`, ...). These are merged into a single `events$` observable. Use these to react to tour progress.
 - **Async / optional steps**: `showStep()` waits on `anchorRegister$` for `isAsync` steps (with optional `asyncStepTimeout`), and auto-skips `isOptional` steps whose anchor is missing — `hasNext`/`hasPrev` also look past missing optional anchors.
@@ -77,7 +77,7 @@ These are injected into `TourService` and own a single concern; touch the releva
 
 ## Conventions
 
-- **Standalone Angular APIs**: configure via the `provideUiTour(config)` environment-provider function exported by each flavor (it wires up `UI_TOUR_OPTIONS` + the flavor's `TourService`). Prefer this over the deprecated `TourService.setDefaults()`.
+- **Standalone Angular APIs**: configure global defaults via the `provideUiTour(config)` environment-provider function exported by each flavor (it wires up `UI_TOUR_OPTIONS` + the flavor's `TourService`).
 - **`inject()` over constructor injection** throughout (matches recent commit history).
 - **`import type`** is used for type-only imports across the codebase — keep this consistent.
 - A new flavor package mirrors the `ngx-ui-tour-md-menu` layout: `public_api.ts` re-exporting the directive, components, step-option interface, the extended `TourService` (aliased as `TourService`), and `provideUiTour`. Build wiring lives in `project.json` (`prebuild` via `@nx/angular:package`, then `postbuild` copies `README.md`/`CHANGELOG.md` into `dist/`).
