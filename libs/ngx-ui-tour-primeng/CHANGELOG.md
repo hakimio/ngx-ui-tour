@@ -1,3 +1,15 @@
+<a name="4.0.0"></a>
+
+# [4.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-23)
+
+### Features
+- Support for Angular 22.
+- Support for PrimeNG 22.
+
+### Breaking Changes
+- Angular 21 is no longer supported.
+- PrimeNG 21 is no longer supported.
+
 <a name="3.0.0"></a>
 
 # [3.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-02-03)

@@ -19,7 +19,7 @@
     </div>
     <p
         class="content"
-        [innerHTML]="step?.content"
+        [innerHTML]="$safeNavigationMigration(step?.content)"
     ></p>
     <div
         class="buttons"

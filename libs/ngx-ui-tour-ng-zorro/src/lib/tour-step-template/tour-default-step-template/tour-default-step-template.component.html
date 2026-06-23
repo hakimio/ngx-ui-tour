@@ -24,7 +24,7 @@
     }
     <p
         class="card-text"
-        [innerHTML]="step?.content"
+        [innerHTML]="$safeNavigationMigration(step?.content)"
     ></p>
 
     <div
