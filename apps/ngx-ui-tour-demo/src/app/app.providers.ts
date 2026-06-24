@@ -1,5 +1,5 @@
 import type {HighlightJSOptions} from 'ngx-highlightjs';
-import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
+import {provideHighlightOptions} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
 import {LocationStrategy, PathLocationStrategy, ViewportScroller} from '@angular/common';
@@ -41,10 +41,7 @@ export const HIGHLIGHT_OPTIONS_VALUE: HighlightJSOptions = {
 
 export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     Title,
-    {
-        provide: HIGHLIGHT_OPTIONS,
-        useValue: HIGHLIGHT_OPTIONS_VALUE
-    },
+    provideHighlightOptions(HIGHLIGHT_OPTIONS_VALUE),
     {
         provide: LocationStrategy,
         useClass: PathLocationStrategy
