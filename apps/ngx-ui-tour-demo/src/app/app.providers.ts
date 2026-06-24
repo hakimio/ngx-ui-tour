@@ -1,4 +1,4 @@
-import type {HighlightOptions} from 'ngx-highlightjs';
+import type {HighlightJSOptions} from 'ngx-highlightjs';
 import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
 import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
@@ -29,7 +29,7 @@ export const DEFAULT_TABS = [
 ];
 const TITLE_PREFIX = 'Ngx UI Tour: ';
 
-export const HIGHLIGHT_OPTIONS_VALUE: HighlightOptions = {
+export const HIGHLIGHT_OPTIONS_VALUE: HighlightJSOptions = {
     coreLibraryLoader: () => import('highlight.js/lib/core'),
     lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
     languages: {

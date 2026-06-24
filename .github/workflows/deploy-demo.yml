@@ -27,7 +27,7 @@ jobs:
         run: bun install --linker hoisted
 
       - name: Build Master
-        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/ --parallel=false
 
       - name: Upload Master Artifact
         uses: actions/upload-artifact@v4
@@ -55,7 +55,7 @@ jobs:
         run: bun install --linker hoisted
 
       - name: Build v15
-        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/ --parallel=false
 
       - name: Upload v15 Artifact
         uses: actions/upload-artifact@v4
