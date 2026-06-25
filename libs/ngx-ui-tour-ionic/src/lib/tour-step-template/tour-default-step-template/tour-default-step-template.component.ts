@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import type {IonStepOption} from '../../step-option.interface';
 import {IonTourService} from '../../ion-tour.service';
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from '@ionic/angular/standalone';
@@ -16,8 +16,7 @@ import {chevronBackOutline, chevronForwardOutline, closeOutline} from 'ionicons/
         IonIcon
     ],
     templateUrl: './tour-default-step-template.component.html',
-    styleUrl: './tour-default-step-template.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './tour-default-step-template.component.scss'
 })
 export class TourDefaultStepTemplateComponent {
 

@@ -1,7 +1,7 @@
 import type {IStepOption} from 'ngx-ui-tour-ng-bootstrap';
 import {TourNgBootstrap, TourService} from 'ngx-ui-tour-ng-bootstrap';
 import type {OnInit} from '@angular/core';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import {SHARED_COMPONENTS} from '../shared';
@@ -17,8 +17,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiButton,
         SHARED_COMPONENTS,
         TuiAddonDoc
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class NgBootstrapComponent implements OnInit {
 

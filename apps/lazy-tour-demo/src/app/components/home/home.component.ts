@@ -1,11 +1,10 @@
 import type {OnInit} from '@angular/core';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TourAnchorMatMenuDirective, TourService, TourState} from 'ngx-ui-tour-md-menu';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         TourAnchorMatMenuDirective
     ]

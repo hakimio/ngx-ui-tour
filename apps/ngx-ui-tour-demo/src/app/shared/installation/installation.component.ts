@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, inject, input} from '@angular/core';
+import {Component, computed, inject, input} from '@angular/core';
 import appConfigTs from './examples/app-config-ts.md' with {loader: 'text'};
 import appModuleTs from './examples/app-module-ts.md' with {loader: 'text'};
 import {HeaderComponent} from '../header/header.component';
@@ -23,8 +23,7 @@ import {TAB_COMPONENTS} from '../tabs';
         TuiLink,
         TuiNotificationDirective,
         TAB_COMPONENTS
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class InstallationComponent {
 

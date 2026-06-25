@@ -1,6 +1,5 @@
 import {
     type AfterContentInit,
-    ChangeDetectionStrategy,
     Component,
     contentChild,
     inject,
@@ -20,8 +19,7 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
     styleUrls: ['./tour-step-template.component.scss'],
     imports: [
         TourDefaultStepTemplateComponent
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterContentInit {
 

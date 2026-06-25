@@ -1,6 +1,5 @@
 import {
     type AfterViewInit,
-    ChangeDetectionStrategy,
     Component,
     contentChild,
     inject,
@@ -21,8 +20,7 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
     imports: [
         NgTemplateOutlet,
         TourDefaultStepTemplateComponent
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 

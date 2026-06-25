@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
+import {Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
 import {
     TUI_DROPDOWN_OPTIONS,
     TuiDropdown,
@@ -46,8 +46,7 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
             [tuiDropdownOffset]="offset()"
         ></span>
     `,
-    imports: [TuiDropdown],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    imports: [TuiDropdown]
 })
 export class TourAnchorOpenerComponent {
 

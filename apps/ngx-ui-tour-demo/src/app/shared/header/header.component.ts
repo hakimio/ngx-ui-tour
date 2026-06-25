@@ -1,5 +1,5 @@
 import {WA_LOCATION} from '@ng-web-apis/common';
-import {ChangeDetectionStrategy, Component, DOCUMENT, HostAttributeToken, inject} from '@angular/core';
+import {Component, DOCUMENT, HostAttributeToken, inject} from '@angular/core';
 import {TuiLink, TuiNotificationService} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import {RouterLink, RouterLinkActive} from '@angular/router';
@@ -12,8 +12,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
         TuiLink,
         RouterLink,
         RouterLinkActive
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class HeaderComponent {
 

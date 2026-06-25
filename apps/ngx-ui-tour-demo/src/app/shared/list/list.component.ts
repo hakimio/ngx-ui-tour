@@ -1,8 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-list',
-    template: '<div><ng-content/></div>',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    template: '<div><ng-content/></div>'
 })
 export class ListComponent {}

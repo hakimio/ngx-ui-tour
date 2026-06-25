@@ -1,5 +1,5 @@
 import {TuiDocCode} from '@taiga-ui/addon-doc';
-import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
+import {Component, computed, input} from '@angular/core';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
@@ -19,8 +19,7 @@ import {TAB_COMPONENTS} from '../tabs';
         TuiLink,
         TuiNotification,
         TAB_COMPONENTS
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class UsageComponent {
 

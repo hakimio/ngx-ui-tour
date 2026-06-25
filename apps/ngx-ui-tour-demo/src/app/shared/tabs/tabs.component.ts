@@ -1,7 +1,7 @@
 import {TuiIcon} from '@taiga-ui/core';
 import {TuiTabs} from '@taiga-ui/kit';
 import {tuiClamp} from '@taiga-ui/cdk';
-import {ChangeDetectionStrategy, Component, computed, contentChildren, model} from '@angular/core';
+import {Component, computed, contentChildren, model} from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
 import {TabComponent} from './tab.component';
 
@@ -13,8 +13,7 @@ import {TabComponent} from './tab.component';
         TuiIcon
     ],
     templateUrl: './tabs.component.html',
-    styleUrl: './tabs.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './tabs.component.scss'
 })
 export class TabsComponent {
 

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import type {NgZorroStepOption} from '../../step-option.interface';
 import {NgZorroTourService} from '../../ng-zorro-tour.service';
 import {NzIconDirective, provideNzIconsPatch} from 'ng-zorro-antd/icon';
@@ -15,8 +15,7 @@ import {CloseOutline, LeftOutline, RightOutline} from '@ant-design/icons-angular
         provideNzIconsPatch([CloseOutline, LeftOutline, RightOutline])
     ],
     templateUrl: './tour-default-step-template.component.html',
-    styleUrl: './tour-default-step-template.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './tour-default-step-template.component.scss'
 })
 export class TourDefaultStepTemplateComponent {
 

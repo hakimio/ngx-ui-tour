@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
+import {Component, inject, signal, SkipSelf, type TemplateRef, viewChild} from '@angular/core';
 import {TUI_HINT_OPTIONS, TuiHint, TuiHintDirective, type TuiHintOptions, TuiHintPosition} from '@taiga-ui/core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiHintService} from './tour-tui-hint.service';
@@ -38,8 +38,7 @@ function tourOptionsFactory(defaults: TuiHintOptions, tourService: TourTuiHintSe
     `,
     imports: [
         TuiHint
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class TourAnchorOpenerComponent {
 

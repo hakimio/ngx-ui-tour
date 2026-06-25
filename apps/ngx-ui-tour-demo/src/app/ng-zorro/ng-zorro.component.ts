@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, type OnInit} from '@angular/core';
+import {Component, inject, type OnInit} from '@angular/core';
 import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {SHARED_COMPONENTS} from '../shared';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
@@ -14,8 +14,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiButton,
         SHARED_COMPONENTS,
         TuiAddonDoc
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class NgZorroComponent implements OnInit {
 

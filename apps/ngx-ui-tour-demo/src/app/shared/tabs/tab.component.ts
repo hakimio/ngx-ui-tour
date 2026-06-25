@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, input, TemplateRef, viewChild} from '@angular/core';
+import {Component, input, TemplateRef, viewChild} from '@angular/core';
 
 @Component({
     selector: 'app-tab',
@@ -7,8 +7,7 @@ import {ChangeDetectionStrategy, Component, input, TemplateRef, viewChild} from 
         <ng-template>
             <ng-content/>
         </ng-template>
-    `,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    `
 })
 export class TabComponent {
 
