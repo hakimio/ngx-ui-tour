@@ -1,6 +1,6 @@
 import {TuiDocMain} from '@taiga-ui/addon-doc';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TuiLink} from '@taiga-ui/core';
+import {ChangeDetectionStrategy, Component, computed, inject} from '@angular/core';
+import {TUI_DARK_MODE, TuiButton, TuiLink} from '@taiga-ui/core';
 import {VersionManagerComponent} from './shared/version-manager';
 
 @Component({
@@ -10,8 +10,14 @@ import {VersionManagerComponent} from './shared/version-manager';
     imports: [
         TuiDocMain,
         TuiLink,
-        VersionManagerComponent
+        VersionManagerComponent,
+        TuiButton
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+
+    protected readonly darkMode = inject(TUI_DARK_MODE);
+    protected readonly icon = computed(() => this.darkMode() ? '@tui.sun' : '@tui.moon');
+
+}

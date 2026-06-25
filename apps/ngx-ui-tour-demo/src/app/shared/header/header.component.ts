@@ -2,7 +2,6 @@ import {WA_LOCATION} from '@ng-web-apis/common';
 import {ChangeDetectionStrategy, Component, DOCUMENT, HostAttributeToken, inject} from '@angular/core';
 import {TuiLink, TuiNotificationService} from '@taiga-ui/core';
 import {Clipboard} from '@angular/cdk/clipboard';
-import {TUI_DOC_DEMO_TEXTS} from '@taiga-ui/addon-doc';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
@@ -22,7 +21,6 @@ export class HeaderComponent {
     private readonly clipboard = inject(Clipboard);
     private readonly notificationService = inject(TuiNotificationService);
     private readonly location = inject(WA_LOCATION);
-    private readonly texts = inject(TUI_DOC_DEMO_TEXTS);
     private readonly document = inject(DOCUMENT);
 
     copyExampleLink() {
@@ -35,8 +33,8 @@ export class HeaderComponent {
 
         this.clipboard.copy(url);
         this.notificationService
-            .open(this.texts()[1], {
-                label: this.texts()[2],
+            .open('Link to a sample was successfully copied', {
+                label: 'Copied',
                 appearance: 'positive'
             })
             .subscribe();

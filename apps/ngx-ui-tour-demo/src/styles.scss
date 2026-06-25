@@ -18,6 +18,24 @@
     }
 }
 
+tui-doc-navigation.tui-doc-navigation {
+    --tui-typography-body-s: var(--tui-typography-body-m);
+}
+
+table[tuiDocAPI] {
+    border-collapse: collapse;
+
+    td .t-description {
+        color: var(--tui-text-primary);
+    }
+}
+
+header.t-header tui-segmented[data-size=s] {
+    --t-padding: 1rem;
+    --t-height: var(--tui-height-m);
+    font: var(--tui-typography-body-m);
+}
+
 body {
     overflow-x: hidden;
 
@@ -36,7 +54,7 @@ body {
 }
 
 tui-root {
-    font: var(--tui-font-body-m) !important;
+    font: var(--tui-typography-body-m) !important;
 }
 
 ol {

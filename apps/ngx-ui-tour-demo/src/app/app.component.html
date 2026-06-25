@@ -12,6 +12,16 @@
                 <img class="github-icon" src="assets/github.svg" alt=""/>
                 GitHub
             </a>
+            <button
+                appearance="secondary"
+                aria-label="Switch between dark and light mode"
+                size="s"
+                tuiIconButton
+                type="button"
+                [iconStart]="icon()"
+                [style.border-radius.%]="100"
+                (click)="darkMode.set(!darkMode())"
+            ></button>
         </div>
     </ng-container>
 </tui-doc-main>

@@ -29,7 +29,7 @@ export const DEFAULT_TABS = [
 ];
 const TITLE_PREFIX = 'Ngx UI Tour: ';
 
-export const HIGHLIGHT_OPTIONS_VALUE: HighlightJSOptions = {
+const HIGHLIGHT_OPTIONS: HighlightJSOptions = {
     coreLibraryLoader: () => import('highlight.js/lib/core'),
     lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
     languages: {
@@ -41,7 +41,7 @@ export const HIGHLIGHT_OPTIONS_VALUE: HighlightJSOptions = {
 
 export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     Title,
-    provideHighlightOptions(HIGHLIGHT_OPTIONS_VALUE),
+    provideHighlightOptions(HIGHLIGHT_OPTIONS),
     {
         provide: LocationStrategy,
         useClass: PathLocationStrategy
