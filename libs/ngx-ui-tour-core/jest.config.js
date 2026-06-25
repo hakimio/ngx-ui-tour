@@ -12,5 +12,6 @@ module.exports = {
     modulePathIgnorePatterns: [join(libRoot, '../../dist')],
     moduleNameMapper: {
         '^ngx-ui-tour-core$': join(libRoot, 'src/public_api.ts')
-    }
+    },
+    verbose: true
 };
