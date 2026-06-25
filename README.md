@@ -39,6 +39,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 22      | 7    | 17          |
 | 21      | 7    | 16          |
 | 20      | 7    | 15          |
 | 19      | 7    | 14          |
@@ -54,6 +55,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | ngx-ui-tour |
 |---------|------|-------------|
+| 22      | 7    | 19          |
 | 21      | 7    | 18          |
 | 20      | 7    | 17          |
 | 19      | 7    | 16          |
@@ -69,6 +71,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
+| 22      | 7    | 8     | 9           |
 | 21      | 7    | 8     | 8           |
 | 20      | 7    | 8     | 7           |
 | 19      | 7    | 8     | 6           |
@@ -82,6 +85,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | PrimeNG | ngx-ui-tour |
 |---------|------|---------|-------------|
+| 22      | 7    | 22      | 4           |
 | 21      | 7    | 21      | 3           |
 | 20      | 7    | 20      | 2           |
 | 19      | 7    | 19      | 1           |
@@ -90,12 +94,14 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | NG ZORRO | ngx-ui-tour |
 |---------|----------|-------------|
+| 22      | 22       | 2           |
 | 21      | 21       | 1           |
 
 ### Taiga UI tour UI
 
 | Angular | RxJS | Taiga UI | ngx-ui-tour |
 |---------|------|----------|-------------|
+| 22      | 7    | 5        | 11          |
 | 21      | 7    | 5        | 10          |
 | 20      | 7    | 4        | 9           |
 | 19      | 7    | 4        | 8           |

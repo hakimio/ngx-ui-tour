@@ -1,3 +1,15 @@
+<a name="19.0.0"></a>
+
+# [19.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-23)
+
+### Features
+- Support for Angular 22.
+- Support for `@ng-bootstrap/ng-bootstrap` 21.
+
+### Breaking Changes
+- Angular 21 is no longer supported.
+- `@ng-bootstrap/ng-bootstrap` 20 is no longer supported.
+
 <a name="18.0.0"></a>
 
 # [18.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-02-03)

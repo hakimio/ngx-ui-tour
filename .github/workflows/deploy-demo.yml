@@ -21,13 +21,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.22.3
 
       - name: Install Dependencies
         run: bun install --linker hoisted
 
       - name: Build Master
-        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/ --parallel=false
 
       - name: Upload Master Artifact
         uses: actions/upload-artifact@v4
@@ -49,13 +49,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.22.3
 
       - name: Install Dependencies
         run: bun install --linker hoisted
 
       - name: Build v15
-        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/
+        run: bunx nx build ngx-ui-tour-demo --configuration=production --base-href /ngx-ui-tour/v15/ --parallel=false
 
       - name: Upload v15 Artifact
         uses: actions/upload-artifact@v4
