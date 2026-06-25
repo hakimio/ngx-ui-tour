@@ -20,8 +20,7 @@
     "target": "ES2022",
     "module": "ESNext",
     "typeRoots": [
-      "node_modules/@types",
-      "node_modules/@taiga-ui/tsconfig"
+      "node_modules/@types"
     ],
     "lib": [
       "ES2022",
@@ -55,10 +54,6 @@
       "ngx-ui-tour-ng-zorro": [
         "./libs/ngx-ui-tour-ng-zorro/src/index.ts"
       ]
-    },
-    "types": [
-      "node",
-      "ng-dev-mode"
-    ]
+    }
   }
 }
