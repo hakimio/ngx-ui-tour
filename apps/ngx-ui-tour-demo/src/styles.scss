@@ -30,10 +30,30 @@ table[tuiDocAPI] {
     }
 }
 
-header.t-header tui-segmented[data-size=s] {
-    --t-padding: 1rem;
-    --t-height: var(--tui-height-m);
-    font: var(--tui-typography-body-m);
+header.t-header[tuiHeader] {
+    margin-block-end: 1.5rem;
+
+    h1 {
+        font: var(--tui-typography-heading-h2);
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        line-height: 1;
+
+        .t-badge {
+            --t-icon-size: 1rem;
+            --t-padding: calc(.5rem * var(--t-scale));
+            --t-size: var(--tui-height-xs);
+            --t-margin: -.25rem;
+        }
+    }
+
+    tui-segmented[data-size=s] {
+        --t-padding: 1rem;
+        --t-height: var(--tui-height-m);
+        font: var(--tui-typography-body-m);
+    }
 }
 
 body {
