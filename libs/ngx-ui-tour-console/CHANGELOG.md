@@ -1,12 +1,16 @@
 <a name="17.0.0"></a>
 
-# [17.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-19)
+# [17.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-26)
 
 ### Features
 - Support for Angular 22.
 
+### Fixes
+- Make sure the tour is properly disposed of when the browser back button is used to cancel it.
+
 ### Breaking Changes
 - Angular 21 is no longer supported.
+- Removed deprecated `TourService.setDefaults()` method. Use `provideUiTour()` instead.
 
 <a name="16.0.0"></a>
 
