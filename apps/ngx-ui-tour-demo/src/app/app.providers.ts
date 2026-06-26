@@ -1,7 +1,13 @@
 import type {HighlightJSOptions} from 'ngx-highlightjs';
 import {provideHighlightOptions} from 'ngx-highlightjs';
 import {Title} from '@angular/platform-browser';
-import {TUI_DOC_DEFAULT_TABS, TUI_DOC_LOGO, TUI_DOC_PAGES, TUI_DOC_TITLE} from '@taiga-ui/addon-doc';
+import {
+    TUI_DOC_DEFAULT_TABS,
+    TUI_DOC_LOGO,
+    TUI_DOC_PAGES,
+    TUI_DOC_PAGES_ICONS,
+    TUI_DOC_TITLE
+} from '@taiga-ui/addon-doc';
 import {LocationStrategy, PathLocationStrategy, ViewportScroller} from '@angular/common';
 import {pages} from './pages';
 import {LOGO_CONTENT} from './shared/logo/logo.component';
@@ -53,6 +59,12 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     {
         provide: TUI_DOC_PAGES,
         useValue: pages
+    },
+    {
+        provide: TUI_DOC_PAGES_ICONS,
+        useValue: {
+            'Tour UI Libraries': '@tui.plane'
+        }
     },
     {
         provide: TUI_DOC_DEFAULT_TABS,
