@@ -12,7 +12,7 @@ It is an **Nx monorepo** using **bun** as the package manager (`cli.packageManag
 
 ```bash
 # Tests — only ngx-ui-tour-core has a test suite
-bun test                                  # = nx test ngx-ui-tour-core
+bun run test                                  # = nx test ngx-ui-tour-core
 nx test ngx-ui-tour-core -t "deepMerge"   # run a single test by name (Jest -t)
 
 # Lint
