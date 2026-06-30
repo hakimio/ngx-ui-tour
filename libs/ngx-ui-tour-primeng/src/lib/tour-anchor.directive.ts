@@ -1,10 +1,19 @@
-import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    inject,
+    input,
+    type OnDestroy,
+    type OnInit,
+    type OutputRefSubscription,
+    signal
+} from '@angular/core';
 import {type TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {PrimeNgTourService} from './prime-ng-tour.service';
 import type {PrimeNgStepOption} from './step-option.interface';
-import {first, firstValueFrom, type Subscription} from 'rxjs';
 import type {Popover} from 'primeng/popover';
+import {outputEmitterToPromise, setSignalInput} from './utils';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -21,7 +30,7 @@ export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchor
     public readonly element = inject(ElementRef);
     private readonly tourService = inject(PrimeNgTourService);
     private readonly stepTemplateService = inject(TourStepTemplateService);
-    private popoverCloseSubscription?: Subscription;
+    private popoverCloseSubscription?: OutputRefSubscription;
 
     ngOnInit() {
         this.tourService.register(this.tourAnchor(), this);
@@ -36,29 +45,30 @@ export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchor
             popover = templateComponent.popover();
 
         if ((popover as Popover & {itemsWrapper: unknown | null}).itemsWrapper) {
-            await firstValueFrom(popover.onHide);
+            await outputEmitterToPromise(popover.onHide);
         }
 
         this.isActive.set(true);
         templateComponent.step = step;
 
         const popoverClass = step.popoverClass ?? '';
-        popover.styleClass = `tour-step ${popoverClass}`;
+        setSignalInput(popover.styleClass, `tour-step ${popoverClass}`);
 
         const event = {
             target: this.element.nativeElement
         } as MouseEvent;
 
-        popover.dismissable = !!step.closeOnOutsideClick;
+        setSignalInput(popover.dismissable, !!step.closeOnOutsideClick);
         popover.show(event);
 
         if (this.popoverCloseSubscription) {
             this.popoverCloseSubscription.unsubscribe();
         }
+
         this.popoverCloseSubscription = popover.onHide
-            .pipe(first())
             .subscribe(() => {
                 if (this.tourService.getStatus() !== TourState.OFF) {
+                    this.popoverCloseSubscription.unsubscribe();
                     this.tourService.end();
                 }
             });
