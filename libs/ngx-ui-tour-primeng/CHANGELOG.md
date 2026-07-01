@@ -1,3 +1,10 @@
+<a name="4.0.1"></a>
+
+# [4.0.1](https://github.com/hakimio/ngx-ui-tour) (2026-07-01)
+
+### Fixes
+- Support PrimeNG popover's signal inputs and outputs introduced in PrimeNG 22.
+
 <a name="4.0.0"></a>
 
 # [4.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-26)
