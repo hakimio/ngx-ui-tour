@@ -12,7 +12,6 @@ import {type TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {PrimeNgTourService} from './prime-ng-tour.service';
 import type {PrimeNgStepOption} from './step-option.interface';
-import type {Popover} from 'primeng/popover';
 import {outputEmitterToPromise, setSignalInput} from './utils';
 
 @Directive({
@@ -44,8 +43,11 @@ export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchor
         const templateComponent = this.stepTemplateService.templateComponent,
             popover = templateComponent.popover();
 
-        if ((popover as Popover & {itemsWrapper: unknown | null}).itemsWrapper) {
+        const container = popover.container;
+        if (container) {
             await outputEmitterToPromise(popover.onHide);
+            container.removeAttribute('data-p-popover-flipped');
+            container.classList.remove('p-popover-flipped');
         }
 
         this.isActive.set(true);
