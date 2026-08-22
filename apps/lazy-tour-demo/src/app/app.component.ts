@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {TourMatMenu} from 'ngx-ui-tour-md-menu';
@@ -8,7 +8,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         TourMatMenu,
         MatSidenavModule,

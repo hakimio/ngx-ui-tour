@@ -2,7 +2,7 @@ import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import type {IStepOption} from 'ngx-ui-tour-ionic';
 import {TourIonPopover, TourService} from 'ngx-ui-tour-ionic';
 import type {OnInit} from '@angular/core';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
 import {SHARED_COMPONENTS} from '../shared';
 import defaultTemplate from './examples/default-template.md' with {loader: 'text'};
@@ -18,8 +18,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TuiButton,
         SHARED_COMPONENTS,
         TuiNotification
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class IonPopoverComponent implements OnInit {
 

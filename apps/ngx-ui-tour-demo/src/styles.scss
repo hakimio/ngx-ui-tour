@@ -3,10 +3,10 @@
 @import '@ionic/angular/css/core.css';
 @import './bootstrap';
 
-.p-popover {
-    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+.p-component.p-popover.tour-step {
+    --p-typography-font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    line-height: normal;
+    --p-typography-line-height: normal;
 }
 @import 'primeicons/primeicons.css';
 
@@ -15,6 +15,44 @@
     html {
         /* Can't just use "var(--tui-background-base)" since "tuiTheme" attribute is applied to "tui-root" instead of "html" */
         background: #222 !important;
+    }
+}
+
+tui-doc-navigation.tui-doc-navigation {
+    --tui-typography-body-s: var(--tui-typography-body-m);
+}
+
+table[tuiDocAPI] {
+    border-collapse: collapse;
+
+    td .t-description {
+        color: var(--tui-text-primary);
+    }
+}
+
+header.t-header[tuiHeader] {
+    margin-block-end: 1.5rem;
+
+    h1 {
+        font: var(--tui-typography-heading-h2);
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        line-height: 1;
+
+        .t-badge {
+            --t-icon-size: 1rem;
+            --t-padding: calc(.5rem * var(--t-scale));
+            --t-size: var(--tui-height-xs);
+            --t-margin: -.25rem;
+        }
+    }
+
+    tui-segmented[data-size=s] {
+        --t-padding: 1rem;
+        --t-height: var(--tui-height-m);
+        font: var(--tui-typography-body-m);
     }
 }
 
@@ -36,7 +74,7 @@ body {
 }
 
 tui-root {
-    font: var(--tui-font-body-m) !important;
+    font: var(--tui-typography-body-m) !important;
 }
 
 ol {

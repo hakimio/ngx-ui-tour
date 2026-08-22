@@ -1,9 +1,8 @@
-import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
+import {Directive, ElementRef, inject, input, type OnDestroy, type OnInit, signal} from '@angular/core';
 import type {TourAnchorDirective} from 'ngx-ui-tour-core';
 import {IonTourService} from './ion-tour.service';
 import {TourStepTemplateService} from './tour-step-template.service';
 import type {IonStepOption} from './step-option.interface';
-import {firstValueFrom} from 'rxjs';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -33,10 +32,6 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
         const templateComponent = this.stepTemplateService.templateComponent,
             popover = templateComponent.ionPopover();
 
-        if (popover.isCmpOpen) {
-            await firstValueFrom(popover.didDismiss);
-        }
-
         this.isActive.set(true);
         templateComponent.step.set(step);
         popover.alignment = step.placement?.alignment;
@@ -50,11 +45,11 @@ export class TourAnchorIonPopoverDirective implements OnInit, OnDestroy, TourAnc
         await popover.present(event);
     }
 
-    hideTourStep() {
+    async hideTourStep() {
         this.isActive.set(false);
         const popover = this.stepTemplateService.templateComponent.ionPopover();
 
-        popover.dismiss();
+        await popover.dismiss();
     }
 
 }

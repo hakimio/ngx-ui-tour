@@ -1,6 +1,5 @@
 import {
     type AfterViewInit,
-    ChangeDetectionStrategy,
     Component,
     contentChild, inject,
     input,
@@ -23,7 +22,6 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
         TourDefaultStepTemplateComponent
     ],
     templateUrl: './tour-step-template.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     styles: `
         ::ng-deep .p-popover.tour-step {
             --p-popover-content-padding: 0;

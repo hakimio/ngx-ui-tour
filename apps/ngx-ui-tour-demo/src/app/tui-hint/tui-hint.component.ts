@@ -1,6 +1,6 @@
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
 import type {OnInit} from '@angular/core';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import type {IStepOption} from 'ngx-ui-tour-tui-hint';
 import {TourService, TourTuiHint} from 'ngx-ui-tour-tui-hint';
 import type {TuiHintDirection} from '@taiga-ui/core';
@@ -18,8 +18,7 @@ import defaultTemplate from './examples/default-template.md' with {loader: 'text
         TourTuiHint,
         TuiButton,
         SHARED_COMPONENTS
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class TuiHintComponent implements OnInit {
 

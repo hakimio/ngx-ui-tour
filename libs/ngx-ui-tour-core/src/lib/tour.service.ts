@@ -1,4 +1,4 @@
-import {inject, Injectable, InjectionToken} from '@angular/core';
+import {DOCUMENT, inject, Injectable, InjectionToken} from '@angular/core';
 import {
     isActive as isRouteActive,
     type IsActiveMatchOptions,
@@ -9,7 +9,7 @@ import {
 
 import type {TourAnchorDirective} from './tour-anchor.directive';
 import type {Observable} from 'rxjs';
-import {delay, filter, first, map, merge as mergeStatic, of, Subject, takeUntil, timeout} from 'rxjs';
+import {delay, filter, first, fromEvent, map, merge as mergeStatic, of, Subject, takeUntil, timeout} from 'rxjs';
 import {ScrollingService} from './scrolling.service';
 import type {BackdropConfig} from './tour-backdrop.service';
 import {TourBackdropService} from './tour-backdrop.service';
@@ -144,8 +144,14 @@ export class TourService<T extends IStepOption = IStepOption> {
     private isHotKeysEnabled = true;
     private direction = Direction.Forwards;
     private waitingForScroll = false;
+    /**
+     * `true` while a step transition (hide previous + show next, including any popover open/close
+     * animation) is in progress. Used to ignore fast, repeated navigation input (next/prev button
+     * or arrow keys) so that programmatically opened popovers (e.g. Ionic, PrimeNG) don't end up
+     * with overlapping show/hide operations, which leaves them unresponsive or mispositioned.
+     */
+    private stepAnimationInProgress = false;
     private navigationStarted = false;
-    private userDefaults: T;
     private readonly globalDefaults = inject<T>(UI_TOUR_OPTIONS);
 
     private readonly router = inject(Router);
@@ -153,6 +159,7 @@ export class TourService<T extends IStepOption = IStepOption> {
     private readonly anchorClickService = inject(AnchorClickService);
     private readonly scrollBlockingService = inject(ScrollBlockingService);
     private readonly scrollingService = inject(ScrollingService);
+    private readonly window = inject(DOCUMENT).defaultView;
 
     public initialize(steps: T[], stepDefaults?: T): void {
         if (this.status === TourState.ON) {
@@ -166,7 +173,6 @@ export class TourService<T extends IStepOption = IStepOption> {
                 step => deepMerge(
                     DEFAULT_STEP_OPTIONS as T,
                     this.globalDefaults,
-                    this.userDefaults,
                     stepDefaults,
                     step
                 )
@@ -175,17 +181,6 @@ export class TourService<T extends IStepOption = IStepOption> {
             this.initialize$.next(this.steps);
             this.subscribeToNavigationStartEvent();
         }
-    }
-
-    /**
-     * @deprecated Use `provideUiTour()` instead.
-     */
-    public setDefaults(defaultOptions: T): void {
-        this.userDefaults = defaultOptions;
-    }
-
-    public getDefaults(): T {
-        return this.userDefaults;
     }
 
     private validateSteps() {
@@ -199,9 +194,16 @@ export class TourService<T extends IStepOption = IStepOption> {
 
     private subscribeToNavigationStartEvent()
     {
-        this.router.events
+        const navigationStart$ = this.router.events.pipe(
+                filter((event): event is NavigationStart => event instanceof NavigationStart)
+            ),
+            browserBackPressed$ = fromEvent<PopStateEvent>(this.window, 'popstate');
+
+        mergeStatic(
+            navigationStart$,
+            browserBackPressed$
+        )
             .pipe(
-                filter((event): event is NavigationStart => event instanceof NavigationStart),
                 takeUntil(this.end$)
             )
             .subscribe(
@@ -210,8 +212,8 @@ export class TourService<T extends IStepOption = IStepOption> {
                         return;
                     }
 
-                    const browserBackBtnPressed = event.navigationTrigger === 'popstate',
-                      userNavigationAllowed = this.currentStep.allowUserInitiatedNavigation;
+                    const browserBackBtnPressed = event instanceof PopStateEvent || event.navigationTrigger === 'popstate',
+                        userNavigationAllowed = this.currentStep.allowUserInitiatedNavigation;
 
                     if (!this.navigationStarted && (browserBackBtnPressed || !userNavigationAllowed)) {
                         this.end();
@@ -294,18 +296,23 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public next(): void {
-        if (this.waitingForScroll) {
+        if (this.waitingForScroll || this.stepAnimationInProgress) {
             return;
         }
 
+        this.goForward();
+    }
+
+    private goForward(): Promise<void> {
         this.direction = Direction.Forwards;
         if (this.hasNext(this.currentStep)) {
-            this.goToStep(
+            return this.goToStep(
                 this.loadStep(
                     this.currentStep.nextStep ?? this.getStepIndex(this.currentStep) + 1
                 )
             );
         }
+        return Promise.resolve();
     }
 
     private getStepIndex(step: T): number {
@@ -339,18 +346,23 @@ export class TourService<T extends IStepOption = IStepOption> {
     }
 
     public prev(): void {
-        if (this.waitingForScroll) {
+        if (this.waitingForScroll || this.stepAnimationInProgress) {
             return;
         }
 
+        this.goBackward();
+    }
+
+    private goBackward(): Promise<void> {
         this.direction = Direction.Backwards;
         if (this.hasPrev(this.currentStep)) {
-            this.goToStep(
+            return this.goToStep(
                 this.loadStep(
                     this.currentStep.prevStep ?? this.getStepIndex(this.currentStep) - 1
                 )
             );
         }
+        return Promise.resolve();
     }
 
     public hasPrev(step: T): boolean {
@@ -387,7 +399,6 @@ export class TourService<T extends IStepOption = IStepOption> {
         if (this.anchors[anchorId]) {
             const step = this.findStepByAnchorId(anchorId),
                 duplicateAnchorHandling = step?.duplicateAnchorHandling ??
-                    this.userDefaults?.duplicateAnchorHandling ??
                     this.globalDefaults.duplicateAnchorHandling ?? 'error';
 
             switch (duplicateAnchorHandling) {
@@ -422,23 +433,31 @@ export class TourService<T extends IStepOption = IStepOption> {
         return this.isHotKeysEnabled;
     }
 
-    private goToStep(step: T): void {
+    private async goToStep(step: T): Promise<void> {
         if (!step) {
             console.warn('Can\'t go to non-existent step');
             this.end();
             return;
         }
-        if (this.currentStep) {
-            this.backdrop.closeSpotlight();
-            this.hideStep(this.currentStep);
-        }
 
-        this.anchorClickService.removeListener();
+        // Serialize the whole transition so that fast navigation can't start a new step
+        // before the previous one has finished hiding/showing.
+        this.stepAnimationInProgress = true;
+        try {
+            if (this.currentStep) {
+                this.backdrop.closeSpotlight();
+                await this.hideStep(this.currentStep);
+            }
 
-        if (step.route !== undefined && step.route !== null) {
-            this.navigateToRouteAndSetStep(step);
-        } else {
-            this.setCurrentStepAsync(step);
+            this.anchorClickService.removeListener();
+
+            if (step.route !== undefined && step.route !== null) {
+                await this.navigateToRouteAndSetStep(step);
+            } else {
+                await this.setCurrentStepAsync(step);
+            }
+        } finally {
+            this.stepAnimationInProgress = false;
         }
     }
 
@@ -461,7 +480,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         const isActive = isRouteActive(url, this.router, matchOptions)();
 
         if (isActive) {
-            this.setCurrentStepAsync(step);
+            await this.setCurrentStepAsync(step);
             return;
         }
 
@@ -473,7 +492,7 @@ export class TourService<T extends IStepOption = IStepOption> {
             console.warn('Navigation to route failed: ', step.route);
             this.end();
         } else {
-            this.setCurrentStepAsync(step, step.delayAfterNavigation);
+            await this.setCurrentStepAsync(step, step.delayAfterNavigation);
         }
     }
 
@@ -485,15 +504,22 @@ export class TourService<T extends IStepOption = IStepOption> {
         }
     }
 
-    private setCurrentStep(step: T): void {
+    private setCurrentStep(step: T): Promise<void> {
         this.currentStep = step;
-        this.showStep(this.currentStep);
+        return this.showStep(this.currentStep);
     }
 
-    private setCurrentStepAsync(step: T, delay = 0): void {
+    private setCurrentStepAsync(step: T, delay = 0): Promise<void> {
         delay = delay || step.delayBeforeStepShow;
 
-        setTimeout(() => this.setCurrentStep(step), delay);
+        return new Promise<void>(resolve => {
+            setTimeout(
+                // Resolve regardless of outcome so a failed step show can never leave the
+                // transition lock stuck and freeze the tour.
+                () => this.setCurrentStep(step).then(() => resolve(), () => resolve()),
+                delay
+            );
+        });
     }
 
     protected async showStep(step: T, skipAsync = false): Promise<void> {
@@ -525,7 +551,10 @@ export class TourService<T extends IStepOption = IStepOption> {
                 return;
             }
             if (step.isOptional) {
-                this[this.direction === Direction.Forwards ? 'next' : 'prev']();
+                // Skip via the unguarded navigation so the `inProgress` lock held by the current
+                // transition doesn't block stepping over a missing optional anchor. Awaited so the
+                // lock stays held until the next showable step is reached.
+                await (this.direction === Direction.Forwards ? this.goForward() : this.goBackward());
                 return;
             }
 
@@ -537,21 +566,24 @@ export class TourService<T extends IStepOption = IStepOption> {
         this.waitingForScroll = true;
         await this.scrollToAnchor(step);
         this.waitingForScroll = false;
-        anchor.showTourStep(step);
+
+        const shown = anchor.showTourStep(step);
         this.toggleBackdrop(step);
         this.togglePageScrolling(step);
+        await shown;
         this.stepShow$.next({
             step,
             direction: this.direction
         });
     }
 
-    private hideStep(step: T): void {
+    private async hideStep(step: T): Promise<void> {
         const anchor = this.anchors[step && step.anchorId];
         if (!anchor) {
             return;
         }
-        anchor.hideTourStep();
+
+        await anchor.hideTourStep();
         this.stepHide$.next({
             step,
             direction: this.direction

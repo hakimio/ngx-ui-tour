@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.22.3
 
       - name: Install Dependencies
         run: bun install --linker hoisted
@@ -49,7 +49,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.22.3
 
       - name: Install Dependencies
         run: bun install --linker hoisted

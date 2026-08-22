@@ -1,7 +1,6 @@
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
 import {
     type AfterViewInit,
-    ChangeDetectionStrategy,
     Component,
     contentChild,
     inject,
@@ -28,8 +27,7 @@ import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tou
             padding: 0;
         }
     `,
-    templateUrl: './tour-step-template.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: './tour-step-template.component.html'
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
 

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import type {PrimeNgStepOption} from '../../step-option.interface';
 import {PrimeNgTourService} from '../../prime-ng-tour.service';
 import {Button} from 'primeng/button';
@@ -10,7 +10,6 @@ import {Button} from 'primeng/button';
     ],
     templateUrl: './tour-default-step-template.component.html',
     styleUrl: './tour-default-step-template.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         '[style.width]': 'step().stepDimensions?.width',
         '[style.min-width]': 'step().stepDimensions?.minWidth',

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, signal, type TemplateRef, viewChild} from '@angular/core';
+import {Component, inject, signal, type TemplateRef, viewChild} from '@angular/core';
 import {NzPopoverDirective} from 'ng-zorro-antd/popover';
 import {TourStepTemplateService} from './tour-step-template.service';
 
@@ -18,8 +18,7 @@ import {TourStepTemplateService} from './tour-step-template.service';
     `],
     imports: [
         NzPopoverDirective
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class TourAnchorOpenerComponent {
 

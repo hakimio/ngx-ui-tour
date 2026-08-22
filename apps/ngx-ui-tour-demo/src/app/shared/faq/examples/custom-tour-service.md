@@ -2,9 +2,7 @@
 @Injectable()
 export class MyTourService {
 
-    constructor(
-        private readonly tourService: TourService
-    ) {}
+    private readonly tourService = inject(TourService);
 
     private readonly MAIN_SECTION_CSS_SELECTOR = 'section.main-content';
     private readonly NO_SCROLL_CSS_CLASS = 'no-scroll';

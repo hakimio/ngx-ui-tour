@@ -12,6 +12,7 @@ body:
         - md-menu
         - ionic
         - ng-bootstrap
+        - ng-zorro
         - tui-dropdown
         - tui-hint
         - console

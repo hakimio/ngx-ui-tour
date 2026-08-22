@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatButton} from '@angular/material/button';
 import {TourMatMenu, TourService} from 'ngx-ui-tour-md-menu';
 
@@ -9,8 +9,7 @@ import {TourMatMenu, TourService} from 'ngx-ui-tour-md-menu';
         TourMatMenu
     ],
     templateUrl: './ui-tour-demo.component.html',
-    styleUrl: './ui-tour-demo.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './ui-tour-demo.component.scss'
 })
 export class UiTourDemoComponent {
 

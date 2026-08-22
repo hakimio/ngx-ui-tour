@@ -1,10 +1,9 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TourHotkeyListenerComponent, TourService} from 'ngx-ui-tour-core';
 
 @Component({
     selector: 'tour-step-template',
-    template: '',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    template: ''
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent {
 

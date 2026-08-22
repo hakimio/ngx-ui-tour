@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {APP_VERSION} from './version-manager.provider';
 import {TuiButton, TuiDataList, TuiDropdown} from '@taiga-ui/core';
 import {TuiChevron} from '@taiga-ui/kit';
@@ -12,8 +12,7 @@ import type {Version} from './version-manager.model';
         TuiChevron,
         TuiDropdown,
         TuiDataList
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class VersionManagerComponent {
 

@@ -8,9 +8,9 @@ import {MyTourService} from '@app-utils/my-tour.service';
 })
 export class AppComponent {
 
-    constructor(
-        private readonly myTourService: MyTourService
-    ) {
+    private readonly myTourService = inject(MyTourService);
+    
+    constructor() {
         this.myTourService.start([{
             anchorId: 'start-tour',
             title: 'Welcome',

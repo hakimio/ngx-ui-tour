@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {ProxyTourAnchorDirective} from '../proxy-tour-anchor.directive';
 import {HeaderComponent} from '../header/header.component';
 import {LIST_COMPONENTS} from '../list';
@@ -11,8 +11,7 @@ import {LIST_COMPONENTS} from '../list';
         HeaderComponent,
         ProxyTourAnchorDirective,
         LIST_COMPONENTS
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    ]
 })
 export class HotkeysComponent {
 

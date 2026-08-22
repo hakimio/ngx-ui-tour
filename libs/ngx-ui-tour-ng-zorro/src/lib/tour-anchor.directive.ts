@@ -43,7 +43,7 @@ export class TourAnchorNgZorroDirective implements OnInit, OnDestroy, TourAnchor
         this.tourService.unregister(this.tourAnchor());
     }
 
-    async showTourStep(step: NgZorroStepOption) {
+    showTourStep(step: NgZorroStepOption) {
         const templateComponent = this.stepTemplateService.templateComponent;
 
         this.isActive.set(true);

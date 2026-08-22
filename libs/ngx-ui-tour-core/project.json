@@ -37,10 +37,10 @@
       }
     },
     "test": {
-      "executor": "@angular-builders/jest:run",
+      "executor": "nx:run-commands",
       "options": {
-        "configPath": "jest.config.js",
-        "tsConfig": "tsconfig.spec.json"
+        "command": "jest --config jest.config.js",
+        "cwd": "{projectRoot}"
       }
     },
     "lint": {

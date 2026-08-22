@@ -1,0 +1,23 @@
+<tui-tabs-with-more
+    [(activeItemIndex)]="activeTabIndex"
+    [moreContent]="more"
+>
+    @for (tab of tabs(); track $index) {
+        <button
+            *tuiItem
+            tuiTab
+            (click)="activeTabIndex.set($index)"
+            [iconStart]="tab.icon() ?? ''"
+        >
+            {{ tab.title() }}
+        </button>
+    }
+</tui-tabs-with-more>
+
+<div class="content">
+    <ng-template [ngTemplateOutlet]="activeTabTpl()"/>
+</div>
+
+<ng-template #more>
+    <tui-icon icon="@tui.ellipsis-vertical"/>
+</ng-template>

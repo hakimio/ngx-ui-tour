@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import type {IMdStepOption} from '../../step-option.interface';
 import {NgxmTourService} from '../../ngx-md-menu-tour.service';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,8 +13,7 @@ import {MatIcon} from '@angular/material/icon';
         MatIcon
     ],
     templateUrl: './tour-default-step-template.component.html',
-    styleUrl: './tour-default-step-template.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './tour-default-step-template.component.scss'
 })
 export class TourDefaultStepTemplateComponent {
 
