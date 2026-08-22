@@ -1,10 +1,9 @@
-import {Directive, ElementRef, inject, type OnDestroy, type OnInit, signal, input} from '@angular/core';
+import {Directive, ElementRef, inject, input, type OnDestroy, type OnInit, signal} from '@angular/core';
 import {type TourAnchorDirective, TourState} from 'ngx-ui-tour-core';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {PrimeNgTourService} from './prime-ng-tour.service';
 import type {PrimeNgStepOption} from './step-option.interface';
 import {first, firstValueFrom, type Subscription} from 'rxjs';
-import type {Popover} from 'primeng/popover';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -33,10 +32,13 @@ export class TourAnchorPrimeNgDirective implements OnInit, OnDestroy, TourAnchor
 
     async showTourStep(step: PrimeNgStepOption) {
         const templateComponent = this.stepTemplateService.templateComponent,
-            popover = templateComponent.popover();
+            popover = templateComponent.popover(),
+            container = popover.container;
 
-        if ((popover as Popover & {itemsWrapper: unknown | null}).itemsWrapper) {
+        if (container) {
             await firstValueFrom(popover.onHide);
+            container.removeAttribute('data-p-popover-flipped');
+            container.classList.remove('p-popover-flipped');
         }
 
         this.isActive.set(true);
