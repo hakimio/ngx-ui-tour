@@ -1,3 +1,10 @@
+<a name="3.0.1"></a>
+
+# [3.0.1](https://github.com/hakimio/ngx-ui-tour) (2026-08-24)
+
+### Fixes
+- Fix incorrect popup position in some cases.
+
 <a name="3.0.0"></a>
 
 # [3.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-02-03)
