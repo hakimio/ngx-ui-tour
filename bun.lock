@@ -18,6 +18,9 @@
         "@maskito/core": "^5.4.0",
         "@ng-bootstrap/ng-bootstrap": "^21.0.0",
         "@ng-web-apis/common": "^5.3.0",
+        "@openng/icons": "^1.0.0",
+        "@openng/optimus-ui": "^2.0.2",
+        "@openng/optimus-ui-themes": "^2.0.2",
         "@popperjs/core": "^2.11.8",
         "@primeuix/themes": "^3.0.0",
         "@taiga-ui/addon-doc": "^5.20.0",
@@ -148,6 +151,21 @@
         "@angular/common": "^22.0.0",
         "@angular/core": "^22.0.0",
         "ng-zorro-antd": "^22.0.0",
+      },
+    },
+    "libs/ngx-ui-tour-optimus-ui": {
+      "name": "ngx-ui-tour-optimus-ui",
+      "version": "1.0.0",
+      "dependencies": {
+        "@openng/optimus-ui": "2",
+        "ngx-ui-tour-core": "17.0.0",
+        "tslib": "^2.3.0",
+      },
+      "peerDependencies": {
+        "@angular/common": "^22.0.0",
+        "@angular/core": "^22.0.0",
+        "@openng/icons": "^1.0.0",
+        "@openng/optimus-ui": "^2.0.2",
       },
     },
     "libs/ngx-ui-tour-primeng": {
@@ -874,6 +892,20 @@
     "@nx/webpack": ["@nx/webpack@23.1.1", "", { "dependencies": { "@babel/core": "^7.23.2", "@nx/devkit": "23.1.1", "@nx/js": "23.1.1", "@phenomnomnominal/tsquery": "~6.2.0", "ajv": "^8.0.0", "autoprefixer": "^10.4.9", "babel-loader": "^9.1.2", "browserslist": "^4.26.0", "copy-webpack-plugin": "^14.0.0", "css-loader": "^6.4.0", "css-minimizer-webpack-plugin": "^8.0.0", "fork-ts-checker-webpack-plugin": "9.1.0", "less": ">=4.1.3 <4.6.0", "less-loader": "^12.2.0", "license-webpack-plugin": "^4.0.2", "loader-utils": "^2.0.3", "mini-css-extract-plugin": "~2.4.7", "parse5": "4.0.0", "picocolors": "^1.1.0", "postcss": "^8.4.38", "postcss-import": "~14.1.0", "postcss-loader": "^8.1.1", "rxjs": "^7.8.0", "sass": "^1.97.2", "sass-embedded": "^1.97.2", "sass-loader": "^16.0.7", "source-map-loader": "^5.0.0", "style-loader": "^3.3.0", "terser-webpack-plugin": "^5.3.3", "ts-loader": "^9.5.7", "tsconfig-paths-webpack-plugin": "4.2.0", "tslib": "^2.3.0", "webpack-node-externals": "^3.0.0", "webpack-subresource-integrity": "^5.1.0" }, "peerDependencies": { "webpack": "^5.0.0", "webpack-cli": "^5.0.0 || ^6.0.0 || ^7.0.0", "webpack-dev-server": "^5.0.0" }, "optionalPeers": ["webpack", "webpack-cli", "webpack-dev-server"] }, "sha512-vO7N0cpzpWI7yWUtORJKMVtmvPr218xZjhbHXB7BGEzmqV7ZE+Wkg36pRAy5gMjGqBbjsGHicxUo4yUcYsWGBw=="],
 
     "@nx/workspace": ["@nx/workspace@23.1.1", "", { "dependencies": { "@nx/devkit": "23.1.1", "@zkochan/js-yaml": "0.0.7", "chalk": "^4.1.0", "enquirer": "~2.3.6", "nx": "23.1.1", "picomatch": "4.0.4", "semver": "^7.6.3", "tslib": "^2.3.0", "yargs-parser": "21.1.1" } }, "sha512-woBDOW9bNcp+I2UEKhV62zc+1/gPCKPkTHZgwCdgoXSlXC3N9soGpnLG5QFy8NLodFC1f+5TSQJqN1tBW5rfIA=="],
+
+    "@openng/icons": ["@openng/icons@1.0.0", "", {}, "sha512-BdTSHu74S3WRfbmfoT2WfmvaM3Ei32K3WiZBJTw7nVTlCvQbpCNsBqzrD5rAe4nb5IoTPjeuRb5WTG2gzrTQtw=="],
+
+    "@openng/optimus-ui": ["@openng/optimus-ui@2.0.2", "", { "dependencies": { "@openng/optimus-ui-motion": "2.0.2", "@openng/optimus-ui-styled": "2.0.2", "@openng/optimus-ui-styles": "2.0.2", "@openng/optimus-ui-utils": "2.0.2", "tslib": "^2.3.0" }, "peerDependencies": { "@angular/cdk": "^22.1.4", "@angular/common": "^22.1.4", "@angular/core": "^22.1.4", "@angular/forms": "^22.1.4", "@angular/platform-browser": "^22.1.4", "@angular/router": "^22.1.4", "rxjs": "^6.0.0 || ^7.8.1" } }, "sha512-1tzUZjFaUYoC1uAk5oOGqdwCmyCroiWaCtIDuCG3XNy8sALXQjnyMwoGHHt1nUg64nkxoj4gYlwQbsX4GcQmKA=="],
+
+    "@openng/optimus-ui-motion": ["@openng/optimus-ui-motion@2.0.2", "", { "dependencies": { "@openng/optimus-ui-utils": "2.0.2" } }, "sha512-sh3I8xYK1A+BZEqpPgPl6MaRVPJrHNbiC6hzkUXsaNhk4Uu6dEj7KEsGh89vYtFmYN6PUeR9+XnYau/k5/q45g=="],
+
+    "@openng/optimus-ui-styled": ["@openng/optimus-ui-styled@2.0.2", "", { "dependencies": { "@openng/optimus-ui-utils": "2.0.2" } }, "sha512-bCojQR6xzEoLUm2C+WfeG+MPu6XjLkLPmjU5s5DTuXcCA5W97SA0L0XdYtr/XF8G35JNBaEyyis8Fv/PdXELyA=="],
+
+    "@openng/optimus-ui-styles": ["@openng/optimus-ui-styles@2.0.2", "", { "dependencies": { "@openng/optimus-ui-styled": "2.0.2" } }, "sha512-2tOozv8KcBRynUeZ1LvEiqO3YrK4mARszXXJh6LhUujSVq7QGVtNiNu2dktW4t4EpNTXWQNILpqLL+CyA/QLVg=="],
+
+    "@openng/optimus-ui-themes": ["@openng/optimus-ui-themes@2.0.2", "", { "dependencies": { "@openng/optimus-ui-styled": "2.0.2" } }, "sha512-nEQb83g8pssx5dJM+31sUEKwPjDX9OGZMyRoln2cvPQl7eHbFkafjgDNBL5oMHdnFVRQofmoJXgdC7sWn6XxbA=="],
+
+    "@openng/optimus-ui-utils": ["@openng/optimus-ui-utils@2.0.2", "", {}, "sha512-RgkiY91+X8h0rHI8UIKT1Pdvr352J/fSvFJ2wETYUGphCBw7j1lubhySn8yFfT6Ng+CVEZnviekvZSaBcUk2JA=="],
 
     "@oxc-parser/binding-android-arm-eabi": ["@oxc-parser/binding-android-arm-eabi@0.142.0", "", { "os": "android", "cpu": "arm" }, "sha512-ZiRGDutGsv1G6bL/ozy/koC0Sv39T1DqyoC4KD1DOy9ZoACm1O5UWhEK2c02Qdk+4lfLVkvFa/mQ0fm/4h1BtQ=="],
 
@@ -2176,6 +2208,8 @@
     "ngx-ui-tour-ng-bootstrap": ["ngx-ui-tour-ng-bootstrap@workspace:libs/ngx-ui-tour-ng-bootstrap"],
 
     "ngx-ui-tour-ng-zorro": ["ngx-ui-tour-ng-zorro@workspace:libs/ngx-ui-tour-ng-zorro"],
+
+    "ngx-ui-tour-optimus-ui": ["ngx-ui-tour-optimus-ui@workspace:libs/ngx-ui-tour-optimus-ui"],
 
     "ngx-ui-tour-primeng": ["ngx-ui-tour-primeng@workspace:libs/ngx-ui-tour-primeng"],
 

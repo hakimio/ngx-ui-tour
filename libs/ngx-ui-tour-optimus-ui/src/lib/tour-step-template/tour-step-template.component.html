@@ -1,0 +1,19 @@
+<p-popover
+    [baseZIndex]="150"
+>
+    <!--suppress JSUnusedGlobalSymbols -->
+    <ng-template #content>
+        <ng-container
+            *ngTemplateOutlet="
+                stepTemplate() || stepTemplateContent() || defaultTemplate;
+                context: {step: step}
+            "
+        />
+    </ng-template>
+</p-popover>
+
+<ng-template #defaultTemplate let-step="step">
+    <tour-default-step-template
+        [step]="step"
+    />
+</ng-template>

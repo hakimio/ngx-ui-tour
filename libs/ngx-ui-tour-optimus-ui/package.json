@@ -1,0 +1,29 @@
+{
+  "name": "ngx-ui-tour-optimus-ui",
+  "description": "UI tour library for Angular",
+  "keywords": [
+    "angular",
+    "ngx",
+    "optimus-ui",
+    "tour",
+    "product-tour",
+    "ui-tour",
+    "onboarding",
+    "onboarding-tour"
+  ],
+  "repository": "https://github.com/hakimio/ngx-ui-tour.git",
+  "author": "Tomas Rimkus <tomas.r@programmer.net>",
+  "license": "MIT",
+  "version": "4.0.2",
+  "peerDependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@openng/optimus-ui": "^2.0.2",
+    "@openng/icons": "^1.0.0"
+  },
+  "dependencies": {
+    "ngx-ui-tour-core": "17.0.0",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

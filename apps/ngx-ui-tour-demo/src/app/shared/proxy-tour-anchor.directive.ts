@@ -18,6 +18,7 @@ import {TourAnchorTuiDropdownDirective} from 'ngx-ui-tour-tui-dropdown';
 import {TourAnchorTuiHintDirective} from 'ngx-ui-tour-tui-hint';
 import {TourAnchorIonPopoverDirective} from 'ngx-ui-tour-ionic';
 import {TourAnchorPrimeNgDirective} from 'ngx-ui-tour-primeng';
+import {TourAnchorOptimusUiDirective} from 'ngx-ui-tour-optimus-ui';
 import {TourAnchorNgZorroDirective} from 'ngx-ui-tour-ng-zorro';
 import {tuiSetSignal} from '@taiga-ui/cdk';
 
@@ -41,6 +42,7 @@ interface CustomTourAnchorDirective extends TourAnchorDirective, OnInit, OnDestr
         TourAnchorTuiHintDirective,
         TourAnchorIonPopoverDirective,
         TourAnchorPrimeNgDirective,
+        TourAnchorOptimusUiDirective,
         TourAnchorNgZorroDirective,
         {
             provide: TOUR_ANCHOR_DIRECTIVE,
