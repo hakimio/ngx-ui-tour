@@ -104,7 +104,7 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
         theme: {
             preset: PrimeAura
         },
-        license: `eyJpZCI6ImJkZjdhZTNiLTMxY2UtNDA5MC04YjIzLWJiYWE4MDdiMjk0YiIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODI4MzM5MTIsImV4cCI6MTgxNDM2OTkxMn0.eCBGrshzZEsI6DtrCR0a1h7W_rON_aKnQdnTqpBu9orRSsH-k4Yu6UTsV7VARtjV3_gZ2wSiV6Bw`
+        license: `eyJpZCI6ImJkZjdhZTNiLTMxY2UtNDA5MC04YjIzLWJiYWE4MDdiMjk0YiIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODI4MzM5MTIsImV4cCI6MTgxNDM2OTkxMn0.eCBGrshzZEsI6DtrCR0a1h7W_rON_aKnQdnTqpBu9KzXCzOhav9orRSsH-k4Yu6UTsV7VARtjV3_gZ2wSiV6Bw`
     }),
     provideOptimus({
         theme: {
