@@ -10,11 +10,8 @@ import {
 import {TourStepTemplateService} from './tour-step-template.service';
 import {OptimusUiTourService} from './optimus-ui-tour.service';
 import type {OptimusUiStepOption} from './step-option.interface';
-import type {TourAnchorDirective} from 'ngx-ui-tour-core';
-import { TourState} from 'ngx-ui-tour-core';
-import type { Subscription} from "rxjs";
-import {first, firstValueFrom} from "rxjs";
-import type {Popover} from "@openng/optimus-ui/popover";
+import {TourState, type TourAnchorDirective} from 'ngx-ui-tour-core';
+import {first, firstValueFrom, type Subscription} from 'rxjs';
 
 @Directive({
     selector: '[tourAnchor]',
@@ -45,10 +42,6 @@ export class TourAnchorOptimusUiDirective implements OnInit, OnDestroy, TourAnch
         const templateComponent = this.stepTemplateService.templateComponent,
             popover = templateComponent.popover();
 
-        if ((popover as Popover & {itemsWrapper: unknown | null}).itemsWrapper) {
-            await firstValueFrom(popover.onHide);
-        }
-
         this.isActive.set(true);
         templateComponent.step = step;
 
@@ -74,14 +67,18 @@ export class TourAnchorOptimusUiDirective implements OnInit, OnDestroy, TourAnch
             });
     }
 
-    hideTourStep() {
+    async hideTourStep() {
         this.isActive.set(false);
-        if (this.popoverCloseSubscription) {
-            this.popoverCloseSubscription.unsubscribe();
-        }
+        this.popoverCloseSubscription?.unsubscribe();
 
         const popover = this.stepTemplateService.templateComponent.popover();
+        if (!popover.overlayVisible) {
+            return;
+        }
+
+        const hidden = firstValueFrom(popover.onHide.pipe(first()));
         popover.hide();
+        await hidden;
     }
 
 }
