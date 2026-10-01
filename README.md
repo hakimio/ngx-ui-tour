@@ -71,6 +71,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 
 | Angular | RxJS | Ionic | ngx-ui-tour |
 |---------|------|-------|-------------|
+| 22      | 7    | 9     | 10          |
 | 22      | 7    | 8     | 9           |
 | 21      | 7    | 8     | 8           |
 | 20      | 7    | 8     | 7           |

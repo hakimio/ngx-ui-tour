@@ -1,3 +1,10 @@
+<a name="10.0.0"></a>
+
+# [10.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-10-01)
+
+### Features
+- Introduced support for Ionic `v9`. `v8` is no longer supported.  
+
 <a name="9.0.0"></a>
 
 # [9.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-26)
