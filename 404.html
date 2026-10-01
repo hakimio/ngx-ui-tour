@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Redirecting...</title>
-        <script type="text/javascript">
-            // This script takes the current URL and converts it into a query parameter
-            // so the main index.html can read it and navigate correctly.
-
-            // Set to 1 for https://<username>.github.io/<repo-name>/
-            const pathSegmentsToKeep = 1;
-
-            const l = window.location;
-            l.replace(
-                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=' +
-                l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-                (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-                l.hash
-            );
-        </script>
-    </head>
-    <body>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var l = window.location;
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/ngx-ui-tour/?p=' + l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') + (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+    </script>
+  </head>
 </html>
