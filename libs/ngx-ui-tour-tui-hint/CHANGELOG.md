@@ -1,3 +1,10 @@
+<a name="11.0.1"></a>
+
+# [11.0.1](https://github.com/hakimio/ngx-ui-tour) (2026-10-01)
+
+### Fixes
+- Fix tour step positioning and bump minimum Taiga UI version to `5.26.0`.
+
 <a name="11.0.0"></a>
 
 # [11.0.0](https://github.com/hakimio/ngx-ui-tour) (2026-06-26)
