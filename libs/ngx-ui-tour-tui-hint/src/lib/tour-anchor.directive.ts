@@ -42,6 +42,7 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
 
     private createOpener() {
         this.opener = this.viewContainer.createComponent(TourAnchorOpenerComponent).instance;
+        this.opener.host.set(this.element.nativeElement);
     }
 
     // noinspection JSUnusedGlobalSymbols
@@ -55,12 +56,10 @@ export class TourAnchorTuiHintDirective implements OnInit, OnDestroy, TourAnchor
             this.createOpener();
         }
 
-        const tuiHint = this.opener.hint() as {el: HTMLElement},
-            tuiHintPosition = this.opener.hintPosition() as unknown as {el: HTMLElement},
-            nativeElement = this.element.nativeElement;
+        const tuiHint = this.opener.hint() as {el: HTMLElement};
 
-        tuiHint.el = nativeElement;
-        tuiHintPosition.el = nativeElement;
+        // Hint positioning stops once the directive host element is not visible, so point it at the visible anchor
+        tuiHint.el = this.element.nativeElement;
 
         this.opener.isShown.set(true);
     }

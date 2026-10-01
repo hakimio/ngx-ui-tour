@@ -3,9 +3,9 @@ import {
     TUI_DROPDOWN_OPTIONS,
     TuiDropdown,
     TuiDropdownDirective,
-    type TuiDropdownOptions,
-    TuiDropdownPosition
+    type TuiDropdownOptions
 } from '@taiga-ui/core';
+import {TourDropdownHostDirective} from './tour-dropdown-host.directive';
 import {TourStepTemplateService} from './tour-step-template.service';
 import {TourTuiDropdownService} from './tour-tui-dropdown.service';
 
@@ -44,17 +44,18 @@ function tourOptionsFactory(defaults: TuiDropdownOptions, tourService: TourTuiDr
             [tuiDropdown]="template"
             [tuiDropdownManual]="isShown()"
             [tuiDropdownOffset]="offset()"
+            [tourDropdownHost]="host()"
         ></span>
     `,
-    imports: [TuiDropdown]
+    imports: [TuiDropdown, TourDropdownHostDirective]
 })
 export class TourAnchorOpenerComponent {
 
     template: TemplateRef<never>;
 
     dropdown = viewChild.required(TuiDropdownDirective);
-    dropdownPosition = viewChild.required(TuiDropdownDirective, {read: TuiDropdownPosition});
 
+    host = signal<HTMLElement | undefined>(undefined);
     isShown = signal(false);
     offset = signal(4);
 

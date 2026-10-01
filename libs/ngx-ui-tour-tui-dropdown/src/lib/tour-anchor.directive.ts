@@ -42,6 +42,7 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
 
     private createOpener() {
         this.opener = this.viewContainer.createComponent(TourAnchorOpenerComponent).instance;
+        this.opener.host.set(this.element.nativeElement);
     }
 
     // noinspection JSUnusedGlobalSymbols
@@ -55,12 +56,10 @@ export class TourAnchorTuiDropdownDirective implements OnInit, OnDestroy, TourAn
             this.createOpener();
         }
 
-        const tuiDropdown = this.opener.dropdown() as {el: HTMLElement},
-            tuiDropdownPosition = this.opener.dropdownPosition() as unknown as {el: HTMLElement},
-            nativeElement = this.element.nativeElement;
+        const tuiDropdown = this.opener.dropdown() as {el: HTMLElement};
 
-        tuiDropdown.el = nativeElement;
-        tuiDropdownPosition.el = nativeElement;
+        // Fallback (non CSS anchor) positioning stops once the directive host element is not visible
+        tuiDropdown.el = this.element.nativeElement;
 
         this.opener.isShown.set(true);
 
