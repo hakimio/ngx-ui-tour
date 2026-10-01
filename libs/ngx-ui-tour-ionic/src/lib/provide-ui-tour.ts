@@ -2,7 +2,7 @@ import {type EnvironmentProviders, inject, makeEnvironmentProviders} from '@angu
 import type {IonStepOption} from './step-option.interface';
 import {UI_TOUR_OPTIONS} from 'ngx-ui-tour-core';
 import {IonTourService} from './ion-tour.service';
-import {Config} from '@ionic/angular/standalone';
+import {Config} from '@ionic/angular';
 import {TourStepTemplateService} from './tour-step-template.service';
 
 export function provideUiTour(

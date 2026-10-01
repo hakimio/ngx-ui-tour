@@ -9,7 +9,7 @@ import {
     viewChild
 } from '@angular/core';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
-import {createAnimation, IonPopover} from '@ionic/angular/standalone';
+import {createAnimation, IonPopover} from '@ionic/angular';
 import {NgTemplateOutlet} from '@angular/common';
 import type {IonStepOption} from '../step-option.interface';
 import {TourStepTemplateService} from '../tour-step-template.service';

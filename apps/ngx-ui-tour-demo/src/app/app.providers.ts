@@ -20,7 +20,7 @@ import {
 } from '@angular/core';
 import {PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading} from '@angular/router';
 import {ROUTES} from './app.routes';
-import {provideIonicAngular} from '@ionic/angular/standalone';
+import {provideIonicAngular} from '@ionic/angular';
 import {provideTaiga, TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeuix/themes/aura-compat';

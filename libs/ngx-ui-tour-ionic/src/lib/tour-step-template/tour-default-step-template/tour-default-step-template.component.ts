@@ -1,7 +1,7 @@
 import {Component, inject, input} from '@angular/core';
 import type {IonStepOption} from '../../step-option.interface';
 import {IonTourService} from '../../ion-tour.service';
-import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from '@ionic/angular/standalone';
+import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from '@ionic/angular';
 import {addIcons} from 'ionicons';
 import {chevronBackOutline, chevronForwardOutline, closeOutline} from 'ionicons/icons';
 
