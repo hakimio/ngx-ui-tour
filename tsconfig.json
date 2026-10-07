@@ -42,6 +42,9 @@
       "ngx-ui-tour-ng-bootstrap": [
         "./libs/ngx-ui-tour-ng-bootstrap/src/public_api.ts"
       ],
+      "ngx-ui-tour-optimus-ui": [
+        "./libs/ngx-ui-tour-optimus-ui/src/index.ts"
+      ],
       "ngx-ui-tour-primeng": [
         "./libs/ngx-ui-tour-primeng/src/index.ts"
       ],

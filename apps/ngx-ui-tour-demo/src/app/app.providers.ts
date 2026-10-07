@@ -24,6 +24,8 @@ import {provideIonicAngular} from '@ionic/angular';
 import {provideTaiga, TUI_ANIMATIONS_SPEED} from '@taiga-ui/core';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeuix/themes/aura-compat';
+import {provideOptimus} from '@openng/optimus-ui/config';
+import OptimusAura from '@openng/optimus-ui-themes/aura';
 import {APP_VERSION} from './shared/version-manager';
 
 export const DEFAULT_TABS = [
@@ -103,6 +105,11 @@ export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
             preset: Aura
         },
         license: `eyJpZCI6ImJkZjdhZTNiLTMxY2UtNDA5MC04YjIzLWJiYWE4MDdiMjk0YiIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODI4MzM5MTIsImV4cCI6MTgxNDM2OTkxMn0.eCBGrshzZEsI6DtrCR0a1h7W_rON_aKnQdnTqpBu9KzXCzOhav9orRSsH-k4Yu6UTsV7VARtjV3_gZ2wSiV6Bw`
+    }),
+    provideOptimus({
+        theme: {
+            preset: OptimusAura
+        }
     }),
     provideTaiga()
 ];
