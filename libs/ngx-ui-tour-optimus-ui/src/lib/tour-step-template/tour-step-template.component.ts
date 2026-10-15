@@ -1,11 +1,4 @@
-import {
-    type AfterViewInit,
-    Component,
-    contentChild, inject,
-    input,
-    TemplateRef,
-    viewChild
-} from '@angular/core';
+import {type AfterViewInit, Component, contentChild, inject, input, TemplateRef, viewChild} from '@angular/core';
 import {Popover} from '@openng/optimus-ui/popover';
 import type {OptimusUiStepOption} from '../step-option.interface';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
@@ -13,6 +6,7 @@ import {OptimusUiTourService} from '../optimus-ui-tour.service';
 import {TourStepTemplateService} from '../tour-step-template.service';
 import {NgTemplateOutlet} from '@angular/common';
 import {TourDefaultStepTemplateComponent} from './tour-default-step-template/tour-default-step-template.component';
+import type {MotionOptions} from '@openng/optimus-ui-motion';
 
 @Component({
     selector: 'tour-step-template',
@@ -39,6 +33,13 @@ export class TourStepTemplateComponent extends TourHotkeyListenerComponent imple
 
     protected override tourService = inject(OptimusUiTourService);
     private readonly tourStepTemplateService = inject(TourStepTemplateService);
+    protected motionOptions: MotionOptions = {
+        type: 'transition',
+        duration: {
+            enter: 150,
+            leave: 75
+        }
+    };
 
     ngAfterViewInit() {
         this.tourStepTemplateService.templateComponent = this;

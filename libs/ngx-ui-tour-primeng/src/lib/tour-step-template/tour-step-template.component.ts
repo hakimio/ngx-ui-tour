@@ -1,11 +1,4 @@
-import {
-    type AfterViewInit,
-    Component,
-    contentChild, inject,
-    input,
-    TemplateRef,
-    viewChild
-} from '@angular/core';
+import {type AfterViewInit, Component, contentChild, inject, input, TemplateRef, viewChild} from '@angular/core';
 import {Popover} from 'primeng/popover';
 import type {PrimeNgStepOption} from '../step-option.interface';
 import {TourHotkeyListenerComponent} from 'ngx-ui-tour-core';
