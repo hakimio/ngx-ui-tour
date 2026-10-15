@@ -38,6 +38,11 @@ export const ROUTES: Routes = [
         loadChildren: () => import('./prime-ng-popover/prime-ng-popover.routes')
     }),
     route({
+        path: 'optimus-ui',
+        title: 'Optimus UI',
+        loadChildren: () => import('./optimus-ui-popover/optimus-ui-popover.routes')
+    }),
+    route({
         path: 'ng-zorro',
         title: 'NG ZORRO',
         loadChildren: () => import('./ng-zorro/ng-zorro.routes')

@@ -2,7 +2,7 @@
 
 > UI tour library for Angular
 
-Angular Material, Ionic, PrimeNG, Taiga UI, NG ZORRO and Ng Bootstrap UIs are supported.
+Angular Material, Ionic, PrimeNG, Optimus UI, Taiga UI, NG ZORRO and Ng Bootstrap UIs are supported.
 
 `ngx-ui-tour` is a fork of __Isaac Mann's__ `ngx-tour`. The project had to be forked since the original is no longer 
 maintained.
@@ -91,6 +91,12 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 | 20      | 7    | 20      | 2           |
 | 19      | 7    | 19      | 1           |
 
+### Optimus UI tour UI
+
+| Angular | RxJS | Optimus UI | ngx-ui-tour |
+|---------|------|------------|-------------|
+| 22      | 7    | 2          | 1           |
+
 ### NG ZORRO tour UI
 
 | Angular | NG ZORRO | ngx-ui-tour |
@@ -119,6 +125,7 @@ Demo and documentation can be found at [hakimio.github.io/ngx-ui-tour](https://h
 - [Material Design UI](https://hakimio.github.io/ngx-ui-tour/md-menu/Setup)
 - [Ionic UI](https://hakimio.github.io/ngx-ui-tour/ion-popover/Setup)
 - [PrimeNG UI](https://hakimio.github.io/ngx-ui-tour/prime-ng/Setup)
+- [Optimus UI](https://hakimio.github.io/ngx-ui-tour/optimus-ui/Setup)
 - [NG ZORRO UI](https://hakimio.github.io/ngx-ui-tour/ng-zorro/Setup)
 - [NG Bootstrap UI](https://hakimio.github.io/ngx-ui-tour/ng-bootstrap/Setup)
 - [Taiga UI Dropdown UI](https://hakimio.github.io/ngx-ui-tour/tui-dropdown/Setup)
